@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "skills": [
+    {
+      "name": "web-task-execution",
+      "path": "skills/web-task-execution",
+      "basis": ["session-derived", "research-derived", "authored"],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false
+    },
+    {
+      "name": "web-form-update",
+      "path": "skills/web-form-update",
+      "basis": ["research-derived", "authored"],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false
+    },
+    {
+      "name": "web-research",
+      "path": "skills/web-research",
+      "basis": ["authored"],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false
+    },
+    {
+      "name": "product-shortlist",
+      "path": "skills/product-shortlist",
+      "basis": ["authored"],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false
+    },
+    {
+      "name": "gmail-triage",
+      "path": "skills/gmail-triage",
+      "basis": ["research-derived", "authored"],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false
+    },
+    {
+      "name": "google-sheets-update",
+      "path": "skills/google-sheets-update",
+      "basis": ["research-derived", "authored"],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false
+    },
+    {
+      "name": "github-review",
+      "path": "skills/github-review",
+      "basis": ["research-derived", "authored"],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false
+    },
+    {
+      "name": "session-to-skill",
+      "path": "skills/session-to-skill",
+      "basis": ["session-derived", "authored"],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false
+    }
+  ]
+}

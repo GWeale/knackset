@@ -1,0 +1,23 @@
+{
+  "name": "example-profile-update",
+  "description": "Update a supplied display name on an example public-profile form and verify persistence. Use only for the specified profile field.",
+  "site": "example.invalid synthetic profile form",
+  "preconditions": [
+    "The user identifies the target profile and supplies the desired display name.",
+    "An authorized browser or service tool can read and edit that profile."
+  ],
+  "steps": [
+    "Read the current profile and identify the display-name field within the profile form.",
+    "Change only the supplied display-name value and save when requested.",
+    "Leave unrelated notification and account settings unchanged."
+  ],
+  "verification": [
+    "Reopen or independently read the profile and confirm the persisted display name.",
+    "Confirm the unrelated notification setting retains its original value."
+  ],
+  "recovery": [
+    "If saving times out, inspect the persisted profile before considering another submission.",
+    "If access or resulting state cannot be established, stop the write and report the specific limitation."
+  ],
+  "evidence": "synthetic"
+}
