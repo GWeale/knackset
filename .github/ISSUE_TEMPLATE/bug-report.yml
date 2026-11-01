@@ -4,33 +4,35 @@ title: '[Failure] '
 body:
   - type: markdown
     attributes:
-      value: 'Share a synthetic reproduction, not raw account data or transcripts. For a suspected secret exposure, use the repository Security tab and private reporting when available.'
+      value: 'Describe the failure without raw histories, credentials, private links, or personal screenshots. For secret exposures, use private reporting in the repository Security tab when available.'
   - type: input
-    id: revision
+    id: task
     attributes:
-      label: Skill name and commit or release
-    validations:
-      required: true
-  - type: textarea
-    id: environment
-    attributes:
-      label: Host and available tool capabilities
-      description: Name the host/tool version and relevant capabilities. Exclude profile paths, account identifiers, and credentials.
-    validations:
-      required: true
-  - type: textarea
-    id: reproduction
-    attributes:
-      label: Minimal synthetic task and steps
+      label: Skill or task
+      description: Name the skill or describe what you asked the agent to do.
     validations:
       required: true
   - type: textarea
     id: evidence
     attributes:
       label: Expected versus observed result
-      description: Describe resulting state and whether it was independently read back. Distinguish a plan, attempted action, and saved outcome.
+      description: What should have happened, and what happened instead? Mention whether you checked the saved result.
     validations:
       required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Agent, tools, and versions
+      description: Helpful if known. Include the agent/tool versions and skill commit or release; omit account identifiers and profile paths.
+    validations:
+      required: false
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal synthetic task and steps
+      description: If possible, give made-up inputs and the smallest steps that reproduce the failure.
+    validations:
+      required: false
   - type: textarea
     id: limitations
     attributes:

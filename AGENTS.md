@@ -1,4 +1,4 @@
-# Muse-Skills
+# Knackset
 
 This repository contains portable Agent Skills and small Python standard-library
 helpers. Preserve the existing icon. Install globally or change remote resources
@@ -11,6 +11,8 @@ only when the user explicitly requests that action.
   small subset: flat `name`, `description`, and `license` string fields.
 - `catalog.json` records provenance and validation status, not runtime permissions.
 - `scripts/catalog.py` lists/searches that catalog and renders `docs/catalog.md`.
+- `python3 scripts/demo.py` illustrates uncertain-write recovery with isolated
+  synthetic state. It is scripted, not a model evaluation or a live service test.
 - `docs/` contains project-wide design, research, and sanitized provenance.
 - `skills/<name>/evals/evals.json` is the canonical synthetic case set, with success,
   boundary, and routing cases. `evals/archive/` is historical and excluded from coverage.

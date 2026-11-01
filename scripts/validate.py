@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check Muse-Skills structure using Python 3.10+ and the standard library.
+"""Check Knackset structure using Python 3.10+ and the standard library.
 
 This is not a general YAML/Markdown parser, a behavioral evaluation, or a privacy
 audit. Frontmatter deliberately supports only the project's three flat string

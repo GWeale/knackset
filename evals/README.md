@@ -35,17 +35,31 @@ the evaluator author conclusions, a suggested solution, or private session logs.
 For an executable offline case, initialize a separate workspace for every run:
 
 ```bash
-python3 evals/sandbox.py init form-autosave .local/example-eval
-python3 evals/sandbox.py describe .local/example-eval
-python3 evals/sandbox.py call .local/example-eval read_form
+python3 evals/sandbox.py init sheets-append-timeout .local/my-first-run
+python3 evals/sandbox.py describe .local/my-first-run
 ```
 
-Give the evaluator its task, relevant skill, and the `describe`/`call` interface.
-Withhold `grade`, the raw state file, implementation and expected assertions until
-grading. The evaluator chooses and executes the operations. Then inspect the
-result using `python3 evals/sandbox.py grade .local/example-eval`. An unfinished
-workspace fails; initialization refuses to reset existing state. Use temporary
-workspaces for independent/baseline trials rather than rerunning this example in place.
+Give a fresh evaluator this complete task:
+
+> Read `skills/google-sheets-update/SKILL.md`. Complete the request returned by
+> `python3 evals/sandbox.py describe .local/my-first-run`, using only that
+> workspace's `describe` and `call` operations. Obtain the observations you need
+> through that interface. Do not inspect the raw state, fixture implementation,
+> test cases or grader. Report what you actually did and what remains uncertain.
+> This is a synthetic offline task; do not access a live account.
+
+The evaluator chooses and executes its operations. A separate judge then runs:
+
+```bash
+python3 evals/sandbox.py grade .local/my-first-run
+```
+
+A passing result requires one complete requested row, preserved existing rows,
+one append attempt, and a target read after the write. An unfinished workspace
+fails; initialization refuses to reset existing state. Use a fresh temporary
+workspace for each independent/baseline trial. For a fully scripted walkthrough
+with cleanup, run `python3 scripts/demo.py`; it illustrates both correct recovery
+and a duplicate-producing retry, without running a model.
 
 If no browser/test account is available or authorized, request a decision trace
 against the supplied observed state. Record that limitation; never call it a

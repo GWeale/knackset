@@ -51,3 +51,22 @@ chooses to do so; no automated marketing or manufactured installs are needed.
 Track completed outcomes, correct recovery, unwanted changes, routing errors,
 reproduction coverage, and cost only when actually measured. The current sample
 does not support a general performance score or a promise of growth.
+
+## First-use audit and positioning — 2026-11-01
+
+The audit found a credible recovery procedure hidden behind a broad catalog,
+vendor comparisons, and setup caveats. Knackset now leads with the specific
+problem: a timed-out append may already be saved. A single scripted command
+shows one reconciled row versus a duplicate-producing retry. It is an illustration,
+not evidence that a model performs better with the skills.
+
+The README now features four exercised workflows, puts deeper methods behind
+links, and gives newcomers a complete path from clone to observed result. Issue
+forms ask for a concrete task or failure first; source and fixture suggestions
+are optional at intake. Maintainer review and evidence gates still apply.
+
+The working adoption hypothesis is that a recognizable failure, quick payoff,
+independent identity and low-friction feedback are more useful than more badges
+or broad capability claims. That is a design judgment, not a proven recipe for
+reach. [GitHub README guidance](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
+supports explaining usefulness and getting started before extensive documentation.

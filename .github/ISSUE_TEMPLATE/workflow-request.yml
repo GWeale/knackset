@@ -4,7 +4,7 @@ title: '[Workflow] '
 body:
   - type: markdown
     attributes:
-      value: 'Use synthetic examples and public sources. Do not include raw histories, credentials, private account links, or personal screenshots.'
+      value: 'Only the first two fields are required. Do not include raw histories, credentials, private links, or personal screenshots.'
   - type: textarea
     id: outcome
     attributes:
@@ -15,27 +15,28 @@ body:
   - type: input
     id: service
     attributes:
-      label: Website or service and required capabilities
+      label: Website, service, or tool context
+      description: Where should the task run, and which agent or tools do you use?
     validations:
       required: true
   - type: textarea
     id: gap
     attributes:
       label: Existing skill gap
-      description: Which existing skill is closest, and what non-obvious knowledge is missing?
+      description: If you have checked the catalog, which skill is closest and what is missing?
     validations:
-      required: true
+      required: false
   - type: textarea
     id: sources
     attributes:
       label: Public primary sources and reuse rights
-      description: Link official documentation or licensed material. Propose original instructions when rights are uncertain.
+      description: If available, link official documentation or licensed material and note any reuse terms.
     validations:
-      required: true
+      required: false
   - type: textarea
     id: fixture
     attributes:
       label: Synthetic success and failure example
-      description: Include inputs, expected outcome, and a boundary that could cause incorrect work.
+      description: If useful, give made-up inputs, the expected result, and something that could go wrong.
     validations:
-      required: true
+      required: false
