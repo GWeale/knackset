@@ -26,6 +26,29 @@ are test inputs. Completed runs are recorded separately in [results/](results/RE
    work against criteria it has not seen. Reading a proposed plan can reveal
    reasoning mistakes, but only an execution can show whether the result was saved.
 
+## Choose a runnable challenge
+
+Six cases run locally with Python 3.10+ and no accounts or extra packages:
+
+```bash
+python3 evals/sandbox.py list
+```
+
+| Case | Situation |
+| --- | --- |
+| `sheets-append-timeout` | A row append times out after saving |
+| `gmail-draft-timeout` | A reply draft is saved, but its confirmation is lost |
+| `gmail-message` | Matching and starred messages share a conversation |
+| `form-autosave` | The user wants a draft; typing into the form saves immediately |
+| `calendar-inclusive-dates` | An all-day event form defines its own last-day field |
+| `docs-suggestions-unavailable` | The user wants suggestions; the tool supports direct edits only |
+
+`list` returns each case's task, skill name, and matching authored scenario. These
+are small simulations, including simulated form controls, not browser sessions.
+The other cases in skill folders are written scenarios without executable tools.
+Follow any output instructions in `describe`: the Docs challenge asks the agent
+to capture its proposed text in a local artifact as well as its final reply.
+
 ## Run a forward evaluation
 
 Give a fresh agent the skill instructions, task, permitted tools, and made-up
@@ -35,7 +58,8 @@ of its context. In a case from `evals.json`, that means supplying `prompt`,
 Keep outputs in a temporary or ignored local workspace; do not supply private
 session logs.
 
-To try the Sheets timeout case, initialize a separate workspace:
+To try the Sheets timeout case, initialize a separate workspace. Substitute any
+case from the list to try another challenge:
 
 ```bash
 python3 evals/sandbox.py init sheets-append-timeout .local/my-first-run
@@ -51,11 +75,22 @@ Give a fresh evaluator this complete task:
 > test cases or grader. Report what you actually did and what remains uncertain.
 > This is a synthetic offline task; do not access a live account.
 
+For another case, use the skill named by `list` and a new workspace path. For a
+no-skill comparison, give a separate fresh agent the same task and tool interface
+without the instruction to read a skill. Keep the two runs in separate workspaces.
+
 Let the agent choose and run its operations. After it finishes, a separate judge runs:
 
 ```bash
 python3 evals/sandbox.py grade .local/my-first-run
 ```
+
+This command checks saved state and the operation trace only. Save and review the
+agent's final reply as well: does it describe what happened, include the requested
+output, and explain what it could not do? In the Docs challenge, a pass also needs
+an explanation that suggestions are unavailable and no false claim that a
+suggestion was saved. Record these review checks alongside the automated ones
+before marking the whole task as passed.
 
 A pass requires one complete requested row, unchanged existing rows, one append
 attempt, and a read of the target after the write. An unfinished task fails. The

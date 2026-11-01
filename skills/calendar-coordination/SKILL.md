@@ -22,8 +22,10 @@ access supports conflict checking without exposing private event descriptions.
 Use named time zones for local-time schedules across daylight-saving changes.
 Distinguish timed events from date-only all-day events. In the Google Calendar
 API, `end.date` is exclusive. In a browser or another integration, follow the
-displayed control or documented field semantics. Preserve duration unless the
-request changes it. Clarify a repeated wall-clock time when its offset is
+displayed control or documented field semantics. Before saving a multi-day event,
+read the current date-field labels and help or the integration's documentation;
+do not infer whether the last day is included from a tool argument's name. Preserve
+duration unless the request changes it. Clarify a repeated wall-clock time when its offset is
 ambiguous and the intended instant matters.
 
 For a recurring event, distinguish one occurrence, the series, and this-and-future

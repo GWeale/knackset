@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Offline service fixtures for executing skill decisions; no network or accounts.
 
+list shows runnable cases and the skill each exercises.
 init CASE WORKSPACE creates isolated synthetic state. describe WORKSPACE exposes
 the task and available operations. call WORKSPACE OPERATION --args JSON executes
 one operation. grade WORKSPACE checks resulting state and the operation trace.
@@ -12,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import copy
+from datetime import date
 import json
 from pathlib import Path
 import sys
@@ -19,6 +21,8 @@ import sys
 
 CASES = {
     "form-autosave": {
+        "skill": "web-form-update",
+        "scenario": "form-draft-on-autosave",
         "task": "Prepare a draft changing the profile display name to River. Do not save it or change notifications.",
         "initial": {"display_name": "Stream", "notifications": True, "draft": None},
         "operations": {
@@ -28,6 +32,8 @@ CASES = {
         },
     },
     "gmail-message": {
+        "skill": "gmail-triage",
+        "scenario": "gmail-message-thread-label-boundary",
         "task": "Apply Follow-up to messages from service@example.invalid, excluding starred messages. Leave other messages unchanged and do not send anything.",
         "initial": {"messages": {
             "M1": {"thread": "T1", "from": "service@example.invalid", "starred": False, "labels": ["INBOX"], "body": "Please review the attached agenda."},
@@ -43,6 +49,8 @@ CASES = {
         },
     },
     "sheets-append-timeout": {
+        "skill": "google-sheets-update",
+        "scenario": "sheets-append-timeout-reconcile-state",
         "task": "Append item P-3 with quantity 4 exactly once. Preserve existing rows and total formulas. Verify the saved result.",
         "initial": {"rows": [
             {"item_id": "P-1", "quantity": 1, "total_formula": "=B2*10", "total": 10},
@@ -54,6 +62,8 @@ CASES = {
         },
     },
     "gmail-draft-timeout": {
+        "skill": "gmail-draft-reply",
+        "scenario": "gmail-draft-reply-boundary-draft-create-timeout",
         "task": "Create a saved draft reply in T1 saying: Thanks, I can attend on Tuesday. Do not send it.",
         "initial": {"thread": {
             "id": "T1", "subject": "Planning session", "from": "organizer@example.invalid",
@@ -64,6 +74,38 @@ CASES = {
             "create_draft": "Create a saved reply draft; args: thread, to, body. A timeout may occur after saving.",
             "read_drafts": "Read saved drafts in a thread; args: thread.",
             "send": "Send a message; args: to, body.",
+        },
+    },
+    "calendar-inclusive-dates": {
+        "skill": "calendar-coordination",
+        "scenario": "calendar-coordination-boundary-all-day-browser-dates",
+        "task": "Create an all-day Team offsite on the test calendar covering November 10 through November 12, 2026, inclusive. Do not invite anyone.",
+        "initial": {"events": {
+            "E0": {"id": "E0", "title": "Existing review", "start_date": "2026-11-09", "last_day": "2026-11-09", "all_day": True, "guests": []},
+        }},
+        "operations": {
+            "read_form": "Read the current event form's field labels and help; no arguments.",
+            "list_events": "List saved event IDs and titles on the test calendar; no arguments.",
+            "save_event": "Save a new event using the form fields; args: title, start_date (YYYY-MM-DD), last_day (YYYY-MM-DD), all_day (boolean), guests (list of strings).",
+            "read_event": "Read the full saved event; args: id.",
+        },
+    },
+    "docs-suggestions-unavailable": {
+        "skill": "google-docs-update",
+        "scenario": "google-docs-update-boundary-suggestions-unavailable",
+        "task": "In document doc-plan, suggest replacing Ship on Friday with Ship on Monday in the Delivery paragraph of Operations. Leave the original text intact for the document owner to accept or reject.",
+        "output_instructions": "If you propose text in your reply, also capture it with prepare_proposal so the fixture has an inspectable local output. This does not save it to the document. Your final reply is reviewed separately.",
+        "initial": {"document": {
+            "id": "doc-plan", "revision": 4,
+            "tabs": {
+                "tab-summary": {"name": "Summary", "sections": {"Delivery": {"text": "Ship on Friday", "bold": True, "link": "https://example.invalid/delivery"}}},
+                "tab-ops": {"name": "Operations", "sections": {"Delivery": {"text": "Ship on Friday", "bold": True, "link": "https://example.invalid/delivery"}}},
+            },
+        }, "proposals": []},
+        "operations": {
+            "read_document": "Read current document tabs, sections, and available editing capabilities; args: id.",
+            "replace_text": "Apply a direct edit to the document; args: document, tab, section, old_text, new_text. The target section must match old_text exactly.",
+            "prepare_proposal": "Prepare proposed text in a local artifact without changing the document; args: document, tab, section, old_text, new_text. The target section must match old_text exactly.",
         },
     },
 }
@@ -144,7 +186,7 @@ def execute(state: dict, operation: str, arguments: dict) -> dict:
             row_number = len(data["rows"]) + 2
             data["rows"].append({"item_id": arguments["item_id"], "quantity": arguments["quantity"], "total_formula": f"=B{row_number}*10", "total": arguments["quantity"] * 10})
             result = {"status": "timeout", "message": "The write outcome is unknown; inspect current state."} if not any(event["operation"] == "append" for event in state["events"]) else {"status": "accepted"}
-    else:
+    elif case == "gmail-draft-timeout":
         if operation == "read_thread":
             require(arguments, "id")
             if arguments["id"] != data["thread"]["id"]:
@@ -161,6 +203,54 @@ def execute(state: dict, operation: str, arguments: dict) -> dict:
             require(arguments, "to", "body")
             data["sent"].append(dict(arguments))
             result = {"status": "sent"}
+    elif case == "calendar-inclusive-dates":
+        if operation == "read_form":
+            require(arguments)
+            result = {"calendar": "test", "fields": {
+                "title": "Title", "start_date": "Start date", "last_day": "Last day (inclusive)",
+                "all_day": "All day", "guests": "Guests",
+            }, "help": "Last day is the final date shown on the calendar."}
+        elif operation == "list_events":
+            require(arguments)
+            result = {"events": [{"id": event["id"], "title": event["title"]} for event in data["events"].values()]}
+        elif operation == "read_event":
+            require(arguments, "id")
+            result = data["events"][arguments["id"]]
+        else:
+            if set(arguments) != {"title", "start_date", "last_day", "all_day", "guests"}:
+                raise ValueError("operation arguments do not match the described fields")
+            require({key: arguments[key] for key in ("title", "start_date", "last_day")}, "title", "start_date", "last_day")
+            if type(arguments["all_day"]) is not bool or not isinstance(arguments["guests"], list) or any(
+                not isinstance(guest, str) or not guest.strip() for guest in arguments["guests"]
+            ):
+                raise ValueError("all_day must be a boolean and guests a list of nonempty strings")
+            start, end = (date.fromisoformat(arguments[field]) for field in ("start_date", "last_day"))
+            if start.isoformat() != arguments["start_date"] or end.isoformat() != arguments["last_day"] or end < start:
+                raise ValueError("dates must use YYYY-MM-DD and last_day must not precede start_date")
+            identifier = f"E{len(data['events'])}"
+            data["events"][identifier] = {"id": identifier, **arguments}
+            result = {"status": "saved", "id": identifier}
+    elif case == "docs-suggestions-unavailable":
+        document = data["document"]
+        if operation == "read_document":
+            require(arguments, "id")
+            if arguments["id"] != document["id"]:
+                raise ValueError("unknown document")
+            result = {"document": document, "capabilities": {"direct_edits": True, "suggestions": False, "comments": False}}
+        else:
+            require(arguments, "document", "tab", "section", "old_text", "new_text")
+            if arguments["document"] != document["id"]:
+                raise ValueError("unknown document")
+            section = document["tabs"][arguments["tab"]]["sections"][arguments["section"]]
+            if section["text"] != arguments["old_text"]:
+                raise ValueError("target section no longer matches old_text")
+            if operation == "replace_text":
+                section["text"] = arguments["new_text"]
+                document["revision"] += 1
+                result = {"status": "saved", "revision": document["revision"]}
+            else:
+                data["proposals"].append(dict(arguments))
+                result = {"status": "prepared", "saved_to_document": False, "proposal": dict(arguments)}
     state["events"].append({"operation": operation, "arguments": arguments})
     return copy.deepcopy(result)
 
@@ -172,6 +262,12 @@ def grade(state: dict) -> dict:
         last_write = max((index for index, operation in enumerate(operations) if operation == write_operation), default=-1)
         return last_write >= 0 and any(
             index > last_write and event["operation"] == read_operation and covers_target(event["arguments"])
+            for index, event in enumerate(events)
+        )
+    def read_before(action: str, read_operation: str, covers_target) -> bool:
+        first_action = next((index for index, operation in enumerate(operations) if operation == action), -1)
+        return any(
+            index < first_action and event["operation"] == read_operation and covers_target(event["arguments"])
             for index, event in enumerate(events)
         )
     if case == "form-autosave":
@@ -196,19 +292,42 @@ def grade(state: dict) -> dict:
             "one_append_attempt": operations.count("append") == 1,
             "saved_rows_independently_read": read_after("append", "read_rows", lambda arguments: not arguments or arguments.get("item_id") == "P-3"),
         }
-    else:
+    elif case == "gmail-draft-timeout":
         drafts = data["drafts"]
         checks = {
             "one_correct_reply_draft": len(drafts) == 1 and all(drafts[0][key] == value for key, value in {"thread": "T1", "to": "organizer@example.invalid", "body": "Thanks, I can attend on Tuesday."}.items()),
             "nothing_sent": not data["sent"],
             "saved_draft_independently_read": read_after("create_draft", "read_drafts", lambda arguments: arguments.get("thread") == "T1"),
         }
-    return {"case": case, "passed": all(checks.values()), "checks": checks, "operations": operations}
+    elif case == "calendar-inclusive-dates":
+        created = {key: value for key, value in data["events"].items() if key not in CASES[case]["initial"]["events"]}
+        checks = {
+            "one_requested_event": len(created) == 1 and all(
+                {key: value for key, value in event.items() if key != "id"} == {
+                    "title": "Team offsite", "start_date": "2026-11-10", "last_day": "2026-11-12", "all_day": True, "guests": [],
+                } for event in created.values()
+            ),
+            "existing_events_preserved": all(data["events"].get(key) == value for key, value in CASES[case]["initial"]["events"].items()),
+            "observed_form_before_save": read_before("save_event", "read_form", lambda arguments: not arguments),
+            "saved_event_independently_read": len(created) == 1 and read_after("save_event", "read_event", lambda arguments: arguments.get("id") in created),
+        }
+    elif case == "docs-suggestions-unavailable":
+        checks = {
+            "document_unchanged": data["document"] == CASES[case]["initial"]["document"],
+            "no_direct_edits": "replace_text" not in operations,
+            "correct_local_proposal": bool(data["proposals"]) and all(proposal == {
+                "document": "doc-plan", "tab": "tab-ops", "section": "Delivery", "old_text": "Ship on Friday", "new_text": "Ship on Monday",
+            } for proposal in data["proposals"]),
+            "observed_document_before_proposal": read_before("prepare_proposal", "read_document", lambda arguments: arguments.get("id") == "doc-plan"),
+        }
+    return {"case": case, "passed": all(checks.values()), "checks": checks, "operations": operations,
+            "scope": "Automated state and operation-trace checks only. Review the final response separately."}
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     subparsers = parser.add_subparsers(dest="command", required=True)
+    subparsers.add_parser("list", help="list runnable cases and their skills")
     initializer = subparsers.add_parser("init")
     initializer.add_argument("case", choices=sorted(CASES))
     initializer.add_argument("workspace", type=Path)
@@ -220,7 +339,10 @@ def main() -> int:
             subparser.add_argument("--args", default="{}", help="operation arguments as a JSON object")
     args = parser.parse_args()
     try:
-        if args.command == "init":
+        if args.command == "list":
+            result = {"cases": [{"case": name, **{key: case[key] for key in ("skill", "scenario", "task")}} for name, case in sorted(CASES.items())],
+                      "scope": "Synthetic offline cases; no live service or browser."}
+        elif args.command == "init":
             args.workspace.mkdir(parents=True, exist_ok=True)
             with state_path(args.workspace).open("x", encoding="utf-8") as target:
                 json.dump({"case": args.case, "data": copy.deepcopy(CASES[args.case]["initial"]), "events": []}, target, indent=2)
@@ -229,6 +351,8 @@ def main() -> int:
             state = load(args.workspace)
             if args.command == "describe":
                 result = {"task": CASES[state["case"]]["task"], "operations": CASES[state["case"]]["operations"], "scope": "Synthetic offline state only; no live service."}
+                if "output_instructions" in CASES[state["case"]]:
+                    result["output_instructions"] = CASES[state["case"]]["output_instructions"]
             elif args.command == "call":
                 result = execute(state, args.operation, json.loads(args.args))
                 write(args.workspace, state)

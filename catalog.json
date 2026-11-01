@@ -113,8 +113,10 @@
         "research-derived",
         "authored"
       ],
-      "status": "draft",
-      "evidence": [],
+      "status": "offline-reviewed",
+      "evidence": [
+        "evals/results/boundaries-2026-11-01.json"
+      ],
       "live_validation": false,
       "category": "productivity",
       "tags": [
@@ -202,8 +204,10 @@
         "research-derived",
         "authored"
       ],
-      "status": "draft",
-      "evidence": [],
+      "status": "offline-reviewed",
+      "evidence": [
+        "evals/results/boundaries-2026-11-01.json"
+      ],
       "live_validation": false,
       "category": "productivity",
       "tags": [

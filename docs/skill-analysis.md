@@ -69,6 +69,13 @@ A review of the wording found four instructions worth correcting:
 | `session-to-skill` | Require write-recovery guidance only for workflows that can change state |
 
 These came from reading the instructions, not observing new live failures. Three
-new boundary cases cover the calendar, Docs, and scheduling decisions. They are
-authored inputs, not completed agent runs. All four changed packages remain
-`draft`; the four packages with existing execution records are unchanged.
+new boundary cases cover the calendar, Docs, and scheduling decisions. At that
+revision, all four changed packages remained `draft` and the four packages with
+existing execution records were unchanged.
+
+The later [Calendar and Docs trials](../evals/results/README.md#calendar-and-docs--2026-11-01)
+made two of those cases executable. The initial Calendar run saved the requested
+dates but skipped the pre-save field check. That observation led to a narrow
+instruction change: inspect date-field meanings before saving instead of inferring
+them from tool argument names. The original result and a fresh passing run are
+both retained. Scheduling remains an authored case without an executed record.

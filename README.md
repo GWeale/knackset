@@ -27,7 +27,8 @@ python3 scripts/demo.py
 
 Checking the saved state leaves one row; blindly retrying creates two. The demo
 uses temporary files and cleans up afterward. It runs no model and connects to no
-accounts. [Let your agent try the fixture](evals/README.md#run-a-forward-evaluation).
+accounts. [Choose a challenge for your agent](evals/README.md#choose-a-runnable-challenge)
+to test its own decisions.
 
 ## Start with a workflow
 
@@ -37,6 +38,8 @@ accounts. [Let your agent try the fixture](evals/README.md#run-a-forward-evaluat
 | [Triage Gmail](skills/gmail-triage/SKILL.md) | Label matching messages while preserving starred messages in the same thread |
 | [Prepare or update a form](skills/web-form-update/SKILL.md) | Check for autosave before entering data when the user only asked for a draft |
 | [Compose a Gmail reply](skills/gmail-draft-reply/SKILL.md) | Keep the correct recipients and thread; read back the saved draft after a timeout |
+| [Coordinate a calendar](skills/calendar-coordination/SKILL.md) | Read the form's date rules before saving a multi-day event |
+| [Edit Google Docs](skills/google-docs-update/SKILL.md) | Prepare proposed text when the tool cannot save suggestions |
 
 The [full catalog](docs/catalog.md) also covers calendars, Docs, research,
 monitoring, reservations, briefings, PR review, and capturing a session as a skill.
@@ -65,11 +68,11 @@ the connected account and tools it will use. Then give it a specific task:
 
 ## Evidence
 
-Four workflows have [stateful offline execution records](evals/results/README.md).
-Each was compared with a baseline, and both versions passed every checked outcome.
-These runs do not establish improved performance or compatibility with live
-services. Every package also includes authored success, boundary, and routing
-cases; writing a case does not mean it has been executed.
+Six workflows have [offline execution records](evals/results/README.md), including
+a Calendar run that missed a pre-save check and a fresh run after the instruction
+was clarified. Baselines also passed, so these small trials do not establish a
+performance gain or compatibility with live services. Every package includes
+written success, boundary, and routing cases; only the recorded cases have been run.
 
 ## Bring one failure your agent should recover from
 

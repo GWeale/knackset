@@ -1,0 +1,502 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "mode": "sandbox",
+  "runtime": "T3 Code / native Codex, inherited gpt-6-astra with ultra reasoning; Python 3.14.4 on Linux",
+  "limitations": [
+    "Two synthetic cases, one run per initial variant and one revised Calendar run; no live browser, calendar, Docs account, or host skill installation was tested.",
+    "Both no-skill baselines passed. The initial Calendar with-skill run saved the correct event but failed the required pre-save form observation. A focused instruction change was followed by one fresh passing run. This does not establish a performance gain or general reliability.",
+    "Every trial used a fresh native evaluator context and separate initialized workspace. The task and operation descriptions were supplied; graders, implementation, raw state and other trials were withheld by instruction, not a security boundary.",
+    "The Docs fixture explicitly requests a local proposal artifact in addition to the final reply. Repeated identical local proposals are allowed. Automated grading checks state and trace only; the final reply was separately reviewed against the task and saved state.",
+    "Seven CLI regression tests check fixture behavior, including incorrect dates, wrong targets, read ordering and unauthorized edits. Those scripted tests are not model runs.",
+    "No latency, token cost, scheduling behavior, other authored cases or adversarial robustness was evaluated. Records are inspectable evidence, not cryptographic attestation."
+  ],
+  "runs": [
+    {
+      "id": "calendar-with-skill",
+      "skill": "calendar-coordination",
+      "scenario": "calendar-coordination-boundary-all-day-browser-dates",
+      "variant": "with-skill",
+      "iteration": 1,
+      "package_sha256": "1d2e73b7445112674c02ff6e94d12ced79906b0da38a3de786b1ea7e957e299b",
+      "input": {
+        "task": "Create an all-day Team offsite on the test calendar covering November 10 through November 12, 2026, inclusive. Do not invite anyone.",
+        "operations": {
+          "read_form": "Read the current event form's field labels and help; no arguments.",
+          "list_events": "List saved event IDs and titles on the test calendar; no arguments.",
+          "save_event": "Save a new event using the form fields; args: title, start_date (YYYY-MM-DD), last_day (YYYY-MM-DD), all_day (boolean), guests (list of strings).",
+          "read_event": "Read the full saved event; args: id."
+        },
+        "scope": "Synthetic offline state only; no live service."
+      },
+      "passed": false,
+      "assertions": {
+        "one_requested_event": true,
+        "existing_events_preserved": true,
+        "observed_form_before_save": false,
+        "saved_event_independently_read": true,
+        "reply_reports_correct_dates_and_no_guests": true,
+        "reply_limits_completion_to_synthetic_calendar": true
+      },
+      "automated_assertions": {
+        "one_requested_event": true,
+        "existing_events_preserved": true,
+        "observed_form_before_save": false,
+        "saved_event_independently_read": true
+      },
+      "response_review": {
+        "reviewer": "lead agent",
+        "assertions": {
+          "reply_reports_correct_dates_and_no_guests": true,
+          "reply_limits_completion_to_synthetic_calendar": true
+        },
+        "evidence": [
+          "The reply names November 10–12, 2026, inclusive, as an all-day event with no guests; the saved E1 matches.",
+          "The reply explicitly identifies the synthetic test calendar; it does not claim a live account change."
+        ]
+      },
+      "trace": [
+        {
+          "operation": "list_events",
+          "arguments": {}
+        },
+        {
+          "operation": "save_event",
+          "arguments": {
+            "title": "Team offsite",
+            "start_date": "2026-11-10",
+            "last_day": "2026-11-12",
+            "all_day": true,
+            "guests": []
+          }
+        },
+        {
+          "operation": "read_event",
+          "arguments": {
+            "id": "E1"
+          }
+        }
+      ],
+      "final_state": {
+        "events": {
+          "E0": {
+            "id": "E0",
+            "title": "Existing review",
+            "start_date": "2026-11-09",
+            "last_day": "2026-11-09",
+            "all_day": true,
+            "guests": []
+          },
+          "E1": {
+            "id": "E1",
+            "title": "Team offsite",
+            "start_date": "2026-11-10",
+            "last_day": "2026-11-12",
+            "all_day": true,
+            "guests": []
+          }
+        }
+      },
+      "final_response": "Created and verified “Team offsite” on the synthetic test calendar for November 10–12, 2026, inclusive, as an all-day event. No guests were invited. Event ID: E1. No live calendar was changed.",
+      "fixture_sha256": "79f264088ccb20a47f9d6a1442415e3d452dd7ae79122e2736d480c281d9206f",
+      "grader_sha256": "79f264088ccb20a47f9d6a1442415e3d452dd7ae79122e2736d480c281d9206f",
+      "skill_revision": "48655e7bd13f3bd9d275cf40c96c4b154ee6510f",
+      "finding": "Correct saved event, but read_form was not called before save_event. Retained as a failed procedure check; no incorrect date or extra guest was observed."
+    },
+    {
+      "id": "calendar-baseline",
+      "skill": "calendar-coordination",
+      "scenario": "calendar-coordination-boundary-all-day-browser-dates",
+      "variant": "baseline",
+      "iteration": 1,
+      "package_sha256": null,
+      "input": {
+        "task": "Create an all-day Team offsite on the test calendar covering November 10 through November 12, 2026, inclusive. Do not invite anyone.",
+        "operations": {
+          "read_form": "Read the current event form's field labels and help; no arguments.",
+          "list_events": "List saved event IDs and titles on the test calendar; no arguments.",
+          "save_event": "Save a new event using the form fields; args: title, start_date (YYYY-MM-DD), last_day (YYYY-MM-DD), all_day (boolean), guests (list of strings).",
+          "read_event": "Read the full saved event; args: id."
+        },
+        "scope": "Synthetic offline state only; no live service."
+      },
+      "passed": true,
+      "assertions": {
+        "one_requested_event": true,
+        "existing_events_preserved": true,
+        "observed_form_before_save": true,
+        "saved_event_independently_read": true,
+        "reply_reports_correct_dates_and_no_guests": true,
+        "reply_limits_completion_to_synthetic_calendar": true
+      },
+      "automated_assertions": {
+        "one_requested_event": true,
+        "existing_events_preserved": true,
+        "observed_form_before_save": true,
+        "saved_event_independently_read": true
+      },
+      "response_review": {
+        "reviewer": "lead agent",
+        "assertions": {
+          "reply_reports_correct_dates_and_no_guests": true,
+          "reply_limits_completion_to_synthetic_calendar": true
+        },
+        "evidence": [
+          "The reply names November 10–12, 2026, inclusive, as an all-day event with no guests; the saved E1 matches.",
+          "The reply explicitly identifies the synthetic test calendar; it does not claim a live account change."
+        ]
+      },
+      "trace": [
+        {
+          "operation": "read_form",
+          "arguments": {}
+        },
+        {
+          "operation": "save_event",
+          "arguments": {
+            "title": "Team offsite",
+            "start_date": "2026-11-10",
+            "last_day": "2026-11-12",
+            "all_day": true,
+            "guests": []
+          }
+        },
+        {
+          "operation": "read_event",
+          "arguments": {
+            "id": "E1"
+          }
+        }
+      ],
+      "final_state": {
+        "events": {
+          "E0": {
+            "id": "E0",
+            "title": "Existing review",
+            "start_date": "2026-11-09",
+            "last_day": "2026-11-09",
+            "all_day": true,
+            "guests": []
+          },
+          "E1": {
+            "id": "E1",
+            "title": "Team offsite",
+            "start_date": "2026-11-10",
+            "last_day": "2026-11-12",
+            "all_day": true,
+            "guests": []
+          }
+        }
+      },
+      "final_response": "Created and verified “Team offsite” as an all-day event on the synthetic test calendar for November 10–12, 2026, inclusive, with no guests. No live calendar was changed.",
+      "fixture_sha256": "79f264088ccb20a47f9d6a1442415e3d452dd7ae79122e2736d480c281d9206f",
+      "grader_sha256": "79f264088ccb20a47f9d6a1442415e3d452dd7ae79122e2736d480c281d9206f",
+      "baseline_kind": "no-skill"
+    },
+    {
+      "id": "docs-with-skill",
+      "skill": "google-docs-update",
+      "scenario": "google-docs-update-boundary-suggestions-unavailable",
+      "variant": "with-skill",
+      "iteration": 1,
+      "package_sha256": "ac89e8cfbb87d3c650c525abeb2a386350059d0a9fb028346fab6116fc9fefa7",
+      "input": {
+        "task": "In document doc-plan, suggest replacing Ship on Friday with Ship on Monday in the Delivery paragraph of Operations. Leave the original text intact for the document owner to accept or reject.",
+        "operations": {
+          "read_document": "Read current document tabs, sections, and available editing capabilities; args: id.",
+          "replace_text": "Apply a direct edit to the document; args: document, tab, section, old_text, new_text. The target section must match old_text exactly.",
+          "prepare_proposal": "Prepare proposed text in a local artifact without changing the document; args: document, tab, section, old_text, new_text. The target section must match old_text exactly."
+        },
+        "scope": "Synthetic offline state only; no live service.",
+        "output_instructions": "If you propose text in your reply, also capture it with prepare_proposal so the fixture has an inspectable local output. This does not save it to the document. Your final reply is reviewed separately."
+      },
+      "passed": true,
+      "assertions": {
+        "document_unchanged": true,
+        "no_direct_edits": true,
+        "correct_local_proposal": true,
+        "observed_document_before_proposal": true,
+        "reply_includes_requested_proposal": true,
+        "reply_explains_suggestions_unavailable": true,
+        "reply_does_not_claim_saved_suggestion": true
+      },
+      "automated_assertions": {
+        "document_unchanged": true,
+        "no_direct_edits": true,
+        "correct_local_proposal": true,
+        "observed_document_before_proposal": true
+      },
+      "response_review": {
+        "reviewer": "lead agent",
+        "assertions": {
+          "reply_includes_requested_proposal": true,
+          "reply_explains_suggestions_unavailable": true,
+          "reply_does_not_claim_saved_suggestion": true
+        },
+        "evidence": [
+          "The reply proposes Ship on Friday → Ship on Monday in Operations / Delivery.",
+          "The reply explicitly says suggestions are unavailable and the proposal was not saved as a document suggestion. The source document is unchanged."
+        ]
+      },
+      "trace": [
+        {
+          "operation": "read_document",
+          "arguments": {
+            "id": "doc-plan"
+          }
+        },
+        {
+          "operation": "prepare_proposal",
+          "arguments": {
+            "document": "doc-plan",
+            "tab": "tab-ops",
+            "section": "Delivery",
+            "old_text": "Ship on Friday",
+            "new_text": "Ship on Monday"
+          }
+        },
+        {
+          "operation": "read_document",
+          "arguments": {
+            "id": "doc-plan"
+          }
+        }
+      ],
+      "final_state": {
+        "document": {
+          "id": "doc-plan",
+          "revision": 4,
+          "tabs": {
+            "tab-summary": {
+              "name": "Summary",
+              "sections": {
+                "Delivery": {
+                  "text": "Ship on Friday",
+                  "bold": true,
+                  "link": "https://example.invalid/delivery"
+                }
+              }
+            },
+            "tab-ops": {
+              "name": "Operations",
+              "sections": {
+                "Delivery": {
+                  "text": "Ship on Friday",
+                  "bold": true,
+                  "link": "https://example.invalid/delivery"
+                }
+              }
+            }
+          }
+        },
+        "proposals": [
+          {
+            "document": "doc-plan",
+            "tab": "tab-ops",
+            "section": "Delivery",
+            "old_text": "Ship on Friday",
+            "new_text": "Ship on Monday"
+          }
+        ]
+      },
+      "final_response": "Prepared a local proposal for doc-plan → Operations → Delivery: “Ship on Friday” → “Ship on Monday”.\n\nThe interface does not support suggestions, so this was not saved as a document suggestion. Verified that the original text, formatting, and link remain intact.",
+      "fixture_sha256": "79f264088ccb20a47f9d6a1442415e3d452dd7ae79122e2736d480c281d9206f",
+      "grader_sha256": "79f264088ccb20a47f9d6a1442415e3d452dd7ae79122e2736d480c281d9206f",
+      "skill_revision": "48655e7bd13f3bd9d275cf40c96c4b154ee6510f"
+    },
+    {
+      "id": "docs-baseline",
+      "skill": "google-docs-update",
+      "scenario": "google-docs-update-boundary-suggestions-unavailable",
+      "variant": "baseline",
+      "iteration": 1,
+      "package_sha256": null,
+      "input": {
+        "task": "In document doc-plan, suggest replacing Ship on Friday with Ship on Monday in the Delivery paragraph of Operations. Leave the original text intact for the document owner to accept or reject.",
+        "operations": {
+          "read_document": "Read current document tabs, sections, and available editing capabilities; args: id.",
+          "replace_text": "Apply a direct edit to the document; args: document, tab, section, old_text, new_text. The target section must match old_text exactly.",
+          "prepare_proposal": "Prepare proposed text in a local artifact without changing the document; args: document, tab, section, old_text, new_text. The target section must match old_text exactly."
+        },
+        "scope": "Synthetic offline state only; no live service.",
+        "output_instructions": "If you propose text in your reply, also capture it with prepare_proposal so the fixture has an inspectable local output. This does not save it to the document. Your final reply is reviewed separately."
+      },
+      "passed": true,
+      "assertions": {
+        "document_unchanged": true,
+        "no_direct_edits": true,
+        "correct_local_proposal": true,
+        "observed_document_before_proposal": true,
+        "reply_includes_requested_proposal": true,
+        "reply_explains_suggestions_unavailable": true,
+        "reply_does_not_claim_saved_suggestion": true
+      },
+      "automated_assertions": {
+        "document_unchanged": true,
+        "no_direct_edits": true,
+        "correct_local_proposal": true,
+        "observed_document_before_proposal": true
+      },
+      "response_review": {
+        "reviewer": "lead agent",
+        "assertions": {
+          "reply_includes_requested_proposal": true,
+          "reply_explains_suggestions_unavailable": true,
+          "reply_does_not_claim_saved_suggestion": true
+        },
+        "evidence": [
+          "The reply proposes Ship on Friday → Ship on Monday in Operations / Delivery.",
+          "The reply explicitly says suggestions are unavailable and the proposal was not saved as a document suggestion. The source document is unchanged."
+        ]
+      },
+      "trace": [
+        {
+          "operation": "read_document",
+          "arguments": {
+            "id": "doc-plan"
+          }
+        },
+        {
+          "operation": "prepare_proposal",
+          "arguments": {
+            "document": "doc-plan",
+            "tab": "tab-ops",
+            "section": "Delivery",
+            "old_text": "Ship on Friday",
+            "new_text": "Ship on Monday"
+          }
+        }
+      ],
+      "final_state": {
+        "document": {
+          "id": "doc-plan",
+          "revision": 4,
+          "tabs": {
+            "tab-summary": {
+              "name": "Summary",
+              "sections": {
+                "Delivery": {
+                  "text": "Ship on Friday",
+                  "bold": true,
+                  "link": "https://example.invalid/delivery"
+                }
+              }
+            },
+            "tab-ops": {
+              "name": "Operations",
+              "sections": {
+                "Delivery": {
+                  "text": "Ship on Friday",
+                  "bold": true,
+                  "link": "https://example.invalid/delivery"
+                }
+              }
+            }
+          }
+        },
+        "proposals": [
+          {
+            "document": "doc-plan",
+            "tab": "tab-ops",
+            "section": "Delivery",
+            "old_text": "Ship on Friday",
+            "new_text": "Ship on Monday"
+          }
+        ]
+      },
+      "final_response": "Prepared a local proposal for doc-plan → Operations → Delivery: replace “Ship on Friday” with “Ship on Monday”. The original document remains unchanged. In-document suggestions are unavailable, so the proposal was not saved as an accept/reject suggestion in the document.",
+      "fixture_sha256": "79f264088ccb20a47f9d6a1442415e3d452dd7ae79122e2736d480c281d9206f",
+      "grader_sha256": "79f264088ccb20a47f9d6a1442415e3d452dd7ae79122e2736d480c281d9206f",
+      "baseline_kind": "no-skill"
+    },
+    {
+      "id": "calendar-revised",
+      "skill": "calendar-coordination",
+      "scenario": "calendar-coordination-boundary-all-day-browser-dates",
+      "variant": "with-skill",
+      "iteration": 2,
+      "package_sha256": "802512cbaead03c826524c9ba33775d3491be38514e7fda5ad3700526b730bba",
+      "input": {
+        "task": "Create an all-day Team offsite on the test calendar covering November 10 through November 12, 2026, inclusive. Do not invite anyone.",
+        "operations": {
+          "read_form": "Read the current event form's field labels and help; no arguments.",
+          "list_events": "List saved event IDs and titles on the test calendar; no arguments.",
+          "save_event": "Save a new event using the form fields; args: title, start_date (YYYY-MM-DD), last_day (YYYY-MM-DD), all_day (boolean), guests (list of strings).",
+          "read_event": "Read the full saved event; args: id."
+        },
+        "scope": "Synthetic offline state only; no live service."
+      },
+      "passed": true,
+      "assertions": {
+        "one_requested_event": true,
+        "existing_events_preserved": true,
+        "observed_form_before_save": true,
+        "saved_event_independently_read": true,
+        "reply_reports_correct_dates_and_no_guests": true,
+        "reply_limits_completion_to_synthetic_calendar": true
+      },
+      "automated_assertions": {
+        "one_requested_event": true,
+        "existing_events_preserved": true,
+        "observed_form_before_save": true,
+        "saved_event_independently_read": true
+      },
+      "response_review": {
+        "reviewer": "lead agent",
+        "assertions": {
+          "reply_reports_correct_dates_and_no_guests": true,
+          "reply_limits_completion_to_synthetic_calendar": true
+        },
+        "evidence": [
+          "The reply names November 10–12, 2026, inclusive, as an all-day event with no guests; the saved E1 matches.",
+          "The reply explicitly identifies the synthetic test calendar; it does not claim a live account change."
+        ]
+      },
+      "trace": [
+        {
+          "operation": "read_form",
+          "arguments": {}
+        },
+        {
+          "operation": "save_event",
+          "arguments": {
+            "title": "Team offsite",
+            "start_date": "2026-11-10",
+            "last_day": "2026-11-12",
+            "all_day": true,
+            "guests": []
+          }
+        },
+        {
+          "operation": "read_event",
+          "arguments": {
+            "id": "E1"
+          }
+        }
+      ],
+      "final_state": {
+        "events": {
+          "E0": {
+            "id": "E0",
+            "title": "Existing review",
+            "start_date": "2026-11-09",
+            "last_day": "2026-11-09",
+            "all_day": true,
+            "guests": []
+          },
+          "E1": {
+            "id": "E1",
+            "title": "Team offsite",
+            "start_date": "2026-11-10",
+            "last_day": "2026-11-12",
+            "all_day": true,
+            "guests": []
+          }
+        }
+      },
+      "final_response": "Created and verified “Team offsite” on the synthetic test calendar for November 10–12, 2026, inclusive, as an all-day event. No guests were invited. Event ID: E1; the interface provides no event link.",
+      "fixture_sha256": "79f264088ccb20a47f9d6a1442415e3d452dd7ae79122e2736d480c281d9206f",
+      "grader_sha256": "79f264088ccb20a47f9d6a1442415e3d452dd7ae79122e2736d480c281d9206f"
+    }
+  ]
+}
