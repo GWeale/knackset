@@ -2,47 +2,76 @@
 
 # Muse-Skills
 
-Portable, open-source skills for agents that work across websites. Each skill
-captures a task, the evidence needed to finish it, and how to recover when the
-website behaves differently. The agent supplies the browser or service tools.
+**Personal-agent workflows that verify what they change.** Original, MIT-licensed
+skills for browser tasks, mail, calendars, documents, research, and repeatable work.
+They run through the tools your agent already has.
 
-This is an independent project, unaffiliated with Meta Muse or Grok Bot. It is a
-workflow library, not a replacement for their runtime, models, memory, scheduling,
-account isolation, or authentication.
+[![CI](https://github.com/GWeale/muse-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/GWeale/muse-skills/actions/workflows/ci.yml)
+
+Inspired by publicly documented workflows in Grok Bot, Meta Muse, and Instinct.
+This independent project is unaffiliated with those products. It does not contain
+their private skills or claim native consumer-app import compatibility. Read the
+[product alignment](docs/product-alignment.md) for the evidence and limits.
 
 ## Use a skill
 
-Read the relevant `skills/<name>/SKILL.md`, or copy that entire folder into your
-agent's supported skills directory. Keep any bundled references and scripts with
-it. These files use the [Agent Skills format](https://agentskills.io/specification);
-installation and automatic discovery depend on the host agent. No specific host
-or consumer app integration has been tested yet.
+Browse the [generated catalog](docs/catalog.md) and choose a task. Each
+`skills/<name>/` folder is a self-contained [Agent Skills package](https://agentskills.io/specification)
+with instructions, a license, and synthetic evaluation cases. Copy that whole
+folder into your host's supported skill directory, or read its `SKILL.md` directly.
 
 For an agent that can read files, a first invocation can be:
 
 > Read skills/web-research/SKILL.md and use it to compare these three public sources.
 
-The application skills work independently; loading every skill is unnecessary.
-Use [web-task-execution](skills/web-task-execution/SKILL.md) for general browser
-handling and tool adaptation.
+Optional installation with the third-party [Skills CLI](https://github.com/vercel-labs/skills):
 
-| Skill | Work it handles | Basis |
-| --- | --- | --- |
-| [web-task-execution](skills/web-task-execution/SKILL.md) | Choose an authorized browser/session, act, and verify results | Sanitized session lessons + research |
-| [web-form-update](skills/web-form-update/SKILL.md) | Edit a specific form or settings record without duplicate submissions | Authored workflow + research |
-| [web-research](skills/web-research/SKILL.md) | Gather current primary evidence and resolve conflicting claims | Authored workflow |
-| [product-shortlist](skills/product-shortlist/SKILL.md) | Compare exact offers, total cost, condition, and uncertainty | Authored workflow |
-| [gmail-triage](skills/gmail-triage/SKILL.md) | Review scoped mail and perform requested organization | Authored workflow + official Gmail docs |
-| [google-sheets-update](skills/google-sheets-update/SKILL.md) | Update or append bounded rows, preserve formulas, verify saved cells | Authored workflow + official Sheets docs |
-| [github-review](skills/github-review/SKILL.md) | Review a specific PR revision and prepare evidence-based findings | Authored workflow + official GitHub docs |
-| [session-to-skill](skills/session-to-skill/SKILL.md) | Distill a private session into a reusable, sanitized draft | Authored authoring workflow |
+```bash
+npx skills@1.7.4 add GWeale/muse-skills --list
+npx skills@1.7.4 add GWeale/muse-skills --skill web-task-execution
+```
 
-All eight skills are **drafts without live application validation**. Passing the
-repository checks proves structural integrity and local helper behavior, not that
-a model can complete every website task. See [provenance](docs/provenance.md) and
-the [evaluation procedure](evals/README.md). A first independent
-[offline evaluation](evals/offline-review-2026-11-01.md) records decision checks
-and a local draft-generation run, with their limits.
+That CLI version requires Node.js 22.20+ and defaults to project-scoped
+installation. Even `--list` executes the external CLI. The version pins the
+installer, not this repository's contents; inspect the package and host behavior
+before use. These commands are documented upstream, not an integration test here.
+
+## Find a workflow
+
+- **Browser work:** [operate and recover](skills/web-task-execution/SKILL.md),
+  [edit forms](skills/web-form-update/SKILL.md), [reproduce a bug](skills/browser-bug-reproduction/SKILL.md).
+- **Personal and office work:** [mail triage](skills/gmail-triage/SKILL.md),
+  [draft replies](skills/gmail-draft-reply/SKILL.md), [calendar coordination](skills/calendar-coordination/SKILL.md),
+  [Docs edits](skills/google-docs-update/SKILL.md), [Sheets updates](skills/google-sheets-update/SKILL.md),
+  [daily briefings](skills/daily-briefing/SKILL.md), [expense reconciliation](skills/expense-reconciliation/SKILL.md).
+- **Research and decisions:** [source research](skills/web-research/SKILL.md),
+  [exact offers](skills/product-shortlist/SKILL.md), [change monitoring](skills/recurring-monitor/SKILL.md),
+  [travel reservations](skills/travel-reservation/SKILL.md), [PR review](skills/github-review/SKILL.md).
+- **Learning:** [turn a session into a skill](skills/session-to-skill/SKILL.md),
+  including scoped lessons, counterexamples, and replay before promotion.
+
+```bash
+python3 scripts/catalog.py list
+python3 scripts/catalog.py search gmail
+python3 scripts/catalog.py show calendar-coordination --json
+```
+
+Descriptions come from each `SKILL.md`; category, tags, provenance, and evidence
+come from `catalog.json`. Loading every skill is unnecessary. Skills do not
+supply account access, a browser runtime, a scheduler, or permission for new actions.
+
+## What is actually tested?
+
+Every package has authored success, boundary, and neighboring-task routing cases.
+Those are test inputs, not claims of successful execution. The
+[evaluation guide](evals/README.md) separates structural checks, stateful offline
+execution, and live service validation. Catalog statuses require matching evidence
+and a package fingerprint before promotion. No live consumer-app compatibility is
+claimed. See the [skill analysis](docs/skill-analysis.md) for specific improvements.
+
+The first [stateful execution record](evals/results/README.md) checks autosave
+drafts, message-level labels, append recovery, and saved reply drafts. Baselines
+also passed; this sample supports scoped behavior, not a general performance claim.
 
 ## Turn a session into a draft
 
@@ -60,17 +89,33 @@ refuses overwrites, and does not read agent databases or publish anything. It do
 **not** detect every secret or redact private prose. Review a draft before moving
 it into `skills/` and adding it to the catalog.
 
+An optional [improvement loop](skills/session-to-skill/references/improvement-loop.md)
+records one scoped trigger/action lesson, supporting observations, and
+counterexamples. A lesson does not silently become a universal instruction or
+authorize a background action.
+
 ## Develop and verify
 
 Python 3.10+ is sufficient; no third-party packages are required.
 
 ```bash
 python3 scripts/validate.py
+python3 scripts/catalog.py render --check
 python3 -m unittest discover -s tests -v
 ```
 
-The [workflow contract](docs/workflow-contract.md) defines evidence, authorization,
-and recovery conventions. [Research](docs/research.md) records primary sources and
-reuse limitations, checked on 2026-11-01. [Contributing](CONTRIBUTING.md) explains
-how to add one grounded workflow. Original project content is MIT licensed;
-linked third-party content retains its own terms.
+CI runs these checks on Python 3.10 and 3.14. No production dependencies, API
+keys, or live accounts are required for local verification.
+
+## Help grow the library
+
+Contribute one useful workflow, a failing synthetic case, or an execution record.
+[Contribution guidance](CONTRIBUTING.md) and the [growth plan](docs/scaling.md)
+describe the intake and evidence gates. Use the GitHub workflow-request or failure
+form; keep personal data and raw sessions out of submissions.
+
+The [workflow contract](docs/workflow-contract.md) defines result and retry
+conventions. [Research](docs/research.md) links primary sources and reuse limits.
+[Provenance](docs/provenance.md) distinguishes observed session lessons from
+authored procedures. Original project content is [MIT licensed](LICENSE);
+linked third-party material retains its own terms.

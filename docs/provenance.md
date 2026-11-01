@@ -33,9 +33,15 @@ repositories, and linked resources retain their own licenses and terms.
 
 ## Validation
 
-The catalog initially records all skills as `draft`, with no live validation.
+The initial revision `57d0e15` recorded eight skills as `draft`, with no live
+validation. The first [offline decision review](../evals/offline-review-2026-11-01.md)
+belongs to that revision. Its original central scenario set is preserved in the
+historical archive; current cases live inside each package.
+
 Structural checks and Python CLI tests do not promote skills automatically.
-Offline forward evaluations are recorded separately in `evals/`; any later status
-promotion must cite that evidence and its limitations. A live test must use an
-authorized account and verify the actual saved outcome. No account connection,
-message, purchase, remote edit, or publication is part of this authoring task.
+Measured execution is recorded separately in `evals/results/`; promotion requires
+matching structured evidence, its limitations and the current package fingerprint.
+Stateful sandbox results establish synthetic execution only. A live test must use
+an authorized account and verify the actual saved outcome. No live account message,
+purchase, booking, or document edit was performed while authoring this release.
+The user subsequently authorized publication of this repository on GitHub.

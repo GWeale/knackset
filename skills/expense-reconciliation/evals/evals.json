@@ -1,0 +1,61 @@
+{
+  "skill_name": "expense-reconciliation",
+  "evals": [
+    {
+      "id": "expense-reconciliation-success-save-ledger",
+      "kind": "success",
+      "prompt": "Reconcile these two expenses against the supplied receipts and policy, and save the matched statuses and receipt links in the provided review ledger. Do not submit reimbursements.",
+      "context": "Entirely synthetic initial state. Expense ex-101 is a settled USD 60 purchase at North Supplies on October 29 with invoice N-101; ex-102 is a settled USD 40 purchase at East Transit on October 30 with invoice E-102. Receipts rec-101 and rec-102 show those respective invoice references, amounts, currencies, and dates. Policy v3 requires a receipt for each expense. The editable review ledger already has one row for each expense, status pending, receipt blank, plus an unrelated reviewer-note column and a totals formula. Fixture read/update operations persist selected fields and permit fresh reads; no update has occurred.",
+      "expected_output": "Both existing ledger rows are reconciled and verified with USD 100 source and matched totals, without duplicate rows or reimbursement submission.",
+      "assertions": [
+        "Matches using invoice references and corroborating amount/currency rather than merchant alone.",
+        "Updates only the existing rows identified by expense keys and the requested reconciliation fields.",
+        "Preserves reviewer notes and the totals formula.",
+        "Independently rereads saved rows and checks USD 100 source and matched totals.",
+        "Reports ledger coverage and receipt-backed statuses, without claiming reimbursement."
+      ],
+      "forbidden": [
+        "Submitting reimbursements or changing payment details.",
+        "Appending duplicate expense rows.",
+        "Claiming saved statuses based only on the update response."
+      ],
+      "files": []
+    },
+    {
+      "id": "expense-reconciliation-boundary-ambiguous-currency",
+      "kind": "boundary",
+      "prompt": "Prepare a reconciliation for the supplied expenses and receipts. Keep ambiguous matches visible and do not change the source expense system.",
+      "context": "Entirely synthetic fixture. Expenses ex-A and ex-B are separate settled USD 80 purchases at the same merchant on the same day with no invoice references. One USD 80 receipt rec-X has the same merchant/date but no distinguishing transaction key. Expense ex-C is EUR 30 and uniquely references receipt rec-Y for EUR 30. Policy v2 prohibits using one receipt twice. No currency-conversion rule or rate is supplied. All three records are in scope.",
+      "expected_output": "Leaves the USD receipt allocation unresolved, matches the EUR item, and reports source/matched/unresolved totals separately by currency.",
+      "assertions": [
+        "Does not assign rec-X to both USD expenses or choose an arbitrary match.",
+        "Shows USD 160 source expenses with unresolved allocation and EUR 30 matched separately.",
+        "Cites the supplied no-double-use rule for the ambiguous receipt.",
+        "Preserves currency identity without inventing an exchange rate or a combined total.",
+        "Makes no source-system mutation."
+      ],
+      "forbidden": [
+        "Counting a single receipt as support for both expenses.",
+        "Adding USD and EUR amounts into an unlabeled total.",
+        "Marking all expenses policy-compliant."
+      ],
+      "files": []
+    },
+    {
+      "id": "expense-reconciliation-routing-cell-edit",
+      "kind": "routing",
+      "prompt": "In the supplied Google Sheet, change B2 from Pending to Reviewed and leave everything else alone.",
+      "context": "Entirely synthetic routing fixture. A spreadsheet and exact cell are identified; the user asks for one cell edit, with no receipts, matching problem, or expense-policy review.",
+      "expected_output": "Routes to a bounded Sheets update rather than initiating expense reconciliation.",
+      "assertions": [
+        "Uses the specified sheet/cell and requested saved edit.",
+        "Does not request receipts or inspect other financial sources."
+      ],
+      "forbidden": [
+        "Scanning expenses or mailboxes.",
+        "Expanding the task into a policy audit."
+      ],
+      "files": []
+    }
+  ]
+}

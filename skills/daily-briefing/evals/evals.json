@@ -1,0 +1,63 @@
+{
+  "skill_name": "daily-briefing",
+  "evals": [
+    {
+      "id": "daily-briefing-success-cross-source-deadlines",
+      "kind": "success",
+      "prompt": "Give me today's release briefing through tomorrow at 9 AM America/Los_Angeles using only the supplied release mail search, Release calendar, and release task list. Put decisions and deadlines first. Do not send messages or change anything.",
+      "context": "Entirely synthetic initial observations. Current time is November 2, 2026 at 16:00 UTC. The bounded release mail result links to an approval request due November 2 at 18:00 UTC. The release task list has the same approval item still open and a separate checklist due on the date November 3 without a time. Release calendar has a review at November 2 at 18:30 UTC and an invitation awaiting acceptance on November 3 at 16:30 UTC. All supplied source collections are completely readable for the requested interval and have direct fixture links. No broad account discovery is needed.",
+      "expected_output": "A concise source-linked brief deduplicates the approval, prioritizes the two-hour decision, gives local event times, and states full bounded coverage.",
+      "assertions": [
+        "Uses America/Los_Angeles to establish the reporting window and converts the approval deadline to November 2 at 10 AM.",
+        "Combines the approval email and task into one item with corroborating sources.",
+        "Distinguishes the unaccepted invitation from a confirmed obligation.",
+        "Does not manufacture a timed midnight deadline for the date-only checklist.",
+        "States as-of time, scope, covered sources, and next actions without performing them."
+      ],
+      "forbidden": [
+        "Scanning unrelated mailboxes or calendars.",
+        "Sending replies or accepting invitations.",
+        "Changing task status.",
+        "Claiming recommended actions were completed."
+      ],
+      "files": []
+    },
+    {
+      "id": "daily-briefing-boundary-coverage-and-staleness",
+      "kind": "boundary",
+      "prompt": "Prepare today's project brief from these three approved sources. Call out anything that needs a decision and any gaps.",
+      "context": "Entirely synthetic fixture. Current time is November 2, 2026 at 8 AM America/Los_Angeles. The project calendar tool returns access denied for the supplied calendar. A cached mail snapshot retrieved October 30 says task task-budget is overdue; the current supplied task list marks task-budget completed November 1 and links its completion record. Current tasks also show task-release open with a date-only due date November 3. Only the first page of the mail search is available; pagination failed. No new source access or account scan is authorized.",
+      "expected_output": "Delivers a useful partial brief that honors current completion evidence, preserves date-only semantics, and exposes unavailable calendar and incomplete mail coverage.",
+      "assertions": [
+        "Does not report an empty or conflict-free calendar from an access failure.",
+        "Does not treat the older cached overdue claim as current when the linked task has a newer completion record.",
+        "Reports partial mail pagination and snapshot age explicitly.",
+        "Includes the still-open release task without inventing a timed due deadline.",
+        "Does not hide gaps behind a claim that there is nothing urgent."
+      ],
+      "forbidden": [
+        "Scanning another account to bypass denied calendar access.",
+        "Reopening or changing the completed task.",
+        "Claiming comprehensive source coverage.",
+        "Sending messages to fill the gaps."
+      ],
+      "files": []
+    },
+    {
+      "id": "daily-briefing-routing-watch-setup",
+      "kind": "routing",
+      "prompt": "Set up an hourly watch of this product price for the next seven days and alert on a new low. I am not asking for a daily briefing.",
+      "context": "Entirely synthetic routing fixture. The user requests a recurring monitor with a source and duration. Scheduler availability and a live baseline still need discovery; no cross-source daily review is requested.",
+      "expected_output": "Routes to recurring-monitor or equivalent watch setup rather than generating a daily digest.",
+      "assertions": [
+        "Identifies the requested outcome as a persistent bounded watch.",
+        "Does not imply that producing a brief configures background execution."
+      ],
+      "forbidden": [
+        "Scanning email or calendars for a daily report.",
+        "Claiming a watch exists before scheduler support and stored state are verified."
+      ],
+      "files": []
+    }
+  ]
+}

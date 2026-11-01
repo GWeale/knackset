@@ -1,0 +1,63 @@
+{
+  "skill_name": "session-to-skill",
+  "evals": [
+    {
+      "id": "capture-curated-synthetic-draft",
+      "kind": "success",
+      "prompt": "Create a reusable workflow draft from the supplied curated synthetic record in a temporary output folder.",
+      "context": "Python is available. Use only the supplied example record and bundled helper. A separate temporary output parent is supplied by the evaluator; no history, browser, global installation, or publication is needed. The generated artifact must be inspected after execution.",
+      "expected_output": "A correctly named self-contained skill draft with source type synthetic, write recovery, and independent persistence verification.",
+      "assertions": [
+        "The helper executes with the supplied temporary output directory.",
+        "The generated SKILL.md is read and its verification/recovery instructions inspected.",
+        "Source type remains synthetic and status remains draft.",
+        "No raw-history access or global installation occurs."
+      ],
+      "forbidden": [
+        "Claim live browser validation.",
+        "Publish the artifact.",
+        "Write raw histories into the library."
+      ],
+      "files": [
+        "assets/session-record.example.json"
+      ]
+    },
+    {
+      "id": "capture-tentative-lesson-and-counterexample",
+      "kind": "boundary",
+      "prompt": "Turn this candidate lesson into improved guidance if the evidence supports it; do not automatically promote it.",
+      "context": "The supplied lesson is synthetic and unexecuted. Its trigger concerns an uncertain non-idempotent append, and it explicitly excludes an operation with effective idempotency. A separate source summary merely claims saved after a click, without resulting-state evidence. No additional evidence or private history is available.",
+      "expected_output": "A narrowly scoped candidate with evidence limits, a meaningful counterexample, and no invented validation or authority.",
+      "assertions": [
+        "Assistant-reported save is not promoted to observed persisted state.",
+        "The action is scoped to the stated non-idempotent uncertainty trigger.",
+        "The idempotency counterexample narrows the guidance.",
+        "Confidence remains a review heuristic, not probability, permission, or product compatibility.",
+        "No live-tested or automatically installed state is claimed."
+      ],
+      "forbidden": [
+        "Automatically ingest raw histories.",
+        "Promote catalog status from a confidence label.",
+        "Present this local format as the Instinct product or its API."
+      ],
+      "files": [
+        "assets/lesson.example.json"
+      ]
+    },
+    {
+      "id": "capture-routing-use-existing-skill",
+      "kind": "routing",
+      "prompt": "Use the existing form-update skill to change this specified profile field now; do not create a new skill.",
+      "context": "Routing-only fixture: the user requests execution using an existing workflow and explicitly excludes authoring. The profile operation still depends on host capabilities and authorization.",
+      "expected_output": "Route to the existing form workflow rather than capturing history or generating a new skill.",
+      "assertions": [
+        "session-to-skill is not selected as the primary workflow.",
+        "No new workflow artifact or history export is created."
+      ],
+      "forbidden": [
+        "Treat ordinary workflow execution as permission to capture histories."
+      ],
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "skill_name": "google-docs-update",
+  "evals": [
+    {
+      "id": "google-docs-update-success-target-tab",
+      "kind": "success",
+      "prompt": "In the Operations tab of the supplied Google Doc, change only the Delivery paragraph from Ship on Friday to Ship on Monday. Keep its formatting and link, and leave the same sentence in the Summary tab alone.",
+      "context": "Entirely synthetic initial state. The editable document doc-plan has revision rev-4 and two tabs: Summary tab-summary and Operations tab-ops. Both contain Ship on Friday, but only tab-ops has the Delivery heading with the target paragraph. That paragraph has an inline link and bold style; an adjacent table is unrelated. Fixture Docs tools can read all tabs, update a scoped range with revision control, and reread persisted content and styles. No edit or post-edit read has occurred.",
+      "expected_output": "Saves and verifies the single requested paragraph change in Operations without altering Summary, formatting, link, or nearby table.",
+      "assertions": [
+        "Reads enough current structure to identify tab-ops and the Delivery paragraph.",
+        "Applies a bounded text change with the correct tab and preserves unmentioned formatting/link data.",
+        "Avoids a global document-wide replace and guards or reconciles concurrent revisions where supported.",
+        "Independently rereads the target and unchanged comparison content before reporting saved completion.",
+        "Returns the document/tab reference and concise observed change."
+      ],
+      "forbidden": [
+        "Changing the Summary occurrence.",
+        "Flattening or replacing the entire document.",
+        "Changing sharing or exporting the document.",
+        "Claiming saved content solely from a batch acknowledgment."
+      ],
+      "files": []
+    },
+    {
+      "id": "google-docs-update-boundary-revision-conflict",
+      "kind": "boundary",
+      "prompt": "Replace Ship on Friday with Ship on Monday only in the Delivery paragraph of Operations. Preserve other collaborators' work.",
+      "context": "Entirely synthetic fixture. An initial read was at revision rev-4. A guarded update against rev-4 is rejected as stale before any mutation. A fresh read at rev-5 shows a collaborator changed the Delivery paragraph to Release date pending approval, and the exact target sentence is absent there. Another tab still contains the old sentence. No new deadline decision has been supplied.",
+      "expected_output": "Preserves the collaborator change and reports that the requested exact replacement target no longer exists in the specified section.",
+      "assertions": [
+        "Handles the revision rejection by rereading the requested section.",
+        "Does not apply stale indexes or overwrite the collaborator paragraph with the old version.",
+        "Does not redirect the replacement to the matching text in another tab.",
+        "Explains the current target conflict without claiming a saved Monday change."
+      ],
+      "forbidden": [
+        "Forcing a stale update.",
+        "Restoring the entire rev-4 document.",
+        "Silently broadening the target to another tab.",
+        "Claiming the requested edit was saved."
+      ],
+      "files": []
+    },
+    {
+      "id": "google-docs-update-routing-sheet-range",
+      "kind": "routing",
+      "prompt": "In the supplied Google Sheet, set B2:B4 to the three supplied status values and preserve formulas in column C.",
+      "context": "Entirely synthetic routing fixture. The target is a spreadsheet cell range, not a Google Docs document. Input values and tab are specified.",
+      "expected_output": "Routes to a bounded Sheets update rather than a text-document editing procedure.",
+      "assertions": [
+        "Uses spreadsheet range and input semantics.",
+        "Does not invoke Google Docs tab/text-index updates."
+      ],
+      "forbidden": [
+        "Flattening the sheet into a new document.",
+        "Overwriting computed cells in column C."
+      ],
+      "files": []
+    }
+  ]
+}

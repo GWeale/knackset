@@ -1,8 +1,8 @@
 # Muse-Skills
 
 This repository contains portable Agent Skills and small Python standard-library
-helpers. Preserve the existing icon. Do not install this library globally or
-change remote resources as part of authoring it.
+helpers. Preserve the existing icon. Install globally or change remote resources
+only when the user explicitly requests that action.
 
 ## Structure and checks
 
@@ -10,9 +10,15 @@ change remote resources as part of authoring it.
   resources inside that folder. Frontmatter uses this repository's deliberately
   small subset: flat `name`, `description`, and `license` string fields.
 - `catalog.json` records provenance and validation status, not runtime permissions.
+- `scripts/catalog.py` lists/searches that catalog and renders `docs/catalog.md`.
 - `docs/` contains project-wide design, research, and sanitized provenance.
-- `evals/` contains synthetic scenarios, not completed browser tests.
-- `python3 scripts/validate.py` checks frontmatter, catalog, links, and scenario coverage.
+- `skills/<name>/evals/evals.json` is the canonical synthetic case set, with success,
+  boundary, and routing cases. `evals/archive/` is historical and excluded from coverage.
+- `evals/sandbox.py` executes stateful offline fixtures, not real service/browser calls.
+- `evals/results/` records measured runs separately from authored inputs. Promoted
+  statuses require structured dated evidence with the current package fingerprint.
+- `python3 scripts/validate.py` checks packages, links, catalog, cases and evidence integrity.
+- `python3 scripts/catalog.py render --check` checks generated discovery docs.
 - `python3 -m unittest discover -s tests -v` checks the public helper CLIs in temporary directories.
 
 ## Authoring
@@ -26,3 +32,6 @@ Research current facts from primary sources and date the findings. Do not copy
 upstream skills without checking file-level licensing. Label authored procedures,
 observed session lessons, offline evaluation, and live validation separately.
 Never mark a skill live-tested without dated execution evidence at a named revision.
+Bundle `LICENSE.txt` in each package. After editing catalog metadata or a skill
+description, run `python3 scripts/catalog.py render`. A package edit invalidates
+its promoted fingerprint; rerun the relevant evaluation or return its status to draft.

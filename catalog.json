@@ -2,68 +2,283 @@
   "schema_version": 1,
   "skills": [
     {
-      "name": "web-task-execution",
-      "path": "skills/web-task-execution",
-      "basis": ["session-derived", "research-derived", "authored"],
-      "status": "draft",
-      "evidence": [],
-      "live_validation": false
-    },
-    {
       "name": "web-form-update",
       "path": "skills/web-form-update",
-      "basis": ["research-derived", "authored"],
-      "status": "draft",
-      "evidence": [],
-      "live_validation": false
+      "basis": [
+        "research-derived",
+        "authored"
+      ],
+      "status": "offline-reviewed",
+      "evidence": [
+        "evals/results/preview-2026-11-01.json"
+      ],
+      "live_validation": false,
+      "category": "browser",
+      "tags": [
+        "forms",
+        "autosave",
+        "profiles"
+      ]
     },
     {
-      "name": "web-research",
-      "path": "skills/web-research",
-      "basis": ["authored"],
+      "name": "web-task-execution",
+      "path": "skills/web-task-execution",
+      "basis": [
+        "session-derived",
+        "research-derived",
+        "authored"
+      ],
       "status": "draft",
       "evidence": [],
-      "live_validation": false
+      "live_validation": false,
+      "category": "browser",
+      "tags": [
+        "browser",
+        "recovery",
+        "accounts"
+      ]
     },
     {
-      "name": "product-shortlist",
-      "path": "skills/product-shortlist",
-      "basis": ["authored"],
+      "name": "browser-bug-reproduction",
+      "path": "skills/browser-bug-reproduction",
+      "basis": [
+        "research-derived",
+        "authored"
+      ],
       "status": "draft",
       "evidence": [],
-      "live_validation": false
-    },
-    {
-      "name": "gmail-triage",
-      "path": "skills/gmail-triage",
-      "basis": ["research-derived", "authored"],
-      "status": "draft",
-      "evidence": [],
-      "live_validation": false
-    },
-    {
-      "name": "google-sheets-update",
-      "path": "skills/google-sheets-update",
-      "basis": ["research-derived", "authored"],
-      "status": "draft",
-      "evidence": [],
-      "live_validation": false
+      "live_validation": false,
+      "category": "developer",
+      "tags": [
+        "browser",
+        "bugs",
+        "reproduction"
+      ]
     },
     {
       "name": "github-review",
       "path": "skills/github-review",
-      "basis": ["research-derived", "authored"],
+      "basis": [
+        "research-derived",
+        "authored"
+      ],
       "status": "draft",
       "evidence": [],
-      "live_validation": false
+      "live_validation": false,
+      "category": "developer",
+      "tags": [
+        "github",
+        "pull-request",
+        "review"
+      ]
     },
     {
       "name": "session-to-skill",
       "path": "skills/session-to-skill",
-      "basis": ["session-derived", "authored"],
+      "basis": [
+        "session-derived",
+        "authored"
+      ],
       "status": "draft",
       "evidence": [],
-      "live_validation": false
+      "live_validation": false,
+      "category": "learning",
+      "tags": [
+        "skills",
+        "learning",
+        "lessons"
+      ]
+    },
+    {
+      "name": "travel-reservation",
+      "path": "skills/travel-reservation",
+      "basis": [
+        "research-derived",
+        "authored"
+      ],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false,
+      "category": "personal",
+      "tags": [
+        "travel",
+        "reservations",
+        "booking"
+      ]
+    },
+    {
+      "name": "calendar-coordination",
+      "path": "skills/calendar-coordination",
+      "basis": [
+        "research-derived",
+        "authored"
+      ],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false,
+      "category": "productivity",
+      "tags": [
+        "calendar",
+        "scheduling",
+        "timezones"
+      ]
+    },
+    {
+      "name": "daily-briefing",
+      "path": "skills/daily-briefing",
+      "basis": [
+        "research-derived",
+        "authored"
+      ],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false,
+      "category": "productivity",
+      "tags": [
+        "briefing",
+        "priorities",
+        "digest"
+      ]
+    },
+    {
+      "name": "expense-reconciliation",
+      "path": "skills/expense-reconciliation",
+      "basis": [
+        "research-derived",
+        "authored"
+      ],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false,
+      "category": "productivity",
+      "tags": [
+        "expenses",
+        "receipts",
+        "reconciliation"
+      ]
+    },
+    {
+      "name": "gmail-draft-reply",
+      "path": "skills/gmail-draft-reply",
+      "basis": [
+        "research-derived",
+        "authored"
+      ],
+      "status": "offline-reviewed",
+      "evidence": [
+        "evals/results/preview-2026-11-01.json"
+      ],
+      "live_validation": false,
+      "category": "productivity",
+      "tags": [
+        "gmail",
+        "email",
+        "drafts"
+      ]
+    },
+    {
+      "name": "gmail-triage",
+      "path": "skills/gmail-triage",
+      "basis": [
+        "research-derived",
+        "authored"
+      ],
+      "status": "offline-reviewed",
+      "evidence": [
+        "evals/results/preview-2026-11-01.json"
+      ],
+      "live_validation": false,
+      "category": "productivity",
+      "tags": [
+        "gmail",
+        "email",
+        "labels"
+      ]
+    },
+    {
+      "name": "google-docs-update",
+      "path": "skills/google-docs-update",
+      "basis": [
+        "research-derived",
+        "authored"
+      ],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false,
+      "category": "productivity",
+      "tags": [
+        "docs",
+        "documents",
+        "editing"
+      ]
+    },
+    {
+      "name": "google-sheets-update",
+      "path": "skills/google-sheets-update",
+      "basis": [
+        "research-derived",
+        "authored"
+      ],
+      "status": "offline-reviewed",
+      "evidence": [
+        "evals/results/preview-2026-11-01.json"
+      ],
+      "live_validation": false,
+      "category": "productivity",
+      "tags": [
+        "sheets",
+        "spreadsheet",
+        "rows"
+      ]
+    },
+    {
+      "name": "product-shortlist",
+      "path": "skills/product-shortlist",
+      "basis": [
+        "authored"
+      ],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false,
+      "category": "research",
+      "tags": [
+        "shopping",
+        "offers",
+        "pricing"
+      ]
+    },
+    {
+      "name": "recurring-monitor",
+      "path": "skills/recurring-monitor",
+      "basis": [
+        "research-derived",
+        "authored"
+      ],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false,
+      "category": "research",
+      "tags": [
+        "monitoring",
+        "changes",
+        "alerts"
+      ]
+    },
+    {
+      "name": "web-research",
+      "path": "skills/web-research",
+      "basis": [
+        "authored"
+      ],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false,
+      "category": "research",
+      "tags": [
+        "research",
+        "sources",
+        "evidence"
+      ]
     }
   ]
 }

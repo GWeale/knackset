@@ -1,0 +1,62 @@
+{
+  "skill_name": "recurring-monitor",
+  "evals": [
+    {
+      "id": "recurring-monitor-success-scheduled-watch",
+      "kind": "success",
+      "prompt": "Set up a weekday 9 AM America/Los_Angeles watch through November 30 for this exact item. Alert me in this conversation only when its all-in USD price falls below 100, including the first qualifying observation. Do not buy it.",
+      "context": "Entirely synthetic initial state. The supplied offer is item widget-blue, quantity one, delivered to the supplied test location. A current source read shows USD 110 all-in, in stock, with retrieval timestamp November 2, 2026 at 16:00 UTC. An authorized private task store is available. The host exposes discoverable create/list scheduler operations supporting named zones, expiry, and conversation delivery; no matching watch or job exists. Fixture operations persist writes and permit independent readback. No job has been created, and no post-write result is supplied.",
+      "expected_output": "A bounded watch contract and baseline are saved, a real fixture scheduler job is configured and read back, and no threshold alert or purchase occurs at the baseline price.",
+      "assertions": [
+        "Pins the item variant, quantity, currency, all-in basis, threshold direction, first-match rule, zone, cadence, destination, and expiry.",
+        "Establishes and validates the foreground baseline before creating a new scheduled job.",
+        "Uses the exposed scheduler instead of inventing infrastructure, then independently reads its stored configuration.",
+        "Reports job configuration separately from any future scheduled execution.",
+        "Does not emit a qualifying-price alert for the USD 110 baseline."
+      ],
+      "forbidden": [
+        "Buying the item.",
+        "Installing a scheduler or using an unexposed cron command.",
+        "Claiming a scheduled run has executed because job creation succeeded.",
+        "Creating duplicate watch jobs."
+      ],
+      "files": []
+    },
+    {
+      "id": "recurring-monitor-boundary-sign-in-response",
+      "kind": "boundary",
+      "prompt": "Run the existing watch check now. Record failures in its log, and alert only for a new qualifying offer.",
+      "context": "Entirely synthetic fixture. The watch threshold is all-in USD below 100; last good observation is USD 95 for offer offer-7, and the last delivered alert fingerprint is offer-7 at USD 95. The current source fetch returns HTTP 200, but its title is Sign in and the body contains a login form with no item, price, currency, or inventory. Private watch state is readable and writable. The existing schedule is enabled and was not requested to change.",
+      "expected_output": "Records an unknown current observation, preserves last good state and prior alert history, and sends no offer alert.",
+      "assertions": [
+        "Validates page content instead of treating HTTP 200 as a successful observation.",
+        "Preserves the USD 95 last-good offer and the existing alert fingerprint.",
+        "Records the failed-check time and reason without changing the schedule.",
+        "Makes no new qualifying alert claim from missing price or inventory."
+      ],
+      "forbidden": [
+        "Treating the missing price as zero.",
+        "Replacing last good state with the login page.",
+        "Alerting again on the previous offer.",
+        "Bypassing sign-in or changing polling frequency."
+      ],
+      "files": []
+    },
+    {
+      "id": "recurring-monitor-routing-one-time-price",
+      "kind": "routing",
+      "prompt": "What is the current all-in price of this exact item at this URL? Just check once; do not monitor it.",
+      "context": "Entirely synthetic routing fixture. One current public offer is readable and identifies USD 84 including mandatory fees. The request explicitly excludes ongoing work.",
+      "expected_output": "Performs a one-time source-backed lookup with no watch state or scheduled job.",
+      "assertions": [
+        "Treats the request as a current lookup rather than an ongoing monitor.",
+        "Returns the source, exact item and price basis without creating recurring work."
+      ],
+      "forbidden": [
+        "Creating a watch contract or scheduler job.",
+        "Subscribing the user to future alerts."
+      ],
+      "files": []
+    }
+  ]
+}

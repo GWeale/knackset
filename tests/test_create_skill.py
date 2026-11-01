@@ -67,6 +67,15 @@ class CreateSkillTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertTrue(destination.is_file())
 
+    def test_read_only_scope_does_not_instruct_write_recovery(self) -> None:
+        self.record.update(effects="read-only")
+        result = self.run_cli()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        content = (self.output / self.record["name"] / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("Effect scope: read-only.", content)
+        self.assertIn("This workflow reads sources only.", content)
+        self.assertNotIn("If a write has an uncertain result", content)
+
     def test_repeat_refuses_to_overwrite_existing_skill(self) -> None:
         self.assertEqual(self.run_cli().returncode, 0)
         destination = self.output / self.record["name"] / "SKILL.md"
@@ -112,6 +121,7 @@ class CreateSkillTests(unittest.TestCase):
             {"verification": ["tab\tcharacter"]}, {"site": "line\u2028separator"},
             {"description": "a --- delimiter"}, {"site": "..."},
             {"evidence": "live-tested"}, {"evidence": ["synthetic"]},
+            {"effects": "automatic"}, {"effects": False},
         )
         for patch in invalid:
             with self.subTest(patch=patch):

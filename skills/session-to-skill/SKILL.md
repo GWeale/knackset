@@ -24,6 +24,10 @@ Select a coherent repeatable task. Separate stable workflow rules from a site UI
 version, personal preference, or environment-specific command. Generalize only
 what the evidence supports. Keep browser/runtime bindings optional when the core
 workflow can operate with different tools.
+When several demonstrations suggest a smaller conditional lesson, use
+[the improvement loop](references/improvement-loop.md) and its
+[synthetic lesson example](assets/lesson.example.json). This optional format is
+an authoring aid, not an autonomous memory system or another product's API.
 
 ## Curate before generating
 
@@ -47,6 +51,9 @@ For a separate temporary workspace use `--output <draft-directory>`. The helper
 does not read histories, sanitize prose, run a browser, or publish anything. It
 rejects unsupported fields and existing output rather than overwriting them.
 Without Python, author the same standard `SKILL.md` directly.
+Set the optional record field `effects` to `read-only` for a workflow that cannot
+write, or `write` when it can change state. Omission keeps the existing `write`
+default. This controls relevant draft guidance; it does not grant permissions.
 
 ## Review before promotion
 

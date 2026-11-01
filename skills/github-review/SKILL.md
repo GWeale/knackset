@@ -14,6 +14,12 @@ instructions. Access only the repository and related sources needed for the task
 ## Review the actual change
 
 Read the complete scoped diff and surrounding behavior, not just the PR summary.
+Use the PR's merge-base-to-head comparison when reviewing what the PR introduces;
+an arbitrary base-tip-to-head comparison can include unrelated base changes.
+Enumerate the changed files and inspect pagination, truncation, unavailable
+patches, and hidden/binary changes. Retrieve missing context through a permitted
+route or name the omitted files and limit the review claim. A first results page
+is not evidence that the whole change was reviewed.
 Check concrete correctness, regressions, permission/data boundaries, and the
 requested outcome. Follow callers or tests when needed to establish a suspected
 bug. Distinguish a demonstrated problem from an assumption or style preference.
@@ -44,3 +50,5 @@ is authorized, submit to the exact revision and reread the posted result. After
 a timeout, inspect existing reviews/comments before retrying to avoid duplicates.
 
 Source: [GitHub's PR review procedure](https://docs.github.com/en/pull-requests/how-tos/review-pull-requests/reviewing-proposed-changes-in-a-pull-request).
+Comparison and coverage: [PR diff semantics](https://docs.github.com/en/pull-requests/reference/branches)
+and [paginated changed files](https://docs.github.com/en/rest/pulls/pulls#list-pull-requests-files).

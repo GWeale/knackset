@@ -1,6 +1,6 @@
 ---
 name: web-research
-description: Research a current question across public websites using primary sources, direct citations, and explicit uncertainty. Use for evidence gathering and source comparison; it does not operate signed-in accounts or submit forms.
+description: Answer current public-web questions or analyze supplied public-source bundles using direct evidence, dates, and explicit uncertainty. Use for research and conflicting-source synthesis; exact shopping offers and account operations have separate workflows.
 license: MIT
 ---
 
@@ -9,6 +9,9 @@ license: MIT
 Produce an answer the reader can trace to current evidence. Use public search or
 retrieval tools unless the user requested browser interaction or the host requires
 a particular route. Discover available tools rather than assuming a search API.
+For a supplied source bundle, work from its actual contents and dates; do not
+claim live retrieval. If current verification is necessary and unavailable,
+identify which conclusion remains provisional rather than fabricating freshness.
 
 ## Find and assess evidence
 
@@ -26,6 +29,8 @@ a particular route. Discover available tools rather than assuming a search API.
 - When sources disagree, compare dates, definitions, geography, versions, and
   directness. Prefer the source governing the question. Preserve a material
   unresolved conflict; do not average incompatible statements into false certainty.
+  A newer page about another region or software version does not supersede the
+  source that applies to the user's target.
 
 ## Synthesize
 
@@ -42,5 +47,9 @@ unless separately requested and supported by host permissions.
 Lead with the finding and its practical implication. Place direct source links
 next to supported claims, date-stamp time-sensitive findings, and finish with a
 concrete deliverable or ranked next actions when the task calls for a decision.
+For a compact comparison, use claim, governing source/date, applicability, and
+remaining uncertainty. For example, if a current service guide allows JSON in
+the enterprise plan while its general guide lists CSV, establish the user's plan
+before stating that JSON is available; the dates alone do not resolve the scope.
 If retrieval is blocked, identify the source you could not inspect and qualify
 the affected claim. Never invent source content or completion.

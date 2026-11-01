@@ -19,5 +19,6 @@
     "If saving times out, inspect the persisted profile before considering another submission.",
     "If access or resulting state cannot be established, stop the write and report the specific limitation."
   ],
-  "evidence": "synthetic"
+  "evidence": "synthetic",
+  "effects": "write"
 }

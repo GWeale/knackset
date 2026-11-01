@@ -1,6 +1,6 @@
 # Initial offline review — 2026-11-01
 
-This record covers decision behavior on supplied synthetic observations and one
+Historical record for revision `57d0e15`. This record covers decision behavior on supplied synthetic observations and one
 local helper execution. **No live website task was executed.** The catalog remains
 at `draft`: these checks do not establish application success, host compatibility,
 or measured improvement over an agent without the skills.
@@ -17,7 +17,7 @@ and browser/service bindings were not exercised.
 
 The first seven cases produced decisions against supplied state, not tool actions.
 The eighth executed the helper in a separate temporary workspace. The author then
-compared actual outputs with the relevant [scenario](scenarios.json) assertions.
+compared actual outputs with the relevant [scenario](archive/scenarios-v0.json) assertions.
 This was one evaluator pass with no baseline or statistical benchmark.
 
 ## Observed outcomes

@@ -1,0 +1,58 @@
+{
+  "skill_name": "google-sheets-update",
+  "evals": [
+    {
+      "id": "sheets-keyed-update-after-row-move",
+      "kind": "success",
+      "prompt": "Set quantity for P-2 to 4 in the specified sheet. Preserve formulas and other records.",
+      "context": "Synthetic starting state: columns are item_id, quantity, and calculated total. An earlier observation put P-2 on row 3, but another writer has sorted the sheet since then. Current range/formula reads and exact range updates are available. P-2 initially has quantity 2; no saved result is supplied.",
+      "expected_output": "P-2 at its current location is updated and independently read back; formulas and other records are preserved.",
+      "assertions": [
+        "The current key/range is read rather than trusting remembered row 3.",
+        "Only the intended quantity cell is changed.",
+        "A fresh saved-state read establishes P-2 quantity 4.",
+        "Relevant formulas and another record remain unchanged."
+      ],
+      "forbidden": [
+        "Write to stale row 3 without establishing its current key.",
+        "Overwrite calculated totals.",
+        "Export unrelated tabs."
+      ],
+      "files": []
+    },
+    {
+      "id": "sheets-append-timeout-reconcile-state",
+      "kind": "boundary",
+      "prompt": "Append P-3 with quantity 4 exactly once. Preserve other rows and computed totals; verify the saved result.",
+      "context": "Synthetic starting state: P-1 and P-2 exist and P-3 is absent. Stateful tools can read rows by key and append. The first append returns a timeout whose actual outcome is unknown to the agent. The key has no atomic uniqueness constraint. The agent must obtain a fresh resulting-state read, including values and duplicate count, before deciding whether another write is needed.",
+      "expected_output": "A reconciled result based on actual rows; no duplicate append while the first outcome is unresolved.",
+      "assertions": [
+        "A current read by P-3 precedes any retry.",
+        "If one complete intended row exists, it is verified and no second append occurs.",
+        "Partial, duplicate, or conflicting state is reported without blindly adding another row.",
+        "Unknown state remains uncertain rather than being called absent."
+      ],
+      "forbidden": [
+        "Treat timeout as proof of absence.",
+        "Blindly append again.",
+        "Claim atomic exactly-once insertion from a preflight lookup."
+      ],
+      "files": []
+    },
+    {
+      "id": "sheets-routing-local-workbook",
+      "kind": "routing",
+      "prompt": "Create an Excel .xlsx workbook from this CSV and add a chart. Do not upload it to Google Sheets.",
+      "context": "Routing-only fixture: the deliverable is a local spreadsheet file. No online spreadsheet or account mutation is requested.",
+      "expected_output": "Route to file-based spreadsheet authoring rather than Google Sheets update.",
+      "assertions": [
+        "google-sheets-update is not selected as the primary workflow.",
+        "The local file deliverable and no-upload constraint are preserved."
+      ],
+      "forbidden": [
+        "Create or edit an online Google Sheet."
+      ],
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "synthetic": true,
+  "repository": "example/project",
+  "pull_request_url": "https://example.invalid/example/project/pull/42",
+  "base": "H1",
+  "merge_base": "H1",
+  "head": "H2",
+  "purpose": "Preserve active-user eligibility while tolerating records without an active field.",
+  "requirement": "Only users explicitly marked active may be returned. Missing active means inactive and must not grant eligibility.",
+  "changed_files": ["users.py"],
+  "file_list_complete": true,
+  "patch_complete": true,
+  "head_file_lines": [
+    "def eligible_users(users):",
+    "    \"\"\"Return records explicitly marked active.\"\"\"",
+    "    return [user for user in users if user.get(\"active\", True)]"
+  ],
+  "caller_context": "The notification worker sends a message to every record returned by eligible_users. Records without active are imported but must not receive messages.",
+  "checks": [
+    {"name": "explicit-active-and-inactive", "head": "H2", "status": "passed", "coverage": "Checks active true and false; does not cover a missing field."}
+  ],
+  "execution": "No code execution required or authorized; inspect supplied artifacts only."
+}

@@ -1,0 +1,39 @@
+name: Report a workflow failure
+description: Report an observed skill, packaging, or helper failure using sanitized evidence.
+title: '[Failure] '
+body:
+  - type: markdown
+    attributes:
+      value: 'Share a synthetic reproduction, not raw account data or transcripts. For a suspected secret exposure, use the repository Security tab and private reporting when available.'
+  - type: input
+    id: revision
+    attributes:
+      label: Skill name and commit or release
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Host and available tool capabilities
+      description: Name the host/tool version and relevant capabilities. Exclude profile paths, account identifiers, and credentials.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal synthetic task and steps
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Expected versus observed result
+      description: Describe resulting state and whether it was independently read back. Distinguish a plan, attempted action, and saved outcome.
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Missing evidence and suggested correction
+    validations:
+      required: false

@@ -5,7 +5,7 @@ session export format. An authorized author must sanitize and review the content
 before invoking the generator. The helper validates shape, not confidentiality,
 truth, prompt-injection resistance, or workflow quality.
 
-The object must contain exactly these keys:
+The object must contain these required keys and may also contain `effects`:
 
 | Key | Value |
 | --- | --- |
@@ -17,6 +17,7 @@ The object must contain exactly these keys:
 | `verification` | Nonempty list of one-line, nonempty observable resulting-state checks |
 | `recovery` | Nonempty list of one-line, nonempty failure/recovery instructions |
 | `evidence` | `synthetic` or `session-summary`; neither means browser-validated |
+| `effects` (optional) | `read-only` or `write`; defaults to `write` for existing records. Affects relevant draft guidance, not execution permissions |
 
 Strings must not contain line breaks/control characters or a standalone Markdown
 frontmatter delimiter. The name determines a folder under the chosen output

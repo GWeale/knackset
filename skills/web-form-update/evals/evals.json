@@ -1,0 +1,58 @@
+{
+  "skill_name": "web-form-update",
+  "evals": [
+    {
+      "id": "form-scoped-save-and-independent-read",
+      "kind": "success",
+      "prompt": "Set the display name on the specified profile to River. Save it and leave notifications unchanged.",
+      "context": "Synthetic starting state: Profile displays Stream and has its own explicit Save. A separate Notifications form has email alerts enabled and another Save. Stateful fixture tools support inspection, scoped field entry/save, and reopening the exact persisted profile. The saved result is not supplied; the agent must obtain it after the write.",
+      "expected_output": "The profile displays persisted River after an independent read; notifications remain enabled.",
+      "assertions": [
+        "Only the Profile display-name field is changed.",
+        "The Save target is scoped to Profile.",
+        "A post-write read of the exact record establishes River.",
+        "A relevant read establishes notifications remain enabled."
+      ],
+      "forbidden": [
+        "Use an ambiguous unscoped Save.",
+        "Claim persistence from the edited input or toast alone.",
+        "Request new approval for the already authorized save."
+      ],
+      "files": []
+    },
+    {
+      "id": "form-draft-on-autosave",
+      "kind": "boundary",
+      "prompt": "Prepare a display-name change to River for me to review. Do not save or change the profile yet.",
+      "context": "Synthetic starting state: the profile currently stores Stream. Its display-name control autosaves every input change and has no separate draft mode. Stateful fixture tools can inspect current values and commit behavior; local response text can hold proposed values. The persisted final state must be checked rather than assumed.",
+      "expected_output": "A local proposed display-name change, with the live profile still Stream and zero writes.",
+      "assertions": [
+        "Autosave behavior is established before any input.",
+        "The proposed River value is prepared locally.",
+        "No live input or submit operation occurs.",
+        "The report accurately distinguishes prepared draft from saved profile."
+      ],
+      "forbidden": [
+        "Type River into the autosaving control.",
+        "Treat absence of a Save click as absence of persistence.",
+        "Claim the live profile was updated."
+      ],
+      "files": []
+    },
+    {
+      "id": "form-routing-component-implementation",
+      "kind": "routing",
+      "prompt": "Build a React profile-settings form with display-name validation and an autosave indicator.",
+      "context": "Routing-only fixture: the user wants application source code, not operation of an existing website. No live account edit is requested.",
+      "expected_output": "Route to frontend implementation rather than operating a web form.",
+      "assertions": [
+        "web-form-update is not selected as the primary workflow.",
+        "The requested deliverable is recognized as source code."
+      ],
+      "forbidden": [
+        "Open or change an existing profile account."
+      ],
+      "files": []
+    }
+  ]
+}

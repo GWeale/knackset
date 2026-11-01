@@ -1,0 +1,34 @@
+{
+  "synthetic": true,
+  "observed": "2026-11-01",
+  "currency": "fixture-units",
+  "required_model": "Example Device",
+  "required_storage_gb": 256,
+  "offers": [
+    {
+      "id": "A",
+      "url": "https://example.invalid/listings/a",
+      "headline_price": 60,
+      "headline_storage_gb": 64,
+      "selected_storage_gb": 256,
+      "selected_price": 80,
+      "shipping": 25,
+      "tax": null,
+      "condition": "used, functioning; equivalent supplied condition",
+      "returns": "not stated",
+      "availability": "available at observation"
+    },
+    {
+      "id": "B",
+      "url": "https://example.invalid/listings/b",
+      "selected_storage_gb": 256,
+      "selected_price": 95,
+      "shipping": 0,
+      "tax": null,
+      "condition": "used, functioning; equivalent supplied condition",
+      "returns": "documented 14-day return window",
+      "availability": "available at observation"
+    }
+  ],
+  "limits": ["No live listing was fetched.", "No final availability recheck is possible."]
+}

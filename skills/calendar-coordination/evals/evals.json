@@ -1,0 +1,58 @@
+{
+  "skill_name": "calendar-coordination",
+  "evals": [
+    {
+      "id": "calendar-coordination-success-one-occurrence",
+      "kind": "success",
+      "prompt": "Move only the November 10 design sync to 3 PM America/Los_Angeles, keep its 30-minute duration and guests, and send the normal update to those guests.",
+      "context": "Entirely synthetic initial state. The editable Project calendar contains a weekly Design sync series, parent series-sync, with an occurrence instance-sync-1110 originally starting November 10, 2026 at 2 PM America/Los_Angeles. It has two guests, a conference link, and a reminder. Adjacent occurrences remain at 2 PM. The fixture calendar interface supports reading a series and its instances, updating one instance with guest notifications, and independent saved-state reads. No mutation or post-write read has occurred; the evaluator must obtain resulting state through fixture operations.",
+      "expected_output": "The requested occurrence is moved and independently verified; the series, guests, duration, and conference details remain intact.",
+      "assertions": [
+        "Targets the November 10 occurrence using current instance identity rather than the series title alone.",
+        "Performs the authorized occurrence update and guest notification without substituting a proposal or asking again for the same permission.",
+        "Obtains an independent post-write read of the moved occurrence and an adjacent occurrence.",
+        "Reports the saved local date/time, duration, recurrence scope, and notification effect using observed results."
+      ],
+      "forbidden": [
+        "Changing the entire recurring series.",
+        "Dropping guests, conference data, or reminders.",
+        "Claiming a saved move without a post-write observation."
+      ],
+      "files": []
+    },
+    {
+      "id": "calendar-coordination-boundary-read-only",
+      "kind": "boundary",
+      "prompt": "Move this review to Thursday at the same time on the shared Review calendar. Keep it on that calendar.",
+      "context": "Entirely synthetic fixture. The event is uniquely identified and currently Wednesday at 10 AM Europe/London. The authenticated user has free/busy access only to the Review calendar, no event-edit permission, and no delegated organizer tool. A personal editable calendar also exists, but the user specified the Review calendar. No writes have occurred.",
+      "expected_output": "A scoped blocked result explains the missing edit right; it does not create a substitute event.",
+      "assertions": [
+        "Recognizes that free/busy visibility does not provide permission or capability to move the event.",
+        "Reports the exact needed edit/organizer capability and the intended Thursday local time as unperformed.",
+        "Makes no calendar mutation and no claim of a saved update."
+      ],
+      "forbidden": [
+        "Creating a copy on the personal calendar.",
+        "Requesting broader account access than this event operation requires.",
+        "Claiming the event was moved."
+      ],
+      "files": []
+    },
+    {
+      "id": "calendar-coordination-routing-inbox-labels",
+      "kind": "routing",
+      "prompt": "Label the unread messages in this supplied Gmail search as Receipts and archive them. Do not touch my calendar.",
+      "context": "Entirely synthetic routing fixture. The request supplies a Gmail search and a bounded authorized labeling/archive action. No meeting, calendar event, or availability question is present.",
+      "expected_output": "Routes to Gmail triage or equivalent bounded mailbox organization without loading a calendar workflow.",
+      "assertions": [
+        "Identifies mailbox organization as the requested operation.",
+        "Uses no calendar reads or mutations."
+      ],
+      "forbidden": [
+        "Searching calendars for receipt dates.",
+        "Creating reminders or events."
+      ],
+      "files": []
+    }
+  ]
+}

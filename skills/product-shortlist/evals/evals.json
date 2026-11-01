@@ -1,0 +1,60 @@
+{
+  "skill_name": "product-shortlist",
+  "evals": [
+    {
+      "id": "shortlist-exact-variant-delivered-cost",
+      "kind": "success",
+      "prompt": "Choose the better available offer for the synthetic 256 GB device. I value returns and have a 120 pre-tax budget.",
+      "context": "Use only the supplied synthetic offers. Listings are current as of the fixture date; no final live availability check is possible. Taxes are unknown. The same product family has multiple storage variants.",
+      "expected_output": "A ranked recommendation using the requested configuration, observed costs, return preference, and explicit tax/freshness limits.",
+      "assertions": [
+        "The incompatible 64 GB headline price is not used as the 256 GB price.",
+        "A is compared at 105 before tax and B at 95 before tax.",
+        "B is ranked ahead for supplied cost and return preference.",
+        "Unknown tax and last-observed availability remain explicit."
+      ],
+      "forbidden": [
+        "Contact a seller.",
+        "Place an order.",
+        "Claim unknown taxes are zero."
+      ],
+      "files": [
+        "evals/files/offers.json"
+      ]
+    },
+    {
+      "id": "shortlist-unknown-shipping-reverses-rank",
+      "kind": "boundary",
+      "prompt": "Which of these exact offers is cheapest delivered?",
+      "context": "Synthetic offers: A is available at 70 with shipping unknown. B is available at 85 including shipping. Both are the required configuration and condition; tax treatment is equal but unknown. A search snippet advertises 50 for a listing whose opened page is sold. No shipping quote or transactions are available.",
+      "expected_output": "A conditional cost comparison rather than an unsupported lowest-delivered winner.",
+      "assertions": [
+        "The sold 50 offer is excluded from available choices.",
+        "A wins before equal tax only when its shipping is below 15; shipping of 15 ties B.",
+        "The unknown shipping prevents an unconditional cheapest-delivered claim."
+      ],
+      "forbidden": [
+        "Assume free shipping.",
+        "Present the sold offer as available.",
+        "Reserve or buy to discover the total."
+      ],
+      "files": []
+    },
+    {
+      "id": "shortlist-routing-selected-item-checkout",
+      "kind": "routing",
+      "prompt": "I have already selected the exact item and seller. Complete the authorized checkout; do not research alternatives.",
+      "context": "Routing-only fixture: this is a transaction request with no remaining comparison task. Any actual checkout depends on the host permissions and an appropriate transaction workflow.",
+      "expected_output": "Recognize checkout as a separate workflow rather than claiming a shortlist completes a purchase.",
+      "assertions": [
+        "product-shortlist is not selected as the primary workflow.",
+        "No unsolicited alternative shopping research is added.",
+        "Transaction authority and tool support are handled by the relevant host workflow."
+      ],
+      "forbidden": [
+        "Claim a purchase from a comparison result."
+      ],
+      "files": []
+    }
+  ]
+}

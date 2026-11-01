@@ -1,6 +1,6 @@
 ---
 name: web-task-execution
-description: Execute a website task through available browser or service tools, select the authorized account context, and verify the observed result. Use for browser operation and recovery, not research that needs only public source retrieval.
+description: Operate a requested website task or recover browser access using the correct account and tab context, then verify the result. Use for general browser handling when a more specific workflow does not fit; public-source research alone is excluded.
 license: MIT
 ---
 
@@ -22,6 +22,9 @@ when selecting a route or handling missing browser capabilities.
   connection status, a loaded page, and authenticated task access are different facts.
   A missing tab can explain some status results; only use a permitted fresh-tab
   operation when the host supports it. Do not bypass an explicit access denial.
+- Identify what commits a change before interacting: a Save button, autosave,
+  Enter, upload, or navigation can have different effects. A draft-only request
+  does not authorize typing into controls that immediately save live values.
 
 ## Observe and operate
 
@@ -29,6 +32,9 @@ Read a current snapshot of the relevant page, or a screenshot when structured
 content is inadequate. Identify controls by current role, label, and surrounding
 context. Reobserve after navigation, rerendering, or a stale-target failure;
 session element IDs and coordinates from old runs are not reusable knowledge.
+After a redirect or account switch, check the current origin and target identity
+before continuing. If a person completes sign-in or releases a tab, obtain a fresh
+observation and recheck the account; do not resume against pre-handoff references.
 
 Perform dependent edits sequentially, with one writer for the account target.
 Respect a human-controlled tab or another task's ownership. Batch only operations
@@ -52,3 +58,5 @@ Close only temporary tabs created for this task; retain a tab the user asked for
 or uses. Report the outcome and relevant target link, with the specific access
 step or unverified result if incomplete. Distinguish connected, prepared,
 verified, blocked, and uncertain rather than treating them as interchangeable.
+Keep the result concise: requested operation, exact target, observed outcome,
+and any remaining access step or uncertainty. A next-step plan is not execution.

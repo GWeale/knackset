@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "id": "reconcile-uncertain-append",
+  "state": "candidate",
+  "trigger": "A non-idempotent append times out and its resulting state is unknown.",
+  "scope": {
+    "applies_to": ["A requested append with a stable domain key and a readable destination"],
+    "prerequisites": ["The same destination can be inspected through authorized tools"],
+    "excludes": ["A read-only request", "An operation with documented effective idempotency"]
+  },
+  "action": "Read the destination by the intended key before considering another append; reconcile complete, missing, partial, or duplicate state.",
+  "acceptance": "A separate read establishes whether the intended record exists once with its requested values; unresolved state is reported as uncertain without another append.",
+  "support": [
+    {
+      "kind": "synthetic",
+      "observation": "A fixture append reports timeout; a later explicit read reveals one complete intended row.",
+      "limit": "This is authored fixture material, not an executed browser or service task."
+    }
+  ],
+  "counterexamples": [
+    {
+      "condition": "The operation documents an effective idempotency key and the same key is reused.",
+      "implication": "Its supported retry semantics may permit a different recovery procedure; do not generalize this lesson to every write."
+    }
+  ],
+  "confidence": {
+    "label": "tentative",
+    "reason": "The example is synthetic and has no recorded independent execution. This label is a review heuristic, not a probability or authority."
+  },
+  "retirement": {
+    "criteria": "Retire or narrow the lesson if actual operation semantics or observed counterexamples invalidate its trigger/action relationship.",
+    "replacement": null
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "synthetic": true,
+  "accessed": "2026-11-01",
+  "sources": [
+    {
+      "title": "Standard plan exports — Region A",
+      "url": "https://example.invalid/region-a/standard/export",
+      "publisher": "Example Service official documentation",
+      "updated": "2026-10-20",
+      "scope": {"region": "A", "plan": "standard"},
+      "content": "The standard plan in Region A supports CSV export. JSON export is not included in this plan."
+    },
+    {
+      "title": "Enterprise plan exports",
+      "url": "https://example.invalid/enterprise/export",
+      "publisher": "Example Service official documentation",
+      "updated": "2026-10-31",
+      "scope": {"region": "A", "plan": "enterprise"},
+      "content": "Enterprise accounts in Region A can export CSV and JSON. This page describes the enterprise plan only."
+    },
+    {
+      "title": "My export walkthrough",
+      "url": "https://example.invalid/community/export-walkthrough",
+      "publisher": "Synthetic community author",
+      "updated": "2024-05-01",
+      "scope": {"region": "unspecified", "plan": "unspecified"},
+      "content": "My account has only CSV export. I do not state its region or plan."
+    }
+  ]
+}
