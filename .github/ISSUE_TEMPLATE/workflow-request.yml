@@ -1,5 +1,5 @@
 name: Propose a workflow
-description: Suggest one distinct, reusable task with a clear finish condition.
+description: Suggest a task and describe how an agent should know it is finished.
 title: '[Workflow] '
 body:
   - type: markdown
@@ -8,35 +8,35 @@ body:
   - type: textarea
     id: outcome
     attributes:
-      label: User request and observable outcome
-      description: Give one realistic request and the resulting state or artifact that proves completion.
+      label: What should the agent do?
+      description: Give one realistic request and describe what you would check to know it finished.
     validations:
       required: true
   - type: input
     id: service
     attributes:
-      label: Website, service, or tool context
+      label: Where should it work?
       description: Where should the task run, and which agent or tools do you use?
     validations:
       required: true
   - type: textarea
     id: gap
     attributes:
-      label: Existing skill gap
+      label: Is an existing skill close?
       description: If you have checked the catalog, which skill is closest and what is missing?
     validations:
       required: false
   - type: textarea
     id: sources
     attributes:
-      label: Public primary sources and reuse rights
-      description: If available, link official documentation or licensed material and note any reuse terms.
+      label: Useful documentation
+      description: Link official documentation if you have it. For material you want to reuse, include its license or reuse terms.
     validations:
       required: false
   - type: textarea
     id: fixture
     attributes:
-      label: Synthetic success and failure example
+      label: Example with made-up data
       description: If useful, give made-up inputs, the expected result, and something that could go wrong.
     validations:
       required: false

@@ -1,12 +1,14 @@
 # Reporting a security concern
 
-For suspected credential exposure, private data disclosure, or a malicious
-instruction/resource in a package, use **Security → Report a vulnerability** on
-GitHub when private reporting is available. Include a minimal synthetic
-reproduction, affected revision, and impact. Do not post real credentials,
-personal session exports, or account screenshots in a public issue.
+For suspected credential exposure, private data leaks, or malicious instructions
+in a package, [report a vulnerability privately](https://github.com/GWeale/knackset/security/advisories/new).
+Include the affected commit or release, the possible impact, and the smallest
+reproduction you can make with synthetic data. Keep real
+credentials, session exports, and account screenshots out of public issues.
 
-For ordinary workflow failures, use the workflow-failure issue form. Review skill
-instructions and bundled code before running them; installing a skill does not
-isolate its execution or grant authority for external actions. Host permission and
-account protections remain necessary.
+For ordinary workflow failures, use the
+[failure report form](https://github.com/GWeale/knackset/issues/new?template=bug-report.yml).
+
+Review skill instructions and bundled code before running them. A skill package
+does not provide an execution sandbox or permission to act on an account. Your
+agent's tools, permissions, and account protections still govern what it can do.

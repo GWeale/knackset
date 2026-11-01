@@ -1,10 +1,10 @@
 name: Report a workflow failure
-description: Report an observed skill, packaging, or helper failure using sanitized evidence.
+description: Show what went wrong with a skill, package, or helper using made-up data.
 title: '[Failure] '
 body:
   - type: markdown
     attributes:
-      value: 'Describe the failure without raw histories, credentials, private links, or personal screenshots. For secret exposures, use private reporting in the repository Security tab when available.'
+      value: 'Describe the failure with made-up data. Keep private histories, credentials, private links, and personal screenshots out of this report. For sensitive concerns, follow the [security guidance](https://github.com/GWeale/knackset/blob/main/SECURITY.md).'
   - type: input
     id: task
     attributes:
@@ -15,27 +15,28 @@ body:
   - type: textarea
     id: evidence
     attributes:
-      label: Expected versus observed result
-      description: What should have happened, and what happened instead? Mention whether you checked the saved result.
+      label: What did you expect, and what happened?
+      description: Include any errors and say whether you checked the saved result.
     validations:
       required: true
   - type: textarea
     id: environment
     attributes:
       label: Agent, tools, and versions
-      description: Helpful if known. Include the agent/tool versions and skill commit or release; omit account identifiers and profile paths.
+      description: If known, include the agent, tool versions, and skill commit or release. Leave out account identifiers and profile paths.
     validations:
       required: false
   - type: textarea
     id: reproduction
     attributes:
-      label: Minimal synthetic task and steps
+      label: Steps to reproduce with made-up data
       description: If possible, give made-up inputs and the smallest steps that reproduce the failure.
     validations:
       required: false
   - type: textarea
     id: limitations
     attributes:
-      label: Missing evidence and suggested correction
+      label: Anything else that would help?
+      description: For example, a possible cause, a suggested fix, or a result you could not check.
     validations:
       required: false

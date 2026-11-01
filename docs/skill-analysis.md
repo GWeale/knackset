@@ -56,3 +56,19 @@ Live account behavior and consumer-product integration remain separate work.
 The [stateful preview results](../evals/results/README.md) record actual actions
 for four risk-bearing boundaries and their baselines, including a corrected
 grader failure. Equal observed outcomes do not establish performance improvement.
+
+## Follow-up review — 2026-11-01
+
+A review of the wording found four instructions worth correcting:
+
+| Skill | Correction |
+| --- | --- |
+| `calendar-coordination` | Scope the exclusive all-day end date to the Google API; follow the actual field's meaning in other tools |
+| `google-docs-update` | Prepare proposed text when suggestions are unsupported; do not silently apply direct edits |
+| `recurring-monitor` | Treat an ongoing-watch request as authorization to schedule it, while respecting a request to defer the first check |
+| `session-to-skill` | Require write-recovery guidance only for workflows that can change state |
+
+These came from reading the instructions, not observing new live failures. Three
+new boundary cases cover the calendar, Docs, and scheduling decisions. They are
+authored inputs, not completed agent runs. All four changed packages remain
+`draft`; the four packages with existing execution records are unchanged.

@@ -4,9 +4,9 @@
 
 **Agent workflows that check what actually happened.**
 
-Practical, open-source skills for agents connected to your browser, mail,
-calendar, and documents. They describe the task, the tricky decisions, and the
-saved result to check before calling it done.
+Knackset gives agents reusable instructions for tasks such as updating a
+spreadsheet, triaging mail, or preparing a form. Each skill covers the decisions
+that can go wrong and how to check the result before reporting success.
 
 [![CI](https://github.com/GWeale/knackset/actions/workflows/ci.yml/badge.svg)](https://github.com/GWeale/knackset/actions/workflows/ci.yml)
 [MIT](LICENSE) · [Browse the skills](docs/catalog.md) · [Contribute a failure case](https://github.com/GWeale/knackset/issues/new?template=bug-report.yml)
@@ -16,8 +16,8 @@ saved result to check before calling it done.
 Retrying the append would create a duplicate. The useful next step is to inspect
 the saved row. Knackset captures that kind of follow-through in reusable workflows.
 
-See the distinction in a scripted, synthetic demo. Python 3.10+, no packages or
-accounts required:
+Run a local demo of both choices. It uses scripted, synthetic data and needs only
+Python 3.10+:
 
 ```bash
 git clone https://github.com/GWeale/knackset.git
@@ -25,18 +25,18 @@ cd knackset
 python3 scripts/demo.py
 ```
 
-The demo performs both paths against isolated state: reconciling leaves one row;
-blindly retrying creates two. It cleans up afterward. This illustrates the
-workflow; it is not an agent benchmark. [Let your agent try the fixture](evals/README.md#run-a-forward-evaluation).
+Checking the saved state leaves one row; blindly retrying creates two. The demo
+uses temporary files and cleans up afterward. It runs no model and connects to no
+accounts. [Let your agent try the fixture](evals/README.md#run-a-forward-evaluation).
 
 ## Start with a workflow
 
 | Task | The detail the skill handles |
 | --- | --- |
-| [Update Google Sheets](skills/google-sheets-update/SKILL.md) | Recheck row identity; reconcile an uncertain append before retrying |
-| [Triage Gmail](skills/gmail-triage/SKILL.md) | Label matching messages without changing their starred thread neighbors |
-| [Prepare or update a form](skills/web-form-update/SKILL.md) | Discover autosave before typing into a draft-only request |
-| [Compose a Gmail reply](skills/gmail-draft-reply/SKILL.md) | Preserve recipients and thread; verify a saved draft after a timeout |
+| [Update Google Sheets](skills/google-sheets-update/SKILL.md) | Confirm the row and check whether a timed-out append was saved |
+| [Triage Gmail](skills/gmail-triage/SKILL.md) | Label matching messages while preserving starred messages in the same thread |
+| [Prepare or update a form](skills/web-form-update/SKILL.md) | Check for autosave before entering data when the user only asked for a draft |
+| [Compose a Gmail reply](skills/gmail-draft-reply/SKILL.md) | Keep the correct recipients and thread; read back the saved draft after a timeout |
 
 The [full catalog](docs/catalog.md) also covers calendars, Docs, research,
 monitoring, reservations, briefings, PR review, and capturing a session as a skill.
@@ -55,14 +55,21 @@ npx skills@1.7.4 add GWeale/knackset --skill google-sheets-update
 
 Or copy the entire `skills/google-sheets-update/` folder into your host's supported
 skills directory. The CLI command pins the installer, not repository contents;
-host discovery and live integrations have not been tested here.
+installation in host agents and live integrations have not been tested here.
+
+Before the first edit, ask your agent to confirm it can load the skill and name
+the connected account and tools it will use. Then give it a specific task:
+
+> Use the `google-sheets-update` skill. In [sheet URL], on the Inventory tab, set
+> Quantity to 4 for the row whose Item ID is P-3. Check the saved value.
 
 ## Evidence
 
 Four workflows have [stateful offline execution records](evals/results/README.md).
-The baselines also passed: the current sample does not establish performance
-gains or live service compatibility. Every package includes authored success,
-boundary, and routing cases. Those inputs are separate from completed executions.
+Each was compared with a baseline, and both versions passed every checked outcome.
+These runs do not establish improved performance or compatibility with live
+services. Every package also includes authored success, boundary, and routing
+cases; writing a case does not mean it has been executed.
 
 ## Bring one failure your agent should recover from
 
@@ -82,6 +89,6 @@ python3 scripts/catalog.py render --check
 python3 -m unittest discover -s tests -v
 ```
 
-Original, independent project. [Research and product comparisons](docs/product-alignment.md),
-[provenance](docs/provenance.md), and [growth decisions](docs/scaling.md) document
-the sources and limits. Original copyright notices are retained under the [MIT license](LICENSE).
+Knackset is independently authored. See the [research and product comparisons](docs/product-alignment.md),
+[provenance](docs/provenance.md), and [growth plan](docs/scaling.md) for its sources
+and limits. Original copyright notices are retained under the [MIT license](LICENSE).

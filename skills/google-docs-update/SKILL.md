@@ -41,8 +41,9 @@ Use narrow formatting field masks instead of resetting every style property.
 Where supported, guard against a stale read with `requiredRevisionId`. On a
 revision conflict, reread and recompute the bounded change; do not force old
 offsets onto a collaborator's new text. Use merge behavior only when its effect
-is understood and compatible with the request. Do not claim an unsupported
-suggestion mode was applied as a direct edit instead.
+is understood and compatible with the request. If the user requested suggestions
+and the available tool supports only direct edits, prepare the proposed changes
+and report the limitation. Do not substitute direct edits without authorization.
 
 ## Verify the saved result
 

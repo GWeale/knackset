@@ -1,48 +1,83 @@
-# Contributing a workflow
+# Contributing to Knackset
 
-Start with one real task and a finish condition another agent can observe. Read
-the [contract](docs/workflow-contract.md), then add a folder under `skills/` using
-the Agent Skills format. Keep the skill independently usable and link only the
-references that its workflow needs.
+Start with one task and a way to tell whether it finished. You can
+[report a failure](https://github.com/GWeale/knackset/issues/new?template=bug-report.yml),
+[request a workflow](https://github.com/GWeale/knackset/issues/new?template=workflow-request.yml),
+or contribute a skill. A small example with made-up data is enough to start a
+discussion.
 
-Describe intended outcomes and application semantics. Discover current controls
-from the live page; do not record a click sequence, session element ID, or cookie.
-Honor tool policies in the host environment. A portable skill must not invent
-tools, bypass access controls, or grant itself permission for an external action.
+## Write one focused skill
 
-Private histories are input to a local analysis, never a contribution artifact.
-Replace identities and task data with synthetic examples; remove identifiers,
-private links, transcripts, screenshots, and credentials. Generalize the failure
-and recovery lesson. A pattern scan cannot establish that text is safe to publish.
+Read the [workflow contract](docs/workflow-contract.md) and
+[provenance notes](docs/provenance.md). Add a folder under `skills/` using the
+[Agent Skills format](https://agentskills.io/specification), and keep everything
+the skill needs inside that folder.
 
-Add a `catalog.json` entry with category, focused tags, evidence basis and honest
-validation state. Keep the description canonical in `SKILL.md`; do not duplicate
-it in catalog metadata. Bundle the root MIT notice as `LICENSE.txt` in the package.
+Explain the intended outcome, the application's relevant behavior, and the
+decisions the agent must make. The agent should discover current page controls
+as it works; saved click sequences and session element IDs will go stale. Use
+only tools and permissions available in the host environment. A skill cannot
+invent a tool or authorize an external action on the user's behalf.
 
-Add `evals/evals.json` inside the skill with `skill_name` and an `evals` list. Each
-case has a globally unique `id`, `kind` (`success`, `boundary`, or `routing`),
-`prompt`, synthetic starting `context`, `expected_output`, nonempty `assertions`,
-`forbidden` action list and `files` list. Include all three kinds; fixture paths
-are relative to the skill folder and must stay inside it. Do not pre-supply the
-desired readback when the agent should choose and execute the observation.
+Add a `catalog.json` entry with a category, focused tags, evidence basis, and
+validation status. Keep the description in `SKILL.md`; the catalog reads it from
+there. Copy the root MIT notice into the package as `LICENSE.txt`.
 
-Run `python3 scripts/catalog.py render` after metadata/description changes, then
-all three checks from the README. [Evaluation guidance](evals/README.md) explains
-how to record actual outputs and compare a candidate with a baseline. A newly
-authored case is not execution evidence.
+## Add cases the skill should handle
 
-Use `draft` until the scope of evidence supports promotion. For `offline-reviewed`,
-attach a structured `sandbox` execution record with a successful `with-skill` run,
-nonempty boolean assertions and the current package fingerprint. For `live-tested`,
-the record must use `live` mode and a specifically authorized live test. Include
-date, runtime, task scope and limitations. The validator checks consistency and
-fingerprints, not the truth of a contributor's claim. When changing a promoted
-package, rerun the relevant evaluation or return it to draft.
+Create `evals/evals.json` inside the skill with `skill_name` and an `evals` list.
+Include at least one case of each kind: `success`, `boundary`, and `routing`.
+Routing cases check whether the agent recognizes a task that needs a different
+workflow.
 
-Original contributions use the repository's MIT license. Link to source material
-and verify the license of any reused file separately; an accessible repository,
-an aggregation page, or a paper does not itself grant redistribution rights.
+Each case needs:
 
-Use the GitHub workflow-request or failure form to suggest coverage or share a
-minimal synthetic reproduction. See the [growth plan](docs/scaling.md) for intake
-priorities and the [security note](SECURITY.md) for sensitive reports.
+- A globally unique `id` and a `kind`.
+- A `prompt` and synthetic starting `context`.
+- An `expected_output` and nonempty `assertions`.
+- A `forbidden` action list and a `files` list.
+
+Fixture paths are relative to the skill folder and must stay inside it. When the
+agent needs to read the saved result, let it perform that read; do not supply the
+answer in the starting context.
+
+## Match the status to the evidence
+
+New skills start as `draft`. To use `offline-reviewed`, attach a structured
+`sandbox` execution record with a successful `with-skill` run, nonempty boolean
+assertions, and the current package fingerprint. `live-tested` requires a `live`
+record from a specifically authorized live test. Include the date, runtime, task
+scope, and limitations.
+
+The [evaluation guide](evals/README.md) explains how to record outputs and compare
+a candidate with a baseline. Authored cases alone are not execution evidence.
+The validator checks record consistency and fingerprints; it cannot establish
+that a contributor's reported execution happened. If you change a promoted
+package, rerun the relevant evaluation or return its status to `draft`.
+
+## Check the change
+
+After changing catalog metadata or a skill description, regenerate the catalog
+and run the repository checks:
+
+```bash
+python3 scripts/catalog.py render
+python3 scripts/validate.py
+python3 scripts/catalog.py render --check
+python3 -m unittest discover -s tests -v
+```
+
+In the pull request, say what changed, which checks ran, and what remains untested.
+See the [growth plan](docs/scaling.md) for coverage priorities.
+
+## Keep sources clear and private data out
+
+Original contributions use the repository's MIT license. Link to your sources
+and check the license of each reused file. A public repository, aggregation page,
+or paper does not by itself grant permission to redistribute its contents.
+
+If a private session revealed a useful failure, contribute the lesson with
+made-up identities and task data. Do not include histories, identifiers, private
+links, transcripts, screenshots, or credentials. Automated scans cannot replace
+reviewing the material yourself. Use the [security reporting guidance](SECURITY.md)
+for sensitive concerns.

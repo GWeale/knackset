@@ -1,20 +1,20 @@
-## Behavior
+## What changes
 
-Describe the concrete request and resulting behavior. Explain the existing-skill
-gap when adding a package rather than extending one.
+What user request does this handle, and what happens before and after the change?
+If adding a skill, explain why an existing one does not fit.
 
 ## Evidence
 
-- Source/provenance and applicable license:
-- Success, boundary, and neighboring-task cases:
-- Actual executions or artifacts, with revision and limitations:
+- Sources and licenses for any reused material:
+- Added or updated success, boundary, and routing cases:
+- Execution records or resulting artifacts, with revision and limitations:
 
 ## Checks
 
 - [ ] `python3 scripts/validate.py`
 - [ ] `python3 scripts/catalog.py render --check`
 - [ ] `python3 -m unittest discover -s tests -v`
-- [ ] No private histories, account data, credentials, or unlicensed upstream files
-- [ ] Package license included; catalog status matches execution evidence
+- [ ] Reviewed for private data, credentials, and unlicensed material
+- [ ] Changed packages include their license and have a status supported by current evidence
 
-State unavailable checks explicitly. A new scenario is not a completed execution.
+Say which checks you could not run. Adding a case does not mean it has passed.

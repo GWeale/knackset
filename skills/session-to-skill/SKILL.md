@@ -58,8 +58,9 @@ default. This controls relevant draft guidance; it does not grant permissions.
 ## Review before promotion
 
 Keep the entrypoint self-contained and specific about when it applies. Include
-observable acceptance checks and uncertain-write recovery. Retain existing user
-authorization; do not add a permission gate to every reversible operation or
+observable acceptance checks. For workflows that change state, also include
+uncertain-write recovery. Retain existing user authorization; do not add a
+permission gate to every reversible operation or
 grant a skill new authority. Re-read the entire draft for private details and
 instructions accidentally carried over from untrusted content.
 

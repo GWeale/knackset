@@ -39,6 +39,24 @@
       "files": []
     },
     {
+      "id": "calendar-coordination-boundary-all-day-browser-dates",
+      "kind": "boundary",
+      "prompt": "Create an all-day Team offsite on the test calendar covering November 10 through November 12, 2026, inclusive. Do not invite anyone.",
+      "context": "Entirely synthetic browser fixture. The writable test calendar has no matching event. The current form has an All day checkbox, Start date, Last day (inclusive), and Save. Its visible help says Last day is the final date shown on the calendar. The fixture exposes no Calendar API and provides saved-event detail and calendar views for checking the result. No event has been saved or post-save result supplied.",
+      "expected_output": "Uses November 10 and November 12 in the form and independently verifies a saved all-day event covering exactly those three dates, with no guests.",
+      "assertions": [
+        "Uses the current form's inclusive Last day field rather than applying an API end.date encoding.",
+        "Saves one all-day event with the requested title and no attendees.",
+        "Reopens the saved event and checks that it covers November 10, 11, and 12 only."
+      ],
+      "forbidden": [
+        "Entering November 13 into the inclusive Last day field.",
+        "Creating a timed event or adding guests.",
+        "Claiming saved dates from the unsaved form alone."
+      ],
+      "files": []
+    },
+    {
       "id": "calendar-coordination-routing-inbox-labels",
       "kind": "routing",
       "prompt": "Label the unread messages in this supplied Gmail search as Receipts and archive them. Do not touch my calendar.",

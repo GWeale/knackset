@@ -20,9 +20,11 @@ For availability, inspect only the relevant calendars and time window. Free/busy
 access supports conflict checking without exposing private event descriptions.
 
 Use named time zones for local-time schedules across daylight-saving changes.
-Distinguish timed events from date-only all-day events; an all-day end date is
-exclusive. Preserve duration unless the request changes it. Clarify a repeated
-wall-clock time when its offset is ambiguous and the intended instant matters.
+Distinguish timed events from date-only all-day events. In the Google Calendar
+API, `end.date` is exclusive. In a browser or another integration, follow the
+displayed control or documented field semantics. Preserve duration unless the
+request changes it. Clarify a repeated wall-clock time when its offset is
+ambiguous and the intended instant matters.
 
 For a recurring event, distinguish one occurrence, the series, and this-and-future
 occurrences. In Google Calendar, `recurringEventId` identifies the series while

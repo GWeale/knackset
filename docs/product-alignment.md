@@ -1,11 +1,11 @@
-# Product alignment, without claiming private implementation parity
+# What inspired Knackset
 
-Sources checked 2026-11-01. The goal is an open library that can complete the same
-**kinds of tasks** documented by personal-agent products. That does not establish
-identical internal instructions, runtime behavior, native import, or approval by a
-vendor. No private product prompt or skill has been extracted or copied.
+Sources checked 2026-11-01. Knackset covers the **kinds of tasks** described by
+Grok Bot, Meta Muse, and Instinct: mail, scheduling, research, and work across
+websites. Its instructions are independently written from public sources. We
+have not seen those products' private skills or tested Knackset inside them.
 
-## Public evidence and implementation boundary
+## What the public docs tell us
 
 | Product | Public evidence | What this library can claim |
 | --- | --- | --- |
@@ -18,10 +18,10 @@ their skill support does not prove consumer-agent support. Standard Agent Skills
 packaging likewise does not make browser tools interchangeable.
 [Agent Skills format](https://agentskills.io/specification)
 
-## Concrete workflow coverage
+## From product examples to skills
 
-These are mappings from public examples to independently authored packages,
-not assertions that the packages passed the vendors' tests.
+These public examples helped us choose what to build. They are not vendor test
+results or endorsements.
 
 | Documented job | Relevant packages | Distinctive behavior |
 | --- | --- | --- |
@@ -36,7 +36,7 @@ not assertions that the packages passed the vendors' tests.
 Examples come from [Grok Bot roles](https://docs.x.ai/grok-bot/use-cases),
 [Meta's design account](https://introducing.muse.ai/), and [Instinct](https://instinct.com/).
 
-## Match observable requirements
+## Design lessons
 
 Muse's connector guidelines emphasize complete supported task lifecycles,
 accurate total prices and terms, clear read/write effects, authorization, confirmed
@@ -50,6 +50,6 @@ automating it. The teaching result remains a draft; branches and failures still
 need authoring. Our capture and monitoring workflows use that progression, with
 no bundled background observer or scheduler. [Skills and routines](https://docs.x.ai/grok-bot/skills-routines-and-automations)
 
-Native integration claims require a named product/version, supported import/tool
-path, scoped execution, independent outcome evidence, and documented limits.
-Until then, compatibility is limited to the package format and observed test seam.
+Before claiming support for a product, we need to test a specific version, its
+skill-loading method, and its tools on a real task, then check the result. The
+current evidence covers package structure and simulated tasks only.

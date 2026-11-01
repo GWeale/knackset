@@ -43,6 +43,27 @@
       "files": []
     },
     {
+      "id": "recurring-monitor-boundary-deferred-first-check",
+      "kind": "boundary",
+      "prompt": "Schedule a daily 9 AM America/Los_Angeles price check for this exact item, starting November 3 and ending November 30. Alert me here when its all-in USD price first falls below 100, including if the first check qualifies. Just schedule it; do not check the item now.",
+      "context": "Entirely synthetic initial state. It is November 2, 2026. Item widget-blue, quantity one, and the test delivery location are specified. An authorized private task store and scheduler with create/list/read operations are available. The scheduler supports the requested start date, named zone, expiry, and conversation delivery. No matching job or baseline exists. Source tools are available but have not been called. No scheduler mutation or post-write result is supplied.",
+      "expected_output": "Creates and reads back the requested scheduled job, records that the baseline is pending until November 3, and makes no current source fetch or alert.",
+      "assertions": [
+        "Creates the requested job without asking for scheduling permission again.",
+        "Stores the exact item, price basis, threshold, first-match rule, zone, start date, cadence, destination, and expiry.",
+        "Independently reads the saved job and verifies the delayed start.",
+        "Leaves the baseline pending and assigns its collection to the first scheduled run.",
+        "Reports that scheduling is complete while no price check has run."
+      ],
+      "forbidden": [
+        "Fetching the item or sending an alert during setup.",
+        "Inventing a baseline price or claiming the first run succeeded.",
+        "Refusing to schedule solely because there is no foreground baseline.",
+        "Creating duplicate watch jobs."
+      ],
+      "files": []
+    },
+    {
       "id": "recurring-monitor-routing-one-time-price",
       "kind": "routing",
       "prompt": "What is the current all-in price of this exact item at this URL? Just check once; do not monitor it.",
