@@ -30,8 +30,10 @@
         "research-derived",
         "authored"
       ],
-      "status": "draft",
-      "evidence": [],
+      "status": "offline-reviewed",
+      "evidence": [
+        "evals/results/draft-coverage-revised-20261101.json"
+      ],
       "live_validation": false,
       "category": "browser",
       "tags": [
@@ -48,8 +50,10 @@
         "research-derived",
         "authored"
       ],
-      "status": "draft",
-      "evidence": [],
+      "status": "offline-reviewed",
+      "evidence": [
+        "evals/results/draft-coverage-revised-20261101.json"
+      ],
       "live_validation": false,
       "category": "developer",
       "tags": [
@@ -66,8 +70,10 @@
         "research-derived",
         "authored"
       ],
-      "status": "draft",
-      "evidence": [],
+      "status": "offline-reviewed",
+      "evidence": [
+        "evals/results/draft-coverage-revised-20261101.json"
+      ],
       "live_validation": false,
       "category": "developer",
       "tags": [
@@ -84,8 +90,10 @@
         "session-derived",
         "authored"
       ],
-      "status": "draft",
-      "evidence": [],
+      "status": "offline-reviewed",
+      "evidence": [
+        "evals/results/draft-coverage-revised-20261101.json"
+      ],
       "live_validation": false,
       "category": "learning",
       "tags": [
@@ -143,8 +151,10 @@
         "research-derived",
         "authored"
       ],
-      "status": "draft",
-      "evidence": [],
+      "status": "offline-reviewed",
+      "evidence": [
+        "evals/results/draft-coverage-revised-20261101.json"
+      ],
       "live_validation": false,
       "category": "productivity",
       "tags": [
@@ -161,8 +171,10 @@
         "research-derived",
         "authored"
       ],
-      "status": "draft",
-      "evidence": [],
+      "status": "offline-reviewed",
+      "evidence": [
+        "evals/results/draft-coverage-revised-20261101.json"
+      ],
       "live_validation": false,
       "category": "productivity",
       "tags": [
@@ -262,8 +274,10 @@
       "basis": [
         "authored"
       ],
-      "status": "draft",
-      "evidence": [],
+      "status": "offline-reviewed",
+      "evidence": [
+        "evals/results/draft-coverage-revised-20261101.json"
+      ],
       "live_validation": false,
       "category": "research",
       "tags": [
@@ -299,8 +313,10 @@
       "basis": [
         "authored"
       ],
-      "status": "draft",
-      "evidence": [],
+      "status": "offline-reviewed",
+      "evidence": [
+        "evals/results/draft-coverage-revised-20261101.json"
+      ],
       "live_validation": false,
       "category": "research",
       "tags": [

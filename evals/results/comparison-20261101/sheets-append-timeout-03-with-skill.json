@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "mode": "sandbox",
+  "runtime": "T3 Code native Codex harness",
+  "limitations": [
+    "Synthetic offline state and operations only; no live service or browser was exercised.",
+    "Final-response checks were explicitly supplied by the named reviewer, not inferred by the exporter.",
+    "Initialization binds package and grader contents; the mutable local workspace is not a tamper-proof attestation."
+  ],
+  "exporter_sha256": "81aedc251345bb1a6b9f7677555cf099cba77b96b71632cb7a549fb5db34adef",
+  "runs": [
+    {
+      "skill": "google-sheets-update",
+      "scenario": "sheets-append-timeout-reconcile-state",
+      "case": "sheets-append-timeout",
+      "variant": "with-skill",
+      "model": "gpt-6.1-sol",
+      "package_fingerprint_algorithm": "sha256-length-prefixed-v2",
+      "package_sha256": "50a66b5638dbf550ef27571b90f167c58074824a4a29b2ad5111fc5a7e43680c",
+      "started_at": "2026-11-02T01:21:00.517763+00:00",
+      "grader_sha256": {
+        "evals/draft_cases.py": "170e4ef2ec4bc019e00122e12521fcdfb26cf608b595c94ad4c5be507661da19",
+        "evals/monitor_cases.py": "b2f832e9f5388b75a82c7233c3f29a7307bd3750f970d89f544cde3ec8258fae",
+        "evals/sandbox.py": "0c4e201bfe82716fa0b1c917c765df6323c87bf01046b2876cbcc4926ba75ccf",
+        "evals/workflow_cases.py": "15cf674b3924dd7e250150156b61edb54570569df1371c8e361310ae00dc4471",
+        "skills/google-sheets-update/evals/evals.json": "e9a22bf77a5cca30ecaaba89ffdaf642b4bb4434bf817e90f5ef866d99998a38",
+        "skills/google-sheets-update/evals/files/literal-sheet.json": "e144eaa65075f6719af6c030d76069a861d363a794c20996d4db77afbce4a27d"
+      },
+      "passed": true,
+      "assertions": {
+        "automated:exactly_one_requested_row": true,
+        "automated:existing_rows_preserved": true,
+        "automated:one_append_attempt": true,
+        "automated:saved_rows_independently_read": true,
+        "response:truthful_saved_result": true,
+        "response:scope_respected": true
+      },
+      "automated_assertions": {
+        "exactly_one_requested_row": true,
+        "existing_rows_preserved": true,
+        "one_append_attempt": true,
+        "saved_rows_independently_read": true
+      },
+      "response_review": {
+        "reviewer": "coordinator unblinded saved-state and verbatim-response review",
+        "assertions": {
+          "truthful_saved_result": true,
+          "scope_respected": true
+        }
+      },
+      "final_response": "Appended P-3 exactly once with quantity 4. Verified the saved row has formula `=B4*10` and total 40. Both existing rows and their formulas remain unchanged.",
+      "trace": [
+        {
+          "operation": "initialize_case",
+          "arguments": {
+            "case": "sheets-append-timeout"
+          }
+        },
+        {
+          "operation": "read_rows",
+          "arguments": {},
+          "result": {
+            "rows": [
+              {
+                "item_id": "P-1",
+                "quantity": 1,
+                "total_formula": "=B2*10",
+                "total": 10
+              },
+              {
+                "item_id": "P-2",
+                "quantity": 2,
+                "total_formula": "=B3*10",
+                "total": 20
+              }
+            ]
+          }
+        },
+        {
+          "operation": "append",
+          "arguments": {
+            "item_id": "P-3",
+            "quantity": 4
+          },
+          "result": {
+            "status": "timeout",
+            "message": "The write outcome is unknown; inspect current state."
+          }
+        },
+        {
+          "operation": "read_rows",
+          "arguments": {},
+          "result": {
+            "rows": [
+              {
+                "item_id": "P-1",
+                "quantity": 1,
+                "total_formula": "=B2*10",
+                "total": 10
+              },
+              {
+                "item_id": "P-2",
+                "quantity": 2,
+                "total_formula": "=B3*10",
+                "total": 20
+              },
+              {
+                "item_id": "P-3",
+                "quantity": 4,
+                "total_formula": "=B4*10",
+                "total": 40
+              }
+            ]
+          }
+        }
+      ],
+      "final_state": {
+        "rows": [
+          {
+            "item_id": "P-1",
+            "quantity": 1,
+            "total_formula": "=B2*10",
+            "total": 10
+          },
+          {
+            "item_id": "P-2",
+            "quantity": 2,
+            "total_formula": "=B3*10",
+            "total": 20
+          },
+          {
+            "item_id": "P-3",
+            "quantity": 4,
+            "total_formula": "=B4*10",
+            "total": 40
+          }
+        ]
+      },
+      "workspace_sha256": "b016ee23743b3cb47ebb993c089e52c5b5b4789010c172e3b136ee573efe4941",
+      "comparison": {
+        "cohort": "matched-20261101",
+        "trial": "sheets-append-timeout-03",
+        "task_sha256": "223514e70f3aa6454139fc6b98be4ef1a6c89ed55d5907ac3b982e555c7d1311",
+        "tools_sha256": "0b106dfdedd0af5ea4c13215f229281b8dc329bceb7932dbee74ee5bca4ef2b0",
+        "source_report_sha256": "f7308b55b96d49f2cfa36a9ef137c3744212d4f7e1d3a0d6b2a9992adc29675d",
+        "metrics": {
+          "errors": 0,
+          "recovered": true
+        },
+        "measurement_source": "Frozen tools.json definitions; coordinator inspected saved state, operation order and final response; unblinded."
+      }
+    }
+  ]
+}

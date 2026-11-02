@@ -21,6 +21,7 @@ import sys
 
 import monitor_cases
 import workflow_cases
+import draft_cases
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from validate import FINGERPRINT_ALGORITHM, Validator, package_files, package_fingerprint
@@ -116,7 +117,7 @@ CASES = {
         },
     },
 }
-EXTENSIONS = (workflow_cases, monitor_cases)
+EXTENSIONS = (workflow_cases, monitor_cases, draft_cases)
 for extension in EXTENSIONS:
     if CASES.keys() & extension.CASES.keys():
         raise ValueError("duplicate sandbox case")
@@ -125,7 +126,9 @@ for extension in EXTENSIONS:
 
 def grader_hashes(case: str) -> dict[str, str]:
     root = Path(__file__).resolve().parents[1]
-    sources = [root / name for name in ("evals/sandbox.py", "evals/workflow_cases.py", "evals/monitor_cases.py")]
+    sources = [root / name for name in ("evals/sandbox.py", "evals/workflow_cases.py", "evals/monitor_cases.py", "evals/draft_cases.py")]
+    if CASES[case]["skill"] == "session-to-skill":
+        sources.append(root / "skills/session-to-skill/assets/lesson.example.json")
     # Extension cases load authored inputs at import time. Bind those resources
     # for baselines too, rather than identifying only the Python implementation.
     sources.extend(package_files(root / "skills" / CASES[case]["skill"] / "evals"))

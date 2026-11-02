@@ -1,10 +1,16 @@
 # Validation and provenance
 
-Status: **draft**. This package has authored [synthetic cases](evals/evals.json),
-but no qualifying execution record for this version. Structure checks and
-instruction review do not establish workflow success. No live service or browser
-workflow, account integration, host activation, or performance improvement is
-claimed.
+Status: **offline-reviewed**. Scope: the synthetic `expense-reconciliation-success-save-ledger` case only.
+The [dated execution record](https://github.com/GWeale/knackset/blob/main/evals/results/draft-coverage-revised-20261101.json)
+records actual actions, saved-state checks, separate semantic response review,
+and the versioned package fingerprint. Match that fingerprint before applying
+this status to a modified copy. The original rejected traces remain historical.
+
+No live service or browser compatibility, broader branch coverage, implicit
+routing accuracy, or performance improvement follows from this scoped test.
+Automated checks cover typed facts and operation order; prose meaning requires
+the recorded manual review. Other [authored cases](evals/evals.json) remain outside
+this execution claim.
 
 Independently written by Knackset contributors; basis: `research-derived`, `authored`. No proprietary
 product prompts or upstream skill files were copied. The [MIT license](LICENSE.txt)

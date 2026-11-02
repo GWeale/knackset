@@ -1,0 +1,8 @@
+{
+  "task": "Append item P-3 with quantity 4 exactly once. Preserve existing rows and total formulas. Verify the saved result.",
+  "operations": {
+    "read_rows": "Read current rows, optionally filtered by item_id; args: item_id (optional).",
+    "append": "Append a row, with a computed total formula; args: item_id, quantity. A timeout may occur after saving."
+  },
+  "scope": "Synthetic offline state only; no live service."
+}

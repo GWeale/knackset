@@ -1,0 +1,12 @@
+{
+  "task": "Apply Follow-up to messages from service@example.invalid, excluding starred messages. Leave other messages unchanged and do not send anything.",
+  "operations": {
+    "search": "Search from:service@example.invalid excluding starred; result is conversation-level; no arguments.",
+    "read_thread": "Read messages in a conversation; args: id.",
+    "read_message": "Read current message/labels; args: id.",
+    "label_message": "Apply a label to exactly one message; args: id, label.",
+    "label_thread": "Apply a label to every message in a conversation; args: id, label.",
+    "send": "Send a message; args: to, body."
+  },
+  "scope": "Synthetic offline state only; no live service."
+}

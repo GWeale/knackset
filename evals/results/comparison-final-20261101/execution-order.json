@@ -1,0 +1,122 @@
+[
+  {
+    "agent": "final_trial_01",
+    "case": "sheets-append-timeout",
+    "trial": "sheets-append-timeout-03",
+    "variant": "with-skill"
+  },
+  {
+    "agent": "final_trial_02",
+    "case": "sheets-append-timeout",
+    "trial": "sheets-append-timeout-03",
+    "variant": "baseline"
+  },
+  {
+    "agent": "final_trial_03",
+    "case": "gmail-message",
+    "trial": "gmail-message-01",
+    "variant": "baseline"
+  },
+  {
+    "agent": "final_trial_04",
+    "case": "gmail-message",
+    "trial": "gmail-message-01",
+    "variant": "with-skill"
+  },
+  {
+    "agent": "final_trial_05",
+    "case": "sheets-append-timeout",
+    "trial": "sheets-append-timeout-04",
+    "variant": "with-skill"
+  },
+  {
+    "agent": "final_trial_06",
+    "case": "sheets-append-timeout",
+    "trial": "sheets-append-timeout-04",
+    "variant": "baseline"
+  },
+  {
+    "agent": "final_trial_07",
+    "case": "sheets-append-timeout",
+    "trial": "sheets-append-timeout-05",
+    "variant": "baseline"
+  },
+  {
+    "agent": "final_trial_08",
+    "case": "sheets-append-timeout",
+    "trial": "sheets-append-timeout-05",
+    "variant": "with-skill"
+  },
+  {
+    "agent": "final_trial_09",
+    "case": "sheets-append-timeout",
+    "trial": "sheets-append-timeout-01",
+    "variant": "with-skill"
+  },
+  {
+    "agent": "final_trial_10",
+    "case": "sheets-append-timeout",
+    "trial": "sheets-append-timeout-01",
+    "variant": "baseline"
+  },
+  {
+    "agent": "final_trial_11",
+    "case": "gmail-message",
+    "trial": "gmail-message-04",
+    "variant": "with-skill"
+  },
+  {
+    "agent": "final_trial_12",
+    "case": "gmail-message",
+    "trial": "gmail-message-04",
+    "variant": "baseline"
+  },
+  {
+    "agent": "final_trial_13",
+    "case": "gmail-message",
+    "trial": "gmail-message-03",
+    "variant": "with-skill"
+  },
+  {
+    "agent": "final_trial_14",
+    "case": "gmail-message",
+    "trial": "gmail-message-03",
+    "variant": "baseline"
+  },
+  {
+    "agent": "final_trial_15",
+    "case": "gmail-message",
+    "trial": "gmail-message-02",
+    "variant": "baseline"
+  },
+  {
+    "agent": "final_trial_16",
+    "case": "gmail-message",
+    "trial": "gmail-message-02",
+    "variant": "with-skill"
+  },
+  {
+    "agent": "final_trial_17",
+    "case": "sheets-append-timeout",
+    "trial": "sheets-append-timeout-02",
+    "variant": "with-skill"
+  },
+  {
+    "agent": "final_trial_18",
+    "case": "sheets-append-timeout",
+    "trial": "sheets-append-timeout-02",
+    "variant": "baseline"
+  },
+  {
+    "agent": "final_trial_19",
+    "case": "gmail-message",
+    "trial": "gmail-message-05",
+    "variant": "with-skill"
+  },
+  {
+    "agent": "final_trial_20",
+    "case": "gmail-message",
+    "trial": "gmail-message-05",
+    "variant": "baseline"
+  }
+]

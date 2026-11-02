@@ -1,6 +1,6 @@
 # Measured execution records
 
-Eight workflows have current, scoped offline records. None has been tested against a live
+All 16 workflows have current, scoped offline records. None has been tested against a live
 service. Keep the individual runs and their limits in view: these are small
 trials, not a general success-rate benchmark.
 
@@ -101,3 +101,32 @@ At that revision this record supported `offline-reviewed` for its four packages.
 not cover all authored cases. None was marked `live-tested`. The remaining
 success/routing/domain cases have not been executed by this record.
 See the [evaluation procedure](../README.md) for reproducing a scoped run.
+
+## Draft coverage follow-up
+
+The [original eight trials](draft-coverage-20261101.json) retain automated failures
+from an overly literal grader. Correct wording, extra useful fields and two
+observed bug-reproduction attempts were rejected. The repaired grader checks typed
+facts and saved-state order while leaving prose meaning to named semantic review.
+Regressions cover decimal money, receipt-policy contradictions, current-case
+citations and independent reopening after every reproduction attempt.
+
+[Eight fresh revised runs](draft-coverage-revised-20261101.json) passed both the
+automated checks and explicit semantic response review. All 16 packages now have
+scoped offline evidence. This does not cover every authored branch or establish
+live services, real browser control or a full connected assistant.
+
+The [first matched study](comparison-20261101/REPORT.md) recorded 20 actual runs.
+It predates the draft-grader repair and retains its original source fingerprints;
+the strict comparison CLI intentionally rejects it against changed source files.
+Keep its observations historical rather than rewriting hashes to fit new code.
+
+## Final release-source comparison
+
+The [final matched study](comparison-final-20261101/REPORT.md) contains 20 new
+executions and 10 matched pairs accepted against the release's current source
+fingerprints. Sheets passed 5/5 for each variant; Gmail passed 3/5 without the
+skill and 5/5 with it. The two baseline failures omitted post-write verification
+of the starred message; all saved labels were correct. Cost remains unknown.
+The report discloses unblinded review and launch-order/setup deviations. These
+repeated two-task observations do not establish general or causal superiority.

@@ -78,8 +78,8 @@ the connected account and tools it will use. Then give it a specific task:
 
 ## Evidence
 
-Eight workflows have [current offline records](evals/results/README.md) covering
-14 synthetic challenges. Earlier records retain a failed Calendar check, its
+All 16 workflows have [scoped offline records](evals/results/README.md) across
+22 synthetic challenges. Earlier records retain a failed Calendar check, its
 successful retest, and baseline comparisons. These small trials do not establish
 a performance gain or compatibility with live services. Every package includes
 written success, boundary, and routing cases; only the recorded cases have been run.
@@ -106,3 +106,14 @@ python3 -m unittest discover -s tests -v
 Knackset is independently authored. See the [research and product comparisons](docs/product-alignment.md),
 [provenance](docs/provenance.md), and [growth plan](docs/scaling.md) for its sources
 and limits. Original copyright notices are retained under the [MIT license](LICENSE).
+
+## Run a local workflow
+
+The [local runtime preview](docs/runtime.md) persists task intent, approval state,
+recovery and a notification outbox across processes. It currently uses a synthetic
+adapter. The [comparison protocol](docs/comparison-protocol.md) and
+[measured records](evals/results/README.md) explain what was tested.
+
+Try one skill and [report a confusing instruction or failure](https://github.com/GWeale/knackset/issues/new?template=bug-report.yml)
+with synthetic reproduction steps, your host and the package revision. Real
+account identifiers and private transcripts do not belong in public reports.

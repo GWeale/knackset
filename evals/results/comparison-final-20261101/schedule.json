@@ -1,0 +1,95 @@
+{
+  "seed": 20261102,
+  "pairs": [
+    {
+      "case": "sheets-append-timeout",
+      "trial": "sheets-append-timeout-03",
+      "variants": [
+        "with-skill",
+        "baseline"
+      ],
+      "skill": "google-sheets-update"
+    },
+    {
+      "case": "sheets-append-timeout",
+      "trial": "sheets-append-timeout-04",
+      "variants": [
+        "with-skill",
+        "baseline"
+      ],
+      "skill": "google-sheets-update"
+    },
+    {
+      "case": "sheets-append-timeout",
+      "trial": "sheets-append-timeout-05",
+      "variants": [
+        "baseline",
+        "with-skill"
+      ],
+      "skill": "google-sheets-update"
+    },
+    {
+      "case": "sheets-append-timeout",
+      "trial": "sheets-append-timeout-01",
+      "variants": [
+        "with-skill",
+        "baseline"
+      ],
+      "skill": "google-sheets-update"
+    },
+    {
+      "case": "gmail-message",
+      "trial": "gmail-message-04",
+      "variants": [
+        "with-skill",
+        "baseline"
+      ],
+      "skill": "gmail-triage"
+    },
+    {
+      "case": "gmail-message",
+      "trial": "gmail-message-03",
+      "variants": [
+        "with-skill",
+        "baseline"
+      ],
+      "skill": "gmail-triage"
+    },
+    {
+      "case": "gmail-message",
+      "trial": "gmail-message-01",
+      "variants": [
+        "with-skill",
+        "baseline"
+      ],
+      "skill": "gmail-triage"
+    },
+    {
+      "case": "gmail-message",
+      "trial": "gmail-message-02",
+      "variants": [
+        "baseline",
+        "with-skill"
+      ],
+      "skill": "gmail-triage"
+    },
+    {
+      "case": "sheets-append-timeout",
+      "trial": "sheets-append-timeout-02",
+      "variants": [
+        "with-skill",
+        "baseline"
+      ],
+      "skill": "google-sheets-update"
+    },
+    {
+      "case": "gmail-message",
+      "trial": "gmail-message-05",
+      "variants": [
+        "with-skill",
+        "baseline"
+      ],
+      "skill": "gmail-triage"
+    }
+  ]
+}

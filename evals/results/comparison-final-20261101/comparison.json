@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "pairs": [
+    {
+      "cohort": "comparison-final-20261101",
+      "trial": "gmail-message-01",
+      "case": "gmail-message",
+      "completion": {
+        "baseline": false,
+        "with-skill": true
+      },
+      "metrics": {
+        "errors": {
+          "baseline": 1,
+          "with-skill": 0
+        },
+        "recovered": {
+          "status": "unmeasured or incomplete"
+        },
+        "cost_usd": {
+          "status": "unmeasured or incomplete"
+        }
+      }
+    },
+    {
+      "cohort": "comparison-final-20261101",
+      "trial": "gmail-message-02",
+      "case": "gmail-message",
+      "completion": {
+        "baseline": true,
+        "with-skill": true
+      },
+      "metrics": {
+        "errors": {
+          "baseline": 0,
+          "with-skill": 0
+        },
+        "recovered": {
+          "status": "unmeasured or incomplete"
+        },
+        "cost_usd": {
+          "status": "unmeasured or incomplete"
+        }
+      }
+    },
+    {
+      "cohort": "comparison-final-20261101",
+      "trial": "gmail-message-03",
+      "case": "gmail-message",
+      "completion": {
+        "baseline": false,
+        "with-skill": true
+      },
+      "metrics": {
+        "errors": {
+          "baseline": 1,
+          "with-skill": 0
+        },
+        "recovered": {
+          "status": "unmeasured or incomplete"
+        },
+        "cost_usd": {
+          "status": "unmeasured or incomplete"
+        }
+      }
+    },
+    {
+      "cohort": "comparison-final-20261101",
+      "trial": "gmail-message-04",
+      "case": "gmail-message",
+      "completion": {
+        "baseline": true,
+        "with-skill": true
+      },
+      "metrics": {
+        "errors": {
+          "baseline": 0,
+          "with-skill": 0
+        },
+        "recovered": {
+          "status": "unmeasured or incomplete"
+        },
+        "cost_usd": {
+          "status": "unmeasured or incomplete"
+        }
+      }
+    },
+    {
+      "cohort": "comparison-final-20261101",
+      "trial": "gmail-message-05",
+      "case": "gmail-message",
+      "completion": {
+        "baseline": true,
+        "with-skill": true
+      },
+      "metrics": {
+        "errors": {
+          "baseline": 0,
+          "with-skill": 0
+        },
+        "recovered": {
+          "status": "unmeasured or incomplete"
+        },
+        "cost_usd": {
+          "status": "unmeasured or incomplete"
+        }
+      }
+    },
+    {
+      "cohort": "comparison-final-20261101",
+      "trial": "sheets-append-timeout-01",
+      "case": "sheets-append-timeout",
+      "completion": {
+        "baseline": true,
+        "with-skill": true
+      },
+      "metrics": {
+        "errors": {
+          "baseline": 0,
+          "with-skill": 0
+        },
+        "recovered": {
+          "baseline": true,
+          "with-skill": true
+        },
+        "cost_usd": {
+          "status": "unmeasured or incomplete"
+        }
+      }
+    },
+    {
+      "cohort": "comparison-final-20261101",
+      "trial": "sheets-append-timeout-02",
+      "case": "sheets-append-timeout",
+      "completion": {
+        "baseline": true,
+        "with-skill": true
+      },
+      "metrics": {
+        "errors": {
+          "baseline": 0,
+          "with-skill": 0
+        },
+        "recovered": {
+          "baseline": true,
+          "with-skill": true
+        },
+        "cost_usd": {
+          "status": "unmeasured or incomplete"
+        }
+      }
+    },
+    {
+      "cohort": "comparison-final-20261101",
+      "trial": "sheets-append-timeout-03",
+      "case": "sheets-append-timeout",
+      "completion": {
+        "baseline": true,
+        "with-skill": true
+      },
+      "metrics": {
+        "errors": {
+          "baseline": 0,
+          "with-skill": 0
+        },
+        "recovered": {
+          "baseline": true,
+          "with-skill": true
+        },
+        "cost_usd": {
+          "status": "unmeasured or incomplete"
+        }
+      }
+    },
+    {
+      "cohort": "comparison-final-20261101",
+      "trial": "sheets-append-timeout-04",
+      "case": "sheets-append-timeout",
+      "completion": {
+        "baseline": true,
+        "with-skill": true
+      },
+      "metrics": {
+        "errors": {
+          "baseline": 0,
+          "with-skill": 0
+        },
+        "recovered": {
+          "baseline": true,
+          "with-skill": true
+        },
+        "cost_usd": {
+          "status": "unmeasured or incomplete"
+        }
+      }
+    },
+    {
+      "cohort": "comparison-final-20261101",
+      "trial": "sheets-append-timeout-05",
+      "case": "sheets-append-timeout",
+      "completion": {
+        "baseline": true,
+        "with-skill": true
+      },
+      "metrics": {
+        "errors": {
+          "baseline": 0,
+          "with-skill": 0
+        },
+        "recovered": {
+          "baseline": true,
+          "with-skill": true
+        },
+        "cost_usd": {
+          "status": "unmeasured or incomplete"
+        }
+      }
+    }
+  ],
+  "pair_count": 10,
+  "completion_counts": {
+    "baseline": 8,
+    "with-skill": 10
+  },
+  "limitations": [
+    "Descriptive paired observations only; no statistical or causal superiority claim.",
+    "Fresh contexts, randomization, measurement provenance and judge blinding require independent review."
+  ]
+}

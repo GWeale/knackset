@@ -1,0 +1,86 @@
+{
+  "seed": 20261101,
+  "status": "predeclared; no cohort runs started",
+  "schedule": [
+    {
+      "case": "gmail-message",
+      "repeat": 4,
+      "order": [
+        "baseline",
+        "with-skill"
+      ]
+    },
+    {
+      "case": "sheets-append-timeout",
+      "repeat": 4,
+      "order": [
+        "baseline",
+        "with-skill"
+      ]
+    },
+    {
+      "case": "sheets-append-timeout",
+      "repeat": 3,
+      "order": [
+        "with-skill",
+        "baseline"
+      ]
+    },
+    {
+      "case": "sheets-append-timeout",
+      "repeat": 5,
+      "order": [
+        "with-skill",
+        "baseline"
+      ]
+    },
+    {
+      "case": "gmail-message",
+      "repeat": 3,
+      "order": [
+        "baseline",
+        "with-skill"
+      ]
+    },
+    {
+      "case": "gmail-message",
+      "repeat": 1,
+      "order": [
+        "baseline",
+        "with-skill"
+      ]
+    },
+    {
+      "case": "sheets-append-timeout",
+      "repeat": 1,
+      "order": [
+        "with-skill",
+        "baseline"
+      ]
+    },
+    {
+      "case": "gmail-message",
+      "repeat": 2,
+      "order": [
+        "with-skill",
+        "baseline"
+      ]
+    },
+    {
+      "case": "gmail-message",
+      "repeat": 5,
+      "order": [
+        "with-skill",
+        "baseline"
+      ]
+    },
+    {
+      "case": "sheets-append-timeout",
+      "repeat": 2,
+      "order": [
+        "baseline",
+        "with-skill"
+      ]
+    }
+  ]
+}

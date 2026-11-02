@@ -1,10 +1,16 @@
 # Validation and provenance
 
-Status: **draft**. This package carries authored [synthetic cases](evals/evals.json).
-A [dated clean-PR decision review](https://github.com/GWeale/knackset/blob/main/evals/results/clean-pr-2026-11-01.json)
-checks a supplied diff and response; it is not a service execution record and
-cannot promote this package. The record identifies its exact package fingerprint.
-No live GitHub task, complete host integration, or performance gain is claimed.
+Status: **offline-reviewed**. Scope: the synthetic `github-review-demonstrated-regression` case only.
+The [dated execution record](https://github.com/GWeale/knackset/blob/main/evals/results/draft-coverage-revised-20261101.json)
+records actual actions, saved-state checks, separate semantic response review,
+and the versioned package fingerprint. Match that fingerprint before applying
+this status to a modified copy. The original rejected traces remain historical.
+
+No live service or browser compatibility, broader branch coverage, implicit
+routing accuracy, or performance improvement follows from this scoped test.
+Automated checks cover typed facts and operation order; prose meaning requires
+the recorded manual review. Other [authored cases](evals/evals.json) remain outside
+this execution claim.
 
 Independently written by Knackset contributors; basis: `research-derived`, `authored`. No proprietary
 product prompts or upstream skill files were copied. The [MIT license](LICENSE.txt)

@@ -28,7 +28,7 @@ are test inputs. Completed runs are recorded separately in [results/](results/RE
 
 ## Choose a runnable challenge
 
-Fourteen cases run locally with Python 3.10+ and no accounts or extra packages:
+Twenty-two cases run locally with Python 3.10+ and no accounts or extra packages:
 
 ```bash
 python3 evals/sandbox.py list

@@ -21,7 +21,7 @@ class ExportEvalTests(unittest.TestCase):
         (self.root / "scripts").mkdir(parents=True)
         (self.root / "evals").mkdir()
         for name in ("scripts/validate.py", "scripts/export_eval.py", "evals/sandbox.py",
-                     "evals/workflow_cases.py", "evals/monitor_cases.py"):
+                     "evals/workflow_cases.py", "evals/monitor_cases.py", "evals/draft_cases.py"):
             shutil.copyfile(ROOT / name, self.root / name)
         shutil.copytree(ROOT / "skills", self.root / "skills")
         self.package = self.root / "skills" / "web-form-update"

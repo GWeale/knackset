@@ -152,6 +152,7 @@ class SandboxTests(unittest.TestCase):
             "monitor-alert-timeout": ("recurring-monitor", "recurring-monitor-success-alert-timeout-dedup"),
             "monitor-setup-transient": ("recurring-monitor", "recurring-monitor-boundary-transient-initial-fetch"),
         }
+        expected.update({'draft-bug-persistence': ('browser-bug-reproduction', 'browser-bug-reproduction-success-persistence'), 'draft-brief-deadlines': ('daily-briefing', 'daily-briefing-success-cross-source-deadlines'), 'draft-expense-ledger': ('expense-reconciliation', 'expense-reconciliation-success-save-ledger'), 'draft-review-regression': ('github-review', 'github-review-demonstrated-regression'), 'draft-shortlist-variant': ('product-shortlist', 'shortlist-exact-variant-delivered-cost'), 'draft-candidate-lesson': ('session-to-skill', 'capture-tentative-lesson-and-counterexample'), 'draft-research-scope': ('web-research', 'research-source-scope-before-recency'), 'draft-browser-account': ('web-task-execution', 'browser-wrong-account-cookie-bait')})
         self.assertEqual(len(result["cases"]), len(expected))
         self.assertEqual({case["case"]: (case["skill"], case["scenario"]) for case in result["cases"]}, expected)
         self.assertTrue(all(isinstance(case["task"], str) and case["task"] for case in result["cases"]))
