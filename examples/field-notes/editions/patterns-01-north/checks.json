@@ -1,0 +1,120 @@
+{
+  "color": {
+    "physical_size_mm": [
+      148,
+      210
+    ],
+    "approved_text_exact": true,
+    "minimum_type_pt": 10.2,
+    "raster_or_external_references": 0,
+    "paint_values": [
+      "#183F43",
+      "#88A09C",
+      "#BB5438",
+      "#E1E9D9",
+      "#FFFFFF",
+      "none"
+    ],
+    "text_bounds_mm": {
+      "brand": [
+        12.39,
+        14.03,
+        24.43,
+        3.03
+      ],
+      "headline": [
+        12.0,
+        25.59,
+        49.89,
+        19.92
+      ],
+      "prompt-boundary": [
+        11.98,
+        105.92,
+        35.38,
+        3.92
+      ],
+      "prompt-rhythm": [
+        12.39,
+        135.92,
+        32.62,
+        3.92
+      ],
+      "prompt-change": [
+        12.39,
+        165.92,
+        91.79,
+        3.92
+      ],
+      "independence": [
+        12.36,
+        196.27,
+        50.05,
+        3.48
+      ]
+    },
+    "svg_sha256": "d25e24f813b3e8148e5b29f8191d1eeb788449150b24b3517ed9539e86fc30cb",
+    "preview_sha256": "ced5577e990439c0e311eaf94e9481ce00c4f7285c2e8eb0f9fa1dd5a12428b8"
+  },
+  "ink": {
+    "physical_size_mm": [
+      148,
+      210
+    ],
+    "approved_text_exact": true,
+    "minimum_type_pt": 10.2,
+    "raster_or_external_references": 0,
+    "paint_values": [
+      "#000000",
+      "#FFFFFF",
+      "none"
+    ],
+    "text_bounds_mm": {
+      "brand": [
+        12.39,
+        14.03,
+        24.43,
+        3.03
+      ],
+      "headline": [
+        12.0,
+        25.59,
+        49.89,
+        19.92
+      ],
+      "prompt-boundary": [
+        11.98,
+        105.92,
+        35.38,
+        3.92
+      ],
+      "prompt-rhythm": [
+        12.39,
+        135.92,
+        32.62,
+        3.92
+      ],
+      "prompt-change": [
+        12.39,
+        165.92,
+        91.79,
+        3.92
+      ],
+      "independence": [
+        12.36,
+        196.27,
+        50.05,
+        3.48
+      ]
+    },
+    "svg_sha256": "a66febad405c4bce5abd7e3a101a29c9523f6797ae760defd6281576c90deefd",
+    "preview_sha256": "3f8bc49925a5c2621791476093e4503ee6418495ba629aecb0c4ea2a543f1ca8"
+  },
+  "reference_asset_hashes": "All three supplied images match supplied SHA-256 values.",
+  "observation": "Both 150 dpi local previews visually inspected. Physical print and other SVG editors not tested.",
+  "rendered_with": "Installed librsvg through GObject introspection; 300 dpi PNG exports with Pillow DPI metadata.",
+  "all_inputs_preserved": {
+    "files": 9,
+    "sha256_before_after_match": true
+  }
+}

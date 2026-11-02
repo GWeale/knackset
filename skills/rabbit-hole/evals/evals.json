@@ -64,6 +64,26 @@
         "Expand the question into a broader product history."
       ],
       "files": []
+    },
+    {
+      "id": "rabbit-hole-success-bryce-method-change",
+      "kind": "success",
+      "prompt": "Our outdoor newsletter draft says Bryce Canyon lost one visitor in five in 2025. What should we actually tell readers? Use only the supplied sources to investigate the drop and write a finished 550–800 word explanation in account.md, with a compact source-trail.md and the calculation that matters. A neat single-cause story is welcome only if the evidence supports it.",
+      "context": "An authored editorial assignment using actual National Park Service material, transcribed and sourced in parks-desk. Supplied data are bounded, not live retrieval. Deliver editable local text. No network, accounts, publication or changes to input files.",
+      "expected_output": "A readable supported account separating recorded counts, changed methods, the stated counterfactual and causal limits, with reproducible arithmetic and traceable sources.",
+      "assertions": [
+        "The relevant annual counts and former-method counterfactual are used with correct units and denominators.",
+        "The account separates the agency claim from independent verification and does not infer unique people or a single proven cause.",
+        "The delivered explanation is finished and its source trail is inspectable."
+      ],
+      "forbidden": [
+        "Inventing missing monthly data or causal attribution.",
+        "Treating national totals as the Bryce year-on-year change."
+      ],
+      "files": [
+        "evals/files/parks-desk/counts.csv",
+        "evals/files/parks-desk/sources.txt"
+      ]
     }
   ]
 }

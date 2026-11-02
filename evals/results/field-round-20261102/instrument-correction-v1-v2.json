@@ -1,0 +1,11 @@
+{
+  "kind": "mechanical-instrument-correction",
+  "before_sha256": "6d2e41591ad96a92c7183671d34d8647962451ec8d9dad589ed2e109744f46af",
+  "after_sha256": "42a10b97fd10157b21a3aac6f9ca5afee112f3e7a6517bb6e3852ccd2602527c",
+  "observed_failure": "Approved words on positioned SVG tspan lines were concatenated without a space, incorrectly failing copy preservation for offline-01-south.",
+  "regression": "A public CLI check failed on valid positioned line wrapping before the fix; four helper tests pass afterward, including ordinary inline styled word fragments. The unchanged actual SVG now passes.",
+  "source_and_rubric_changed": false,
+  "artifact_changed": false,
+  "verdict_treatment": "Do not count the original false failure as a producer error. Preserve it and apply the corrected mechanical instrument equally to every completed artifact.",
+  "limits": "Simple SVG text/tspan extraction, not a complete typography or rendering engine; hidden styling/clipping/print/read-order claims still need separate review."
+}

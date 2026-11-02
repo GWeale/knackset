@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-labelledby="invitation-title invitation-description">
+  <title id="invitation-title">Night Orchard — draft invitation</title>
+  <desc id="invitation-description">A navy and pale lime review invitation with a single circular seed mark, large Night Orchard title, and the unresolved date shown as DATE TBC. Provisional digital artboard; printing format is undecided.</desc>
+  <rect width="900" height="1200" fill="#101D32"/>
+  <g fill="#DCECA7" font-family="Arial, Helvetica, sans-serif">
+    <text x="64" y="98" font-size="18" letter-spacing="3">YOU’RE INVITED</text>
+    <circle id="seed-mark" cx="764" cy="148" r="64"/>
+    <text id="event-title" x="58" y="500" font-size="172" font-weight="700" letter-spacing="-5"><tspan x="58" y="500">Night</tspan> <tspan x="58" y="680">Orchard</tspan></text>
+    <text id="event-date" x="64" y="1020" font-size="44" letter-spacing="2">DATE TBC</text>
+    <text x="64" y="1130" font-size="15" letter-spacing="3">REVIEW DRAFT</text>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+{
+  "passed": false,
+  "checks": [
+    "declared physical dimensions",
+    "literal approved copy in SVG text elements"
+  ],
+  "errors": [
+    "Required SVG text missing: Follow the edge. Where does your eye pause? | Write one observation before reading the source note. | Source note: Earth Selfie, Morocco. Landsat 8 imagery. USGS EROS Center, 2015. Public Domain. Colors are processed imagery, not a shared scientific key."
+  ],
+  "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."
+}

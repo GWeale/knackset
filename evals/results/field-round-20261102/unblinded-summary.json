@@ -1,0 +1,110 @@
+[
+  {
+    "pair": "pair-01",
+    "case": "offline",
+    "repeat": 1,
+    "preference": "with-method",
+    "strength": "moderate",
+    "arms": {
+      "with-method": {
+        "score": 12,
+        "ready": true
+      },
+      "without-method": {
+        "score": 11,
+        "ready": true
+      }
+    },
+    "difference": "A gives the essential source note 10.49 pt versus B\u2019s 9.07 pt, supplies a saved matching preview, and makes the source-comprehension trial explicit. B has a clearer response box and stronger brand header, but those do not outweigh A\u2019s better origin-note readability for this task."
+  },
+  {
+    "pair": "pair-02",
+    "case": "parks",
+    "repeat": 1,
+    "preference": "with-method",
+    "strength": "slight",
+    "arms": {
+      "with-method": {
+        "score": 12,
+        "ready": true
+      },
+      "without-method": {
+        "score": 11,
+        "ready": true
+      }
+    },
+    "difference": "Both correct the newsletter\u2019s claim accurately. A adds a concrete investigation that could distinguish the remaining shutdown/access rival, while B stops at the general need to connect conditions and visits. A\u2019s extra prose alone receives no credit."
+  },
+  {
+    "pair": "pair-03",
+    "case": "patterns",
+    "repeat": 1,
+    "preference": "with-method",
+    "strength": "slight",
+    "arms": {
+      "with-method": {
+        "score": 12,
+        "ready": true
+      },
+      "without-method": {
+        "score": 11,
+        "ready": true
+      }
+    },
+    "difference": "A\u2019s broken band, changing density and small irregular cross marks provide more to discover on a longer look than B\u2019s repeated wave offsets. B has more generous writing-rule spacing. Both are usable; preference concerns the observation target, not checklist length."
+  },
+  {
+    "pair": "pair-04",
+    "case": "offline",
+    "repeat": 2,
+    "preference": "with-method",
+    "strength": "moderate",
+    "arms": {
+      "without-method": {
+        "score": 11,
+        "ready": true
+      },
+      "with-method": {
+        "score": 12,
+        "ready": true
+      }
+    },
+    "difference": "B increases the response box from roughly 101 \u00d7 29 mm to 115 \u00d7 40 mm and essential small copy from roughly 9.07 to 10.20 pt. A\u2019s larger image does not compensate for those functional gains."
+  },
+  {
+    "pair": "pair-05",
+    "case": "patterns",
+    "repeat": 2,
+    "preference": "with-method",
+    "strength": "slight",
+    "arms": {
+      "without-method": {
+        "score": 11,
+        "ready": true
+      },
+      "with-method": {
+        "score": 12,
+        "ready": true
+      }
+    },
+    "difference": "B integrates the mechanisms in a single quiet specimen beside the title and gives each response three rules, while A presents three separate symbols with two rules. Both are legible and practical; the preference is the more unified observation target and larger response allocation, not the longer B notes."
+  },
+  {
+    "pair": "pair-06",
+    "case": "parks",
+    "repeat": 2,
+    "preference": "with-method",
+    "strength": "slight",
+    "arms": {
+      "with-method": {
+        "score": 12,
+        "ready": true
+      },
+      "without-method": {
+        "score": 11,
+        "ready": true
+      }
+    },
+    "difference": "Both publishable local drafts carry the correct numerical correction. A identifies the consistently counted monthly series plus shutdown access records that could test the remaining account; B is accurate but stops at saying the cause is unestablished."
+  }
+]

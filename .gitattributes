@@ -1,1 +1,4 @@
 *.pdf binary
+# Frozen study input retains its original end-of-line space for hash reproducibility.
+skills/unstick-project/evals/files/offline-desk/project-notebook.txt whitespace=-blank-at-eol
+examples/field-notes/offline-desk/project-notebook.txt whitespace=-blank-at-eol

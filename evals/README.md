@@ -213,6 +213,42 @@ were withheld; the score alone cannot prove that. Routing results do not promote
 packages or prove host discovery. A correct name can still have poor reasoning,
 so inspect that separately. Freeze the selection before any follow-on execution.
 
+## Check creative artifacts without turning them into sandbox records
+
+For an artifact study, freeze the actual task, raw inputs, method entrypoint and
+review criteria before the first run. Give a producer only the method text and
+resources its task needs. Package evaluation files contain expected answers;
+do not expose them through the assigned directory or a status/provenance link.
+Keep the complete source-package fingerprint separately. Record when the study
+uses staged instruction text rather than proving installed-host discovery.
+
+The narrow artifact checker reads saved files without repairing them:
+
+```bash
+python3 evals/creative_artifacts.py --svg path/to/color.svg \
+  --width-mm 148 --height-mm 210 \
+  --copy-file path/to/approved-copy.txt --no-images
+python3 evals/creative_artifacts.py --input-root path/to/source-desk \
+  --input-manifest path/to/frozen-input-sha256.json
+```
+
+The manifest maps relative file names to SHA-256 strings. The checker verifies
+the current path set and bytes, declared SVG dimensions, literal approved copy
+in text nodes, and an optional prohibition on image nodes. Success does not
+establish readability, visible/hidden styling, clipping, original design, sound
+reasoning, physical printing or source-read/tool order. Inspect those separately
+and preserve unsupported checks as unknown. It does not use exact wording to
+grade investigative prose or creative judgment.
+
+Copy extraction preserves inline fragments and separates simple relative
+`tspan dy` line wraps. It does not interpret arbitrary absolute positioning or
+SVG text layout. A spacing mismatch needs inspection before it can count as a
+producer error; preserve any false failure and its corrected instrument version.
+
+Keep artifact judgments and comparison limits with their actual saved outputs.
+Do not manufacture schema-1 stateful sandbox records for an artifact study or
+use its mechanical checks as package-promotion evidence.
+
 ## Earlier records
 
 The first [offline review](offline-review-2026-11-01.md) records seven decision

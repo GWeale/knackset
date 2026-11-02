@@ -36,6 +36,17 @@ body:
       description: Describe the real task without sharing private source material.
     validations:
       required: true
+  - type: dropdown
+    id: task_kind
+    attributes:
+      label: What kind of task was this?
+      options:
+        - 'My own real project or work'
+        - 'A supplied Knackset exercise with public source material'
+        - 'Another fictional or practice task'
+        - 'Unknown or mixed'
+    validations:
+      required: false
   - type: textarea
     id: result
     attributes:

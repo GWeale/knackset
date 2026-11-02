@@ -1,0 +1,108 @@
+#!/usr/bin/env python3
+"""Check saved creative artifacts and input integrity, without grading their quality."""
+
+import argparse
+import hashlib
+import json
+import math
+from pathlib import Path
+import re
+import sys
+import xml.etree.ElementTree as ET
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+from validate import package_files
+
+
+def millimeters(value):
+    match = re.fullmatch(r"\s*(\d+(?:\.\d*)?|\.\d+)\s*(mm|cm|in|pt|px)?\s*", value)
+    if not match:
+        raise ValueError("SVG physical dimensions must use numbers and mm/cm/in/pt/px units")
+    return float(match[1]) * {"mm": 1, "cm": 10, "in": 25.4,
+                             "pt": 25.4 / 72, "px": 25.4 / 96, None: 25.4 / 96}[match[2]]
+
+
+def text_content(node):
+    parts = [node.text or ""]
+    for child in node:
+        dy = re.match(r"\s*([+-]?(?:\d+(?:\.\d*)?|\.\d+))", child.get("dy", ""))
+        if (child.tag == "{http://www.w3.org/2000/svg}tspan" and "y" not in child.attrib
+                and dy and float(dy[1]) != 0):
+            parts.append(" ")
+        parts.extend((text_content(child), child.tail or ""))
+    return "".join(parts)
+
+
+def check(args):
+    errors = []
+    checked = []
+    if args.input_root:
+        expected = json.loads(args.input_manifest.read_text())
+        if not isinstance(expected, dict) or not all(
+            isinstance(name, str) and isinstance(digest, str) and re.fullmatch(r"[a-f0-9]{64}", digest)
+            for name, digest in expected.items()
+        ):
+            raise ValueError("Input manifest must map file names to SHA-256 strings")
+        actual = {p.relative_to(args.input_root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+                  for p in package_files(args.input_root)}
+        changed = sorted(name for name in actual.keys() | expected.keys()
+                         if actual.get(name) != expected.get(name))
+        if changed:
+            errors.append("Input contents differ: " + ", ".join(changed))
+        checked.append("saved input paths and SHA-256")
+    if args.svg:
+        root = ET.parse(args.svg).getroot()
+        if root.tag != "{http://www.w3.org/2000/svg}svg":
+            raise ValueError("Artifact must have an SVG root and namespace")
+        if args.width_mm is not None:
+            dimensions = (millimeters(root.get("width", "")), millimeters(root.get("height", "")))
+            if not all(abs(found - required) <= 0.02
+                       for found, required in zip(dimensions, (args.width_mm, args.height_mm))):
+                errors.append(f"Physical size differs: {dimensions[0]:g} × {dimensions[1]:g} mm")
+            checked.append("declared physical dimensions")
+        if args.copy_file:
+            visible = " ".join(" ".join(text_content(node).split())
+                               for node in root.iter() if node.tag == "{http://www.w3.org/2000/svg}text")
+            required = [" ".join(line.split()) for line in args.copy_file.read_text().splitlines() if line.strip()]
+            missing = [line for line in required if line not in visible]
+            if missing:
+                errors.append("Required SVG text missing: " + " | ".join(missing))
+            checked.append("literal approved copy in SVG text elements")
+        if args.no_images:
+            if any(node.tag == "{http://www.w3.org/2000/svg}image" for node in root.iter()):
+                errors.append("Image nodes are forbidden for this vector-only brief")
+            checked.append("absence of SVG image nodes")
+    return {"passed": not errors, "checks": checked, "errors": errors,
+            "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."}
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--input-root", type=Path)
+    parser.add_argument("--input-manifest", type=Path)
+    parser.add_argument("--svg", type=Path)
+    parser.add_argument("--width-mm", type=float)
+    parser.add_argument("--height-mm", type=float)
+    parser.add_argument("--copy-file", type=Path)
+    parser.add_argument("--no-images", action="store_true")
+    args = parser.parse_args(argv)
+    if bool(args.input_root) != bool(args.input_manifest):
+        parser.error("--input-root and --input-manifest are required together")
+    if (args.width_mm is None) != (args.height_mm is None):
+        parser.error("--width-mm and --height-mm are required together")
+    if args.width_mm is not None and not all(math.isfinite(n) and n > 0 for n in (args.width_mm, args.height_mm)):
+        parser.error("Physical dimensions must be positive finite numbers")
+    if (args.copy_file or args.no_images or args.width_mm is not None) and not args.svg:
+        parser.error("SVG options need --svg")
+    if not (args.svg or args.input_root):
+        parser.error("Choose --svg or --input-root")
+    try:
+        result = check(args)
+    except (OSError, ValueError, ET.ParseError) as error:
+        result = {"passed": False, "checks": [], "errors": [str(error)]}
+    print(json.dumps(result, indent=2))
+    return 0 if result["passed"] else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -3,12 +3,15 @@
 Status: **draft**.
 
 This is an independently authored procedure informed by the public concepts below.
-No upstream instruction prose, code, fonts, images, or other assets were copied.
-The [MIT license](LICENSE.txt) covers this package; linked sources retain their own terms.
+No upstream skill instruction prose, code, fonts or artwork was copied. The
+[MIT license](LICENSE.txt) covers original Knackset content. The explicitly credited
+USGS images in `evals/files/pattern-desk/` are public-domain reference inputs,
+with individual source pages and asset hashes. Other linked sources retain their terms.
 Basis: `authored`, `research-derived`.
 
-[Canonical cases](evals/evals.json) and their raw inputs are synthetic authored
-fixtures, not a passed evaluation suite. No routing accuracy, comparative
+[Canonical cases](evals/evals.json) are authored work requests, not a passed
+evaluation suite. Earlier textual studies are fictional; the pattern case uses
+actual USGS web-preview images under a new authored design brief. No routing accuracy, comparative
 improvement, or live tool compatibility is claimed. Structural validation does
 not establish successful creative judgment.
 

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="148mm" height="210mm" viewBox="0 0 148 210" role="img" aria-labelledby="title description">
+  <title id="title">Field Notes — ink edition</title>
+  <desc id="description">A5 portrait slow-looking worksheet. An original flowing contour study sits above three prompts with two full-width writing lines each.</desc>
+  <metadata>Original vector artwork; no photographs or source shapes are embedded. Text remains editable. Designed at 148 × 210 mm.</metadata>
+  <rect id="page-paper" x="0" y="0" width="148" height="210" fill="#FFFFFF"/>
+  <defs>
+    <clipPath id="study-crop"><rect x="13" y="51.5" width="122" height="31"/></clipPath>
+  </defs>
+  <g id="identity" fill="#000000">
+    <text x="13" y="15.2" font-family="Noto Sans, sans-serif" font-size="4" font-weight="600" letter-spacing="0.38">Field Notes</text>
+    <g id="second-look-mark" fill="none" stroke="#000000" stroke-width="0.45">
+      <circle cx="128.8" cy="13.7" r="2.2"/>
+      <circle cx="132.8" cy="13.7" r="2.2"/>
+    </g>
+  </g>
+  <g id="headline" fill="#000000">
+    <text x="12.6" y="30.2" font-family="Noto Serif, serif" font-size="9.3" font-weight="400"><tspan x="12.6">Look once.</tspan> <tspan x="12.6" y="41.4">Look again.</tspan></text>
+  </g>
+  <g id="contour-study" clip-path="url(#study-crop)">
+    <rect x="13" y="51.5" width="122" height="31" fill="#FFFFFF"/>
+    <path id="current" d="M 5,65 C 23,65 25,49 43,49 C 63,49 61,80 80,80 C 101,80 99,55 118,55 C 130,55 134,64 144,64" transform="translate(0 2)" fill="none" stroke="#000000" stroke-width="5.2"/>
+    <path id="contour-1" d="M 5,65 C 23,65 25,49 43,49 C 63,49 61,80 80,80 C 101,80 99,55 118,55 C 130,55 134,64 144,64" transform="translate(0 -14)" fill="none" stroke="#000000" stroke-width="0.24"/>
+    <path id="contour-2" d="M 5,65 C 23,65 25,49 43,49 C 63,49 61,80 80,80 C 101,80 99,55 118,55 C 130,55 134,64 144,64" transform="translate(0 -10)" fill="none" stroke="#000000" stroke-width="0.24"/>
+    <path id="contour-3" d="M 5,65 C 23,65 25,49 43,49 C 63,49 61,80 80,80 C 101,80 99,55 118,55 C 130,55 134,64 144,64" transform="translate(0 -6)" fill="none" stroke="#000000" stroke-width="0.24"/>
+    <path id="contour-4" d="M 5,65 C 23,65 25,49 43,49 C 63,49 61,80 80,80 C 101,80 99,55 118,55 C 130,55 134,64 144,64" transform="translate(0 10)" fill="none" stroke="#000000" stroke-width="0.24"/>
+    <path id="contour-5" d="M 5,65 C 23,65 25,49 43,49 C 63,49 61,80 80,80 C 101,80 99,55 118,55 C 130,55 134,64 144,64" transform="translate(0 14)" fill="none" stroke="#000000" stroke-width="0.24"/>
+    <path id="contour-6" d="M 5,65 C 23,65 25,49 43,49 C 63,49 61,80 80,80 C 101,80 99,55 118,55 C 130,55 134,64 144,64" transform="translate(0 18)" fill="none" stroke="#000000" stroke-width="0.24"/>
+  </g>
+  <g id="observations" font-family="Noto Sans, sans-serif" font-size="3.9" fill="#000000">
+    <g id="boundary-prompt">
+      <text x="13" y="99.5">Trace a boundary.</text>
+      <g fill="none" stroke="#000000" stroke-width="0.18">
+        <path d="M13 111H135"/>
+        <path d="M13 121H135"/>
+      </g>
+    </g>
+    <g id="rhythm-prompt">
+      <text x="13" y="135.6">Find the rhythm.</text>
+      <g fill="none" stroke="#000000" stroke-width="0.18">
+        <path d="M13 147H135"/>
+        <path d="M13 157H135"/>
+      </g>
+    </g>
+    <g id="longer-look-prompt">
+      <text x="13" y="171.7">Name what changed when you looked longer.</text>
+      <g fill="none" stroke="#000000" stroke-width="0.18">
+        <path d="M13 183H135"/>
+        <path d="M13 193H135"/>
+      </g>
+    </g>
+  </g>
+  <g id="footer" fill="#000000" font-family="Noto Sans, sans-serif" font-size="3.6">
+    <text x="13" y="203.3">Independent practice sheet.</text>
+  </g>
+</svg>

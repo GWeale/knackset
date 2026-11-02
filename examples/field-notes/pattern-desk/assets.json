@@ -1,0 +1,24 @@
+{
+  "retrieved_utc_date": "2026-11-02",
+  "assets": [
+    {
+      "file": "earth-selfie.jpg",
+      "bytes": 45337,
+      "url": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/styles/medium/public/thumbnails/image/AF-Morocco-012615-564-crop%20copy.jpg?itok=g536ARSL",
+      "sha256": "100cbd24b26ace9454e0231e4693bc1305b6240cf9614585eee9e6a562b0c83a"
+    },
+    {
+      "file": "lena-delta.jpg",
+      "bytes": 44916,
+      "url": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/styles/medium/public/thumbnails/image/lena_delta_0.jpg?itok=qodtrqYH",
+      "sha256": "8410bc8c0539205efd8ff706f2798fce2fd066a0367dca9a4a837fc05b795ea2"
+    },
+    {
+      "file": "meandering-mississippi.jpg",
+      "bytes": 26986,
+      "url": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/styles/medium/public/thumbnails/image/meandering-mi.jpg?itok=Pqd8veVQ",
+      "sha256": "45d11fd25953565dffd9e8f8145b9644a0bf1741601fe5fa173fd0fea432fe44"
+    }
+  ],
+  "rights": "Each image-specific USGS page marks the asset Public Domain; see sources.txt. Original bytes are unmodified web previews."
+}

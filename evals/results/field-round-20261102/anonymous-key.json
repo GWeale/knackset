@@ -1,0 +1,107 @@
+{
+  "seed": 2718281,
+  "mapping": {
+    "pair-01/A": {
+      "case": "offline",
+      "repeat": 1,
+      "condition": "with-method",
+      "output": "editions/offline-01-north"
+    },
+    "pair-01/B": {
+      "case": "offline",
+      "repeat": 1,
+      "condition": "without-method",
+      "output": "editions/offline-01-south"
+    },
+    "pair-02/A": {
+      "case": "parks",
+      "repeat": 1,
+      "condition": "with-method",
+      "output": "editions/parks-01-south"
+    },
+    "pair-02/B": {
+      "case": "parks",
+      "repeat": 1,
+      "condition": "without-method",
+      "output": "editions/parks-01-north"
+    },
+    "pair-03/A": {
+      "case": "patterns",
+      "repeat": 1,
+      "condition": "with-method",
+      "output": "editions/patterns-01-north"
+    },
+    "pair-03/B": {
+      "case": "patterns",
+      "repeat": 1,
+      "condition": "without-method",
+      "output": "editions/patterns-01-south"
+    },
+    "pair-04/A": {
+      "case": "offline",
+      "repeat": 2,
+      "condition": "without-method",
+      "output": "editions/offline-02-north"
+    },
+    "pair-04/B": {
+      "case": "offline",
+      "repeat": 2,
+      "condition": "with-method",
+      "output": "editions/offline-02-south"
+    },
+    "pair-05/A": {
+      "case": "patterns",
+      "repeat": 2,
+      "condition": "without-method",
+      "output": "editions/patterns-02-south"
+    },
+    "pair-05/B": {
+      "case": "patterns",
+      "repeat": 2,
+      "condition": "with-method",
+      "output": "editions/patterns-02-north"
+    },
+    "pair-06/A": {
+      "case": "parks",
+      "repeat": 2,
+      "condition": "with-method",
+      "output": "editions/parks-02-south"
+    },
+    "pair-06/B": {
+      "case": "parks",
+      "repeat": 2,
+      "condition": "without-method",
+      "output": "editions/parks-02-north"
+    },
+    "corner-01": {
+      "case": "parks",
+      "scenario": "rabbit-hole-boundary-single-origin",
+      "condition": "with-method only, no paired baseline",
+      "files": {
+        "request.txt": "3a6d972fb01b8bcdd8707bb5c35a1764a458f6aa22751b781df7aae636518641"
+      },
+      "output": "editions/corner-parks"
+    },
+    "corner-02": {
+      "case": "patterns",
+      "scenario": "remix-pinned-brand-and-untrusted-reference",
+      "condition": "with-method only, no paired baseline",
+      "files": {
+        "boundary-brief.md": "3fe13c10225b16ad09a719acae4392925b85a738f9ed3fc7b9072480f79e8747",
+        "request.txt": "00962d4e28e92c0c81c79f8fa594371eef4d000a7339021a691c721ff065b1ed"
+      },
+      "output": "editions/corner-patterns"
+    },
+    "corner-03": {
+      "case": "offline",
+      "scenario": "unstick-boundary-publishing-access",
+      "condition": "with-method only, no paired baseline",
+      "files": {
+        "access-block.md": "82c1e8d94bdd42552347e1f0485ab9f63c8a5981ad21b3a34f41ccd5ff7430bd",
+        "request.txt": "e3df1f2b302361fd6d4ce0949a726ffc26fdd7554232d14fcd5f6d3c085f891b"
+      },
+      "output": "editions/corner-offline"
+    }
+  },
+  "path_only_presentation_edits": []
+}

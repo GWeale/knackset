@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="148mm" height="210mm" viewBox="0 0 148 210" role="img" aria-labelledby="sheet-title sheet-description">
+  <title id="sheet-title">Field Notes — ink edition</title>
+  <desc id="sheet-description">A slow-looking worksheet with an original abstract contour field, three observation prompts, and two writing lines per prompt.</desc>
+  <!-- Editable text; all artwork consists of original native vector paths. -->
+  <rect id="paper" width="148" height="210" fill="#FFFFFF"/>
+  <g id="identity" fill="#000000">
+    <text id="brand" x="12" y="17" font-family="DejaVu Sans, sans-serif" font-size="3.9" letter-spacing="0.35">Field Notes</text>
+    <path id="double-look-mark" d="M122 12 H136 V15 M122 17 H131" fill="none" stroke="#000000" stroke-width="0.7"/>
+  </g>
+  <g id="heading" fill="#000000" font-family="DejaVu Serif, serif" font-size="9.1" letter-spacing="-0.25">
+    <text id="headline" x="11.5" y="32.5"><tspan x="11.5" y="32.5">Look once. </tspan><tspan x="11.5" y="43.5">Look again.</tspan></text>
+  </g>
+  <g id="specimen" stroke-linecap="round" stroke-linejoin="round">
+    <path id="lower-field" d="M13.720,82.850 C34.000,75.900 42.000,85.300 64.000,82.250 C88.000,76.950 112.000,82.900 133.000,83.500 L128.500,94.000 C112.000,91.000 88.000,85.500 64.000,87.500 C42.000,88.000 34.000,87.000 22.750,93.500 Z" fill="#FFFFFF"/>
+    <path id="attention-band" d="M12.430,72.200 C34.000,64.800 42.000,82.600 64.000,77.000 C88.000,68.400 112.000,74.800 134.500,73.000 L136.000,76.500 C112.000,77.500 88.000,71.250 64.000,78.750 C42.000,83.500 34.000,68.500 12.000,75.750 Z" fill="#000000"/>
+    <path id="contour-00" d="M22.750,58.000 C34.000,50.000 42.000,79.000 64.000,70.000 C88.000,57.000 112.000,64.000 128.500,59.000" fill="none" stroke="#000000" stroke-width="0.43"/>
+    <path id="contour-01" d="M18.880,61.550 C34.000,53.700 42.000,79.900 64.000,71.750 C88.000,59.850 112.000,66.700 130.000,62.500" fill="none" stroke="#000000" stroke-width="0.27"/>
+    <path id="contour-02" d="M15.870,65.100 C34.000,57.400 42.000,80.800 64.000,73.500 C88.000,62.700 112.000,69.400 131.500,66.000" fill="none" stroke="#000000" stroke-width="0.27"/>
+    <path id="contour-03" d="M13.720,68.650 C34.000,61.100 42.000,81.700 64.000,75.250 C88.000,65.550 112.000,72.100 133.000,69.500" fill="none" stroke="#000000" stroke-width="0.27"/>
+    <path id="contour-04" d="M12.430,72.200 C34.000,64.800 42.000,82.600 64.000,77.000 C88.000,68.400 112.000,74.800 134.500,73.000" fill="none" stroke="#000000" stroke-width="0.27"/>
+    <path id="contour-05" d="M12.000,75.750 C34.000,68.500 42.000,83.500 64.000,78.750 C88.000,71.250 112.000,77.500 136.000,76.500" fill="none" stroke="#000000" stroke-width="0.27"/>
+    <path id="contour-06" d="M12.430,79.300 C34.000,72.200 42.000,84.400 64.000,80.500 C88.000,74.100 112.000,80.200 134.500,80.000" fill="none" stroke="#000000" stroke-width="0.27"/>
+    <path id="contour-07" d="M13.720,82.850 C34.000,75.900 42.000,85.300 64.000,82.250 C88.000,76.950 112.000,82.900 133.000,83.500" fill="none" stroke="#000000" stroke-width="0.27"/>
+    <path id="contour-08" d="M15.870,86.400 C34.000,79.600 42.000,86.200 64.000,84.000 C88.000,79.800 112.000,85.600 131.500,87.000" fill="none" stroke="#000000" stroke-width="0.27"/>
+    <path id="contour-09" d="M18.880,89.950 C34.000,83.300 42.000,87.100 64.000,85.750 C88.000,82.650 112.000,88.300 130.000,90.500" fill="none" stroke="#000000" stroke-width="0.27"/>
+    <path id="contour-10" d="M22.750,93.500 C34.000,87.000 42.000,88.000 64.000,87.500 C88.000,85.500 112.000,91.000 128.500,94.000" fill="none" stroke="#000000" stroke-width="0.43"/>
+    <path id="ribbon-break" d="M85.9 72.18 L86.4 75.14" fill="none" stroke="#FFFFFF" stroke-width="0.95" stroke-linecap="butt"/>
+    <path id="rhythm-0" d="M23 85.05 l0.4 3.2" fill="none" stroke="#000000" stroke-width="0.27"/>
+    <path id="rhythm-1" d="M27 84.7 l0.5 2.9" fill="none" stroke="#000000" stroke-width="0.27"/>
+    <path id="rhythm-2" d="M31.5 84.8 l0.65 2.7" fill="none" stroke="#000000" stroke-width="0.27"/>
+    <path id="rhythm-3" d="M36.5 85.3 l0.7 2.4" fill="none" stroke="#000000" stroke-width="0.27"/>
+    <path id="rhythm-4" d="M42 86 l0.6 2.15" fill="none" stroke="#000000" stroke-width="0.27"/>
+    <path id="rhythm-5" d="M48.2 86.6 l0.4 2.0" fill="none" stroke="#000000" stroke-width="0.27"/>
+  </g>
+  <g id="observations" font-family="DejaVu Sans, sans-serif" font-size="4.05" fill="#000000">
+    <text id="prompt-boundary" x="12" y="109">Trace a boundary.</text>
+    <text id="prompt-rhythm" x="12" y="139">Find the rhythm.</text>
+    <text id="prompt-change" x="12" y="169">Name what changed when you looked longer.</text>
+  </g>
+  <g id="writing-lines" fill="none" stroke="#000000" stroke-width="0.2">
+    <path id="response-boundary" d="M12 119 H136 M12 126 H136"/>
+    <path id="response-rhythm" d="M12 149 H136 M12 156 H136"/>
+    <path id="response-change" d="M12 179 H136 M12 186 H136"/>
+  </g>
+  <g id="footer" fill="#000000" font-family="DejaVu Sans, sans-serif" font-size="3.6">
+    <text id="independence" x="12" y="199">Independent practice sheet.</text>
+  </g>
+</svg>

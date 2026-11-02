@@ -1,5 +1,18 @@
 # Changelog
 
+## Unreleased — source-backed creative checks
+
+- Add three canonical cases using real NPS figures and public-domain USGS
+  references, with authored editorial, design and stalled-project requests.
+- Run twelve fresh artifacts in six matched pairs and three separate boundary
+  responses. Preserve both sides, anchored criteria, original anonymous verdict,
+  method-text bindings and limitations; retain draft status and unchanged methods.
+- Add a narrow standard-library saved-artifact checker and public CLI regressions
+  for physical format, approved copy, source integrity and SVG text wrapping.
+  Preserve false failures and instrument repairs separately from producer errors.
+- Clarify image/data provenance and distinguish guided exercises from outside
+  real-project feedback. Add an inspectable case study and printable vector work.
+
 ## v0.1.0-alpha.2 — 2026-11-02 (UTC)
 
 - Lead with Rabbit Hole, Reference Remix and Unstick Project. Add three matched

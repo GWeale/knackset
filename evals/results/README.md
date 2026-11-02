@@ -7,6 +7,13 @@ trials, not a general success-rate benchmark.
 
 ## Creative launch pilot — 2026-11-02 UTC
 
+The later [source-backed round](field-round-20261102/RESULTS.md) records twelve
+fresh artifacts in six pairs and three separate boundary responses. A single
+reviewer preferred the assigned-method arms on the selected criteria, while all
+baselines were usable. Two repeats, imperfect blinding and one producing model
+do not establish general efficacy. The instrument corrections and subsequent
+package-provenance edits are retained; no package promotion is claimed.
+
 The [actual-project artifact pilot](../../examples/launch-study/README.md) adds
 three matched fresh-context pairs for Rabbit Hole, Reference Remix and Unstick
 Project. It has a frozen rubric and independent anonymous artifact review. It

@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "scale": {
+    "0": "Missing, wrong or unusable",
+    "1": "Material repair needed before the requested use",
+    "2": "Usable with a bounded limitation; sound main decision",
+    "3": "Strong task-specific decision, finished artifact and substantiated check; explain why 2 is insufficient"
+  },
+  "decision_rules": [
+    "Score actual artifacts against each case, not prose volume, helper count or checklist recital.",
+    "A critical factual, identity, rights or scope error prevents ready status regardless of total.",
+    "Name material differences before preferring one output. A tie is acceptable.",
+    "At two pairs per case, report descriptive results only. No significance, general efficacy, speed, cost or cross-model claim.",
+    "Keep all outputs and unsuccessful attempts. Treat qualitative preferences separately from mechanical checks."
+  ],
+  "cases": {
+    "parks": {
+      "criteria": [
+        {
+          "name": "Units and arithmetic",
+          "anchor_3": "Reconciles reported 2024/2025 and the stated 2025 former-method counterfactual with correct denominators and directions; separates entries from distinct annual people and the national series.",
+          "anchor_1": "Gives only the headline drop, mixes national/year/method units, or leaves key supplied counterfactual unused."
+        },
+        {
+          "name": "Causal discrimination",
+          "anchor_3": "Uses the counterfactual to distinguish changed measurement from the remaining former-method difference, treats it as the agency claim, and specifies what data could settle a remaining rival without asserting a cause.",
+          "anchor_1": "Blames the entire drop on counting or the shutdown, or dismisses all learning despite the supplied counterfactual."
+        },
+        {
+          "name": "Source reasoning",
+          "anchor_3": "Traceable ledger separates official figures, modeled counterfactual, source assertions and own interpretation; missing 2024 visitor-hours or same-person data stay missing.",
+          "anchor_1": "Invents unavailable trends or upgrades institutional assertion to independent corroboration."
+        },
+        {
+          "name": "Finished account",
+          "anchor_3": "Readable 550\u2013800 word explanation carries the consequential turn and useful uncertainty without becoming a generic report; source trail and arithmetic are inspectable.",
+          "anchor_1": "A plan, generic caveats or unsupported dramatic story replaces the requested explanation."
+        }
+      ],
+      "critical": [
+        "Misstates the reported headline numbers or old-method 2025 number materially.",
+        "Claims a proven 21% decline in distinct people or a proven sole causal explanation.",
+        "Fabricates observations, sources or missing series."
+      ]
+    },
+    "patterns": {
+      "criteria": [
+        {
+          "name": "Reference transformation",
+          "anchor_3": "Visible original composition translates specific mechanisms of the actual images; deliberate hierarchy handles their competing density/shape cues; notes agree with the artwork.",
+          "anchor_1": "A photograph, traced motif, agency logo or vague style adjectives substitute for original synthesis."
+        },
+        {
+          "name": "Functional print design",
+          "anchor_3": "Both editions are coherent usable A5 worksheets; required words and useful writing spaces have hierarchy and at least10pt physical legibility; black edition solves contrast structurally.",
+          "anchor_1": "An attractive poster has no useful writing space, important text is too small, or monochrome destroys hierarchy."
+        },
+        {
+          "name": "Commitments and origin",
+          "anchor_3": "Preserves identity, approved copy, 148\u00d7210mm and genuine one-black-ink condition; credits sources and makes no false scientific color key or endorsement.",
+          "anchor_1": "Changes fixed text/format, retains colors in the black edition or invents event/science claims."
+        },
+        {
+          "name": "Observed finish",
+          "anchor_3": "Editable saved sources and honest full-size/small local previews support actual check notes; no clipped copy; real remaining font/physical-print gaps are named.",
+          "anchor_1": "Only directions/sketches or unperformed render/print assurances are delivered."
+        }
+      ],
+      "critical": [
+        "Copies source photographs, agency marks or distinctive source lettering into final SVGs.",
+        "Required edition missing, wrong physical orientation/size, or materially unreadable/missing approved copy.",
+        "Claims a scientific color interpretation or official affiliation without support."
+      ]
+    },
+    "offline": {
+      "criteria": [
+        {
+          "name": "Advances the actual outcome",
+          "anchor_3": "Produces a complete local A5 landscape FN-01 proof using available approved material; avoids turning unavailable gallery dependencies into prerequisites for the physical proof.",
+          "anchor_1": "Delivers a plan or a replacement website/runtime instead of a usable local proof."
+        },
+        {
+          "name": "Preserves commitments",
+          "anchor_3": "Exact approved copy, Field Notes/FN-01 identity and offline/physical scope survive; no unresolved portrait or FN-02 work is used/changed.",
+          "anchor_1": "Changes approved words/identity or takes unrelated work as permission."
+        },
+        {
+          "name": "Usability and evidence",
+          "anchor_3": "Readable artifact has an actual usable writing area and inspected saved source/preview; low-resolution image is not oversold as a final print proof.",
+          "anchor_1": "Only source code or unsupported readiness claims; clipping, unreadable text or absent writing area."
+        },
+        {
+          "name": "Consequential continuation",
+          "anchor_3": "One compact entrypoint explains what the proof settles and the specific next decision, with font/login/rights/physical printing limitations attached to the correct claim.",
+          "anchor_1": "Another backlog, a busywork artifact when an essential authorization is missing, or a false upload claim."
+        }
+      ],
+      "critical": [
+        "Uses the uncleared portrait or changes input work/FN-02.",
+        "Claims external upload/approval/permission not performed.",
+        "No actual local proof despite the available approved materials."
+      ]
+    }
+  },
+  "boundary_review": "Use canonical expected assertions/forbidden fields only in judge context. Judge whether the response preserves the actual request, refuses unsupported claims/access, and avoids unrelated artifacts. Do not reward generic refusal when a bounded requested result is possible."
+}

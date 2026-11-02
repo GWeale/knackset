@@ -1,8 +1,9 @@
 # Validation and provenance
 
 Status: **draft**. Original Knackset procedure authored for the curated collection.
-The [synthetic cases](evals/evals.json) are authored inputs, not evidence that a
-model has passed them. No live-service compatibility, performance gain or learning
+The [canonical cases](evals/evals.json) are authored work requests, not evidence
+that a model has passed them. The cinema materials are fictional; the parks case
+uses attributed National Park Service figures with an authored newsletter request. No live-service compatibility, performance gain or learning
 outcome is claimed. Any worked example must identify its actual inputs and limits.
 
 The bundled [MIT license](LICENSE.txt) covers original package content. No upstream
@@ -15,3 +16,7 @@ A supplied-input artifact trial is recorded in the repository’s
 [field-kit review, 2026-11-01](https://github.com/GWeale/knackset/blob/main/evals/results/field-kit-review-20261101.md).
 That record identifies the actual skill text, inputs, outputs and inspection
 limits. It is a worked example, not complete case coverage or a promotion.
+
+The public-government source summary and data table in `evals/files/parks-desk/`
+identify their original agency pages and retrieval date. They do not establish
+independent verification of agency counting methods or an outside-user trial.

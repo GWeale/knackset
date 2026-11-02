@@ -3,6 +3,8 @@
 Status: recruiting. No independent human reports have been collected by this
 launch task. The first-round target is five people trying one creative method
 on a real task. Agent evaluations do not count toward that target.
+Keep guided-exercise reports separate from own-project use. They can reveal
+loading or clarity problems, but do not close the real-project feedback target.
 
 Use the [test packet and invitation](try-the-field-kit.md), then submit the
 [field-test form](https://github.com/GWeale/knackset/issues/new?template=field-test.yml).

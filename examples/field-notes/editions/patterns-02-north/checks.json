@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-02",
+  "machine": "hatter-small",
+  "checks": {
+    "exact_approved_visible_copy": "pass",
+    "a5_portrait_dimensions": "pass",
+    "all_visible_copy_at_least_10pt": "pass",
+    "raster_and_external_references_absent": "pass",
+    "ink_uses_black_and_unprinted_white_only": "pass",
+    "rendered_art_within_safe_page_bounds": "pass",
+    "source_desk_unchanged": "pass",
+    "reference_image_hashes_match_supplied_manifest": "pass",
+    "previews_rendered_with_installed_librsvg_and_cairo": "pass",
+    "visual_inspection": "Both 559 \u00d7 794 previews inspected; clear hierarchy, no visible clipping or text collision, writing spaces retained.",
+    "physical_print": "not run",
+    "cross_editor_font_substitution": "not run"
+  },
+  "files": {
+    "color.svg": {
+      "sha256": "2ef601e6dfffb8165b0c899c7e603ade4748e575550f5b15adaa15497a5dbec6",
+      "editable_text_elements": 6,
+      "minimum_visible_text_pt": 10.205,
+      "ink_bounds_mm": [
+        12.0,
+        13.313,
+        136.0,
+        202.859
+      ],
+      "writing_rule_length_mm": 124,
+      "writing_rule_spacing_mm": 8,
+      "writing_rules_per_prompt": 3,
+      "preview_px": [
+        559,
+        794
+      ]
+    },
+    "ink.svg": {
+      "sha256": "44ee8948e814a147c16e32bf2735179522b1fd0b53898a64dd10a45b5b9729c4",
+      "editable_text_elements": 6,
+      "minimum_visible_text_pt": 10.205,
+      "ink_bounds_mm": [
+        12.0,
+        13.313,
+        136.0,
+        202.859
+      ],
+      "writing_rule_length_mm": 124,
+      "writing_rule_spacing_mm": 8,
+      "writing_rules_per_prompt": 3,
+      "preview_px": [
+        559,
+        794
+      ]
+    }
+  },
+  "input_hashes": {
+    "approved-copy.txt": "7080453245496da3a96b40cbe9f45087a55edda82255d538a448bf6eae951e4e",
+    "assets.json": "c1872ad892c01f86b25b7a45e6d589235508f87fc05988909129dcc08c20484e",
+    "design-brief.txt": "732c1481b93d4b6baced3abcc619f7897166906e1f8ecda284da1823bb6a1cee",
+    "downloads.json": "53a8a17e8ac1ac7842dbf218be81aa6579ae6c2e979565a23345c9b498e02bf8",
+    "earth-selfie.jpg": "100cbd24b26ace9454e0231e4693bc1305b6240cf9614585eee9e6a562b0c83a",
+    "lena-delta.jpg": "8410bc8c0539205efd8ff706f2798fce2fd066a0367dca9a4a837fc05b795ea2",
+    "meandering-mississippi.jpg": "45d11fd25953565dffd9e8f8145b9644a0bf1741601fe5fa173fd0fea432fe44",
+    "request.txt": "4470a3e3454608b6787dff4ff05ddf41a03a53cfc6ad01d0062dbda78f71f485",
+    "sources.txt": "db712c3ee4db4135e27ab48e89b77482a3d8b36f2166534eaf104ae83a582e64"
+  }
+}

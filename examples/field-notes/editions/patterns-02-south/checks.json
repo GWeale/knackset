@@ -1,0 +1,73 @@
+{
+  "source_sha256_before": {
+    "approved-copy.txt": "7080453245496da3a96b40cbe9f45087a55edda82255d538a448bf6eae951e4e",
+    "assets.json": "c1872ad892c01f86b25b7a45e6d589235508f87fc05988909129dcc08c20484e",
+    "design-brief.txt": "732c1481b93d4b6baced3abcc619f7897166906e1f8ecda284da1823bb6a1cee",
+    "downloads.json": "53a8a17e8ac1ac7842dbf218be81aa6579ae6c2e979565a23345c9b498e02bf8",
+    "earth-selfie.jpg": "100cbd24b26ace9454e0231e4693bc1305b6240cf9614585eee9e6a562b0c83a",
+    "lena-delta.jpg": "8410bc8c0539205efd8ff706f2798fce2fd066a0367dca9a4a837fc05b795ea2",
+    "meandering-mississippi.jpg": "45d11fd25953565dffd9e8f8145b9644a0bf1741601fe5fa173fd0fea432fe44",
+    "request.txt": "4470a3e3454608b6787dff4ff05ddf41a03a53cfc6ad01d0062dbda78f71f485",
+    "sources.txt": "db712c3ee4db4135e27ab48e89b77482a3d8b36f2166534eaf104ae83a582e64"
+  },
+  "editions": {
+    "color": {
+      "svg_size_mm": [
+        148,
+        210
+      ],
+      "png_size_px": [
+        1119,
+        1587
+      ],
+      "visible_text_exact": true,
+      "min_visible_copy_pt": 10.000001,
+      "vector_only": true,
+      "editable_text_nodes": 6,
+      "paints": [
+        "#172e2b",
+        "#245e53",
+        "#638479",
+        "#b54b34",
+        "#e8efe7",
+        "#ffffff"
+      ],
+      "rendered_with": "installed librsvg + Cairo",
+      "preview_dimensions_verified": true
+    },
+    "ink": {
+      "svg_size_mm": [
+        148,
+        210
+      ],
+      "png_size_px": [
+        1119,
+        1587
+      ],
+      "visible_text_exact": true,
+      "min_visible_copy_pt": 10.000001,
+      "vector_only": true,
+      "editable_text_nodes": 6,
+      "paints": [
+        "#000000",
+        "#ffffff"
+      ],
+      "rendered_with": "installed librsvg + Cairo",
+      "preview_dimensions_verified": true
+    }
+  },
+  "source_files_unchanged": true,
+  "visual_inspection": {
+    "color": "passed: no clipping or overlap; all copy visible; six long writing rules",
+    "ink": "passed: shared hierarchy retained; boundary, waves, branches and writing rules visible",
+    "physical_print": "not run",
+    "other_svg_editors": "not run"
+  },
+  "finished_file_sha256": {
+    "color.svg": "52fa2cbbf7d49cb66a320fbff747864f4b04f79580e6824901e7d55b661de68a",
+    "ink.svg": "e7b607ee2383a2e65148d340bf3219ce3672bbd369e9209cc71c0e61df1b69a4",
+    "color.png": "6072ad751f9167dd3df0026d4100b8a832c548708116481f4a03a7cbfcad53cb",
+    "ink.png": "2576162b64179fcf696e007e931fadc23159dc30d02e6ae07fe845f9462984dd",
+    "notes.md": "49e4cda981669927b87025fc92c21c3144df5eaafc004e4d2d243a10e1e87a13"
+  }
+}

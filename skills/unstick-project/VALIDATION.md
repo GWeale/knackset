@@ -15,11 +15,14 @@ rule, scientific tooling, module pipeline or implied outcome guarantees. Multipl
 user commitments can be genuinely fixed. The portable procedure finishes a small
 piece of actual work while keeping those commitments and unresolved rights intact.
 
-The procedure and fixtures are original writing. No upstream prose, case studies,
-code or assets were copied. [MIT](LICENSE.txt) covers original package content.
+The procedure and work scenarios are original writing. No upstream skill prose,
+case studies, code or artwork was copied. The offline-studio scenario bundles one
+credited public-domain USGS reference preview; its source and limits are stated
+in `evals/files/offline-desk/source.txt`. [MIT](LICENSE.txt) covers original package content.
 
 A subsequent supplied-input trial is documented in the
 [expansion review, 2026-11-01](https://github.com/GWeale/knackset/blob/main/evals/results/expansion-review-20261101.md).
 It identifies the loaded skill text, raw inputs, actual artifacts and inspection
-limits. The entrypoint and inputs are unchanged; this note was updated afterward.
+limits. That earlier record retains the entrypoint/input hashes it used; later authored
+cases and public reference material do not extend its execution coverage.
 The example does not promote the package or establish general effectiveness.

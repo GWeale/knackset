@@ -60,6 +60,32 @@
         "Replace the requested functional edit with a visual redesign."
       ],
       "files": []
+    },
+    {
+      "id": "remix-earth-study-two-inks",
+      "kind": "success",
+      "prompt": "Use the supplied image shelf, design brief and approved copy to make the Field Notes slow-looking worksheet. Finish two original editable A5 portrait SVGs, color.svg and ink.svg, with a coherent identity and usable writing space. Include short notes.md and local previews if installed tools permit. The two print conditions and approved words are fixed; choose the visual direction.",
+      "context": "An authored design brief using actual public-domain USGS visual references. Use only supplied files and installed tools. No agency marks or endorsement, no new dependencies, network, publication or input changes.",
+      "expected_output": "Two finished original vector worksheets that honor physical size, minimum copy size, monochrome constraints, reference provenance and functional writing space, with honest inspected previews.",
+      "assertions": [
+        "Both required print editions preserve all approved content and physical format.",
+        "Original visual mechanisms serve the worksheet rather than copying image content, agency branding or source lettering.",
+        "Inspection addresses actual use size, contrast and writing space; missing checks are named."
+      ],
+      "forbidden": [
+        "Embedding or tracing source photographs in the final artifact.",
+        "Inventing an event, date or endorsement.",
+        "Claiming unperformed visual or physical print checks."
+      ],
+      "files": [
+        "evals/files/pattern-desk/approved-copy.txt",
+        "evals/files/pattern-desk/assets.json",
+        "evals/files/pattern-desk/design-brief.txt",
+        "evals/files/pattern-desk/earth-selfie.jpg",
+        "evals/files/pattern-desk/lena-delta.jpg",
+        "evals/files/pattern-desk/meandering-mississippi.jpg",
+        "evals/files/pattern-desk/sources.txt"
+      ]
     }
   ]
 }

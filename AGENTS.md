@@ -23,6 +23,9 @@ only when the user explicitly requests that action.
 - `skills/<name>/evals/evals.json` is the canonical synthetic case set, with success,
   boundary, and routing cases. `evals/archive/` is historical and excluded from coverage.
 - `evals/sandbox.py` executes stateful offline fixtures, not real service/browser calls.
+- `evals/creative_artifacts.py` checks saved input hashes and narrow SVG contracts
+  (physical size, literal approved copy and image-node exclusion). It does not
+  grade reasoning, art quality, clipping, physical printing or tool/read order.
 - Bind evaluation runs at init with `--variant with-skill --skill-package PATH`;
   `scripts/export_eval.py` captures evidence after an explicit final-response review.
 - `scripts/routing_eval.py prepare` supplies names/descriptions and anonymous tasks;

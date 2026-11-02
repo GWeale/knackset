@@ -1,0 +1,28 @@
+{
+  "versions": [
+    {
+      "version": 1,
+      "source_sha256": "6d2e41591ad96a92c7183671d34d8647962451ec8d9dad589ed2e109744f46af",
+      "archive": "creative-artifacts-v1.py.txt",
+      "known_fault": "Positioned relative line wraps concatenate words; false failure retained."
+    },
+    {
+      "version": 2,
+      "source_sha256": "42a10b97fd10157b21a3aac6f9ca5afee112f3e7a6517bb6e3852ccd2602527c",
+      "archive": "creative-artifacts-v2.py.txt",
+      "known_fault": "Any absolute y attribute injected a separator, including same-baseline styled fragments; independent review reproduced false positive and false negative."
+    },
+    {
+      "version": 3,
+      "source_sha256": "c8eb64e348cdae30eae83ee7fead3b00ebf7f138882f613bc823cb3357153d21",
+      "repair": "Normalize only supported relative dy line wraps without absolute y; retain inline fragment spacing. Five focused checks pass, including both same-baseline regressions and a combined absolute-y/dy control."
+    }
+  ],
+  "rubric_inputs_and_producer_artifacts_changed": false,
+  "grading_scope": "Apply v3 equally to all12 outputs. Other SVG layout patterns require manual interpretation; do not count instrument limitations as skill failures. Frozen v1 hash and historical false verdict remain unchanged.",
+  "mechanical_summary": {
+    "checks": 16,
+    "passed": 16,
+    "failed": 0
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "reason": "Adding actual public-domain reference assets made broad older provenance wording inaccurate. Notes now distinguish original skill content, authored scenarios and credited government material.",
+  "timing": "After production runs and anonymous-input snapshot; these notes were excluded from all producer staged entrypoints and the judge inputs.",
+  "method_and_raw_task_input_bytes_changed": false,
+  "package_status": "All remain draft; no current-full-package promotion is claimed from prior records. Frozen pre-correction package fingerprints remain historical; original note bytes retained.",
+  "bindings": {
+    "rabbit-hole": {
+      "before_package_fingerprint": "e4c38d6f2abcf4c21014d776e57f00b50e96f303deca4106c11b78d3e6760fdf",
+      "before_note_sha256": "c11ee2a9d39b724f15cf884d12729d76c87dac7ddb937f3fcac364565673a4d9",
+      "method_sha256": "f0e84ab8339c41620f782cc9f2098a7675d147526e7efcd5f2fdd35772fa3bc4",
+      "after_package_fingerprint": "d1b60d4f0f8bbef7c05baec3931d8cd1d86eaaa9acfcdfbd7400adb2dba672b5",
+      "after_note_sha256": "5a1c67cce99c98729de82bee398c5fa5dde38a8dd60ab647305977e06aa64c33"
+    },
+    "reference-remix": {
+      "before_package_fingerprint": "4e951d67f28da773eb3895c1662dcfd45dbecfe8a1929423df384fb5c8dbcbe3",
+      "before_note_sha256": "d61c84db52a43edb47c5321810b107fed5241055f7755f118b185c216a5b6f08",
+      "method_sha256": "507a29e989c72f6c95774e337f3178d77f379429c00c5865a6a37364b068951d",
+      "after_package_fingerprint": "db70b817c8f95a2e4a8c9c3fa8da54b1dbad2c965ae01c2d2af10d3a83c4d92a",
+      "after_note_sha256": "dd505d48cbd0f5eb3df9c3d66e14a14da2fb980089cb37bb42d454b568c17945"
+    },
+    "unstick-project": {
+      "before_package_fingerprint": "2b37740fe158f7c08c8ebbb5af9bc74352df29097458fef4c68f3cd4dc9d79d4",
+      "before_note_sha256": "3f000f664fd19d895db1874fa458defd2de0d8d715196574964f60c932ba4271",
+      "method_sha256": "7e329f6af762c7293a153a4d578fc8da17bc5c97c85a1da06d3a9e8241c08d80",
+      "after_package_fingerprint": "27bca84cbfa9d5f6da445942370e41f69ad2020da2afa5546d2e80b0e6486f5a",
+      "after_note_sha256": "5cfff47bfb8bbe41ea627f1bb92b64502f438a34df61feacdfb144095bdd1d89"
+    }
+  }
+}

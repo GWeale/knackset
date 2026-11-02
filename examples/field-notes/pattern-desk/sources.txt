@@ -1,0 +1,20 @@
+REFERENCE SHELF — primary pages checked 2026-11-02 UTC
+The actual downloaded reference images are deliberately modest web previews. They are visual references, not high-resolution scientific measurements. The work request and Field Notes identity are authored for this collection; they are not an existing event or USGS commission.
+
+Earth Selfie. USGS EROS Center, January 26, 2015. Landsat 8, Morocco.
+https://www.usgs.gov/media/images/earth-selfie
+The page explicitly marks Sources/Usage: Public Domain. The image invites recognizing a face in the coastline; Agadir is below the chin and Souss Valley farms appear red. Treat this as source description, not a scientific scale for interpreting other hues. Local file: earth-selfie.jpg.
+
+Lena Delta. USGS EROS Center, July 1, 2000. Landsat 7, Earth as Art 1.
+https://www.usgs.gov/media/images/lena-delta
+Sources/Usage: Public Domain. Local file: lena-delta.jpg. The downloaded preview includes a black frame, USGS mark and source lettering; those belong to the reference, not the new identity.
+
+Meandering Mississippi. USGS EROS Center, May 28, 2003. Landsat 7, Earth as Art 3.
+https://www.usgs.gov/media/images/meandering-mississippi
+Sources/Usage: Public Domain. The page describes fields and settlements around the meanders, oxbow lakes and cutoffs south of Memphis. Local file: meandering-mississippi.jpg. Its source lettering and USGS mark are not new branding.
+
+Earth as Art 4: A Fusion of Science and Art. USGS, March 29, 2016.
+https://www.usgs.gov/news/featured-story/earth-art-4-fusion-science-and-art
+The agency explains that Landsat detects visible and infrared bands. These art images were selected for aesthetic appeal; many were digitally manipulated to enhance color or detail. Do not infer a common scientific color key or claim these show true colors. The three image-specific rights notices above govern the supplied images; unrelated brochure media on the article page can have other restrictions.
+
+All supplied image assets are Public Domain according to their individual official pages. Do not imply agency endorsement. Any final vector work should be original; image files here remain unchanged reference inputs.

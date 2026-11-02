@@ -43,6 +43,10 @@ workflows remain on the [utility shelf in the full catalog](docs/catalog.md).
 
 [Watch the 80-second captioned preview](examples/creative-preview/README.md) or
 [inspect the three actual-project comparisons](examples/launch-study/README.md).
+The [Field Notes case study](examples/field-notes/CASE-STUDY.md) follows an NPS
+counting-method puzzle and turns real USGS references into printable worksheets.
+Its [repeated comparisons and boundary checks](evals/results/field-round-20261102/RESULTS.md)
+retain the useful baselines and the limits of one reviewer's preferences.
 
 [![Night Orchard: a poster made by Reference Remix](examples/field-kit/reference-remix/night-orchard-small.png)](examples/field-kit/reference-remix/night-orchard.png)
 

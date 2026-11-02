@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="148mm" height="210mm" viewBox="0 0 148 210" role="img" aria-labelledby="sheet-title sheet-desc">
+  <title id="sheet-title">Field Notes — Look once. Look again.</title>
+  <desc id="sheet-desc">An A5 slow-looking worksheet. Three original abstract motifs introduce a boundary, a repeating wave, and a branching line. Each prompt has two long rules for written observations.</desc>
+  <defs>
+    <clipPath id="art-window"><rect x="13" y="56" width="122" height="28"/></clipPath>
+  </defs>
+  <g id="paper"><rect width="148" height="210" fill="#ffffff"/></g>
+  <g id="identity" fill="#172e2b">
+    <text x="13" y="17.5" font-family="DejaVu Sans, sans-serif" font-size="4.233333" font-weight="700" letter-spacing="0.15">Field Notes</text>
+    <g id="identity-mark" fill="none" stroke="#172e2b" stroke-width="0.42" stroke-linecap="round">
+      <path d="M126 13.5 C128 11.3 130 15.7 132 13.5 C133 12.4 134 12.4 135 13.5"/>
+      <path d="M126 16 C128 13.8 130 18.2 132 16 C133 14.9 134 14.9 135 16"/>
+      <path d="M126 18.5 C128 16.3 130 20.7 132 18.5 C133 17.4 134 17.4 135 18.5"/>
+    </g>
+    <path d="M13 23 H135" fill="none" stroke="#172e2b" stroke-width="0.32"/>
+  </g>
+  <g id="headline" font-family="DejaVu Serif, serif" font-size="8.290278" fill="#172e2b" font-weight="400">
+    <text><tspan x="12.6" y="36.6">Look once.</tspan> <tspan x="12.6" y="47.4">Look again.</tspan></text>
+  </g>
+  <g id="original-vector-study" clip-path="url(#art-window)">
+    <rect x="13" y="56" width="40.666667" height="28" fill="#e8efe7"/>
+    <path id="boundary" d="M13 56 H29 C34 59 38 60 35 65 C31 71 25 70 29 76 C31 79 38 80 36 84 H13 Z" fill="#245e53"/>
+    <path d="M36 55 C46 60 43 66 39 70 C34 75 42 77 43 81 C43.3 82.5 43 83.5 42 85" fill="none" stroke="#b54b34" stroke-width="0.65"/>
+    <g id="rhythm" fill="none" stroke="#b54b34" stroke-width="0.85" stroke-linecap="round">
+      <path d="M58 61 C63 57 68 57 73 61 S83 65 89 61"/>
+      <path d="M58 67 C63 63 68 63 73 67 S83 71 89 67"/>
+      <path d="M58 73 C63 69 68 69 73 73 S83 77 89 73"/>
+      <path d="M58 79 C63 75 68 75 73 79 S83 83 89 79"/>
+    </g>
+    <g id="branching" stroke="#245e53" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M113 84 L113 76 L117 71 L117 65 L121 59" stroke-width="1.05"/>
+      <path d="M113 77 L107 71 L107 65 L103 60 M117 72 L124 68 L129 68 M117 66 L111 61" stroke-width="0.65"/>
+      <path d="M107 67 L101 65 M107 72 L102 74 M124 68 L125 61 M124 68 L130 74 M113 80 L124 79 L128 82" stroke-width="0.42"/>
+    </g>
+    <path d="M53.666667 56 V84 M94.333333 56 V84" fill="none" stroke="#172e2b" stroke-width="0.24"/>
+  </g>
+  <rect id="art-frame" x="13" y="56" width="122" height="28" fill="none" stroke="#172e2b" stroke-width="0.24"/>
+  <g id="prompts" fill="#172e2b" font-family="DejaVu Sans, sans-serif" font-size="3.880556" font-weight="700">
+    <text x="13" y="97">Trace a boundary.</text>
+    <text x="13" y="131">Find the rhythm.</text>
+    <text x="13" y="165">Name what changed when you looked longer.</text>
+  </g>
+  <g id="writing-rules" stroke="#638479" stroke-width="0.18" fill="none">
+    <path d="M13 108 H135 M13 120 H135"/>
+    <path d="M13 142 H135 M13 154 H135"/>
+    <path d="M13 176 H135 M13 188 H135"/>
+  </g>
+  <g id="footer" fill="#172e2b" font-family="DejaVu Sans, sans-serif" font-size="3.527778">
+    <text x="13" y="201">Independent practice sheet.</text>
+  </g>
+</svg>

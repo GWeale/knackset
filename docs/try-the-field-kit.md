@@ -16,6 +16,11 @@ than a favorable score.
 Use a task you care about. Keep private inputs local. A public report can describe
 the outcome and use a reduced made-up example instead of uploading those inputs.
 
+Bring a consequential choice: sources with incompatible measures, visual
+references that pull in different directions, or a dependency that may be
+blocking the chosen approach rather than the intended result. Routine tasks can
+be useful too; say when the method adds no discernible value.
+
 ## Install and observe loading
 
 Follow [the project installation guide](installation.md) for one complete package.
@@ -37,6 +42,8 @@ Include:
 - Skill name, release or commit, agent and model.
 - Whether loading was observed, and what the agent actually produced.
 - What you kept, changed or discarded, and the first confusing instruction.
+- One decision the result clarified, or an explicit note that you saw no useful
+  difference. Do not attribute a gain to the method without a fair comparison.
 - Time spent, including manual corrections. Leave cost unknown unless metered.
 - A sanitized artifact or reduced reproduction you have permission to share.
 
@@ -44,6 +51,26 @@ For a stronger comparison, run the same request in another fresh session without
 the skill, using the same model, tools and inputs. Do not show either output to
 the other agent. Compare the two artifacts before revealing which used the skill.
 One comparison is feedback on that task, not proof of general improvement.
+
+## Use a supplied exercise when you need a starting point
+
+Own-project reports are the priority. These authored requests use actual public
+source material and provide a bounded practice option:
+
+- Rabbit Hole: investigate the apparent visitation drop using the
+  [NPS source pack](../skills/rabbit-hole/evals/files/parks-desk/sources.txt) and
+  [figures](../skills/rabbit-hole/evals/files/parks-desk/counts.csv).
+- Reference Remix: make a color and one-black-ink worksheet using the
+  [brief](../skills/reference-remix/evals/files/pattern-desk/design-brief.txt),
+  approved copy and image shelf in that folder.
+- Unstick Project: use the
+  [offline-studio notebook](../skills/unstick-project/evals/files/offline-desk/project-notebook.txt)
+  to choose and finish the first useful proof.
+
+For a supplied exercise, keep expected answers and grading assertions out of the
+agent's context. Report it as guided practice. It can reveal loading, clarity or
+usability problems; it does not establish transfer to your own project or count
+as a real-project result. The form records that distinction.
 
 ## Invite a tester
 
@@ -57,5 +84,6 @@ This text is ready to send to someone who already uses a coding agent:
 > material local; a short sanitized report is enough.
 
 No invitations or independent user reports are implied by this packet. The first
-feedback round closes when five people have submitted inspectable reports.
+feedback round closes when five independent testers have submitted inspectable
+reports from their own projects.
 Triaging those reports and retesting supported fixes comes next.

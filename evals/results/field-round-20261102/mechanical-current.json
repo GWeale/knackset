@@ -1,0 +1,429 @@
+{
+  "checker_sha256": "c8eb64e348cdae30eae83ee7fead3b00ebf7f138882f613bc823cb3357153d21",
+  "checks": [
+    {
+      "output": "editions/offline-01-north",
+      "arguments": [
+        "--input-root",
+        ".local/field-work/offline-desk",
+        "--input-manifest",
+        ".local/field-work/notebook/offline-inputs.json",
+        "--svg",
+        ".local/field-work/editions/offline-01-north/proof.svg",
+        "--width-mm",
+        "210",
+        "--height-mm",
+        "148",
+        "--copy-file",
+        ".local/field-work/offline-desk/approved-copy.txt"
+      ],
+      "exit_code": 0,
+      "report": {
+        "passed": true,
+        "checks": [
+          "saved input paths and SHA-256",
+          "declared physical dimensions",
+          "literal approved copy in SVG text elements"
+        ],
+        "errors": [],
+        "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."
+      }
+    },
+    {
+      "output": "editions/offline-01-south",
+      "arguments": [
+        "--input-root",
+        ".local/field-work/offline-desk",
+        "--input-manifest",
+        ".local/field-work/notebook/offline-inputs.json",
+        "--svg",
+        ".local/field-work/editions/offline-01-south/proof.svg",
+        "--width-mm",
+        "210",
+        "--height-mm",
+        "148",
+        "--copy-file",
+        ".local/field-work/offline-desk/approved-copy.txt"
+      ],
+      "exit_code": 0,
+      "report": {
+        "passed": true,
+        "checks": [
+          "saved input paths and SHA-256",
+          "declared physical dimensions",
+          "literal approved copy in SVG text elements"
+        ],
+        "errors": [],
+        "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."
+      }
+    },
+    {
+      "output": "editions/parks-01-north",
+      "arguments": [
+        "--input-root",
+        ".local/field-work/parks-desk",
+        "--input-manifest",
+        ".local/field-work/notebook/parks-inputs.json"
+      ],
+      "exit_code": 0,
+      "report": {
+        "passed": true,
+        "checks": [
+          "saved input paths and SHA-256"
+        ],
+        "errors": [],
+        "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."
+      }
+    },
+    {
+      "output": "editions/parks-01-south",
+      "arguments": [
+        "--input-root",
+        ".local/field-work/parks-desk",
+        "--input-manifest",
+        ".local/field-work/notebook/parks-inputs.json"
+      ],
+      "exit_code": 0,
+      "report": {
+        "passed": true,
+        "checks": [
+          "saved input paths and SHA-256"
+        ],
+        "errors": [],
+        "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."
+      }
+    },
+    {
+      "output": "editions/patterns-01-south",
+      "arguments": [
+        "--input-root",
+        ".local/field-work/pattern-desk",
+        "--input-manifest",
+        ".local/field-work/notebook/patterns-inputs.json",
+        "--svg",
+        ".local/field-work/editions/patterns-01-south/color.svg",
+        "--width-mm",
+        "148",
+        "--height-mm",
+        "210",
+        "--copy-file",
+        ".local/field-work/pattern-desk/approved-copy.txt",
+        "--no-images"
+      ],
+      "exit_code": 0,
+      "report": {
+        "passed": true,
+        "checks": [
+          "saved input paths and SHA-256",
+          "declared physical dimensions",
+          "literal approved copy in SVG text elements",
+          "absence of SVG image nodes"
+        ],
+        "errors": [],
+        "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."
+      }
+    },
+    {
+      "output": "editions/patterns-01-south",
+      "arguments": [
+        "--input-root",
+        ".local/field-work/pattern-desk",
+        "--input-manifest",
+        ".local/field-work/notebook/patterns-inputs.json",
+        "--svg",
+        ".local/field-work/editions/patterns-01-south/ink.svg",
+        "--width-mm",
+        "148",
+        "--height-mm",
+        "210",
+        "--copy-file",
+        ".local/field-work/pattern-desk/approved-copy.txt",
+        "--no-images"
+      ],
+      "exit_code": 0,
+      "report": {
+        "passed": true,
+        "checks": [
+          "saved input paths and SHA-256",
+          "declared physical dimensions",
+          "literal approved copy in SVG text elements",
+          "absence of SVG image nodes"
+        ],
+        "errors": [],
+        "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."
+      }
+    },
+    {
+      "output": "editions/patterns-01-north",
+      "arguments": [
+        "--input-root",
+        ".local/field-work/pattern-desk",
+        "--input-manifest",
+        ".local/field-work/notebook/patterns-inputs.json",
+        "--svg",
+        ".local/field-work/editions/patterns-01-north/color.svg",
+        "--width-mm",
+        "148",
+        "--height-mm",
+        "210",
+        "--copy-file",
+        ".local/field-work/pattern-desk/approved-copy.txt",
+        "--no-images"
+      ],
+      "exit_code": 0,
+      "report": {
+        "passed": true,
+        "checks": [
+          "saved input paths and SHA-256",
+          "declared physical dimensions",
+          "literal approved copy in SVG text elements",
+          "absence of SVG image nodes"
+        ],
+        "errors": [],
+        "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."
+      }
+    },
+    {
+      "output": "editions/patterns-01-north",
+      "arguments": [
+        "--input-root",
+        ".local/field-work/pattern-desk",
+        "--input-manifest",
+        ".local/field-work/notebook/patterns-inputs.json",
+        "--svg",
+        ".local/field-work/editions/patterns-01-north/ink.svg",
+        "--width-mm",
+        "148",
+        "--height-mm",
+        "210",
+        "--copy-file",
+        ".local/field-work/pattern-desk/approved-copy.txt",
+        "--no-images"
+      ],
+      "exit_code": 0,
+      "report": {
+        "passed": true,
+        "checks": [
+          "saved input paths and SHA-256",
+          "declared physical dimensions",
+          "literal approved copy in SVG text elements",
+          "absence of SVG image nodes"
+        ],
+        "errors": [],
+        "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."
+      }
+    },
+    {
+      "output": "editions/offline-02-north",
+      "arguments": [
+        "--input-root",
+        ".local/field-work/offline-desk",
+        "--input-manifest",
+        ".local/field-work/notebook/offline-inputs.json",
+        "--svg",
+        ".local/field-work/editions/offline-02-north/proof.svg",
+        "--width-mm",
+        "210",
+        "--height-mm",
+        "148",
+        "--copy-file",
+        ".local/field-work/offline-desk/approved-copy.txt"
+      ],
+      "exit_code": 0,
+      "report": {
+        "passed": true,
+        "checks": [
+          "saved input paths and SHA-256",
+          "declared physical dimensions",
+          "literal approved copy in SVG text elements"
+        ],
+        "errors": [],
+        "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."
+      }
+    },
+    {
+      "output": "editions/offline-02-south",
+      "arguments": [
+        "--input-root",
+        ".local/field-work/offline-desk",
+        "--input-manifest",
+        ".local/field-work/notebook/offline-inputs.json",
+        "--svg",
+        ".local/field-work/editions/offline-02-south/proof.svg",
+        "--width-mm",
+        "210",
+        "--height-mm",
+        "148",
+        "--copy-file",
+        ".local/field-work/offline-desk/approved-copy.txt"
+      ],
+      "exit_code": 0,
+      "report": {
+        "passed": true,
+        "checks": [
+          "saved input paths and SHA-256",
+          "declared physical dimensions",
+          "literal approved copy in SVG text elements"
+        ],
+        "errors": [],
+        "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."
+      }
+    },
+    {
+      "output": "editions/patterns-02-north",
+      "arguments": [
+        "--input-root",
+        ".local/field-work/pattern-desk",
+        "--input-manifest",
+        ".local/field-work/notebook/patterns-inputs.json",
+        "--svg",
+        ".local/field-work/editions/patterns-02-north/color.svg",
+        "--width-mm",
+        "148",
+        "--height-mm",
+        "210",
+        "--copy-file",
+        ".local/field-work/pattern-desk/approved-copy.txt",
+        "--no-images"
+      ],
+      "exit_code": 0,
+      "report": {
+        "passed": true,
+        "checks": [
+          "saved input paths and SHA-256",
+          "declared physical dimensions",
+          "literal approved copy in SVG text elements",
+          "absence of SVG image nodes"
+        ],
+        "errors": [],
+        "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."
+      }
+    },
+    {
+      "output": "editions/patterns-02-north",
+      "arguments": [
+        "--input-root",
+        ".local/field-work/pattern-desk",
+        "--input-manifest",
+        ".local/field-work/notebook/patterns-inputs.json",
+        "--svg",
+        ".local/field-work/editions/patterns-02-north/ink.svg",
+        "--width-mm",
+        "148",
+        "--height-mm",
+        "210",
+        "--copy-file",
+        ".local/field-work/pattern-desk/approved-copy.txt",
+        "--no-images"
+      ],
+      "exit_code": 0,
+      "report": {
+        "passed": true,
+        "checks": [
+          "saved input paths and SHA-256",
+          "declared physical dimensions",
+          "literal approved copy in SVG text elements",
+          "absence of SVG image nodes"
+        ],
+        "errors": [],
+        "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."
+      }
+    },
+    {
+      "output": "editions/patterns-02-south",
+      "arguments": [
+        "--input-root",
+        ".local/field-work/pattern-desk",
+        "--input-manifest",
+        ".local/field-work/notebook/patterns-inputs.json",
+        "--svg",
+        ".local/field-work/editions/patterns-02-south/color.svg",
+        "--width-mm",
+        "148",
+        "--height-mm",
+        "210",
+        "--copy-file",
+        ".local/field-work/pattern-desk/approved-copy.txt",
+        "--no-images"
+      ],
+      "exit_code": 0,
+      "report": {
+        "passed": true,
+        "checks": [
+          "saved input paths and SHA-256",
+          "declared physical dimensions",
+          "literal approved copy in SVG text elements",
+          "absence of SVG image nodes"
+        ],
+        "errors": [],
+        "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."
+      }
+    },
+    {
+      "output": "editions/patterns-02-south",
+      "arguments": [
+        "--input-root",
+        ".local/field-work/pattern-desk",
+        "--input-manifest",
+        ".local/field-work/notebook/patterns-inputs.json",
+        "--svg",
+        ".local/field-work/editions/patterns-02-south/ink.svg",
+        "--width-mm",
+        "148",
+        "--height-mm",
+        "210",
+        "--copy-file",
+        ".local/field-work/pattern-desk/approved-copy.txt",
+        "--no-images"
+      ],
+      "exit_code": 0,
+      "report": {
+        "passed": true,
+        "checks": [
+          "saved input paths and SHA-256",
+          "declared physical dimensions",
+          "literal approved copy in SVG text elements",
+          "absence of SVG image nodes"
+        ],
+        "errors": [],
+        "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."
+      }
+    },
+    {
+      "output": "editions/parks-02-north",
+      "arguments": [
+        "--input-root",
+        ".local/field-work/parks-desk",
+        "--input-manifest",
+        ".local/field-work/notebook/parks-inputs.json"
+      ],
+      "exit_code": 0,
+      "report": {
+        "passed": true,
+        "checks": [
+          "saved input paths and SHA-256"
+        ],
+        "errors": [],
+        "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."
+      }
+    },
+    {
+      "output": "editions/parks-02-south",
+      "arguments": [
+        "--input-root",
+        ".local/field-work/parks-desk",
+        "--input-manifest",
+        ".local/field-work/notebook/parks-inputs.json"
+      ],
+      "exit_code": 0,
+      "report": {
+        "passed": true,
+        "checks": [
+          "saved input paths and SHA-256"
+        ],
+        "errors": [],
+        "limits": "Does not judge reasoning, art quality, clipping, physical printing, hidden styling, or tool/read order."
+      }
+    }
+  ]
+}

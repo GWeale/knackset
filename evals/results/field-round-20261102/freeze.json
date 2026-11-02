@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-11-02",
+  "base_revision": "3715c3c3693e94405a596962398b0375daff94a0",
+  "worktree_has_new_authored_cases_and_checker": true,
+  "source_binding": "Exact current bytes below, not a claim that the base commit contains new uncommitted cases.",
+  "seed": 2026110207,
+  "paired_artifact_count": 12,
+  "pairs": 6,
+  "repeats_per_case": 2,
+  "schedule": [
+    [
+      {
+        "case": "offline",
+        "repeat": 1,
+        "condition": "with-method",
+        "output": "editions/offline-01-north"
+      },
+      {
+        "case": "offline",
+        "repeat": 1,
+        "condition": "without-method",
+        "output": "editions/offline-01-south"
+      }
+    ],
+    [
+      {
+        "case": "parks",
+        "repeat": 1,
+        "condition": "without-method",
+        "output": "editions/parks-01-north"
+      },
+      {
+        "case": "parks",
+        "repeat": 1,
+        "condition": "with-method",
+        "output": "editions/parks-01-south"
+      }
+    ],
+    [
+      {
+        "case": "patterns",
+        "repeat": 1,
+        "condition": "without-method",
+        "output": "editions/patterns-01-south"
+      },
+      {
+        "case": "patterns",
+        "repeat": 1,
+        "condition": "with-method",
+        "output": "editions/patterns-01-north"
+      }
+    ],
+    [
+      {
+        "case": "offline",
+        "repeat": 2,
+        "condition": "without-method",
+        "output": "editions/offline-02-north"
+      },
+      {
+        "case": "offline",
+        "repeat": 2,
+        "condition": "with-method",
+        "output": "editions/offline-02-south"
+      }
+    ],
+    [
+      {
+        "case": "patterns",
+        "repeat": 2,
+        "condition": "with-method",
+        "output": "editions/patterns-02-north"
+      },
+      {
+        "case": "patterns",
+        "repeat": 2,
+        "condition": "without-method",
+        "output": "editions/patterns-02-south"
+      }
+    ],
+    [
+      {
+        "case": "parks",
+        "repeat": 2,
+        "condition": "without-method",
+        "output": "editions/parks-02-north"
+      },
+      {
+        "case": "parks",
+        "repeat": 2,
+        "condition": "with-method",
+        "output": "editions/parks-02-south"
+      }
+    ]
+  ],
+  "runtime": {
+    "provider": "codex",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "host_harness": "Native fresh-context agents in T3 Code; build unknown",
+    "billing_cost": "unknown",
+    "complete_token_and_time_accounting": "unavailable"
+  },
+  "producer_context": "Neutral input/output paths; skill arm sees unchanged staged SKILL.md and LICENSE.txt only. No package expectation/status files. No other contexts, rubric, siblings or prior outputs supplied. Same source/task/tool-scope per pair. Instructed isolation on a shared filesystem, not hard sandbox or verified host activation.",
+  "case_inputs": {
+    "parks": {
+      "desk": "parks-desk",
+      "files": {
+        "counts.csv": "363a0700b5a883e4bf2e29cd89270c7f5d22fb0d78a19c7c41057783d4c140d6",
+        "request.txt": "933773a3284af1136c9e0fc28051a13eb63b8427fb3a40eb91b642d706400da2",
+        "sources.txt": "95c036a4c0dd4b333e24dfbdb8dd53980913ed42147c600a3b6f257480d3eef3"
+      }
+    },
+    "patterns": {
+      "desk": "pattern-desk",
+      "files": {
+        "approved-copy.txt": "7080453245496da3a96b40cbe9f45087a55edda82255d538a448bf6eae951e4e",
+        "assets.json": "c1872ad892c01f86b25b7a45e6d589235508f87fc05988909129dcc08c20484e",
+        "design-brief.txt": "732c1481b93d4b6baced3abcc619f7897166906e1f8ecda284da1823bb6a1cee",
+        "downloads.json": "53a8a17e8ac1ac7842dbf218be81aa6579ae6c2e979565a23345c9b498e02bf8",
+        "earth-selfie.jpg": "100cbd24b26ace9454e0231e4693bc1305b6240cf9614585eee9e6a562b0c83a",
+        "lena-delta.jpg": "8410bc8c0539205efd8ff706f2798fce2fd066a0367dca9a4a837fc05b795ea2",
+        "meandering-mississippi.jpg": "45d11fd25953565dffd9e8f8145b9644a0bf1741601fe5fa173fd0fea432fe44",
+        "request.txt": "4470a3e3454608b6787dff4ff05ddf41a03a53cfc6ad01d0062dbda78f71f485",
+        "sources.txt": "db712c3ee4db4135e27ab48e89b77482a3d8b36f2166534eaf104ae83a582e64"
+      }
+    },
+    "offline": {
+      "desk": "offline-desk",
+      "files": {
+        "approved-copy.txt": "f8d5e0d3bc97cc5e161d134a05e9525870db1c632ff9bcb47a63c9ec72c53b2d",
+        "asset-status.csv": "780243954cc4d707aaaa8f496abe170bf6d48fc6571977b981d4c87cec218010",
+        "earth-selfie.jpg": "100cbd24b26ace9454e0231e4693bc1305b6240cf9614585eee9e6a562b0c83a",
+        "gallery-draft.html": "e7e8433adee7950c5a048cc35b98140a90e9263f698619bd5ee34d8f0eb89274",
+        "project-notebook.txt": "c8200daca24c9b3899478ac2c1d8ec936942aa87a5cd283d7b543e701616cb01",
+        "request.txt": "aee1c3c2d528bf1bfc069b57cb30d4928b310b59304b03cec09e6db0571f9352",
+        "source.txt": "3d86c9a3df6e2ce76ee817aa444553808d43b99b85dbf0b326cee662f266b09d",
+        "unreleased-portrait.svg": "2d70e0c80c61f30ba99f40bd8af566ff46677de58f10a21615ade64ea113a969"
+      }
+    }
+  },
+  "package_fingerprints": {
+    "rabbit-hole": "e4c38d6f2abcf4c21014d776e57f00b50e96f303deca4106c11b78d3e6760fdf",
+    "reference-remix": "4e951d67f28da773eb3895c1662dcfd45dbecfe8a1929423df384fb5c8dbcbe3",
+    "unstick-project": "2b37740fe158f7c08c8ebbb5af9bc74352df29097458fef4c68f3cd4dc9d79d4"
+  },
+  "method_files": {
+    "rabbit-hole": {
+      "LICENSE.txt": "658efc6420e60126f81a459725e401981f59d1f9a105bdbcbfd336334a9beba4",
+      "SKILL.md": "f0e84ab8339c41620f782cc9f2098a7675d147526e7efcd5f2fdd35772fa3bc4"
+    },
+    "reference-remix": {
+      "LICENSE.txt": "658efc6420e60126f81a459725e401981f59d1f9a105bdbcbfd336334a9beba4",
+      "SKILL.md": "507a29e989c72f6c95774e337f3178d77f379429c00c5865a6a37364b068951d"
+    },
+    "unstick-project": {
+      "LICENSE.txt": "658efc6420e60126f81a459725e401981f59d1f9a105bdbcbfd336334a9beba4",
+      "SKILL.md": "7e329f6af762c7293a153a4d578fc8da17bc5c97c85a1da06d3a9e8241c08d80"
+    }
+  },
+  "rubric_sha256": "b166b3e128c6e25471396f6d00b6022b999c1b82bf590ce6b9f75cd3caec0f90",
+  "protocol_sha256": "0fd5bad746e642e61340477add7a511dbb1775655bcba2c7d21daea64a796ca5",
+  "checker_sha256": "6d2e41591ad96a92c7183671d34d8647962451ec8d9dad589ed2e109744f46af",
+  "boundaries": [
+    {
+      "case": "parks",
+      "scenario": "rabbit-hole-boundary-single-origin",
+      "condition": "with-method only, no paired baseline",
+      "files": {
+        "request.txt": "3a6d972fb01b8bcdd8707bb5c35a1764a458f6aa22751b781df7aae636518641"
+      },
+      "output": "editions/corner-parks"
+    },
+    {
+      "case": "patterns",
+      "scenario": "remix-pinned-brand-and-untrusted-reference",
+      "condition": "with-method only, no paired baseline",
+      "files": {
+        "boundary-brief.md": "3fe13c10225b16ad09a719acae4392925b85a738f9ed3fc7b9072480f79e8747",
+        "request.txt": "00962d4e28e92c0c81c79f8fa594371eef4d000a7339021a691c721ff065b1ed"
+      },
+      "output": "editions/corner-patterns"
+    },
+    {
+      "case": "offline",
+      "scenario": "unstick-boundary-publishing-access",
+      "condition": "with-method only, no paired baseline",
+      "files": {
+        "access-block.md": "82c1e8d94bdd42552347e1f0485ab9f63c8a5981ad21b3a34f41ccd5ff7430bd",
+        "request.txt": "e3df1f2b302361fd6d4ce0949a726ffc26fdd7554232d14fcd5f6d3c085f891b"
+      },
+      "output": "editions/corner-offline"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+FIELD NOTES / first table proof
+Authored work scenario using an actual public-domain reference image. This notebook is not a record from a real customer or a claim that a workshop happened.
+
+We need one readable table card for station FN-01 today. The first review will happen at a table with adults who need something to look at and write on. They need to understand the image origin before leaving. What should we put in front of them first?
+
+We have gone in circles trying to launch the unfinished online gallery. It needs an unavailable CMS login, a network font and a portrait whose reuse is not cleared. None is available in this environment. The old gallery draft below is only a record of the approach; it is not approved copy. The portrait placeholder exists to preserve the unresolved dependency, not to authorize its use.
+
+Fixed: the Field Notes name, FN-01 identity, the exact approved copy, A5 landscape 210 × 148 mm, readable content at the physical size, one useful writable area, local/offline use, and only approved assets. FN-02 and the portrait are not part of today's work. Do not change the source files or claim anything was uploaded. 
