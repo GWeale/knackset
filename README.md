@@ -1,4 +1,4 @@
-![Knackset](assets/knackset-mark.svg)
+<img src="assets/knackset-mark.svg" alt="Knackset" width="80" height="80">
 
 # Knackset
 
