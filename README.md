@@ -1,101 +1,116 @@
-![Knackset — Agent skills with follow-through.](assets/knackset-social.jpg)
+![Knackset](assets/knackset-mark.svg)
 
 # Knackset
 
-**Agent workflows that check what actually happened.**
+**A working collection for curious people who make things.**
 
-Knackset gives agents reusable instructions for tasks such as updating a
-spreadsheet, triaging mail, or preparing a form. Each skill covers the decisions
-that can go wrong and how to check the result before reporting success.
+Investigate a strange story. Find the angle in a pile of notes. Turn a few
+references into an original direction. Find out whether an idea deserves a month
+of your life before you give it one.
 
-[![CI](https://github.com/GWeale/knackset/actions/workflows/ci.yml/badge.svg)](https://github.com/GWeale/knackset/actions/workflows/ci.yml)
-[MIT](LICENSE) · [Browse the skills](docs/catalog.md) · [Contribute a failure case](https://github.com/GWeale/knackset/issues/new?template=bug-report.yml)
+Knackset studies good public skills and makes original methods from the parts
+worth keeping. The point of view is in the choices: which evidence matters,
+which reference earns its place, what to leave alone, and when to make something.
 
-## The row was saved. The response timed out.
+[Start with a skill](#start-with-what-you-have) · [See worked examples](examples/field-kit/README.md) · [Explore the source shelf](docs/source-shelf.md) · [See the whole catalog](docs/catalog.md)
 
-Retrying the append would create a duplicate. The useful next step is to inspect
-the saved row. Knackset captures that kind of follow-through in reusable workflows.
+[![CI](https://github.com/GWeale/knackset/actions/workflows/ci.yml/badge.svg)](https://github.com/GWeale/knackset/actions/workflows/ci.yml) · [MIT](LICENSE)
 
-Run a local demo of both choices. It uses scripted, synthetic data and needs only
-Python 3.10+:
+## Start with what you have
+
+| You have… | Use | Walk away with… |
+| --- | --- | --- |
+| A question you keep coming back to | [Rabbit Hole](skills/rabbit-hole/SKILL.md) | An investigation with a revealing turn, a source trail, and an answer that survives scrutiny |
+| A folder of things you love | [Reference Remix](skills/reference-remix/SKILL.md) | An original creative direction and a usable artifact, with reasons behind the choices |
+| An idea you might spend months on | [Idea Pressure Test](skills/idea-pressure-test/SKILL.md) | The assumption that matters, the strongest alternative, and a cheap way to learn what to do next |
+| Notes, interviews, or a rambling draft | [Story Mining](skills/story-mining/SKILL.md) | A defensible angle and a finished piece that still sounds like its author |
+| Something working that is hard to explain | [Demo Director](skills/demo-director/SKILL.md) | A demo built around what works: what changes, what to show, what to say, and where to cut |
+| Something you want to understand | [Learn by Making](skills/learn-by-making/SKILL.md) | A small working experiment, an explanation tied to its behavior, and a next thing to try |
+
+A few ways in:
+
+> Use rabbit-hole. People keep saying this little cinema saved the neighborhood.
+> Follow the story back to its sources and tell me what actually changed.
+
+> Use reference-remix. I like field guides, old transit maps, and low-budget space
+> films. Help me turn those references into a direction for my project.
+
+> Use idea-pressure-test. I want to build this. Find the part I might be wrong
+> about and a way to test it before I disappear into the build.
+
+> Use story-mining. There is something good in these notes. Find the angle,
+> preserve the odd bits that make them mine, and finish a piece worth reading.
+
+The six methods are original drafts, with raw example inputs and authored cases.
+The [worked examples](examples/field-kit/README.md) show what came out; package
+notes and review records keep the limits visible. Earlier office and browser
+workflows remain on the [utility shelf in the full catalog](docs/catalog.md).
+
+## See what came out
+
+[![Night Orchard: a poster made by Reference Remix](examples/field-kit/reference-remix/night-orchard-small.png)](examples/field-kit/reference-remix/night-orchard.png)
+
+Reference Remix made this poster from three fictional reference descriptions.
+Rabbit Hole found a changed denominator inside a tempting cinema success story.
+Learn by Making produced a runnable curve experiment.
+[Inspect all six outputs, their inputs, and what was checked](examples/field-kit/README.md).
+
+## A source shelf with a point of view
+
+The [source shelf](docs/source-shelf.md) examines individual skills from
+Impeccable, gstack, Pawel Huryn, Corey Haines, Anthropic, Baoyu, K-Dense, Cursor's
+pstack, Humanizer, and Superpowers. Each pick links to the file we read at a
+specific revision, its license, the useful mechanism, and the baggage we would
+leave behind.
+
+This is a collection to explore and adapt. We do not bundle upstream skills or
+silently relabel their work as ours. Knackset's original procedures have their
+own scope and judgments. [How we curate](docs/workflow-contract.md).
+
+## Try one
+
+Read the chosen `SKILL.md`, then give it to an agent with the material it needs.
+You can try Rabbit Hole immediately with the bundled fictional cinema sources:
+
+> Read `skills/rabbit-hole/SKILL.md`. Use only the supplied
+> `skills/rabbit-hole/evals/files/cinema-sources.md` to investigate the cinema story.
+> Write an explanation for a curious local reader and show the evidence that matters.
+
+No account connection is needed for this example. For installation, copy the
+**whole skill folder** into the directory your host supports. See the
+[project-scoped copy recipe](docs/installation.md).
+
+For Codex with the optional [Skills CLI](https://github.com/vercel-labs/skills):
 
 ```bash
-git clone https://github.com/GWeale/knackset.git
-cd knackset
-python3 scripts/demo.py
+cd /absolute/path/to/your-project
+npx skills@1.7.4 add GWeale/knackset --skill rabbit-hole --agent codex --copy
 ```
 
-Checking the saved state leaves one row; blindly retrying creates two. The demo
-uses temporary files and cleans up afterward. It runs no model and connects to no
-accounts. [Choose a challenge for your agent](evals/README.md#choose-a-runnable-challenge)
-to test its own decisions.
+The command selects the host and project, but follows repository contents. Use
+the [full-commit recipe](docs/installation.md) when you need reproducible contents.
+Installation supplies a method; your host supplies tools and permissions.
 
-## Start with a workflow
+## Bring an interesting job
 
-| Task | The detail the skill handles |
-| --- | --- |
-| [Update Google Sheets](skills/google-sheets-update/SKILL.md) | Confirm the row and check whether a timed-out append was saved |
-| [Triage Gmail](skills/gmail-triage/SKILL.md) | Label matching messages while preserving starred messages in the same thread |
-| [Prepare or update a form](skills/web-form-update/SKILL.md) | Check for autosave before entering data when the user only asked for a draft |
-| [Compose a Gmail reply](skills/gmail-draft-reply/SKILL.md) | Keep the correct recipients and thread; read back the saved draft after a timeout |
-| [Coordinate a calendar](skills/calendar-coordination/SKILL.md) | Read the form's date rules before saving a multi-day event |
-| [Edit Google Docs](skills/google-docs-update/SKILL.md) | Prepare proposed text when the tool cannot save suggestions |
+A good contribution starts with a task you would actually want help with, a
+non-obvious decision, and a result someone can inspect. Show us the messy input
+and what a useful finish looks like. A longer prompt or another connector is not
+by itself a new capability.
 
-The [full catalog](docs/catalog.md) also covers calendars, Docs, research,
-monitoring, reservations, briefings, PR review, and capturing a session as a skill.
+[Propose a skill](https://github.com/GWeale/knackset/issues/new?template=workflow-request.yml) · [Report a failure](https://github.com/GWeale/knackset/issues/new?template=bug-report.yml) · [Contribution guide](CONTRIBUTING.md)
 
-## Install one skill
+## Evidence and development
 
-Choose the host and the project where you want to use the skill. **Leave the
-Knackset checkout before installing into another project.** Your host also needs
-the relevant browser or service tools; installing instructions does not connect
-an account.
+The new field kit has [six supplied-input artifact trials](evals/results/field-kit-review-20261101.md),
+with one output per method and no comparison baseline. The older utility
+packages retain their [dated offline records](evals/results/README.md); those
+records do not validate the new methods. Authored examples, inspected sources,
+scripted fixtures and actual agent executions are labeled separately.
 
-For **Codex, project scope**, follow the [revision-pinned local copy recipe](docs/installation.md#copy-a-pinned-revision-into-a-codex-project).
-It uses Git and Python 3.10+, preserves the entire package, and installs to
-`YOUR_PROJECT/.agents/skills/google-sheets-update/`.
-
-If you already use Node.js 22.20+, the optional third-party
-[Skills CLI 1.7.4](https://github.com/vercel-labs/skills/blob/v1.7.4/README.md)
-can install to that project:
-
-```bash
-cd /absolute/path/to/your-target-project
-npx skills@1.7.4 add GWeale/knackset --skill google-sheets-update --agent codex --copy
-```
-
-Review the displayed destination before confirming. This selects Codex and uses
-the CLI's default project scope; `--global` would change the scope. The command
-pins the installer but follows repository contents. Use the local copy recipe
-for repeatable contents. See [installation and activation checks](docs/installation.md)
-for exact scopes, limits, and evidence.
-
-Before the first edit, ask your agent to confirm it can load the skill and name
-the connected account and tools it will use. Then give it a specific task:
-
-> Use the `google-sheets-update` skill. In [sheet URL], on the Inventory tab, set
-> Quantity to 4 for the row whose Item ID is P-3. Check the saved value.
-
-## Evidence
-
-All 16 workflows have [scoped offline records](evals/results/README.md) across
-22 synthetic challenges. Earlier records retain a failed Calendar check, its
-successful retest, and baseline comparisons. These small trials do not establish
-a performance gain or compatibility with live services. Every package includes
-written success, boundary, and routing cases; only the recorded cases have been run.
-See the [20-item audit follow-up](docs/audit-resolution.md) for the latest fixes.
-
-## Bring one failure your agent should recover from
-
-A duplicate row, an autosaved draft, a wrong recipient: a concrete example is a
-useful contribution. [Report a failure](https://github.com/GWeale/knackset/issues/new?template=bug-report.yml)
-or [request a workflow](https://github.com/GWeale/knackset/issues/new?template=workflow-request.yml).
-Use synthetic details; keep private histories and credentials out of submissions.
-Maintainers apply the [contribution and evidence checks](CONTRIBUTING.md).
-
-## Develop
-
-Python 3.10+, standard library only. CI checks Python 3.10 and 3.14.
+Python helpers use the standard library. The [experimental local runner](docs/runtime.md)
+and [historical comparisons](evals/results/README.md) are available for people
+working on execution and recovery; they are supporting tools for this collection.
 
 ```bash
 python3 scripts/validate.py
@@ -103,17 +118,4 @@ python3 scripts/catalog.py render --check
 python3 -m unittest discover -s tests -v
 ```
 
-Knackset is independently authored. See the [research and product comparisons](docs/product-alignment.md),
-[provenance](docs/provenance.md), and [growth plan](docs/scaling.md) for its sources
-and limits. Original copyright notices are retained under the [MIT license](LICENSE).
-
-## Run a local workflow
-
-The [local runtime preview](docs/runtime.md) persists task intent, approval state,
-recovery and a notification outbox across processes. It currently uses a synthetic
-adapter. The [comparison protocol](docs/comparison-protocol.md) and
-[measured records](evals/results/README.md) explain what was tested.
-
-Try one skill and [report a confusing instruction or failure](https://github.com/GWeale/knackset/issues/new?template=bug-report.yml)
-with synthetic reproduction steps, your host and the package revision. Real
-account identifiers and private transcripts do not belong in public reports.
+[Provenance](docs/provenance.md) · [Full catalog](docs/catalog.md) · [MIT license](LICENSE)

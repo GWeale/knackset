@@ -1,6 +1,6 @@
 # Contributing to Knackset
 
-Start with one task and a way to tell whether it finished. You can
+Start with an interesting job, a non-obvious decision, and something useful at the end. You can
 [report a failure](https://github.com/GWeale/knackset/issues/new?template=bug-report.yml),
 [request a workflow](https://github.com/GWeale/knackset/issues/new?template=workflow-request.yml),
 or contribute a skill. A small example with made-up data is enough to start a
@@ -22,11 +22,11 @@ strings are not accepted here. The name must match its folder and use 1–64
 lowercase ASCII letters/digits with single internal hyphens; the description
 must contain 1–1024 characters. Put tool requirements in the skill body.
 
-Explain the intended outcome, the application's relevant behavior, and the
-decisions the agent must make. The agent should discover current page controls
-as it works; saved click sequences and session element IDs will go stale. Use
-only tools and permissions available in the host environment. A skill cannot
-invent a tool or authorize an external action on the user's behalf.
+Explain what changes the agent's decisions and why the resulting artifact is
+better. Show which references informed the method and what you chose to change.
+Do not add an app wrapper, role title, or compulsory checklist without a concrete
+benefit. For tool-based tasks, use capabilities and permissions available in the
+host; a skill cannot invent access or authorize actions on the user's behalf.
 
 Add a `catalog.json` entry with a category, focused tags, evidence basis,
 validation status, `live_validation`, and `evidence`. Keep the description in

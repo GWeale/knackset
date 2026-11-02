@@ -1,6 +1,6 @@
-name: Propose a workflow
-description: Suggest a task and describe how an agent should know it is finished.
-title: '[Workflow] '
+name: Bring an interesting job
+description: Show the material, the hard decision, and a useful result.
+title: '[Skill idea] '
 body:
   - type: markdown
     attributes:
@@ -8,15 +8,15 @@ body:
   - type: textarea
     id: outcome
     attributes:
-      label: What should the agent do?
-      description: Give one realistic request and describe what you would check to know it finished.
+      label: What do you want to make or figure out?
+      description: Give one realistic request and describe the result you would want to keep.
     validations:
       required: true
   - type: input
-    id: service
+    id: material
     attributes:
-      label: Where should it work?
-      description: Where should the task run, and which agent or tools do you use?
+      label: What makes it hard?
+      description: What material would you bring, and which decision needs more than an obvious checklist?
     validations:
       required: true
   - type: textarea
@@ -29,8 +29,8 @@ body:
   - type: textarea
     id: sources
     attributes:
-      label: Useful documentation
-      description: Link official documentation if you have it. For material you want to reuse, include its license or reuse terms.
+      label: Useful references
+      description: Link a skill, method, example, or official documentation worth studying. Include reuse terms for anything you propose bundling.
     validations:
       required: false
   - type: textarea

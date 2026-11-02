@@ -1,7 +1,8 @@
 # Measured execution records
 
-All 16 workflows have current, scoped offline records. None has been tested against a live
-service. Keep the individual runs and their limits in view: these are small
+The 16 older utility workflows have current, scoped offline records. None has
+been tested against a live service. The six new field-kit methods remain draft;
+their [artifact trials](field-kit-review-20261101.md) are reviewed separately. Keep the individual runs and their limits in view: these are small
 trials, not a general success-rate benchmark.
 
 ## Audit follow-up — 2026-11-01

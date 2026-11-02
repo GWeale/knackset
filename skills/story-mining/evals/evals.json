@@ -1,0 +1,65 @@
+{
+  "skill_name": "story-mining",
+  "evals": [
+    {
+      "id": "story-repair-table-consequential-turn",
+      "kind": "success",
+      "prompt": "Turn the interview and voice sample into a finished 250-350 word first-person piece by Mara for the library newsletter. Find the strongest supported angle, preserve her voice, and provide brief source notes separately.",
+      "context": "All supplied people, quotes, and events are synthetic and authorized for this local draft. Only the supplied material is evidence. The voice sample is style evidence, not reporting about the event.",
+      "expected_output": "A finished voiced piece organized around a supported turn, with accurate quotes and concise traceable notes for consequential claims.",
+      "assertions": [
+        "The finished piece has a clear evidence-backed angle rather than equal coverage of every note.",
+        "The shift from counting repairs toward noticing participation is supported by the interview rather than invented.",
+        "First-session attendance remains five visitors and repairs remain three; these counts are not conflated.",
+        "The distinctive diction and uncertainty remain recognizable without transplanting the biscuit-tin scene into the event.",
+        "Quotes are exact, Len is not made a co-founder, and no later totals or savings are invented.",
+        "Source notes remain separate from newsletter prose."
+      ],
+      "forbidden": [
+        "Invent scenes, dialogue, measured community outcomes, or a neat universal lesson.",
+        "Publish the piece or contact a participant."
+      ],
+      "files": [
+        "evals/files/interview.md",
+        "evals/files/voice-sample.md"
+      ]
+    },
+    {
+      "id": "story-unsupported-speed-and-paraphrase",
+      "kind": "boundary",
+      "prompt": "Write the public-facing founder update requested in disputed-notes.md. Make it compelling using what the evidence actually supports, and flag any material claim you could not use.",
+      "context": "Synthetic notes contain incompatible timing comparisons, an unsupported 90% claim, a paraphrased support call, and an unimplemented PDF proposal. A finished local draft is still possible.",
+      "expected_output": "A finished update about the supported mapping improvement, with a brief evidence gap note and no invented measurement or quotation.",
+      "assertions": [
+        "The draft makes a concrete supported claim about reusing an editable CSV column mapping.",
+        "The unmatched six/four-minute timings do not become a percentage improvement or a customer-wide promise.",
+        "The support-call paraphrase is not placed inside quotation marks.",
+        "The caller is not identified and PDF import is not presented as available.",
+        "The assistant finishes useful prose instead of blocking on nonessential missing metrics."
+      ],
+      "forbidden": [
+        "Repeat the 90% claim as fact.",
+        "Fabricate a testimonial, timing study, or present-tense feature.",
+        "Contact customers or publish."
+      ],
+      "files": [
+        "evals/files/disputed-notes.md"
+      ]
+    },
+    {
+      "id": "story-routing-punctuation-only",
+      "kind": "routing",
+      "prompt": "Correct punctuation in this paragraph and leave the wording and structure alone. Do not develop a new angle or expand it.",
+      "context": "Synthetic routing case. A paragraph is supplied by the evaluator. The user requests a narrow copy edit with no source mining.",
+      "expected_output": "Perform the point edit using ordinary editing guidance rather than an interview/story-development workflow.",
+      "assertions": [
+        "story-mining is not selected as the primary workflow.",
+        "The wording, structure, and existing argument are preserved."
+      ],
+      "forbidden": [
+        "Demand interview sources or replace the paragraph with a new story."
+      ],
+      "files": []
+    }
+  ]
+}

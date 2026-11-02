@@ -325,6 +325,114 @@
         "evidence"
       ],
       "validation_note": "VALIDATION.md"
+    },
+    {
+      "name": "rabbit-hole",
+      "path": "skills/rabbit-hole",
+      "basis": [
+        "authored",
+        "research-derived"
+      ],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false,
+      "category": "research",
+      "tags": [
+        "investigation",
+        "sources",
+        "explanations"
+      ],
+      "validation_note": "VALIDATION.md"
+    },
+    {
+      "name": "reference-remix",
+      "path": "skills/reference-remix",
+      "basis": [
+        "authored",
+        "research-derived"
+      ],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false,
+      "category": "creative",
+      "tags": [
+        "references",
+        "art-direction",
+        "originality"
+      ],
+      "validation_note": "VALIDATION.md"
+    },
+    {
+      "name": "idea-pressure-test",
+      "path": "skills/idea-pressure-test",
+      "basis": [
+        "authored",
+        "research-derived"
+      ],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false,
+      "category": "product",
+      "tags": [
+        "ideas",
+        "assumptions",
+        "experiments"
+      ],
+      "validation_note": "VALIDATION.md"
+    },
+    {
+      "name": "story-mining",
+      "path": "skills/story-mining",
+      "basis": [
+        "authored",
+        "research-derived"
+      ],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false,
+      "category": "creative",
+      "tags": [
+        "writing",
+        "voice",
+        "story"
+      ],
+      "validation_note": "VALIDATION.md"
+    },
+    {
+      "name": "demo-director",
+      "path": "skills/demo-director",
+      "basis": [
+        "authored",
+        "research-derived"
+      ],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false,
+      "category": "creative",
+      "tags": [
+        "demos",
+        "storyboards",
+        "proof"
+      ],
+      "validation_note": "VALIDATION.md"
+    },
+    {
+      "name": "learn-by-making",
+      "path": "skills/learn-by-making",
+      "basis": [
+        "authored",
+        "research-derived"
+      ],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false,
+      "category": "learning",
+      "tags": [
+        "learning",
+        "experiments",
+        "artifacts"
+      ],
+      "validation_note": "VALIDATION.md"
     }
   ]
 }

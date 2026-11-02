@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "kind": "artifact-review-input-and-output-manifest",
+  "date": "2026-11-01",
+  "timezone": "America/Los_Angeles",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "xhigh",
+  "provider": "codex",
+  "runtime": "Native agents in T3 Code through the Codex harness; exact harness build and billing cost unknown.",
+  "trial_count": 6,
+  "baseline_count": 0,
+  "agent_context_count": 3,
+  "context_design": "Three fresh contexts produced Reference Remix, Story Mining and Idea Pressure Test. The same lanes then produced Learn by Making, Rabbit Hole and Demo Director respectively. Later trials retain the earlier context; they are not six independent fresh contexts.",
+  "source_materials": {
+    "rabbit-hole": {
+      "skills/rabbit-hole/SKILL.md": "f0e84ab8339c41620f782cc9f2098a7675d147526e7efcd5f2fdd35772fa3bc4",
+      "skills/rabbit-hole/evals/files/cinema-sources.md": "f31934dfbe3a6774bcdcaf10653e2de0e4d318c01ac47d0e80db1195682393f4"
+    },
+    "reference-remix": {
+      "skills/reference-remix/SKILL.md": "507a29e989c72f6c95774e337f3178d77f379429c00c5865a6a37364b068951d",
+      "skills/reference-remix/evals/files/brief.md": "0bfe712f51bf7645df01bd2c510b4b3ef529d279c1e775a789c2db6cc452dd05",
+      "skills/reference-remix/evals/files/reference-studies.md": "71ab024b2c10790becde06e58ef8277e2dc8b3eb60664f962dbda58c316d3e0e"
+    },
+    "idea-pressure-test": {
+      "skills/idea-pressure-test/SKILL.md": "d25369568a444f9304d53552e9bc526edc2e331b124e9cc87b32c8ecb5e0d92d",
+      "skills/idea-pressure-test/evals/files/evening-plan-notes.md": "e3dfa8328fd72123db0751418dd4675b7d97c9dd7d640764c7181244c6275bb3"
+    },
+    "story-mining": {
+      "skills/story-mining/SKILL.md": "b5c88ef7ce4cee78b395b6eb29efac0820728fd1d583a5c948077af94b590e5e",
+      "skills/story-mining/evals/files/interview.md": "fdb095d6d1705b26d879764bfc3f98d0120a3470b682f3149541a5420afefe96",
+      "skills/story-mining/evals/files/voice-sample.md": "e7e064ac6be5c8bdab8beb42b845365b09ac1632b44da61b0ec51b7ce24660c3"
+    },
+    "demo-director": {
+      "skills/demo-director/SKILL.md": "41ad72435b18fe781175e0f8fcbf64f47e4f709c529731fc3b8b84de96a3acdb",
+      "skills/demo-director/evals/files/production-brief.md": "fc5fd568d42e715f8f0f3c4ea5c49bce64ee5d673e92692f7264bf2c42668cb6",
+      "skills/demo-director/evals/files/quiet-ledger.html": "a797f8f2149b8781bacc960c4009135ba371782875f952eed8a71660d03452b5"
+    },
+    "learn-by-making": {
+      "skills/learn-by-making/SKILL.md": "8461d599498f20dfbe435a44dfa37e76ded9e40ab5115d5005c53d2f1d84fbb0",
+      "skills/learn-by-making/evals/files/learner-brief.md": "e17ef2808d39a8259b72cc87e442e6717d3afb214c690dd632ad5ce313b4037a"
+    }
+  },
+  "published_artifacts": {
+    "examples/field-kit/README.md": "6f2ac47adf1efe5cba785c86d435d6b680b8f9e328c0f47ebb95baeea6385461",
+    "examples/field-kit/demo-director/animatic.html": "3960888df2bafd1e0efac820fe27f82cce5cccdd54913e4893a0a74ce414d483",
+    "examples/field-kit/demo-director/captions.vtt": "6acf9fea1edae27740ad6af909c9cd8258917ee146ef200c30765284fde800cb",
+    "examples/field-kit/demo-director/script.md": "d71f77563d6f6f2be28a1a2b53dedde201f66ac66ffd5c9381ed244bb4555f8f",
+    "examples/field-kit/demo-director/storyboard.md": "d7714d729f8d1a75f9efb90bc5c9abbe1b2aa74df4b71af6f499eaf94d134b18",
+    "examples/field-kit/idea-pressure-test/decision-brief.md": "22f19a5e931c4365880bed5f951c3de7d909bbdddae1a3bb8d5d4ee37961c1a8",
+    "examples/field-kit/learn-by-making/bezier-experiment.png": "4ecdb5b8b2ba2192df58191653d0bc679f18267bcdd36a71aa1f518681ac8eae",
+    "examples/field-kit/learn-by-making/bezier-experiment.svg": "a83fb1953c77f0799da9a28d30a61180d9d8cf66550903e3dcd47a7d0a0f802b",
+    "examples/field-kit/learn-by-making/experiment-notes.md": "43dc9a1085d9db2609d1be9d90d0c567e6c982257052aace73fa3e8dfaaf7d43",
+    "examples/field-kit/learn-by-making/experiment.py": "a90eee16ec681c3f3d4809ff673938712675da455822adc98ba3076935eaf32e",
+    "examples/field-kit/learn-by-making/predictions.md": "51b0be9f78f2a18014b6186eaf93643b51377e7887e8106940fc5088327b682c",
+    "examples/field-kit/learn-by-making/results.json": "eafdc643bab57a931e3f3650240c0029566decb89ae632842b1b76b9658517ef",
+    "examples/field-kit/rabbit-hole/account.md": "e4122be33f8122e0de1eeb62f9a7ee80a61e183ee2ac3077b9ccb086bd926a31",
+    "examples/field-kit/rabbit-hole/evidence-trail.md": "5047b8959b1c62e0e666ede5e108ce04c63a7d7e8cfc384e0b0eaed66a7b3cf6",
+    "examples/field-kit/reference-remix/decisions.md": "7644a045317e16b848bf35373ce73fec391b7919f1d8d68ccd009b5c6b76605e",
+    "examples/field-kit/reference-remix/night-orchard-small.png": "34b4c019a71702e7de47456f973268f9095be1f8e3ddcf8d4fab9e0ab4993d2b",
+    "examples/field-kit/reference-remix/night-orchard.png": "5dc811c36506e3ef592f4986a7c915893486c31874a5c4ddeeef933cf68e720a",
+    "examples/field-kit/reference-remix/night-orchard.svg": "a0411b85965ac254a106e47d63d47fd5606f4a1cca9eaeed7c9161ca0ddeeae8",
+    "examples/field-kit/reference-remix/parent-review.md": "6815d0952d246d0c5ba5f685f9f77be194770e745930a39bdfda06671a4d875a",
+    "examples/field-kit/story-mining/piece.md": "e13aaf5642e22b81f6bd30cd6617589a37d9130862235e02279df7e10c9b7126",
+    "examples/field-kit/story-mining/source-notes.md": "7316df6c3c7df131e450aa6b6134eb3911c857be4e06e8be008f947d2e311a5e"
+  },
+  "presentation_edits": "Learning notes run paths made repository-relative and a separate parent-follow-up section appended. Blank-line whitespace removed from the SVG generator/output; rerun and pixel-identical render checked. Other agent artifacts unchanged. Parent PNGs, example index and parent review are identified separately.",
+  "package_note_changes": "VALIDATION.md was updated after trials to point to their record. Loaded SKILL.md and raw input bytes are unchanged. No complete-package fingerprint or status promotion is claimed.",
+  "limitations": [
+    "One supplied-input trial per method; boundary and routing cases not executed in this wave.",
+    "Unblinded coordinator review, no independent art-quality panel or measured efficacy.",
+    "Textual fictional references do not test visual reference inspection.",
+    "Demo HTML was not browser-rendered or captured; no MP4 was produced.",
+    "No network, live accounts, publication by trial agents or learner outcome measurement."
+  ]
+}

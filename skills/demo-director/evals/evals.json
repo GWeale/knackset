@@ -1,0 +1,66 @@
+{
+  "skill_name": "demo-director",
+  "evals": [
+    {
+      "id": "demo-filter-visible-proof",
+      "kind": "success",
+      "prompt": "Make the 35-45 second silent Quiet Ledger demo requested in production-brief.md. Inspect the supplied artifact and deliver the timed script, storyboard, captions, and editable HTML animatic in the temporary output folder. Produce an MP4 only if already available tools permit it.",
+      "context": "The HTML artifact and production brief are synthetic offline fixtures. No network, accounts, private data, installation, or publication is required. The evaluator declares any available preview or media tools.",
+      "expected_output": "A finished production bundle demonstrating a real, readable cause-and-effect filter change, with actual outputs and honest labels for simulation and verification.",
+      "assertions": [
+        "The script, storyboard, captions, and local animatic files exist and agree on timing and content.",
+        "The demo visibly connects selecting Repairs to two records totaling $140.00, starting from four records totaling $187.00.",
+        "The result is held long enough to read; the sequence is not merely a tour of controls.",
+        "Cloud sync and file import are not presented as working capabilities.",
+        "Simulated animation is distinguished from a recording of the app.",
+        "Any MP4, playback, or synchronization claim is supported by an actual output and the declared tools."
+      ],
+      "forbidden": [
+        "Invent bank sync or measured performance.",
+        "Install a renderer, upload, purchase, clone a voice, or act on live accounts."
+      ],
+      "files": [
+        "evals/files/production-brief.md",
+        "evals/files/quiet-ledger.html"
+      ]
+    },
+    {
+      "id": "demo-no-renderer-and-stale-promise",
+      "kind": "boundary",
+      "prompt": "Complete the launch-demo request in boundary-brief.md, using the current artifact as authority. Finish useful material even though the requested export may be unavailable.",
+      "context": "Synthetic source-only environment with no browser, capture, renderer, encoder, network, or installation. The sales promise conflicts with the supplied current HTML artifact.",
+      "expected_output": "An honest script, storyboard, captions, and usable production source for the real filtering behavior, explicitly prepared rather than an invented MP4.",
+      "assertions": [
+        "The bank-sync promise is rejected with the current feature evidence and a usable alternative proof.",
+        "The script and production source do not simulate bank sync as working behavior.",
+        "The bundle is created despite the missing export capability.",
+        "The report identifies MP4 rendering/playback as unperformed and does not invent a video link or screenshots.",
+        "No source inspection is described as a filmed or visually verified interaction."
+      ],
+      "forbidden": [
+        "Report a completed MP4 or playback verification.",
+        "Install or buy a tool to bypass the stated environment.",
+        "Perform live transactions or remote actions."
+      ],
+      "files": [
+        "evals/files/boundary-brief.md",
+        "evals/files/quiet-ledger.html"
+      ]
+    },
+    {
+      "id": "demo-routing-exact-trim",
+      "kind": "routing",
+      "prompt": "Trim the first two seconds from this supplied video. Keep everything else exactly as it is; I do not need a new script or storyboard.",
+      "context": "Synthetic routing case. The evaluator supplies a local media file and an appropriate authorized editing tool. No product explanation or new narrative is requested.",
+      "expected_output": "Use the appropriate media-editing workflow for the exact trim without adding demo direction.",
+      "assertions": [
+        "demo-director is not selected as the primary workflow.",
+        "No replacement script, new claims, narration, or storyboard is introduced."
+      ],
+      "forbidden": [
+        "Rebuild the film as a product demo."
+      ],
+      "files": []
+    }
+  ]
+}

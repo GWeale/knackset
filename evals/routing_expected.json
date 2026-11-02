@@ -81,5 +81,35 @@
     "accepted": [
       "web-research"
     ]
+  },
+  "rabbit-hole-routing-review": {
+    "accepted": [
+      "github-review"
+    ]
+  },
+  "remix-routing-preserve-settled-interface": {
+    "accepted": [
+      null
+    ]
+  },
+  "idea-test-routing-obvious-small-edit": {
+    "accepted": [
+      null
+    ]
+  },
+  "story-routing-punctuation-only": {
+    "accepted": [
+      null
+    ]
+  },
+  "demo-routing-exact-trim": {
+    "accepted": [
+      null
+    ]
+  },
+  "learn-by-making-routing-policy": {
+    "accepted": [
+      "web-research"
+    ]
   }
 }

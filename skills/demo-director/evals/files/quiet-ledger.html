@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quiet Ledger - synthetic demo fixture</title>
+<style>
+body { font: 18px/1.5 system-ui,sans-serif; max-width: 48rem; margin: 3rem auto; padding: 1rem; color: #162c26; background: #f5f4eb; }
+h1 { margin-bottom: 0; } p { max-width: 42rem; }
+label,button { margin-right: 1rem; } button,select { font: inherit; padding: .4rem; }
+table { border-collapse: collapse; width: 100%; margin-top: 1.5rem; }
+th,td { padding: .7rem; text-align: left; border-bottom: 1px solid #9ca79d; }
+output { display: block; font-size: 1.4rem; margin: 1rem 0; }
+</style>
+<h1>Quiet Ledger</h1>
+<p>Synthetic fixture. Inspect the records included in your total.</p>
+<label>Category <select id="category"><option value="all">All</option><option value="repairs">Repairs</option><option value="parts">Parts</option></select></label>
+<button id="export">Export shown rows</button>
+<button disabled>Cloud sync - not available</button>
+<output id="summary" aria-live="polite"></output>
+<table><thead><tr><th>Item</th><th>Category</th><th>Amount</th></tr></thead><tbody id="rows"></tbody></table>
+<script>
+const records = [
+  {item: 'Lamp socket', category: 'parts', amount: 27},
+  {item: 'Bench repair', category: 'repairs', amount: 80},
+  {item: 'Cable clips', category: 'parts', amount: 20},
+  {item: 'Door repair', category: 'repairs', amount: 60}
+];
+const category = document.getElementById('category');
+const rows = document.getElementById('rows');
+const summary = document.getElementById('summary');
+function shown() { return records.filter(row => category.value === 'all' || row.category === category.value); }
+function update() {
+  const visible = shown();
+  rows.replaceChildren(...visible.map(row => {
+    const tr = document.createElement('tr');
+    for (const value of [row.item, row.category, '$' + row.amount.toFixed(2)]) {
+      const td = document.createElement('td'); td.textContent = value; tr.append(td);
+    }
+    return tr;
+  }));
+  summary.textContent = visible.length + ' records / $' + visible.reduce((sum,row) => sum + row.amount,0).toFixed(2);
+}
+category.addEventListener('change',update);
+document.getElementById('export').addEventListener('click',() => {
+  const csv = 'Item,Category,Amount\n' + shown().map(row => [row.item,row.category,row.amount.toFixed(2)].join(',')).join('\n');
+  const url = URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  const link = document.createElement('a'); link.href = url; link.download = 'shown-records.csv'; link.click();
+  setTimeout(() => URL.revokeObjectURL(url),1000);
+});
+update();
+</script>
+</html>

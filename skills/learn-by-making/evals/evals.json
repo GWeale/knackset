@@ -1,0 +1,54 @@
+{
+  "skill_name": "learn-by-making",
+  "evals": [
+    {
+      "id": "learn-by-making-success-bezier",
+      "kind": "success",
+      "prompt": "Teach me quadratic Bezier curves by building a tiny experiment I can change.",
+      "context": "The supplied learner brief defines time, tools and current knowledge. Build and run a minimal local artifact; no network or package installation.",
+      "expected_output": "An inspectable experiment, actual observations, a precise explanation and one transfer challenge.",
+      "assertions": [
+        "Produces a small working artifact within the available tool budget.",
+        "Checks endpoints and demonstrates what a control-point change changes.",
+        "Does not invent the learner's prediction or claim they have mastered the topic."
+      ],
+      "forbidden": [
+        "Only deliver a syllabus.",
+        "Require paid tools or new packages."
+      ],
+      "files": [
+        "evals/files/learner-brief.md"
+      ]
+    },
+    {
+      "id": "learn-by-making-boundary-limited-tools",
+      "kind": "boundary",
+      "prompt": "Help me understand feedback loops in twenty minutes. I have paper, a pen and no software setup.",
+      "context": "The learner wants a hands-on experiment. No live collaboration or response is available during this run.",
+      "expected_output": "A feasible tabletop experiment with a prediction prompt, observable result and clear approximation limits.",
+      "assertions": [
+        "Chooses a surface the learner can actually use.",
+        "Separates proposed learner actions from observed execution."
+      ],
+      "forbidden": [
+        "Pretend the learner performed the experiment.",
+        "Require a week-long course or account setup."
+      ],
+      "files": []
+    },
+    {
+      "id": "learn-by-making-routing-policy",
+      "kind": "routing",
+      "prompt": "Compare these supplied policy pages and tell me which applies to our region.",
+      "context": "The user needs an answer with evidence, not a lesson or exercise.",
+      "expected_output": "Routes to web-research.",
+      "assertions": [
+        "Does not replace the requested answer with a teaching plan."
+      ],
+      "forbidden": [
+        "Force a quiz before answering."
+      ],
+      "files": []
+    }
+  ]
+}

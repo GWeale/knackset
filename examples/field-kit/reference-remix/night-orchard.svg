@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="297mm" height="420mm" viewBox="0 0 297 420" role="img" aria-labelledby="poster-title poster-desc">
+  <title id="poster-title">Night Orchard</title>
+  <desc id="poster-desc">An original A3 portrait poster for a fictional evening of orchard walks, sound installations and conversations with field scientists. An open, irregular orchard crown sits in a quiet dark field. Small grouped strokes punctuate a walking route. Night Orchard. Saturday 18 May / 18:00-23:00. Alder Field Station. Walks, listening, and small discoveries. Free entry / booking required.</desc>
+  <metadata>Original vector artwork. Developed from three supplied textual reference studies; no reference images were available or inspected. A3 portrait, 297 × 420 mm. SVG is editable; no external fonts, images, scripts or linked assets.</metadata>
+  <rect width="297" height="420" fill="#102725"/>
+  <g fill="#f0efd9" font-family="DejaVu Sans, sans-serif">
+    <path d="M18 19H279" fill="none" stroke="#a5b9a1" stroke-width=".35"/>
+    <text x="18" y="27" font-size="3.1" font-weight="600" letter-spacing=".65">AN EVENING IN THE FIELD</text>
+    <text x="17" y="83" font-size="60" font-weight="500" letter-spacing="-2.4">Night</text>
+    <text x="16" y="139" font-size="60" font-weight="500" letter-spacing="-2.4">Orchard</text>
+    <text x="19" y="158" font-size="6.2" font-weight="400">
+      <tspan x="19" dy="0">Walks, listening, and small discoveries</tspan>
+    </text>
+  </g>
+
+  <!-- One orchard crown, drawn as an irregular, open observational contour. -->
+  <g fill="none" stroke="#bdd7a7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M111 240C101 230 104 217 115 211C114 198 127 192 139 198C147 186 161 190 167 201C183 196 195 207 191 220C205 228 199 244 188 249C191 264 178 273 166 268C158 282 142 276 137 268C123 274 110 264 115 252" stroke-width=".85"/>
+    <path d="M118 237C112 227 118 219 127 218C125 207 138 205 144 211C149 201 162 204 163 216C176 209 186 220 181 229C192 239 184 251 174 249C174 260 161 265 154 258C143 268 132 259 134 249C122 251 117 245 118 242" stroke-width=".55" opacity=".68"/>
+    <path d="M149 268L149 234M149 248L128 231M149 240L168 220M149 253L174 241M149 230L142 216" stroke-width=".7"/>
+    <path d="M127 231L124 222M129 232L120 233M168 221L169 213M166 223L176 223M172 241L181 237M142 217L136 214" stroke-width=".55"/>
+  </g>
+  <g fill="#d8e9b5">
+    <circle cx="142" cy="216" r="1.3"/>
+    <circle cx="124" cy="222" r="1.3"/>
+    <circle cx="169" cy="213" r="1.3"/>
+    <circle cx="181" cy="237" r="1.3"/>
+    <circle cx="134" cy="255" r="1.3"/>
+  </g>
+
+  <!-- A route gives the still crown a human scale without drawing people. -->
+  <path d="M18 292C47 292 61 263 87 269S123 299 156 292S203 265 228 252S263 243 279 221" fill="none" stroke="#90ac95" stroke-width=".6" stroke-dasharray=".15 2.65" stroke-linecap="round"/>
+  <g fill="none" stroke="#e4c67c" stroke-width="1.2" stroke-linecap="round">
+    <path d="M75 249L73 242M81 249L82 238M87 251L92 244"/>
+    <path d="M225 231L225 224M231 232L235 221"/>
+    <path d="M174 303L176 310M180 301L185 310M186 298L193 303M190 293L198 294"/>
+  </g>
+  <g fill="#f0efd9">
+    <circle cx="81" cy="263" r="1.6"/>
+    <circle cx="229" cy="249" r="1.6"/>
+    <circle cx="176" cy="287" r="1.6"/>
+  </g>
+
+  <rect x="0" y="328" width="297" height="92" fill="#f0efd9"/>
+  <g fill="#102725" font-family="DejaVu Sans, sans-serif">
+    <text x="19" y="348" font-size="6.8" font-weight="500">Saturday 18 May / 18:00-23:00</text>
+    <path d="M19 358H278" fill="none" stroke="#102725" stroke-width=".4"/>
+    <text x="18.5" y="377" font-size="12" font-weight="500" letter-spacing="-.3">Alder Field Station</text>
+    <text x="19" y="401" font-size="6.2" font-weight="500">Free entry / booking required</text>
+  </g>
+</svg>

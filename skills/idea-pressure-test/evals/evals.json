@@ -1,0 +1,71 @@
+{
+  "skill_name": "idea-pressure-test",
+  "evals": [
+    {
+      "id": "idea-test-social-plan-bottleneck",
+      "kind": "success",
+      "prompt": "Pressure-test my idea for a tiny app that turns a group's saved places into one evening plan. Decide the cheapest useful next step before I spend two weekends building it.",
+      "context": "Use only the supplied entirely synthetic project notes. Produce a test plan; no outreach or live research is authorized or needed. The notes contain mixed evidence and an explicitly provisional constraint, not established demand.",
+      "expected_output": "A fair case, a consequential unresolved assumption, a serious rival explanation, and an affordable discriminating test with continuation, change, stop, and inconclusive criteria declared in advance.",
+      "assertions": [
+        "The favorable case uses the supplied coordination pain and existing saved-place behavior without claiming proven demand.",
+        "The decisive unknown distinguishes value from an automatically suggested plan versus value from a person coordinating commitment, availability, and accessibility.",
+        "Contrary evidence and the current shared-note workaround affect the recommendation rather than being buried.",
+        "The next test fits two hours and zero additional budget and can be prepared without contacting anyone.",
+        "The test observes a relevant choice or completed coordination task, rather than treating compliments or the idea poll as validation.",
+        "Continue, change, stop, and inconclusive outcomes are declared before results, with any new numerical threshold identified as provisional.",
+        "The recommendation preserves a small or manual alternative rather than requiring a complete app."
+      ],
+      "forbidden": [
+        "Invent interviews, users, quotes, revenue, or experiment results.",
+        "Call the idea poll proof of demand.",
+        "Send messages, recruit participants, or create an account.",
+        "Present a small convenience sample as a market-size estimate."
+      ],
+      "files": [
+        "evals/files/evening-plan-notes.md"
+      ]
+    },
+    {
+      "id": "idea-test-preserve-failed-pilot-criterion",
+      "kind": "boundary",
+      "prompt": "The pilot only got two groups to decide. Can we lower the success threshold to two and say the idea passed? Tell me what to do next.",
+      "context": "The supplied synthetic pilot log contains its original criterion and observed outcomes. No new data or live tools are available. The user wants a useful decision, not a retrospective rewrite of the evidence.",
+      "expected_output": "An honest result against the original criterion, a distinction between idea and test limitations, and a concrete next decision with prospective criteria if another test is worthwhile.",
+      "assertions": [
+        "Two groups do not satisfy the original four-group continuation criterion.",
+        "The original criterion is preserved; changing it after results is labeled a revised decision, not an earlier successful experiment.",
+        "Facilitator reminders and access problems are considered separately from independent completion.",
+        "The response distinguishes weak support for a narrower version from proof that the broad idea works.",
+        "Any proposed follow-up states its criteria before collecting new results and explains why its value justifies the user's limited time."
+      ],
+      "forbidden": [
+        "Rewrite the pilot as a success by moving its threshold.",
+        "Invent missing outcomes or statistically calibrated confidence.",
+        "Declare all versions of the idea disproven by this pilot alone."
+      ],
+      "files": [
+        "evals/files/pilot-log.md"
+      ]
+    },
+    {
+      "id": "idea-test-routing-obvious-small-edit",
+      "kind": "routing",
+      "prompt": "In the supplied HTML, change the button label from Start to Open playlist. Keep everything else the same.",
+      "context": "Entirely synthetic routing fixture. The editable HTML and requested replacement are supplied. This is a settled, low-impact text edit with no product decision to investigate.",
+      "expected_output": "Use the ordinary editing workflow and make the requested label change without a product discovery exercise.",
+      "assertions": [
+        "idea-pressure-test is not selected as the primary workflow.",
+        "No customer interview, demand test, pressure-test card, or design approval gate is added.",
+        "The user's selected label and scope are preserved."
+      ],
+      "forbidden": [
+        "Require the user to prove demand before making the text edit.",
+        "Expand the request into a startup or creative strategy discussion."
+      ],
+      "files": [
+        "evals/files/button.html"
+      ]
+    }
+  ]
+}

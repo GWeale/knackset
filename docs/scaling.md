@@ -1,72 +1,48 @@
-# Grow useful workflow coverage
+# Grow the collection through useful work
 
-The expansion unit is one distinct job with a verifiable finish condition. A
-new folder, install count, or longer instruction file does not establish added
-capability. Use the [catalog](catalog.md) to check for overlap before authoring.
+The active direction is an original, curated field kit for investigation,
+creative work, editorial judgment, product ideas, demos and learning. Google
+account pilots and connected-office runtime expansion are superseded.
 
-## Contribution path
+## Choose the next addition
 
-1. Propose a realistic user request, service/capabilities, observable result, and
-   the knowledge missing from existing packages. Prefer a narrow improvement when
-   the task already fits a skill.
-2. Ground the procedure in authorized observed work or current primary
-   documentation. Record scope and reuse rights; write original instructions when
-   source material lacks a verified redistribution license.
-3. Supply a success case, a consequential failure/boundary, and a keyword-sharing
-   near miss. Keep fixtures synthetic and inside the package.
-4. Execute a risk-bearing case against a supported test seam. Compare with the
-   previous or no-skill baseline in fresh contexts when assessing improvement.
-5. Review actual actions and resulting state. Fix supported failures, keep useful
-   counterexamples, and promote only to the level the evidence demonstrates.
+Start with a real request and inspect what people actually use. Read individual
+skills at pinned revisions and check their applicable licenses. The
+[source shelf](source-shelf.md) records the current selection and reservations.
+Prefer a better decision or finished artifact over another app wrapper.
 
-Use the GitHub workflow-request/failure forms and PR template. CI checks package
-integrity, catalog freshness and local helper behavior on every PR. It does not
-execute arbitrary live account tasks or ingest outside skill collections.
+A candidate should answer:
+- What does the agent tend to miss without this method?
+- Which part comes from a source, and what did we change?
+- What would a user have at the end that is worth keeping?
+- Can it work with ordinary host capabilities and the user's actual scope?
+- What realistic task would expose a weak choice or an unusable result?
 
-## Discovery and adoption
+Improve an existing method when the new job shares its decision structure.
+Possible future directions from the current shelf include decision archaeology,
+growth archaeology, unblocking a stalled project and curating generative series.
+These are candidates to investigate, not promised packages or validated methods.
 
-Keep the README task-oriented, provide selective installation, and tag the
-repository for its actual subject. The optional Skills CLI supports this folder
-layout, but directory indexing and traffic are not guaranteed. Directory ranking
-is not an execution-quality measure. [Skills CLI](https://github.com/vercel-labs/skills),
-[directory documentation](https://skills.sh/docs),
-[GitHub topics](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)
+## Prove the work before adding claims
 
-Publish worked synthetic examples with starting conditions, actual action traces,
-resulting state, revision and limitations. Invite reproductions rather than
-claims of universal capability. Share public announcements only when the maintainer
-chooses to do so; no automated marketing or manufactured installs are needed.
+Run a fresh-context task with raw inputs and inspect the actual artifact. Keep
+what failed and fix the specific decision that produced it. Creative quality
+needs an explicit editorial review; helper tests establish narrower properties.
+No amount of structural validation establishes that a poster is good or a story
+is worth reading.
 
-## Next evidence milestones, ranked
+The existing [offline records](../evals/results/README.md) remain available for
+utility workflows. The [local runtime](runtime.md) is optional experimental
+infrastructure. Neither is the collection's entry point or a prerequisite for
+trying a creative method.
 
-1. Reproduce reported failures using the smallest stateful fixture and retain a
-   regression check for the result, especially duplicate writes or wrong targets.
-2. Exercise the same workflow through two supported real tool bindings, documenting
-   differences. Do this before claiming cross-runtime compatibility.
-3. Run scoped live tests for Gmail, Sheets, Docs and Calendar with an authorized
-   disposable account, then record exact task variants and side effects.
-4. Add new domains from actual contributor requests, with ownership and source
-   freshness checks. Retire or narrow instructions contradicted by later evidence.
+## Find the right readers
 
-Track completed outcomes, correct recovery, unwanted changes, routing errors,
-reproduction coverage, and cost only when actually measured. The current sample
-does not support a general performance score or a promise of growth.
+Lead with worked examples, useful source recommendations and a clear point of
+view. Invite someone to try one method and report where the output lost their
+intent. Use the existing issue forms; keep private material out of public reports.
+Publish or contact people only within actual user authorization. Do not fabricate
+feedback, installs, endorsements, comparative gains or a promise of virality.
 
-## First-use audit and positioning — 2026-11-01
-
-The audit found a credible recovery procedure hidden behind a broad catalog,
-vendor comparisons, and setup caveats. Knackset now leads with the specific
-problem: a timed-out append may already be saved. A single scripted command
-shows one reconciled row versus a duplicate-producing retry. It is an illustration,
-not evidence that a model performs better with the skills.
-
-The README now features four exercised workflows, puts deeper methods behind
-links, and gives newcomers a complete path from clone to observed result. Issue
-forms ask for a concrete task or failure first; source and fixture suggestions
-are optional at intake. Maintainer review and evidence gates still apply.
-
-The working adoption hypothesis is that a recognizable failure, quick payoff,
-independent identity and low-friction feedback are more useful than more badges
-or broad capability claims. That is a design judgment, not a proven recipe for
-reach. [GitHub README guidance](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
-supports explaining usefulness and getting started before extensive documentation.
+A small collection with visible choices can earn a reason to grow. More folders
+alone do not create that reason.

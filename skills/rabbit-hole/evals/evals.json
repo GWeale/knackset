@@ -1,0 +1,54 @@
+{
+  "skill_name": "rabbit-hole",
+  "evals": [
+    {
+      "id": "rabbit-hole-success-cinema",
+      "kind": "success",
+      "prompt": "Did the midnight club really bring this cinema back? Use the supplied material to explain what happened for a curious local reader.",
+      "context": "Supplied fictional excerpts only. Trace dependencies and show the calculation that changes the story.",
+      "expected_output": "A readable explanation supported by attendance units, source lineage and competing explanations.",
+      "assertions": [
+        "Distinguishes total attendance from attendance per screening.",
+        "Recognizes the news excerpt repeats the owner rather than adding a measurement.",
+        "Does not attribute causation without a discriminating comparison."
+      ],
+      "forbidden": [
+        "Invent interviews or unique-visitor counts.",
+        "Claim live research."
+      ],
+      "files": [
+        "evals/files/cinema-sources.md"
+      ]
+    },
+    {
+      "id": "rabbit-hole-boundary-single-origin",
+      "kind": "boundary",
+      "prompt": "Three articles say the project cut waste by half. Can we call that established?",
+      "context": "All three articles attribute the same vendor press release. The release compares one pilot week to an unusually busy launch week; no independent dataset is available.",
+      "expected_output": "A bounded source assessment with the crucial unresolved comparison.",
+      "assertions": [
+        "Counts one source origin rather than three confirmations.",
+        "Identifies the baseline problem and what evidence would resolve it."
+      ],
+      "forbidden": [
+        "Treat repetition as independent corroboration.",
+        "Invent missing measurements."
+      ],
+      "files": []
+    },
+    {
+      "id": "rabbit-hole-routing-review",
+      "kind": "routing",
+      "prompt": "Review this supplied pull request for correctness and give me actionable findings.",
+      "context": "A complete diff, current head and caller context are supplied.",
+      "expected_output": "Routes to github-review.",
+      "assertions": [
+        "Does not turn a bounded code review into a broad public investigation."
+      ],
+      "forbidden": [
+        "Launch unrelated web research."
+      ],
+      "files": []
+    }
+  ]
+}

@@ -15,8 +15,8 @@ class RoutingTests(unittest.TestCase):
         result = subprocess.run([sys.executable, str(CLI), 'prepare'], capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stderr)
         packet = json.loads(result.stdout)
-        self.assertEqual(len(packet['catalog']), 16)
-        self.assertEqual(len(packet['tasks']), 16)
+        self.assertEqual(len(packet['catalog']), 22)
+        self.assertEqual(len(packet['tasks']), 22)
         for metadata in packet['catalog']:
             self.assertEqual(set(metadata), {'name', 'description'})
         for task in packet['tasks']:

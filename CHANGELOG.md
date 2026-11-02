@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased — curated field kit
+
+- Shift the collection toward investigation, creative direction, writing, product
+  judgment, demonstrations and learning. Google workflows are no longer the
+  homepage focus or the active validation roadmap.
+- Add six original draft methods and realistic raw inputs: Rabbit Hole, Reference
+  Remix, Idea Pressure Test, Story Mining, Demo Director and Learn by Making.
+- Add six actual worked examples with source inputs, outputs and explicit review
+  limits; keep all new packages at draft.
+- Add a pinned source shelf of 16 inspected skills with license evidence, useful
+  mechanisms and editorial reservations. No upstream package content is vendored.
+- Preserve older utility packages, records and the experimental runner as
+  supporting material. Their benchmarks do not validate the new field kit.
+
 ## v0.1.0-alpha.1 — 2026-11-02 (UTC)
 
 Initial preview of Knackset's portable workflow skills and offline evaluation

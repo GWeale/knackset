@@ -45,3 +45,18 @@ Stateful sandbox results establish synthetic execution only. A live test must us
 an authorized account and verify the actual saved outcome. No live account message,
 purchase, booking, or document edit was performed while authoring this release.
 The user subsequently authorized publication of this repository on GitHub.
+
+## Curated field kit
+
+The collection subsequently shifted from office-task procedures to original
+methods for investigation, creative direction, writing, product judgment, demos
+and learning. The [source shelf](source-shelf.md) records the individual upstream
+files inspected at pinned revisions, their applicable license evidence, useful
+mechanisms and portability limits. The new packages are independently written.
+No upstream instruction prose, example artifacts, code or branding was vendored.
+Concept credits do not imply endorsement or compatibility.
+
+The earlier utility packages and their records are retained as historical work.
+They do not validate the new field kit or make Google account tests a prerequisite
+for using it. Live Google pilots and connected-Google runtime expansion are no
+longer the project's active direction.

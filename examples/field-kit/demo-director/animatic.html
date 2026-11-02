@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; img-src 'none'; media-src 'none'; font-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Quiet Ledger — editable 40-second silent animatic</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:24px;background:#dce2d9;color:#162c26;font:16px/1.4 system-ui,sans-serif}main{max-width:1440px;margin:auto}.stage{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#f5f4eb;border:1px solid #9ca79d}.canvas{position:absolute;width:1600px;height:900px;transform-origin:top left;background:#f5f4eb}.masthead{position:absolute;left:62px;right:62px;top:34px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #9ca79d;padding-bottom:16px;font-size:20px}.eyebrow{letter-spacing:.12em;text-transform:uppercase;font-weight:700;font-size:16px}.disclosure{color:#42564c}.fixture{position:absolute;left:62px;top:112px;width:990px}.fixture h1{font-size:54px;line-height:1.1;letter-spacing:-.035em;margin:0 0 12px}.fixture p{font-size:23px;margin:0 0 25px;max-width:900px}.fixture label,.fixture button,.fixture select{font:23px/1.3 system-ui,sans-serif}.fixture label{display:inline-block;margin-right:17px}.fixture select,.fixture button{padding:10px 12px;border:1px solid #687f71;border-radius:5px;background:#fffef8;color:#162c26}.fixture button{margin-right:12px;cursor:pointer}.fixture button:disabled{cursor:default;opacity:.65;font-size:20px}.fixture select:focus-visible,.fixture button:focus-visible{outline:4px solid #b36527;outline-offset:4px}output{display:block;margin:27px 0 12px;font-size:36px;line-height:1.25;font-weight:650;font-variant-numeric:tabular-nums;width:fit-content;padding:5px 10px 5px 0}table{width:100%;border-collapse:collapse;font-size:26px}th,td{padding:16px 12px;text-align:left;border-bottom:1px solid #9ca79d}th{font-size:20px;font-weight:650;color:#42564c}th:last-child,td:last-child{text-align:right;font-variant-numeric:tabular-nums}td:first-child{width:47%}tbody tr{height:71px}aside{position:absolute;left:1110px;right:62px;top:132px;min-height:430px;border-left:2px solid #9ca79d;padding-left:32px}aside h2{font-size:32px;line-height:1.15;margin:15px 0 18px;letter-spacing:-.025em}aside p{font-size:24px;line-height:1.5;margin:0;white-space:pre-line}.csv{font:18px/1.6 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#e5e9df;border:1px solid #b6c1b6;padding:16px;margin:20px 0 0}.preview-note{font-size:17px;margin-top:12px;color:#42564c}.caption{position:absolute;left:62px;right:62px;bottom:45px;min-height:126px;border-top:2px solid #162c26;padding-top:23px;font-size:32px;line-height:1.45;font-weight:600;white-space:pre-line}.source-label{position:absolute;left:62px;bottom:194px;font-size:17px;color:#42564c}.active-control{outline:4px solid #b36527!important;outline-offset:5px}.amount-proof td:last-child,.amount-proof output{background:#e5e9df}.controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:16px}button,input{font:inherit}.controls button{padding:8px 15px;background:#162c26;color:#fffef8;border:0;border-radius:4px;cursor:pointer}.controls label{display:flex;align-items:center;gap:10px;flex:1;min-width:220px}.controls input{width:100%;accent-color:#162c26}.controls time{font-variant-numeric:tabular-nums;min-width:85px}.notes{font-size:14px;max-width:1000px;margin:14px 0 0}.mode{font-size:14px;min-height:20px;margin:8px 0 0}.beat-tag{font-size:17px;letter-spacing:.08em;text-transform:uppercase;color:#42564c}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}@media(max-width:600px){body{padding:8px}.controls{gap:8px}.controls label{flex-basis:100%}.notes{font-size:12px}}
+/* Reserve space below four rows for the fixed caption band. */
+.fixture p{margin-bottom:18px}th,td{padding:13px 12px}tbody tr{height:64px}.source-label{left:1110px;right:62px;bottom:214px}
+</style>
+</head>
+<body>
+<main>
+<div class="stage" id="stage" aria-label="40-second silent, simulated product demonstration">
+<div class="canvas" id="canvas">
+<header class="masthead"><span class="eyebrow">Quiet Ledger / Product study</span><span class="disclosure">Synthetic data · simulated interaction · source-based recreation</span></header>
+<section class="fixture" id="fixture" aria-label="Runnable synthetic fixture recreation">
+<h1>Quiet Ledger</h1>
+<p>Synthetic fixture. Inspect the records included in your total.</p>
+<label>Category <select id="category"><option value="all">All</option><option value="repairs">Repairs</option><option value="parts">Parts</option></select></label>
+<button id="export" type="button">Export shown rows</button>
+<button id="sync" type="button" disabled>Cloud sync - not available</button>
+<output id="summary" aria-live="polite"></output>
+<table><thead><tr><th>Item</th><th>Category</th><th>Amount</th></tr></thead><tbody id="rows"></tbody></table>
+</section>
+<aside><span class="beat-tag" id="beatTag"></span><h2 id="proofTitle"></h2><p id="proofBody"></p><pre class="csv" id="csvPreview" hidden></pre><div class="preview-note" id="previewNote" hidden>Illustrative CSV preview · no automatic download</div></aside>
+<div class="source-label">Prepared animatic · no screen recording · no audio · timeline timing is editorial</div>
+<div class="caption" id="caption" aria-live="polite"></div>
+</div>
+</div>
+<div class="controls" aria-label="Playback controls"><button id="play" type="button">Play</button><button id="replay" type="button">Replay</button><label>Seek <input id="seek" type="range" min="0" max="40" step="0.1" value="0"></label><time id="clock">00:00 / 00:40</time></div>
+<p class="mode" id="mode">Paused at the start. Play runs the simulated 40-second sequence.</p>
+<p class="notes">This editable local source recreates the supplied synthetic fixture. The timeline changes the category programmatically and shows a CSV illustration. It never triggers a download automatically. Deliberately clicking “Export shown rows” pauses playback and downloads the currently visible synthetic rows locally. Cloud sync is disabled; there is no file import, network access, account, or persistent storage. Browser rendering and playback have not been reviewed under the active security hold.</p>
+</main>
+<script>
+'use strict';
+// Editorial timing and text are editable here. Keep captions.vtt in sync.
+const beats = [
+ {start:0,end:5,category:'all',focus:'none',title:'Start with the records',body:'A small expense list.\nOne total to inspect.',caption:'Quiet Ledger\nInspect the records behind your total.'},
+ {start:5,end:10,category:'all',focus:'amounts',title:'Every visible amount counts',body:'27 + 80 + 20 + 60\n= $187.00',caption:'Four records total $187.00.\nAll categories are included.'},
+ {start:10,end:14,category:'repairs',focus:'category',title:'Select Repairs',body:'Simulated category selection.\nThe row filter and total update together.',caption:'Select Repairs.\nOnly matching records stay visible.'},
+ {start:14,end:21,category:'repairs',focus:'amounts',title:'Only Repairs remain',body:'80 + 60 = $140.00\nParts are excluded.',caption:'Two Repairs records total $140.00.\n$80.00 + $60.00; Parts are hidden.'},
+ {start:21,end:27,category:'repairs',focus:'export',title:'Export this selection',body:'Local CSV of the shown rows.\nNothing is uploaded.',csv:true,caption:'Export shown rows creates a local CSV.\nThis preview contains only the two Repairs records.'},
+ {start:27,end:31,category:'repairs',focus:'sync',title:'Keep the boundary clear',body:'Cloud sync is disabled and unimplemented.\nThese records are fixture data; there is no import.',caption:'Cloud sync is unavailable.\nThe fixture starts with sample records; it has no import.'},
+ {start:31,end:36,category:'all',focus:'category',title:'Filtering is reversible',body:'Simulated return to All.\nBoth Parts rows return.',caption:'Return to All.\nAll four records and the $187.00 total return.'},
+ {start:36,end:40,category:'all',focus:'amounts',title:'Know what the total includes',body:'Category → visible records → total.\nThe full list is restored.',caption:'Choose a category.\nSee exactly what your total includes.'}
+];
+// Same record values, filtering rule, total, and CSV format as the supplied fixture.
+const records = [
+ {item:'Lamp socket',category:'parts',amount:27},
+ {item:'Bench repair',category:'repairs',amount:80},
+ {item:'Cable clips',category:'parts',amount:20},
+ {item:'Door repair',category:'repairs',amount:60}
+];
+const $ = id => document.getElementById(id);
+const category=$('category'), rows=$('rows'), summary=$('summary');
+function shown(){return records.filter(row=>category.value==='all'||row.category===category.value);}
+function csvText(){return 'Item,Category,Amount\n'+shown().map(row=>[row.item,row.category,row.amount.toFixed(2)].join(',')).join('\n');}
+function update(){
+ const visible=shown();
+ rows.replaceChildren(...visible.map(row=>{
+  const tr=document.createElement('tr');
+  for(const value of [row.item,row.category,'$'+row.amount.toFixed(2)]){
+   const td=document.createElement('td');td.textContent=value;tr.append(td);
+  }
+  return tr;
+ }));
+ summary.textContent=visible.length+' records / $'+visible.reduce((sum,row)=>sum+row.amount,0).toFixed(2);
+ $('csvPreview').textContent=csvText();
+}
+let position=0,playing=false,lastTime=null,lastBeat=-1;
+function pause(){playing=false;lastTime=null;$('play').textContent='Play';}
+function renderAt(seconds){
+ position=Math.max(0,Math.min(40,seconds));
+ const index=beats.findIndex(b=>position>=b.start&&position<b.end);
+ const active=index<0?beats.length-1:index;
+ const beat=beats[active];
+ if(active!==lastBeat){
+  category.value=beat.category;update();
+  for(const id of ['category','export','sync'])$(id).classList.toggle('active-control',beat.focus===id);
+  $('fixture').classList.toggle('amount-proof',beat.focus==='amounts');
+  $('beatTag').textContent='Beat '+(active+1)+' / '+beats.length;
+  $('proofTitle').textContent=beat.title;$('proofBody').textContent=beat.body;
+  $('caption').textContent=beat.caption;
+  $('csvPreview').hidden=!beat.csv;$('previewNote').hidden=!beat.csv;
+  lastBeat=active;
+ }
+ $('seek').value=position.toFixed(1);
+ $('clock').textContent='00:'+String(Math.floor(position)).padStart(2,'0')+' / 00:40';
+}
+function play(){
+ if(position>=40){position=0;lastBeat=-1;}
+ // A manual interaction may have changed fixture state; reestablish this beat.
+ lastBeat=-1;renderAt(position);playing=true;lastTime=null;$('play').textContent='Pause';
+ $('mode').textContent='Playing a simulated sequence; editorial timing, not measured product speed.';
+}
+function tick(timestamp){
+ if(playing){
+  if(lastTime!==null)renderAt(position+(timestamp-lastTime)/1000);
+  lastTime=timestamp;
+  if(position>=40){pause();$('mode').textContent='End of prepared sequence. Replay or seek to inspect a beat.';}
+ }
+ requestAnimationFrame(tick);
+}
+$('play').addEventListener('click',()=>{if(playing){pause();$('mode').textContent='Paused.';}else play();});
+$('replay').addEventListener('click',()=>{position=0;lastBeat=-1;play();});
+$('seek').addEventListener('input',event=>{pause();lastBeat=-1;renderAt(Number(event.target.value));$('mode').textContent='Paused at the selected editorial time.';});
+category.addEventListener('change',()=>{
+ pause();update();$('csvPreview').hidden=true;$('previewNote').hidden=true;
+ for(const id of ['category','export','sync'])$(id).classList.toggle('active-control',false);
+ $('fixture').classList.toggle('amount-proof',false);$('beatTag').textContent='Manual / paused';
+ $('proofTitle').textContent='Manual fixture interaction';$('proofBody').textContent='Current category: '+category.options[category.selectedIndex].text+'.\nPlay or seek to return to the scripted sequence.';
+ $('caption').textContent='Timeline paused.\nThe table and total reflect your current selection.';
+ $('mode').textContent='Manual interaction; timeline paused.';
+});
+$('export').addEventListener('click',()=>{
+ pause();
+ const url=URL.createObjectURL(new Blob([csvText()],{type:'text/csv'}));
+ const link=document.createElement('a');link.href=url;link.download='shown-records.csv';link.click();
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
+ $('mode').textContent='Local synthetic CSV download requested for the currently visible rows; timeline paused.';
+});
+function fit(){ $('canvas').style.transform='scale('+($('stage').clientWidth/1600)+')'; }
+new ResizeObserver(fit).observe($('stage'));fit();renderAt(0);requestAnimationFrame(tick);
+</script>
+</body>
+</html>

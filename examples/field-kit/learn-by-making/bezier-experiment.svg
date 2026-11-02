@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="680" viewBox="0 0 900 680" role="img" aria-labelledby="title description">
+  <title id="title">A control point pulls a curve; it is not a stop</title>
+  <desc id="description">Two quadratic Bezier curves share endpoints (0,0) and (300,0). Only the control point height changes. Control heights 200 and 100 give midpoint heights 100 and 50. Squares are controls; circles lie on the curves.</desc>
+  <style>
+    text {font-family: sans-serif; fill: #172d39;}
+    .panel-title {font-size: 18px; font-weight: bold;}
+    .label {font-size: 15px;} .small {font-size: 14px;}
+    .baseline {fill: none; stroke: #b5c0c7; stroke-width: 1;}
+    .polygon {fill: none; stroke: #986321; stroke-width: 1.5; stroke-dasharray: 5 5;}
+    .curve {fill: none; stroke: #156b86; stroke-width: 4;}
+    .samples {fill: white; stroke: #156b86; stroke-width: 2;}
+    .control {fill: #f7dcab; stroke: #986321; stroke-width: 2;}
+    .midpoint {fill: #d96135; stroke: white; stroke-width: 2;}
+  </style>
+  <rect width="900" height="680" fill="#edf2f4"/>
+  <text x="30" y="42" font-size="25" font-weight="bold">A control point pulls. It is not a stop.</text>
+  <text x="30" y="72" font-size="15">Same endpoints. Same scale. Change only the control height.</text>
+
+    <g>
+      <rect x="30" y="101" width="404" height="390" rx="10" fill="#ffffff"/>
+      <text x="52" y="133" class="panel-title">1. First curve</text>
+      <text x="52" y="156" class="small">Control C = (150, 200)</text>
+      <path d="M82,394 L382,394" class="baseline"/>
+      <path d="M82,394 L232,194 L382,394" class="polygon"/>
+      <path d="M82,394 Q232,194 382,394" class="curve"/>
+      <g class="samples"><circle cx="82" cy="394" r="4"/><circle cx="157" cy="319" r="4"/><circle cx="232" cy="294" r="4"/><circle cx="307" cy="319" r="4"/><circle cx="382" cy="394" r="4"/></g>
+      <rect x="227" y="189" width="10" height="10" class="control"/>
+      <text x="232" y="179" text-anchor="middle" class="label">C</text>
+      <circle cx="232" cy="294" r="6" class="midpoint"/>
+      <text x="232" y="320" text-anchor="middle" class="label">t = 0.5: (150, 100)</text>
+      <text x="82" y="426" text-anchor="middle" class="label">P0</text>
+      <text x="82" y="447" text-anchor="middle" class="small">(0, 0)</text>
+      <text x="382" y="426" text-anchor="middle" class="label">P2</text>
+      <text x="382" y="447" text-anchor="middle" class="small">(300, 0)</text>
+      <text x="52" y="477" class="small">Maximum height: 100</text>
+    </g>
+
+    <g>
+      <rect x="466" y="101" width="404" height="390" rx="10" fill="#ffffff"/>
+      <text x="488" y="133" class="panel-title">2. Change the control height</text>
+      <text x="488" y="156" class="small">Control C = (150, 100)</text>
+      <path d="M518,394 L818,394" class="baseline"/>
+      <path d="M518,394 L668,294 L818,394" class="polygon"/>
+      <path d="M518,394 Q668,294 818,394" class="curve"/>
+      <g class="samples"><circle cx="518" cy="394" r="4"/><circle cx="593" cy="356.5" r="4"/><circle cx="668" cy="344" r="4"/><circle cx="743" cy="356.5" r="4"/><circle cx="818" cy="394" r="4"/></g>
+      <rect x="663" y="289" width="10" height="10" class="control"/>
+      <text x="668" y="279" text-anchor="middle" class="label">C</text>
+      <circle cx="668" cy="344" r="6" class="midpoint"/>
+      <text x="668" y="370" text-anchor="middle" class="label">t = 0.5: (150, 50)</text>
+      <text x="518" y="426" text-anchor="middle" class="label">P0</text>
+      <text x="518" y="447" text-anchor="middle" class="small">(0, 0)</text>
+      <text x="818" y="426" text-anchor="middle" class="label">P2</text>
+      <text x="818" y="447" text-anchor="middle" class="small">(300, 0)</text>
+      <text x="488" y="477" class="small">Maximum height: 50</text>
+    </g>
+  <rect x="30" y="512" width="840" height="134" rx="10" fill="#172d39"/>
+  <g style="fill: #ffffff">
+    <text x="52" y="544" style="fill: #ffffff; font-size: 17px">At t = 0.5: 25% P0 + 50% C + 25% P2</text>
+    <text x="52" y="574" style="fill: #ffffff; font-size: 15px">Sideways case: C = (240, 200) gives midpoint (195, 100).</text>
+    <text x="52" y="601" style="fill: #ffffff; font-size: 15px">Square = control. Circles = curve samples. Orange = t = 0.5.</text>
+    <text x="52" y="628" style="fill: #ffffff; font-size: 14px">Coordinates shown use y upward; drawing converts to SVG's y downward.</text>
+  </g>
+</svg>
