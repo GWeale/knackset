@@ -1,10 +1,12 @@
 # Validation and provenance
 
 Status: **offline-reviewed**. Scope: the synthetic `browser-bug-reproduction-success-persistence` case only.
-The [dated execution record](https://github.com/GWeale/knackset/blob/main/evals/results/draft-coverage-revised-20261101.json)
+The [dated execution record](https://github.com/GWeale/knackset/blob/main/evals/results/refactor-retests-20261101.json)
 records actual actions, saved-state checks, separate semantic response review,
 and the versioned package fingerprint. Match that fingerprint before applying
-this status to a modified copy. The original rejected traces remain historical.
+this status to a modified copy. Earlier records remain historical at their original fingerprints. The refactor
+retest covers this named case only; new authored boundary cases are not implied
+to have passed by this record.
 
 No live service or browser compatibility, broader branch coverage, implicit
 routing accuracy, or performance improvement follows from this scoped test.

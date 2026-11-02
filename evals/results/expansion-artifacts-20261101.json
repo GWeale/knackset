@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "kind": "artifact-review-materials",
+  "date": "2026-11-01",
+  "timezone": "America/Los_Angeles",
+  "runtime": "T3 Code native Codex gpt-6.1-sol; inherited xhigh; exact harness build and billing unknown",
+  "source_materials": {
+    "generative-series": {
+      "skills/generative-series/SKILL.md": "5f83725276f5d4ae8a273f3b048310c7f0036268bd3d5ed1001477f1f1df8d96",
+      "skills/generative-series/evals/files/listening-brief.md": "cf8cfcb114a746440b9f7190cc5e456fb2fa99c42e37deb429324fcb8fdfe90e",
+      "skills/generative-series/evals/files/field-records.csv": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f"
+    },
+    "decision-archaeology": {
+      "skills/decision-archaeology/SKILL.md": "d3c2e3977349d1997ec2b9ae81428dbefc028134e810f754254b0421bc761390",
+      "skills/decision-archaeology/evals/files/board-source.txt": "3eb42af3f090e1f14c606f822ff6ea7ba1fa78439b9c7cd75c91541dbb677337",
+      "skills/decision-archaeology/evals/files/board-history.txt": "707f2725f71e4ad9e934081083088b25d9d0545b60f4f9735447e7d5a7e4c083",
+      "skills/decision-archaeology/evals/files/board-records.md": "b38f5516b166fd1e2b01fae8f3c771731ce2ccbeac1841fa6f145ec5911c7d9d"
+    },
+    "unstick-project": {
+      "skills/unstick-project/SKILL.md": "7e329f6af762c7293a153a4d578fc8da17bc5c97c85a1da06d3a9e8241c08d80",
+      "skills/unstick-project/evals/files/exhibit-notebook.md": "a77a3cd2f503cf09f794daf55ba3fb69c11bc77260b359c1fa083eeb396fcaf0"
+    },
+    "capture-amendment": {
+      "skills/session-to-skill/SKILL.md": "5e1937c15caa6d72276ed664c9276d531da9624114e73ba22d03275df6e925ea",
+      "skills/session-to-skill/evals/files/existing-export-method.md": "2d2096deb0534e5d1ddd3d8f638ceb7c8ce9abf383f598bcece9c1555b6f128e",
+      "skills/session-to-skill/evals/files/export-session-notes.md": "21739040a29d0868336f46d2cd4eeee8db304f08cf79550e5ec0a86b619a6f5d"
+    },
+    "repro-records": {
+      "skills/browser-bug-reproduction/SKILL.md": "6bc34bd1f9391d6c64224d46ef0aea3a8b3f86527825ac83e21b92d52e2eadde",
+      "skills/browser-bug-reproduction/evals/files/recorded-attempts.md": "10c881fc9524ea08526b40f6b8db0d4989ea5152a3a9eab5ff63f45f2d2395d7"
+    }
+  },
+  "published_artifacts": {
+    "examples/expansion/README.md": "d81f344d0c4a04050fff0cf51c9912bc9d31335ab97118082c0507506c9d316f",
+    "examples/expansion/capture-amendment/amended-method.md": "bccd51efb93f03f9c309cae3360cc4386e9422df92ac58614f3abc40b2536546",
+    "examples/expansion/decision-archaeology/evidence-trail.md": "fcb5240c44179bce5408572ffeb7ceaf7f60696808d7f8977912cb46be6531e9",
+    "examples/expansion/decision-archaeology/explanation.md": "7142bd5e9aca656814271f2a3a1c801891c6617a523ada345cd6170248bd0ecc",
+    "examples/expansion/generative-series/README.md": "2b9404eaa0b31e373d769dbf64b5410467f763f717e10ad97dd9a375cfb7623e",
+    "examples/expansion/generative-series/checks.txt": "fe41b7d7f52da109afe6b1cbe7b760d8e6c31d806c8d118168da4425e0c7d1e6",
+    "examples/expansion/generative-series/exploration/HB-01-a.svg": "fb4dacf722d086cc5342d93b4daea4c320acff64d23904d1473e04485543b19b",
+    "examples/expansion/generative-series/exploration/HB-01-b.svg": "f800b41fa0ed4266432f2c4983c5fb2c385ff8cd25aa5319abf600d42d39cca1",
+    "examples/expansion/generative-series/exploration/HB-01-c.svg": "bf482d68e2d9b78dca2b5b6c0e4006d77168a14264577fdb3200e099c0e06ee2",
+    "examples/expansion/generative-series/exploration/HB-02-a.svg": "ef78241756c1b85badc98363c33cffdaf1c49f6e1135c8c71165d0ab0db508eb",
+    "examples/expansion/generative-series/exploration/HB-02-b.svg": "90c246423ac39d33b19dc9aeda51face8efd62f1252deecaca8609969a4cb540",
+    "examples/expansion/generative-series/exploration/HB-02-c.svg": "707f556f3d616db4986d7be925d26b5fb13abe5ad8fc4b9fef437819500ba5a5",
+    "examples/expansion/generative-series/exploration/HB-03-a.svg": "0fe694e8193d7c27471fb433f81545fd11994bd917af2ce7941a33e9062b0e15",
+    "examples/expansion/generative-series/exploration/HB-03-b.svg": "a16f730416b5b0255d5ee0e8c235acae88858e34e2b455afa4c552999fe79135",
+    "examples/expansion/generative-series/exploration/HB-03-c.svg": "b93e6e18d8380c3db17021d8c3b4ef20a87d6b7267133648c7e99b47815b7e17",
+    "examples/expansion/generative-series/exploration/HB-04-a.svg": "b3f787ff966e837ca7bf20082a647a561f1303e99e1f065cf7503577bfd00af3",
+    "examples/expansion/generative-series/exploration/HB-04-b.svg": "0fa4d8359bcf8c0478b666e5afdbfa388cffd0ea98beeb0df46e46821d60a890",
+    "examples/expansion/generative-series/exploration/HB-04-c.svg": "f3d85597846f3ca5ed77dee3cf5c584dc0e7a8f236838e813bc11535e31355e5",
+    "examples/expansion/generative-series/exploration/HB-05-a.svg": "7ab121f9281a0d75cee40455e86c659918c949e2b63b7a981ee64b059dce87ae",
+    "examples/expansion/generative-series/exploration/HB-05-b.svg": "8d4b25efd401361ec16e964efcdbb30c8b60d41dfa9d7843e1988d7cfd2f1778",
+    "examples/expansion/generative-series/exploration/HB-05-c.svg": "050a55288bb65603c5f4387ed459e5d732b7b04bf41906e5b0af02c9bddc9fd8",
+    "examples/expansion/generative-series/exploration/HB-06-a.svg": "de3f692612d45b805ec11df27579642a05126a6d8c21e482f38477691f4a85f6",
+    "examples/expansion/generative-series/exploration/HB-06-b.svg": "f6fbe18976ecda5f3b960c30a765c0deb6c234f16aca052065a9aefb9363b4e8",
+    "examples/expansion/generative-series/exploration/HB-06-c.svg": "e7b5d0752453f69d129995d935256d3f9eb6a8371f2211b8bacb168a55d0691e",
+    "examples/expansion/generative-series/exploration-a.svg": "d95072b38546678a3c9bb4d989812e6860b42f2e91844dc21cc41fea0ea2ba3a",
+    "examples/expansion/generative-series/exploration-b.svg": "2d76f78f40a2347140472fd2202ad81fc85da08e065ee256357632dbc10d7e67",
+    "examples/expansion/generative-series/exploration-c.svg": "ac48a20433bd0f65df1b90ca89a4af63592adf545b5a2a0184a39b9cd454e78c",
+    "examples/expansion/generative-series/field-records.csv": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+    "examples/expansion/generative-series/generate.py": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+    "examples/expansion/generative-series/manifest.json": "bba913f339ec03ac542599929660bb403fac34c481574dc89797a344c957bda4",
+    "examples/expansion/generative-series/overview.html": "a7aef08cd215585b6ff81a6419e89d3b3538b2da5c785d15d076b8bfe4479bbc",
+    "examples/expansion/generative-series/overview.svg": "b7178c59f35b8c58b40fcd2de5c63c89104f76c7a63dd3f1f78cf3bcb539ecf7",
+    "examples/expansion/generative-series/previews/HB-01-b.png": "689bcabf7bee7b9b6371dfba3ea1fee668946d63cdeb13cbcbd3c72d242612a2",
+    "examples/expansion/generative-series/previews/HB-02-c.png": "cf064b6f5973f62f0e76a982b488ce92a84fb7da6e172a9127440a9621136fe7",
+    "examples/expansion/generative-series/previews/HB-03-b.png": "638d83d42fc54d3d4b1b44537606ede07fa3eca78467b85a5f3b2e457e90763b",
+    "examples/expansion/generative-series/previews/HB-05-b.png": "0fb3b27e2f5a19ac544d0f5680c4d8b4dd40925d683f2b3db9087b01f50db872",
+    "examples/expansion/generative-series/previews/exploration-a.png": "90db98ece080ba14e39c0ceeaa23d6666492f293b7fdcc410c8b38ce18588336",
+    "examples/expansion/generative-series/previews/exploration-b.png": "a0d152730133a2d2547ba25f0208425d0e968b10c4ab9a44be7c1a9cdd927b6c",
+    "examples/expansion/generative-series/previews/exploration-c.png": "1bf20ec9d8073a7d3f85db44ff23e5e98ec4ebe60f5b80309017e780a4c660cd",
+    "examples/expansion/generative-series/previews/overview.png": "0b5d5e4896bc2b5fb99abef45b35d3564fd1393044925adafc1af8aa33700218",
+    "examples/expansion/generative-series/render-settings.json": "e4d5be1f3b4f61c54b5c4bacb695cef28388e15617cb687cb2b3a9898ab2ea33",
+    "examples/expansion/generative-series/render.py": "1379eb88db9e78d25aba0a0be01d39b0261222b20a297555216defe0dcb890ae",
+    "examples/expansion/generative-series/selected/HB-01-b.svg": "f800b41fa0ed4266432f2c4983c5fb2c385ff8cd25aa5319abf600d42d39cca1",
+    "examples/expansion/generative-series/selected/HB-02-c.svg": "707f556f3d616db4986d7be925d26b5fb13abe5ad8fc4b9fef437819500ba5a5",
+    "examples/expansion/generative-series/selected/HB-03-b.svg": "a16f730416b5b0255d5ee0e8c235acae88858e34e2b455afa4c552999fe79135",
+    "examples/expansion/generative-series/selected/HB-05-b.svg": "8d4b25efd401361ec16e964efcdbb30c8b60d41dfa9d7843e1988d7cfd2f1778",
+    "examples/expansion/repro-records/evidence-pack.md": "8759d0d97746ba91bb2738bda5ca89ac3130a4d141abbd4f9b83688654e54565",
+    "examples/expansion/unstick-project/build_proof.py": "f111b9acae71d5962d1dc4e97ca351838620650bb676ec1f98302781220e211d",
+    "examples/expansion/unstick-project/checks.json": "c46bdd5b73e99e05963a43cb62cae76e75a6596dfa968c2308289f20f02a4a3d",
+    "examples/expansion/unstick-project/direct-svg-preview.png": "2844b2033e90b201b115822ac95e433d590a9149c1e2416eca4395bd841917d4",
+    "examples/expansion/unstick-project/pocket-radio-proof-preview.png": "736612208e0183a0a2b9fba93939a5462e8e034c3502213b16d28e21a972150f",
+    "examples/expansion/unstick-project/pocket-radio-proof.pdf": "6170c6c18b88c54ac0143b27cdc1c9ec3da375965c78e4476ec3f79722c1f044",
+    "examples/expansion/unstick-project/pocket-radio-proof.svg": "0d163c7901bb043bb97c8c49d085405e5e6c81100226debf44de5e2bbd0d0fd8"
+  },
+  "presentation_changes": [
+    "Capture draft filename changed from SKILL.md to amended-method.md, with identical bytes, to avoid an extra discoverable package.",
+    "Parent added direct-svg-preview.png to the label proof; author check record remains unchanged."
+  ],
+  "reproduction_check": {
+    "svg_and_manifest_files": 27,
+    "byte_identical_regeneration": true
+  },
+  "limits": [
+    "One fresh context per task, no baseline.",
+    "Selected artifact review is unblinded and does not promote packages.",
+    "New validation notes were updated after trials; loaded entrypoints and raw inputs are unchanged.",
+    "Browser reproduction record review is not a new replay.",
+    "No physical print or cross-renderer test."
+  ]
+}

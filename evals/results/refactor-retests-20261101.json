@@ -1,0 +1,800 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "mode": "sandbox",
+  "runtime": "T3 Code native Codex harness; 3.14.4 Python; offline sandbox CLI; exact harness build unknown",
+  "exporter_sha256": "81aedc251345bb1a6b9f7677555cf099cba77b96b71632cb7a549fb5db34adef",
+  "limitations": [
+    "Synthetic offline state and operations only; no live service or browser was exercised.",
+    "Final-response checks were explicitly supplied by the named reviewer, not inferred by the exporter.",
+    "Initialization binds package and grader contents; the mutable local workspace is not a tamper-proof attestation.",
+    "Three separate fresh native contexts, one per revised package; no baseline comparison or efficacy claim.",
+    "Browser case includes a verified input reduction inside the synthetic fixture; no real browser, passing comparison or code cause was established.",
+    "New artifact/routing cases are reviewed separately, not promoted by this sandbox record.",
+    "One research and one bug-trial CLI syntax error were corrected before successful operations; token usage and billing cost unknown."
+  ],
+  "runs": [
+    {
+      "skill": "web-research",
+      "scenario": "research-source-scope-before-recency",
+      "case": "draft-research-scope",
+      "variant": "with-skill",
+      "model": "gpt-6.1-sol; xhigh",
+      "package_fingerprint_algorithm": "sha256-length-prefixed-v2",
+      "package_sha256": "e50522dc8571c52cdf315378d06cf1b0418a35c978462ec8446f66d39ea64b65",
+      "started_at": "2026-11-02T04:43:16.261089+00:00",
+      "grader_sha256": {
+        "evals/draft_cases.py": "7eff7e1cb378231fb1771071fa452fc8cbccfc36e8c5ad7cb0472800eba32546",
+        "evals/monitor_cases.py": "b2f832e9f5388b75a82c7233c3f29a7307bd3750f970d89f544cde3ec8258fae",
+        "evals/sandbox.py": "0c4e201bfe82716fa0b1c917c765df6323c87bf01046b2876cbcc4926ba75ccf",
+        "evals/workflow_cases.py": "15cf674b3924dd7e250150156b61edb54570569df1371c8e361310ae00dc4471",
+        "skills/web-research/evals/evals.json": "fdc9772de6ac3414b2a3431db78b1d5d237a53b1ce5f2cfdac0e15563ee27d06",
+        "skills/web-research/evals/files/source-bundle.json": "e76b404bf8627cf1f66f7a3e8615da46ecbc7c2d53ec944d33e936c28ac3d6c4"
+      },
+      "passed": true,
+      "assertions": {
+        "automated:source_read_before_preparation": true,
+        "automated:prepared_output_independently_read": true,
+        "automated:bounded_source_preserved": true,
+        "automated:no_external_actions": true,
+        "automated:scoped_export_claim": true,
+        "response:governing_plan_region_cited": true,
+        "response:different_plan_not_generalized": true,
+        "response:supplied_not_live_evidence": true,
+        "response:saved_output_read_back": true
+      },
+      "automated_assertions": {
+        "source_read_before_preparation": true,
+        "prepared_output_independently_read": true,
+        "bounded_source_preserved": true,
+        "no_external_actions": true,
+        "scoped_export_claim": true
+      },
+      "response_review": {
+        "reviewer": "Parent coordinator, unblinded direct state/trace/final-response review",
+        "assertions": {
+          "governing_plan_region_cited": true,
+          "different_plan_not_generalized": true,
+          "supplied_not_live_evidence": true,
+          "saved_output_read_back": true
+        }
+      },
+      "final_response": "For the standard plan in Region A, CSV export is supported and JSON export is excluded, according to the supplied official guide updated 2026-10-20. [Standard plan exports — Region A](https://example.invalid/region-a/standard/export)\n\nThe newer official guide, updated 2026-10-31, permits CSV and JSON for enterprise accounts in Region A only. Its plan scope does not apply to the requested standard plan. [Enterprise plan exports](https://example.invalid/enterprise/export)\n\nThe community walkthrough, updated 2024-05-01, reports CSV only but omits its region and plan, so it does not establish the requested scope. [My export walkthrough](https://example.invalid/community/export-walkthrough)\n\nI read the skill and sandbox description, retrieved all supplied evidence through read_source, saved the structured result with prepare_output, and independently read it back with read_output. The saved result contains formats [\"CSV\"], excluded [\"JSON\"], plan \"standard\", region \"A\", all three source URLs, and the applicability reasoning. One initial prepare_output CLI invocation was rejected for its argument syntax; the corrected invocation returned status \"prepared\", and read_output confirmed the saved content.\n\nThis was a synthetic offline task using a source bundle dated as accessed on 2026-11-01. No live retrieval, real service execution, external action, account access, or publication occurred; the conclusion is limited to that supplied evidence.\n",
+      "trace": [
+        {
+          "operation": "initialize_case",
+          "arguments": {
+            "case": "draft-research-scope"
+          }
+        },
+        {
+          "operation": "read_source",
+          "arguments": {},
+          "result": {
+            "source": {
+              "synthetic": true,
+              "accessed": "2026-11-01",
+              "sources": [
+                {
+                  "title": "Standard plan exports — Region A",
+                  "url": "https://example.invalid/region-a/standard/export",
+                  "publisher": "Example Service official documentation",
+                  "updated": "2026-10-20",
+                  "scope": {
+                    "region": "A",
+                    "plan": "standard"
+                  },
+                  "content": "The standard plan in Region A supports CSV export. JSON export is not included in this plan."
+                },
+                {
+                  "title": "Enterprise plan exports",
+                  "url": "https://example.invalid/enterprise/export",
+                  "publisher": "Example Service official documentation",
+                  "updated": "2026-10-31",
+                  "scope": {
+                    "region": "A",
+                    "plan": "enterprise"
+                  },
+                  "content": "Enterprise accounts in Region A can export CSV and JSON. This page describes the enterprise plan only."
+                },
+                {
+                  "title": "My export walkthrough",
+                  "url": "https://example.invalid/community/export-walkthrough",
+                  "publisher": "Synthetic community author",
+                  "updated": "2024-05-01",
+                  "scope": {
+                    "region": "unspecified",
+                    "plan": "unspecified"
+                  },
+                  "content": "My account has only CSV export. I do not state its region or plan."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "operation": "prepare_output",
+          "arguments": {
+            "output": {
+              "formats": [
+                "CSV"
+              ],
+              "excluded": [
+                "JSON"
+              ],
+              "plan": "standard",
+              "region": "A",
+              "citations": [
+                "https://example.invalid/region-a/standard/export",
+                "https://example.invalid/enterprise/export",
+                "https://example.invalid/community/export-walkthrough"
+              ],
+              "evidence": "Supplied synthetic source bundle accessed 2026-11-01. The official Standard plan exports — Region A guide, updated 2026-10-20, governs the requested standard plan in Region A: CSV export is supported and JSON export is not included. The official enterprise guide, updated 2026-10-31, supports CSV and JSON only for enterprise accounts in Region A; its newer date does not make it applicable to the standard plan. The community walkthrough, updated 2024-05-01, reports CSV only but leaves its region and plan unspecified, so it cannot establish the requested scope. No live retrieval or service execution was performed."
+            }
+          },
+          "result": {
+            "status": "prepared"
+          }
+        },
+        {
+          "operation": "read_output",
+          "arguments": {},
+          "result": {
+            "output": {
+              "formats": [
+                "CSV"
+              ],
+              "excluded": [
+                "JSON"
+              ],
+              "plan": "standard",
+              "region": "A",
+              "citations": [
+                "https://example.invalid/region-a/standard/export",
+                "https://example.invalid/enterprise/export",
+                "https://example.invalid/community/export-walkthrough"
+              ],
+              "evidence": "Supplied synthetic source bundle accessed 2026-11-01. The official Standard plan exports — Region A guide, updated 2026-10-20, governs the requested standard plan in Region A: CSV export is supported and JSON export is not included. The official enterprise guide, updated 2026-10-31, supports CSV and JSON only for enterprise accounts in Region A; its newer date does not make it applicable to the standard plan. The community walkthrough, updated 2024-05-01, reports CSV only but leaves its region and plan unspecified, so it cannot establish the requested scope. No live retrieval or service execution was performed."
+            }
+          }
+        }
+      ],
+      "final_state": {
+        "source": {
+          "synthetic": true,
+          "accessed": "2026-11-01",
+          "sources": [
+            {
+              "title": "Standard plan exports — Region A",
+              "url": "https://example.invalid/region-a/standard/export",
+              "publisher": "Example Service official documentation",
+              "updated": "2026-10-20",
+              "scope": {
+                "region": "A",
+                "plan": "standard"
+              },
+              "content": "The standard plan in Region A supports CSV export. JSON export is not included in this plan."
+            },
+            {
+              "title": "Enterprise plan exports",
+              "url": "https://example.invalid/enterprise/export",
+              "publisher": "Example Service official documentation",
+              "updated": "2026-10-31",
+              "scope": {
+                "region": "A",
+                "plan": "enterprise"
+              },
+              "content": "Enterprise accounts in Region A can export CSV and JSON. This page describes the enterprise plan only."
+            },
+            {
+              "title": "My export walkthrough",
+              "url": "https://example.invalid/community/export-walkthrough",
+              "publisher": "Synthetic community author",
+              "updated": "2024-05-01",
+              "scope": {
+                "region": "unspecified",
+                "plan": "unspecified"
+              },
+              "content": "My account has only CSV export. I do not state its region or plan."
+            }
+          ]
+        },
+        "output": {
+          "formats": [
+            "CSV"
+          ],
+          "excluded": [
+            "JSON"
+          ],
+          "plan": "standard",
+          "region": "A",
+          "citations": [
+            "https://example.invalid/region-a/standard/export",
+            "https://example.invalid/enterprise/export",
+            "https://example.invalid/community/export-walkthrough"
+          ],
+          "evidence": "Supplied synthetic source bundle accessed 2026-11-01. The official Standard plan exports — Region A guide, updated 2026-10-20, governs the requested standard plan in Region A: CSV export is supported and JSON export is not included. The official enterprise guide, updated 2026-10-31, supports CSV and JSON only for enterprise accounts in Region A; its newer date does not make it applicable to the standard plan. The community walkthrough, updated 2024-05-01, reports CSV only but leaves its region and plan unspecified, so it cannot establish the requested scope. No live retrieval or service execution was performed."
+        },
+        "external_actions": []
+      },
+      "workspace_sha256": "6da78d386d298e37e478296da06f8c71600aac1e055712fd55bee8638a96b480"
+    },
+    {
+      "skill": "session-to-skill",
+      "scenario": "capture-tentative-lesson-and-counterexample",
+      "case": "draft-candidate-lesson",
+      "variant": "with-skill",
+      "model": "gpt-6.1-sol; xhigh",
+      "package_fingerprint_algorithm": "sha256-length-prefixed-v2",
+      "package_sha256": "8ec187b83112a1ecaf610bf893d72ce5455508a7bc5e83a19aff4ad6a12b27d5",
+      "started_at": "2026-11-02T04:43:16.323773+00:00",
+      "grader_sha256": {
+        "evals/draft_cases.py": "7eff7e1cb378231fb1771071fa452fc8cbccfc36e8c5ad7cb0472800eba32546",
+        "evals/monitor_cases.py": "b2f832e9f5388b75a82c7233c3f29a7307bd3750f970d89f544cde3ec8258fae",
+        "evals/sandbox.py": "0c4e201bfe82716fa0b1c917c765df6323c87bf01046b2876cbcc4926ba75ccf",
+        "evals/workflow_cases.py": "15cf674b3924dd7e250150156b61edb54570569df1371c8e361310ae00dc4471",
+        "skills/session-to-skill/assets/lesson.example.json": "c81173dee0558c3b5546c82fbecbc0456e624e311c6bf77d5a7102da235c0977",
+        "skills/session-to-skill/evals/evals.json": "b6534c2cda8a7ad59be6e9a157bed93d48403c42d59f0a82ed5455fa3e0d84ef",
+        "skills/session-to-skill/evals/files/existing-export-method.md": "2d2096deb0534e5d1ddd3d8f638ceb7c8ce9abf383f598bcece9c1555b6f128e",
+        "skills/session-to-skill/evals/files/export-session-notes.md": "21739040a29d0868336f46d2cd4eeee8db304f08cf79550e5ec0a86b619a6f5d"
+      },
+      "passed": true,
+      "assertions": {
+        "automated:source_read_before_preparation": true,
+        "automated:prepared_output_independently_read": true,
+        "automated:bounded_source_preserved": true,
+        "automated:no_external_actions": true,
+        "automated:evidence_and_counterexample_retained": true,
+        "response:candidate_and_tentative_scope_preserved": true,
+        "response:unsupported_save_not_claimed_observed": true,
+        "response:counterexample_limits_generalization": true,
+        "response:no_duplicate_or_automatic_promotion": true
+      },
+      "automated_assertions": {
+        "source_read_before_preparation": true,
+        "prepared_output_independently_read": true,
+        "bounded_source_preserved": true,
+        "no_external_actions": true,
+        "evidence_and_counterexample_retained": true
+      },
+      "response_review": {
+        "reviewer": "Parent coordinator, unblinded direct state/trace/final-response review",
+        "assertions": {
+          "candidate_and_tentative_scope_preserved": true,
+          "unsupported_save_not_claimed_observed": true,
+          "counterexample_limits_generalization": true,
+          "no_duplicate_or_automatic_promotion": true
+        }
+      },
+      "final_response": "Saved and independently reread the structured local candidate through prepare_output and read_output.\n\nThe guidance remains a tentative, synthetic candidate. Its trigger is an uncertain non-idempotent append with a stable domain key and an authorized readable destination. Read that destination before considering another append, reconcile the record count and requested values, and preserve uncertainty when the read is inconclusive. A click or an assistant's assertion does not establish persistence. Documented effective idempotency with reuse of the same key can justify different retry semantics; read-only requests are outside this trigger.\n\nThe available evidence was one authored synthetic fixture description and an unsupported assistant save claim. I observed no persisted result for that claimed source save, independent execution of the recovery procedure, or live service behavior. The saved structured result records state=candidate, evidence=synthetic, confidence=tentative, persisted_save_observed=false, installed=false, and live_tested=false. Here persisted_save_observed refers to the source's claimed save; the separate local structured output was successfully reread.\n\nI clarified the evidence limit and retained the existing scoped decision rather than creating a duplicate skill or promoting it. Checked: all supplied bounded source material, the effective-idempotency counterexample, and the saved local output. No standalone package validation, independent execution trial, installation, publication, network access, or live testing occurred.\n",
+      "trace": [
+        {
+          "operation": "initialize_case",
+          "arguments": {
+            "case": "draft-candidate-lesson"
+          }
+        },
+        {
+          "operation": "read_source",
+          "arguments": {},
+          "result": {
+            "source": {
+              "lesson": {
+                "schema_version": 1,
+                "id": "reconcile-uncertain-append",
+                "state": "candidate",
+                "trigger": "A non-idempotent append times out and its resulting state is unknown.",
+                "scope": {
+                  "applies_to": [
+                    "A requested append with a stable domain key and a readable destination"
+                  ],
+                  "prerequisites": [
+                    "The same destination can be inspected through authorized tools"
+                  ],
+                  "excludes": [
+                    "A read-only request",
+                    "An operation with documented effective idempotency"
+                  ]
+                },
+                "action": "Read the destination by the intended key before considering another append; reconcile complete, missing, partial, or duplicate state.",
+                "acceptance": "A separate read establishes whether the intended record exists once with its requested values; unresolved state is reported as uncertain without another append.",
+                "support": [
+                  {
+                    "kind": "synthetic",
+                    "observation": "A fixture append reports timeout; a later explicit read reveals one complete intended row.",
+                    "limit": "This is authored fixture material, not an executed browser or service task."
+                  }
+                ],
+                "counterexamples": [
+                  {
+                    "condition": "The operation documents an effective idempotency key and the same key is reused.",
+                    "implication": "Its supported retry semantics may permit a different recovery procedure; do not generalize this lesson to every write."
+                  }
+                ],
+                "confidence": {
+                  "label": "tentative",
+                  "reason": "The example is synthetic and has no recorded independent execution. This label is a review heuristic, not a probability or authority."
+                },
+                "retirement": {
+                  "criteria": "Retire or narrow the lesson if actual operation semantics or observed counterexamples invalidate its trigger/action relationship.",
+                  "replacement": null
+                }
+              },
+              "additional_summary": "Assistant claims saved after clicking; no persisted-state observation."
+            }
+          }
+        },
+        {
+          "operation": "prepare_output",
+          "arguments": {
+            "output": {
+              "state": "candidate",
+              "evidence": "synthetic",
+              "trigger": "uncertain_non_idempotent_append",
+              "action": "read_destination_before_retry",
+              "counterexample": "effective_idempotency",
+              "confidence": "tentative",
+              "persisted_save_observed": false,
+              "installed": false,
+              "live_tested": false,
+              "disposition": "Keep as a local, unvalidated candidate; the supplied lesson already contains the useful scoped recovery decision. Clarify its evidence limit without promoting it or creating another skill.",
+              "draft": {
+                "title": "Reconcile an uncertain non-idempotent append",
+                "trigger": "A requested non-idempotent append times out, the resulting state is unknown, and the authorized destination can be read by a stable domain key.",
+                "action": "Read the same destination by the intended domain key before considering another append. Reconcile complete, missing, partial, or duplicate state against the requested values. If a separate read confirms exactly one complete intended record, report that observed result. If the read is inconclusive, retain uncertainty and do not append again. Any correction or retry remains bounded by the original authorization and the operation's actual semantics.",
+                "check": "Use a separate destination read to establish record count and requested values; an assistant's statement or a click alone does not establish a persisted save.",
+                "counterexample": "An operation with documented effective idempotency, reusing the same key, can have supported retry semantics that differ. Read-only requests are outside this trigger.",
+                "evidence_limit": "Available material is one authored synthetic fixture description and an assistant's unsupported save claim. No independent execution, persisted save, live service behavior, or improvement over prior guidance was observed.",
+                "retirement": "Narrow or retire the candidate if actual operation semantics or an observed counterexample invalidates the trigger/action relationship."
+              },
+              "checked": "Reviewed all supplied bounded source material and contrasted the lesson with its effective-idempotency counterexample. No execution trial or formatting validation of a standalone skill package was available through this task interface."
+            }
+          },
+          "result": {
+            "status": "prepared"
+          }
+        },
+        {
+          "operation": "read_output",
+          "arguments": {},
+          "result": {
+            "output": {
+              "state": "candidate",
+              "evidence": "synthetic",
+              "trigger": "uncertain_non_idempotent_append",
+              "action": "read_destination_before_retry",
+              "counterexample": "effective_idempotency",
+              "confidence": "tentative",
+              "persisted_save_observed": false,
+              "installed": false,
+              "live_tested": false,
+              "disposition": "Keep as a local, unvalidated candidate; the supplied lesson already contains the useful scoped recovery decision. Clarify its evidence limit without promoting it or creating another skill.",
+              "draft": {
+                "title": "Reconcile an uncertain non-idempotent append",
+                "trigger": "A requested non-idempotent append times out, the resulting state is unknown, and the authorized destination can be read by a stable domain key.",
+                "action": "Read the same destination by the intended domain key before considering another append. Reconcile complete, missing, partial, or duplicate state against the requested values. If a separate read confirms exactly one complete intended record, report that observed result. If the read is inconclusive, retain uncertainty and do not append again. Any correction or retry remains bounded by the original authorization and the operation's actual semantics.",
+                "check": "Use a separate destination read to establish record count and requested values; an assistant's statement or a click alone does not establish a persisted save.",
+                "counterexample": "An operation with documented effective idempotency, reusing the same key, can have supported retry semantics that differ. Read-only requests are outside this trigger.",
+                "evidence_limit": "Available material is one authored synthetic fixture description and an assistant's unsupported save claim. No independent execution, persisted save, live service behavior, or improvement over prior guidance was observed.",
+                "retirement": "Narrow or retire the candidate if actual operation semantics or an observed counterexample invalidates the trigger/action relationship."
+              },
+              "checked": "Reviewed all supplied bounded source material and contrasted the lesson with its effective-idempotency counterexample. No execution trial or formatting validation of a standalone skill package was available through this task interface."
+            }
+          }
+        }
+      ],
+      "final_state": {
+        "source": {
+          "lesson": {
+            "schema_version": 1,
+            "id": "reconcile-uncertain-append",
+            "state": "candidate",
+            "trigger": "A non-idempotent append times out and its resulting state is unknown.",
+            "scope": {
+              "applies_to": [
+                "A requested append with a stable domain key and a readable destination"
+              ],
+              "prerequisites": [
+                "The same destination can be inspected through authorized tools"
+              ],
+              "excludes": [
+                "A read-only request",
+                "An operation with documented effective idempotency"
+              ]
+            },
+            "action": "Read the destination by the intended key before considering another append; reconcile complete, missing, partial, or duplicate state.",
+            "acceptance": "A separate read establishes whether the intended record exists once with its requested values; unresolved state is reported as uncertain without another append.",
+            "support": [
+              {
+                "kind": "synthetic",
+                "observation": "A fixture append reports timeout; a later explicit read reveals one complete intended row.",
+                "limit": "This is authored fixture material, not an executed browser or service task."
+              }
+            ],
+            "counterexamples": [
+              {
+                "condition": "The operation documents an effective idempotency key and the same key is reused.",
+                "implication": "Its supported retry semantics may permit a different recovery procedure; do not generalize this lesson to every write."
+              }
+            ],
+            "confidence": {
+              "label": "tentative",
+              "reason": "The example is synthetic and has no recorded independent execution. This label is a review heuristic, not a probability or authority."
+            },
+            "retirement": {
+              "criteria": "Retire or narrow the lesson if actual operation semantics or observed counterexamples invalidate its trigger/action relationship.",
+              "replacement": null
+            }
+          },
+          "additional_summary": "Assistant claims saved after clicking; no persisted-state observation."
+        },
+        "output": {
+          "state": "candidate",
+          "evidence": "synthetic",
+          "trigger": "uncertain_non_idempotent_append",
+          "action": "read_destination_before_retry",
+          "counterexample": "effective_idempotency",
+          "confidence": "tentative",
+          "persisted_save_observed": false,
+          "installed": false,
+          "live_tested": false,
+          "disposition": "Keep as a local, unvalidated candidate; the supplied lesson already contains the useful scoped recovery decision. Clarify its evidence limit without promoting it or creating another skill.",
+          "draft": {
+            "title": "Reconcile an uncertain non-idempotent append",
+            "trigger": "A requested non-idempotent append times out, the resulting state is unknown, and the authorized destination can be read by a stable domain key.",
+            "action": "Read the same destination by the intended domain key before considering another append. Reconcile complete, missing, partial, or duplicate state against the requested values. If a separate read confirms exactly one complete intended record, report that observed result. If the read is inconclusive, retain uncertainty and do not append again. Any correction or retry remains bounded by the original authorization and the operation's actual semantics.",
+            "check": "Use a separate destination read to establish record count and requested values; an assistant's statement or a click alone does not establish a persisted save.",
+            "counterexample": "An operation with documented effective idempotency, reusing the same key, can have supported retry semantics that differ. Read-only requests are outside this trigger.",
+            "evidence_limit": "Available material is one authored synthetic fixture description and an assistant's unsupported save claim. No independent execution, persisted save, live service behavior, or improvement over prior guidance was observed.",
+            "retirement": "Narrow or retire the candidate if actual operation semantics or an observed counterexample invalidates the trigger/action relationship."
+          },
+          "checked": "Reviewed all supplied bounded source material and contrasted the lesson with its effective-idempotency counterexample. No execution trial or formatting validation of a standalone skill package was available through this task interface."
+        },
+        "external_actions": []
+      },
+      "workspace_sha256": "ea53d79db0064a14e97aaedeeffcd5210972bc92a744f87593f4aad05448c796"
+    },
+    {
+      "skill": "browser-bug-reproduction",
+      "scenario": "browser-bug-reproduction-success-persistence",
+      "case": "draft-bug-persistence",
+      "variant": "with-skill",
+      "model": "gpt-6.1-sol; xhigh",
+      "package_fingerprint_algorithm": "sha256-length-prefixed-v2",
+      "package_sha256": "4034b10543be3ebbb5e83996e0c60c21359abdd4eb7d3439f487cab3f269e2f4",
+      "started_at": "2026-11-02T04:43:16.383989+00:00",
+      "grader_sha256": {
+        "evals/draft_cases.py": "7eff7e1cb378231fb1771071fa452fc8cbccfc36e8c5ad7cb0472800eba32546",
+        "evals/monitor_cases.py": "b2f832e9f5388b75a82c7233c3f29a7307bd3750f970d89f544cde3ec8258fae",
+        "evals/sandbox.py": "0c4e201bfe82716fa0b1c917c765df6323c87bf01046b2876cbcc4926ba75ccf",
+        "evals/workflow_cases.py": "15cf674b3924dd7e250150156b61edb54570569df1371c8e361310ae00dc4471",
+        "skills/browser-bug-reproduction/evals/evals.json": "fa435c0e610af53b91fdc79ce2ec3ad43f3a19123012f3a9d577fe3e089fe6fe",
+        "skills/browser-bug-reproduction/evals/files/recorded-attempts.md": "10c881fc9524ea08526b40f6b8db0d4989ea5152a3a9eab5ff63f45f2d2395d7"
+      },
+      "passed": true,
+      "assertions": {
+        "automated:source_read_before_preparation": true,
+        "automated:prepared_output_independently_read": true,
+        "automated:bounded_source_preserved": true,
+        "automated:no_external_actions": true,
+        "automated:test_order_preserved": true,
+        "automated:observed_before_save_and_reopened_after": true,
+        "automated:minimal_observed_repro_pack": true,
+        "response:every_save_reopened_before_retry": true,
+        "response:shorter_input_actually_reproduced": true,
+        "response:frequency_and_limits_match_trace": true,
+        "response:no_root_cause_or_live_claim": true
+      },
+      "automated_assertions": {
+        "source_read_before_preparation": true,
+        "prepared_output_independently_read": true,
+        "bounded_source_preserved": true,
+        "no_external_actions": true,
+        "test_order_preserved": true,
+        "observed_before_save_and_reopened_after": true,
+        "minimal_observed_repro_pack": true
+      },
+      "response_review": {
+        "reviewer": "Parent coordinator, unblinded direct state/trace/final-response review",
+        "assertions": {
+          "every_save_reopened_before_retry": true,
+          "shorter_input_actually_reproduced": true,
+          "frequency_and_limits_match_trace": true,
+          "no_root_cause_or_live_claim": true
+        }
+      },
+      "final_response": "Reproduced in the synthetic offline fixture; no live browser or service was used.\n\nTarget and preconditions\n- Environment: staging; build: test-build-7; disposable order: order-test-4.\n- Supplied report: Delivery note disappears after saving.\n- Expected behavior: Saved delivery note persists on reopening.\n- Initial read_order returned order-test-4 with an empty persisted note.\n- Browser/version, viewport, locale/time zone, role and feature flags were not exposed by the permitted interface and were not guessed.\n\nObserved attempts\n1. Called save_note with \"Leave by side door\". It returned status \"accepted\" and visible_note \"Leave by side door\". Called reopen_order; the exact order's persisted note was empty.\n2. After reopening had established the persisted note was empty, repeated save_note with \"Leave by side door\". It again returned \"accepted\" and the matching visible note. Reopening again returned an empty persisted note.\n3. With the persisted note again observed empty, reduced only the input to \"x\". save_note returned \"accepted\" and visible_note \"x\". Reopening again returned an empty persisted note.\n\nFrequency and resulting state\n- Original input: 2 failures in 2 attempts.\n- One-character input: 1 failure in 1 attempt.\n- Combined: 3 of 3 acknowledged saves returned an empty persisted note on reopening.\n- Last observed order-test-4 persisted note: empty string.\n- Each save result was checked through reopen_order before any further save; no write with an unknown result was blindly repeated.\n\nShortest verified sequence\n1. Use the supplied order-test-4 in synthetic staging build test-build-7, with its persisted note empty.\n2. Call save_note with note \"x\"; observe status \"accepted\" and visible_note \"x\".\n3. Call reopen_order for the supplied order; observe note \"\" rather than the expected \"x\".\n\nEvidence and local output\n- Source facts came from read_source. Starting state came from read_order. Save acknowledgements came from save_note; persistence observations came from reopen_order.\n- Saved the structured result through prepare_output with result \"reproduced\", entered_note and expected_note \"x\", observed_note \"\", and live_browser false.\n- Independently called read_output and verified it contained the target, all three attempts, the verified shorter sequence, frequency, final empty note, and limits.\n- An initial read_source CLI invocation included an unsupported positional JSON argument and was rejected by argument parsing. The corrected invocation succeeded. This was not a reproduction attempt or a state mutation.\n\nReduction and limits\n- The shorter one-character input was executed and observed once; its repeated frequency is unverified.\n- No further sequence reduction, omitted-reopen attempt, alternate starting note, passing comparison, account/role comparison, feature-flag comparison, delay or timing variation was tested. No claim of a globally minimal reproduction is made.\n- The interface exposes a bounded sequence with acknowledgement followed by empty persisted state. It does not establish a code-level cause, exact durability timing, or live behavior.\n- No screenshots, logs, traces, browser metadata or real account evidence were available through this interface. No attached artifact or live test is claimed.\n- Only this workspace's describe/call operations were used for fixture observations. No raw state, implementation, tests, expected criteria, validation notes or other trials were read.\n- No network, browser, GUI, account, installation, helper, package/shared-file edit, commit, publication, code repair, issue filing or external_action was performed. No subagents were used.\n",
+      "trace": [
+        {
+          "operation": "initialize_case",
+          "arguments": {
+            "case": "draft-bug-persistence"
+          }
+        },
+        {
+          "operation": "read_source",
+          "arguments": {},
+          "result": {
+            "source": {
+              "build": "test-build-7",
+              "environment": "staging",
+              "order": "order-test-4",
+              "expected": "Saved delivery note persists on reopening",
+              "report": "Delivery note disappears after saving"
+            }
+          }
+        },
+        {
+          "operation": "read_order",
+          "arguments": {},
+          "result": {
+            "order": {
+              "id": "order-test-4",
+              "note": ""
+            }
+          }
+        },
+        {
+          "operation": "save_note",
+          "arguments": {
+            "note": "Leave by side door"
+          },
+          "result": {
+            "status": "accepted",
+            "visible_note": "Leave by side door"
+          }
+        },
+        {
+          "operation": "reopen_order",
+          "arguments": {},
+          "result": {
+            "order": {
+              "id": "order-test-4",
+              "note": ""
+            }
+          }
+        },
+        {
+          "operation": "save_note",
+          "arguments": {
+            "note": "Leave by side door"
+          },
+          "result": {
+            "status": "accepted",
+            "visible_note": "Leave by side door"
+          }
+        },
+        {
+          "operation": "reopen_order",
+          "arguments": {},
+          "result": {
+            "order": {
+              "id": "order-test-4",
+              "note": ""
+            }
+          }
+        },
+        {
+          "operation": "save_note",
+          "arguments": {
+            "note": "x"
+          },
+          "result": {
+            "status": "accepted",
+            "visible_note": "x"
+          }
+        },
+        {
+          "operation": "reopen_order",
+          "arguments": {},
+          "result": {
+            "order": {
+              "id": "order-test-4",
+              "note": ""
+            }
+          }
+        },
+        {
+          "operation": "prepare_output",
+          "arguments": {
+            "output": {
+              "build": "test-build-7",
+              "environment": "staging",
+              "order": "order-test-4",
+              "entered_note": "x",
+              "expected_note": "x",
+              "observed_note": "",
+              "result": "reproduced",
+              "steps": [
+                "read_order",
+                "save_note",
+                "reopen_order"
+              ],
+              "live_browser": false,
+              "scope": "synthetic offline fixture only",
+              "preconditions": "The supplied disposable staging order starts with an empty persisted note.",
+              "expected_behavior": "Saved delivery note persists on reopening.",
+              "observed_behavior": "save_note returned accepted with visible_note matching the input; reopening order-test-4 returned an empty persisted note.",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "entered_note": "Leave by side door",
+                  "save_status": "accepted",
+                  "visible_note": "Leave by side door",
+                  "reopened_note": ""
+                },
+                {
+                  "attempt": 2,
+                  "entered_note": "Leave by side door",
+                  "save_status": "accepted",
+                  "visible_note": "Leave by side door",
+                  "reopened_note": ""
+                },
+                {
+                  "attempt": 3,
+                  "entered_note": "x",
+                  "save_status": "accepted",
+                  "visible_note": "x",
+                  "reopened_note": ""
+                }
+              ],
+              "frequency": "3 of 3 saves lost the entered note on reopening; 2 of 2 original-input attempts and 1 of 1 shorter-input attempt.",
+              "minimal_verified_sequence": [
+                "On test-build-7 in staging, use supplied disposable order order-test-4 with an empty persisted note.",
+                "Call save_note with note x; observe accepted and visible_note x.",
+                "Call reopen_order; observe persisted note empty rather than x."
+              ],
+              "reduction": "A one-character input reproduced the symptom once. The shorter input was executed and verified; no further sequence or condition reduction was tested.",
+              "limits": [
+                "No live browser, real service, network, GUI, account, console or trace was used.",
+                "Role, feature flags, browser/version, viewport, locale and time zone were unavailable through the supplied interface.",
+                "No nearby passing comparison was observed; none was supplied by this interface.",
+                "The symptom does not establish a code-level cause or durability timing beyond the observed reopen result.",
+                "No code repair, issue filing or external action was performed."
+              ],
+              "final_persisted_note": ""
+            }
+          },
+          "result": {
+            "status": "prepared"
+          }
+        },
+        {
+          "operation": "read_output",
+          "arguments": {},
+          "result": {
+            "output": {
+              "build": "test-build-7",
+              "environment": "staging",
+              "order": "order-test-4",
+              "entered_note": "x",
+              "expected_note": "x",
+              "observed_note": "",
+              "result": "reproduced",
+              "steps": [
+                "read_order",
+                "save_note",
+                "reopen_order"
+              ],
+              "live_browser": false,
+              "scope": "synthetic offline fixture only",
+              "preconditions": "The supplied disposable staging order starts with an empty persisted note.",
+              "expected_behavior": "Saved delivery note persists on reopening.",
+              "observed_behavior": "save_note returned accepted with visible_note matching the input; reopening order-test-4 returned an empty persisted note.",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "entered_note": "Leave by side door",
+                  "save_status": "accepted",
+                  "visible_note": "Leave by side door",
+                  "reopened_note": ""
+                },
+                {
+                  "attempt": 2,
+                  "entered_note": "Leave by side door",
+                  "save_status": "accepted",
+                  "visible_note": "Leave by side door",
+                  "reopened_note": ""
+                },
+                {
+                  "attempt": 3,
+                  "entered_note": "x",
+                  "save_status": "accepted",
+                  "visible_note": "x",
+                  "reopened_note": ""
+                }
+              ],
+              "frequency": "3 of 3 saves lost the entered note on reopening; 2 of 2 original-input attempts and 1 of 1 shorter-input attempt.",
+              "minimal_verified_sequence": [
+                "On test-build-7 in staging, use supplied disposable order order-test-4 with an empty persisted note.",
+                "Call save_note with note x; observe accepted and visible_note x.",
+                "Call reopen_order; observe persisted note empty rather than x."
+              ],
+              "reduction": "A one-character input reproduced the symptom once. The shorter input was executed and verified; no further sequence or condition reduction was tested.",
+              "limits": [
+                "No live browser, real service, network, GUI, account, console or trace was used.",
+                "Role, feature flags, browser/version, viewport, locale and time zone were unavailable through the supplied interface.",
+                "No nearby passing comparison was observed; none was supplied by this interface.",
+                "The symptom does not establish a code-level cause or durability timing beyond the observed reopen result.",
+                "No code repair, issue filing or external action was performed."
+              ],
+              "final_persisted_note": ""
+            }
+          }
+        }
+      ],
+      "final_state": {
+        "source": {
+          "build": "test-build-7",
+          "environment": "staging",
+          "order": "order-test-4",
+          "expected": "Saved delivery note persists on reopening",
+          "report": "Delivery note disappears after saving"
+        },
+        "output": {
+          "build": "test-build-7",
+          "environment": "staging",
+          "order": "order-test-4",
+          "entered_note": "x",
+          "expected_note": "x",
+          "observed_note": "",
+          "result": "reproduced",
+          "steps": [
+            "read_order",
+            "save_note",
+            "reopen_order"
+          ],
+          "live_browser": false,
+          "scope": "synthetic offline fixture only",
+          "preconditions": "The supplied disposable staging order starts with an empty persisted note.",
+          "expected_behavior": "Saved delivery note persists on reopening.",
+          "observed_behavior": "save_note returned accepted with visible_note matching the input; reopening order-test-4 returned an empty persisted note.",
+          "attempts": [
+            {
+              "attempt": 1,
+              "entered_note": "Leave by side door",
+              "save_status": "accepted",
+              "visible_note": "Leave by side door",
+              "reopened_note": ""
+            },
+            {
+              "attempt": 2,
+              "entered_note": "Leave by side door",
+              "save_status": "accepted",
+              "visible_note": "Leave by side door",
+              "reopened_note": ""
+            },
+            {
+              "attempt": 3,
+              "entered_note": "x",
+              "save_status": "accepted",
+              "visible_note": "x",
+              "reopened_note": ""
+            }
+          ],
+          "frequency": "3 of 3 saves lost the entered note on reopening; 2 of 2 original-input attempts and 1 of 1 shorter-input attempt.",
+          "minimal_verified_sequence": [
+            "On test-build-7 in staging, use supplied disposable order order-test-4 with an empty persisted note.",
+            "Call save_note with note x; observe accepted and visible_note x.",
+            "Call reopen_order; observe persisted note empty rather than x."
+          ],
+          "reduction": "A one-character input reproduced the symptom once. The shorter input was executed and verified; no further sequence or condition reduction was tested.",
+          "limits": [
+            "No live browser, real service, network, GUI, account, console or trace was used.",
+            "Role, feature flags, browser/version, viewport, locale and time zone were unavailable through the supplied interface.",
+            "No nearby passing comparison was observed; none was supplied by this interface.",
+            "The symptom does not establish a code-level cause or durability timing beyond the observed reopen result.",
+            "No code repair, issue filing or external action was performed."
+          ],
+          "final_persisted_note": ""
+        },
+        "external_actions": [],
+        "order": {
+          "id": "order-test-4",
+          "note": ""
+        }
+      },
+      "workspace_sha256": "594506ef7616d40d549e442bc50d81c9a82c36873261d22cbfbf48ee64edb234"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "renderer_source_sha256": "1379eb88db9e78d25aba0a0be01d39b0261222b20a297555216defe0dcb890ae",
+  "renders": [
+    {
+      "svg": "exploration-a.svg",
+      "png": "previews/exploration-a.png",
+      "svg_sha256": "d95072b38546678a3c9bb4d989812e6860b42f2e91844dc21cc41fea0ea2ba3a",
+      "png_sha256": "90db98ece080ba14e39c0ceeaa23d6666492f293b7fdcc410c8b38ce18588336",
+      "pixel_dimensions": [
+        2136,
+        1632
+      ],
+      "pixels_per_mm": 4.0,
+      "non_ground_pixel_bounds": null,
+      "eight_mm_blank_border_checked": false,
+      "cairo_version": "1.18.4",
+      "librsvg_version": "2.61.3"
+    },
+    {
+      "svg": "exploration-b.svg",
+      "png": "previews/exploration-b.png",
+      "svg_sha256": "2d76f78f40a2347140472fd2202ad81fc85da08e065ee256357632dbc10d7e67",
+      "png_sha256": "a0d152730133a2d2547ba25f0208425d0e968b10c4ab9a44be7c1a9cdd927b6c",
+      "pixel_dimensions": [
+        2136,
+        1632
+      ],
+      "pixels_per_mm": 4.0,
+      "non_ground_pixel_bounds": null,
+      "eight_mm_blank_border_checked": false,
+      "cairo_version": "1.18.4",
+      "librsvg_version": "2.61.3"
+    },
+    {
+      "svg": "exploration-c.svg",
+      "png": "previews/exploration-c.png",
+      "svg_sha256": "ac48a20433bd0f65df1b90ca89a4af63592adf545b5a2a0184a39b9cd454e78c",
+      "png_sha256": "1bf20ec9d8073a7d3f85db44ff23e5e98ec4ebe60f5b80309017e780a4c660cd",
+      "pixel_dimensions": [
+        2136,
+        1632
+      ],
+      "pixels_per_mm": 4.0,
+      "non_ground_pixel_bounds": null,
+      "eight_mm_blank_border_checked": false,
+      "cairo_version": "1.18.4",
+      "librsvg_version": "2.61.3"
+    },
+    {
+      "svg": "overview.svg",
+      "png": "previews/overview.png",
+      "svg_sha256": "b7178c59f35b8c58b40fcd2de5c63c89104f76c7a63dd3f1f78cf3bcb539ecf7",
+      "png_sha256": "0b5d5e4896bc2b5fb99abef45b35d3564fd1393044925adafc1af8aa33700218",
+      "pixel_dimensions": [
+        1424,
+        1632
+      ],
+      "pixels_per_mm": 4.0,
+      "non_ground_pixel_bounds": null,
+      "eight_mm_blank_border_checked": false,
+      "cairo_version": "1.18.4",
+      "librsvg_version": "2.61.3"
+    },
+    {
+      "svg": "selected/HB-01-b.svg",
+      "png": "previews/HB-01-b.png",
+      "svg_sha256": "f800b41fa0ed4266432f2c4983c5fb2c385ff8cd25aa5319abf600d42d39cca1",
+      "png_sha256": "689bcabf7bee7b9b6371dfba3ea1fee668946d63cdeb13cbcbd3c72d242612a2",
+      "pixel_dimensions": [
+        640,
+        640
+      ],
+      "pixels_per_mm": 4.0,
+      "non_ground_pixel_bounds": [
+        47,
+        107,
+        555,
+        601
+      ],
+      "eight_mm_blank_border_checked": true,
+      "cairo_version": "1.18.4",
+      "librsvg_version": "2.61.3"
+    },
+    {
+      "svg": "selected/HB-02-c.svg",
+      "png": "previews/HB-02-c.png",
+      "svg_sha256": "707f556f3d616db4986d7be925d26b5fb13abe5ad8fc4b9fef437819500ba5a5",
+      "png_sha256": "cf064b6f5973f62f0e76a982b488ce92a84fb7da6e172a9127440a9621136fe7",
+      "pixel_dimensions": [
+        640,
+        640
+      ],
+      "pixels_per_mm": 4.0,
+      "non_ground_pixel_bounds": [
+        47,
+        77,
+        424,
+        601
+      ],
+      "eight_mm_blank_border_checked": true,
+      "cairo_version": "1.18.4",
+      "librsvg_version": "2.61.3"
+    },
+    {
+      "svg": "selected/HB-03-b.svg",
+      "png": "previews/HB-03-b.png",
+      "svg_sha256": "a16f730416b5b0255d5ee0e8c235acae88858e34e2b455afa4c552999fe79135",
+      "png_sha256": "638d83d42fc54d3d4b1b44537606ede07fa3eca78467b85a5f3b2e457e90763b",
+      "pixel_dimensions": [
+        640,
+        640
+      ],
+      "pixels_per_mm": 4.0,
+      "non_ground_pixel_bounds": [
+        47,
+        99,
+        547,
+        601
+      ],
+      "eight_mm_blank_border_checked": true,
+      "cairo_version": "1.18.4",
+      "librsvg_version": "2.61.3"
+    },
+    {
+      "svg": "selected/HB-05-b.svg",
+      "png": "previews/HB-05-b.png",
+      "svg_sha256": "8d4b25efd401361ec16e964efcdbb30c8b60d41dfa9d7843e1988d7cfd2f1778",
+      "png_sha256": "0fb3b27e2f5a19ac544d0f5680c4d8b4dd40925d683f2b3db9087b01f50db872",
+      "pixel_dimensions": [
+        640,
+        640
+      ],
+      "pixels_per_mm": 4.0,
+      "non_ground_pixel_bounds": [
+        47,
+        111,
+        515,
+        601
+      ],
+      "eight_mm_blank_border_checked": true,
+      "cairo_version": "1.18.4",
+      "librsvg_version": "2.61.3"
+    }
+  ]
+}

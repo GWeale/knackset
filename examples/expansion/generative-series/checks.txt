@@ -1,0 +1,21 @@
+Held Between — actual local checks / 2026-11-01
+Python: 3.14.4
+PASS: 18 source/input/output hashes; 160 mm dimensions; flat palette; bounded artwork; 4 identical selected copies.
+Type uses custom vector paths. Footer geometry is fixed within x=11.8..59 and y=136.8..150.4 mm; all marks clear the 8 mm border.
+Structural validation does not certify printing or aesthetic quality.
+Generated 18 candidates, 4 selected SVGs, 3 exploration sheets, overview.svg and manifest.json.
+PASS: exact second-generation reproduction of 27 SVG/manifest files.
+PASS: 18 source/input/output hashes; 160 mm dimensions; flat palette; bounded artwork; 4 identical selected copies.
+Type uses custom vector paths. Footer geometry is fixed within x=11.8..59 and y=136.8..150.4 mm; all marks clear the 8 mm border.
+Structural validation does not certify printing or aesthetic quality.
+Rendered 8 SVGs with existing librsvg/Cairo at 4 px/mm.
+PASS: selected/HB-01-b.svg: complete 8 mm rendered border clear; visible pixel bounds [47, 107, 555, 601] in [640, 640].
+PASS: selected/HB-02-c.svg: complete 8 mm rendered border clear; visible pixel bounds [47, 77, 424, 601] in [640, 640].
+PASS: selected/HB-03-b.svg: complete 8 mm rendered border clear; visible pixel bounds [47, 99, 547, 601] in [640, 640].
+PASS: selected/HB-05-b.svg: complete 8 mm rendered border clear; visible pixel bounds [47, 111, 515, 601] in [640, 640].
+Renderer: librsvg 2.61.3; Cairo 1.18.4; 4 px/mm.
+PASS: all 26 delivered SVG documents parse as XML.
+PASS: all 11 local overview links resolve.
+VISUAL INSPECTION: all 18 candidates on 3 equal-scale sheets; all 4 selected 640 x 640 pixel renders; selected overview.
+NOT RUN: physical print / calibrated physical-size proof / paper or ink test / browser / second renderer / live installation.
+No network, external assets, fonts, accounts, installs, commits or publication used.

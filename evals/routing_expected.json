@@ -111,5 +111,45 @@
     "accepted": [
       "web-research"
     ]
+  },
+  "research-routing-rival-explanation": {
+    "accepted": [
+      "rabbit-hole"
+    ]
+  },
+  "rabbit-routing-bounded-export-formats": {
+    "accepted": [
+      "web-research"
+    ]
+  },
+  "decision-archaeology-routing-correctness-review": {
+    "accepted": [
+      "github-review"
+    ]
+  },
+  "generative-series-routing-learning-goal": {
+    "accepted": [
+      "learn-by-making"
+    ]
+  },
+  "unstick-routing-settled-label-edit": {
+    "accepted": [
+      null
+    ]
+  },
+  "decision-routing-origin-before-reversal": {
+    "accepted": [
+      "decision-archaeology"
+    ]
+  },
+  "series-routing-coherent-edition": {
+    "accepted": [
+      "generative-series"
+    ]
+  },
+  "unstick-routing-first-useful-proof": {
+    "accepted": [
+      "unstick-project"
+    ]
   }
 }

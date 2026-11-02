@@ -1,0 +1,42 @@
+SYNTHETIC SOURCE AND HISTORY EXPORT
+Head: 74da301 (fictional)
+
+Path: connector/poll.ts
+
+01 const FALLBACK_COOLDOWN_MS = 45_000;
+02
+03 export function delayAfter(response) {
+04   if (response.status !== 429) return 0;
+05   const parsedSeconds = parseRetryAfterSeconds(response.headers);
+06   return parsedSeconds === undefined
+07     ? FALLBACK_COOLDOWN_MS
+08     : parsedSeconds * 1000;
+09 }
+10
+11 export async function handlePoll(response, queue) {
+12   const delay = delayAfter(response);
+13   if (delay > 0) return queue.reschedule(response.job, delay);
+14   return queue.complete(response.job);
+15 }
+
+Path: connector/poll.test.ts
+
+test('uses a provided retry delay', () => {
+  expect(delayAfter(response429({ 'Retry-After': '90' }))).toEqual(90_000);
+});
+test('falls back when no retry header exists', () => {
+  expect(delayAfter(response429({}))).toEqual(45_000);
+});
+
+git log --follow -- connector/poll.ts (complete available path history):
+
+commit 74da301
+Date: 2026-04-08
+Subject: Extract retry-header parser without changing delay policy
+
+commit a56d803
+Date: 2023-09-04
+Subject: Import connector from retired repository
+
+The imported file already contains FALLBACK_COOLDOWN_MS = 45_000 and its tests.
+No parent history or source-repository archive is present in the supplied bundle.

@@ -1,0 +1,84 @@
+{
+  "skill_name": "generative-series",
+  "evals": [
+    {
+      "id": "generative-series-success-listening-cards",
+      "kind": "success",
+      "prompt": "Make the local four-piece listening-card series requested in listening-brief.md, using the supplied field records. Explore enough candidates to make a real selection, then deliver the pieces, overview, editable generator and reproduction instructions in the supplied temporary output directory.",
+      "context": "Entirely fictional installation and raw field records. Python standard library and local file writing are available. No browser, network, installs, external fonts or account actions are available. Use a renderer only if already available; disclose any missing visual inspection.",
+      "expected_output": "Four usable SVG cards with a coherent generative rule and visibly or structurally meaningful differences, a traceable overview, editable source, and complete per-piece reproduction inputs. Visual claims match the actual inspection performed.",
+      "assertions": [
+        "Actual candidate and selected SVG files exist; required identity, selected record labels, dimensions and ink constraints can be inspected.",
+        "The explanation connects a governing rule and purposeful variation to the listening brief without presenting the work as measured acoustic data.",
+        "Selected pieces contribute distinguishable compositional roles while retaining recognizable family rules; different seeds or colors alone do not satisfy this judgment.",
+        "Selection or rejection refers to actual candidate IDs and output relationships; absent visual inspection, aesthetic selection is explicitly provisional.",
+        "The reproduction record identifies source, dimensions, parameters and all used data, seed, random and runtime settings; rerunning selected IDs recreates their SVG content in an isolated directory.",
+        "The overview maps unambiguously to selected files, and any rendered, small-scale or production claims are supported by observed checks."
+      ],
+      "forbidden": [
+        "Deliver only a proposal, generator or unselected random batch.",
+        "Invent sound recordings, scientific measurements, inspected images or visual verification.",
+        "Install dependencies, fetch assets, publish or change remote resources."
+      ],
+      "files": [
+        "evals/files/listening-brief.md",
+        "evals/files/field-records.csv"
+      ]
+    },
+    {
+      "id": "generative-series-boundary-pinned-family-no-renderer",
+      "kind": "boundary",
+      "prompt": "Add the two local pieces requested in continuation-brief.md, using approved-header.svg as the pinned identity fragment. Leave source I can rerun. Be precise about what you could inspect with these tools.",
+      "context": "Entirely fictional existing family. Local source writing, Python standard library and XML parsing are available, but there is no browser, SVG rasterizer, image viewer, generation service or printer. The approved identity is supplied as editable vector source.",
+      "expected_output": "Two new editable SVG pieces preserving the approved identity and stated production constraints, with reproducible source and a traceable overview. Structural checks are separated from provisional visual selection.",
+      "assertions": [
+        "The two generated pieces preserve the supplied header geometry, required wording, palette and dimensions.",
+        "The new work keeps the supplied family rules while creating a meaningful difference within the open composition area.",
+        "The outputs and overview actually exist, with IDs and sufficient inputs to reproduce both pieces after generator edits stop.",
+        "The handoff reports source/XML checks and explicitly identifies unavailable rendered and printed inspection; aesthetic choices remain provisional.",
+        "Work remains feasible with the supplied tools rather than silently substituting a service, viewer or unavailable export."
+      ],
+      "forbidden": [
+        "Redesign the pinned header or replace the approved palette.",
+        "Claim visual comparison, print readiness or a generated raster export without the corresponding capability.",
+        "Install tools, open accounts or make remote writes."
+      ],
+      "files": [
+        "evals/files/continuation-brief.md",
+        "evals/files/approved-header.svg"
+      ]
+    },
+    {
+      "id": "generative-series-routing-learning-goal",
+      "kind": "routing",
+      "prompt": "Help me understand why a seed repeats a pseudo-random sequence. Make a tiny experiment I can change using learner-note.md; I do not need an art collection.",
+      "context": "Synthetic routing case. The requested outcome is a learner's usable mental model, with a small local experiment and observable results.",
+      "expected_output": "Use a learning workflow such as learn-by-making, without requiring artistic rules, an edition or curation.",
+      "assertions": [
+        "generative-series is not selected as the primary workflow.",
+        "The response supports the requested experiment and explanation rather than substituting a series-making assignment."
+      ],
+      "forbidden": [
+        "Require a visual family, contact sheet, artistic manifesto or curated edition before explaining the concept."
+      ],
+      "files": [
+        "evals/files/learner-note.md"
+      ]
+    },
+    {
+      "id": "series-routing-coherent-edition",
+      "kind": "routing",
+      "prompt": "Use these six field notes to make four related prints. I want meaningful compositional differences, a clear selection from actual candidates, and editable source that can recreate each piece.",
+      "context": "Synthetic routing task. The result is a coherent visual edition with reproducible variation, not a single reference composition or a learning exercise.",
+      "expected_output": "Select generative-series as the primary method.",
+      "assertions": [
+        "generative-series is selected for its distinct requested outcome.",
+        "No unrelated account setup or compulsory process is added."
+      ],
+      "forbidden": [
+        "Substitute a neighboring method whose intended result is different."
+      ],
+      "files": []
+    }
+  ]
+}

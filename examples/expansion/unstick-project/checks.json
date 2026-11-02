@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "page_mm": [
+    150,
+    100
+  ],
+  "checks": {
+    "svg_parses": true,
+    "landscape_dimensions": true,
+    "physical_scale_is_one_point_per_unit": true,
+    "approved_heading_and_attribution": true,
+    "approved_body_unchanged": true,
+    "all_visible_text_at_least_12pt": true,
+    "body_size_14pt": true,
+    "cream_background": true,
+    "dark_ink": true,
+    "no_image_or_script_or_external_reference": true,
+    "pdf_same_layout_and_text_source": true,
+    "pdf_extracted_text_matches_approved": true
+  },
+  "body_size_pt": 14,
+  "body_leading_pt": 21,
+  "minimum_visible_text_pt": 12.0,
+  "svg_visual_inspection": "Not performed: no non-browser SVG renderer was found.",
+  "pdf_visual_inspection": "Performed on the locally rendered 144 dpi PNG preview. All approved words are visible, with no overlaps or clipping; title, attribution and four body lines are distinct. This is the supplementary Helvetica PDF, not a direct SVG rendering.",
+  "print_test": "Not performed.",
+  "preview_pixels": [
+    851,
+    567
+  ],
+  "renderer": "/usr/bin/pdftoppm, 144 dpi, exit code 0",
+  "pdfinfo": "Passed; page geometry recorded in pdfinfo.txt."
+}

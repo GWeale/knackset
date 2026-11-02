@@ -1,0 +1,695 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "mode": "routing",
+  "runtime": "T3 Code native Codex gpt-6.1-sol; xhigh; fresh description-only context",
+  "packet_sha256": "fb0d83337bfa804d730f05643e66f00ef5e557607df55847dd02d2ef9b2ff05e",
+  "input": {
+    "schema_version": 1,
+    "catalog": [
+      {
+        "name": "browser-bug-reproduction",
+        "description": "Reproduce a reported web UI failure in an authorized test environment and produce a minimal evidence pack with expected and observed behavior. Use for browser reproduction, not code review, implementation, or production incident changes."
+      },
+      {
+        "name": "calendar-coordination",
+        "description": "Find meeting times or create, reschedule, and cancel scoped calendar events while preserving recurrence and invitations. Use for calendar coordination, not a general daily briefing or inbox review."
+      },
+      {
+        "name": "daily-briefing",
+        "description": "Build a source-linked daily brief from specified mail, calendar, task, or project sources, prioritizing deadlines and decisions with explicit coverage. Use for a bounded cross-source briefing, not an account-wide scan, message send, or recurring watch setup."
+      },
+      {
+        "name": "decision-archaeology",
+        "description": "Reconstruct why a technical, product, or design choice was made from code, history, and notes, and explain what matters before reversing it. Use for inherited behavior, puzzling constraints, and disputed rationale; use ordinary code explanation or defect review when historical intent is not the question."
+      },
+      {
+        "name": "demo-director",
+        "description": "Turn a real product, working prototype, or creative artifact into an honest demo with a finished script, timed storyboard, and actual media when available tools permit. Use for walkthroughs, launch demos, and explainers that must show proof; not a trim-only video edit or a request to invent product capabilities."
+      },
+      {
+        "name": "expense-reconciliation",
+        "description": "Reconcile a specified expense set with receipts and a supplied policy, preserving currencies, refunds, and unresolved matches. Use for a review ledger or authorized reconciliation updates, not payment, tax advice, or general spreadsheet editing."
+      },
+      {
+        "name": "generative-series",
+        "description": "Create and curate a coherent visual series from generative rules, reproducible inputs, and deliberate variation. Use for families of prints, covers, tiles, or algorithmic artworks; not a single reference-led composition or a concept lesson."
+      },
+      {
+        "name": "github-review",
+        "description": "Review a specified GitHub pull request at its current head, inspect the diff and surrounding context, and prepare actionable findings with check status. Use for PR review; reviewing does not authorize comments, approval, pushes, or merging."
+      },
+      {
+        "name": "gmail-draft-reply",
+        "description": "Compose, save, revise, or send a scoped Gmail reply as requested, preserving its thread, recipients, sender identity, and attachments. Use for message composition and reply completion, not inbox classification or labeling."
+      },
+      {
+        "name": "gmail-triage",
+        "description": "Review a bounded Gmail inbox or search result, identify actionable messages, and apply explicitly requested organization. Use for mail triage and labeling; summarizing mail does not authorize sending, deleting, or changing inbox settings."
+      },
+      {
+        "name": "google-docs-update",
+        "description": "Make a bounded Google Docs content or formatting change in the correct tab and section, preserving unrelated material and verifying the saved revision. Use for document edits, not Sheets cells, document sharing, or exporting files."
+      },
+      {
+        "name": "google-sheets-update",
+        "description": "Update or append specified Google Sheets cells or rows through available document tools or an authorized browser, preserving formulas and checking saved results. Use for bounded sheet data edits, not workbook redesign or broad data analysis."
+      },
+      {
+        "name": "idea-pressure-test",
+        "description": "Pressure-test a product or creative project idea with a fair case, contrary evidence, and a cheap test with decision criteria. Use for deciding whether an uncertain idea deserves more work; skip straightforward edits and requests to build an already chosen design."
+      },
+      {
+        "name": "learn-by-making",
+        "description": "Learn an unfamiliar idea by building a small working artifact, making predictions, and using observed results to repair the mental model. Use for hands-on understanding with a concrete learning goal, not a task the user simply wants completed."
+      },
+      {
+        "name": "product-shortlist",
+        "description": "Compare current product or used-item offers in exact configurations using total cost, condition, and buyer constraints. Use for shopping research and listing comparison; it does not contact sellers, bid, reserve, or purchase."
+      },
+      {
+        "name": "rabbit-hole",
+        "description": "Investigate a puzzling claim, trend, or story by tracing sources, testing rival explanations, and producing a readable account of what changed your understanding. Use for an open question worth digging into, not a quick lookup or a dossier on a private person."
+      },
+      {
+        "name": "recurring-monitor",
+        "description": "Set up or check a recurring watch with clear alert rules, saved observations, and an available host scheduler. Use for ongoing monitoring, not a one-time lookup."
+      },
+      {
+        "name": "reference-remix",
+        "description": "Turn visual references and a brief into distinct original art direction and a usable visual artifact. Use for reference synthesis, moodboards that need a decision, and artwork or design driven by several influences; not a routine edit inside an already settled visual system."
+      },
+      {
+        "name": "session-to-skill",
+        "description": "Extract a reusable decision from authorized work, then improve existing guidance or create a focused skill when the evidence warrants it. Use for deliberate workflow capture and skill authoring, not raw history export, automatic memory, installation or publication."
+      },
+      {
+        "name": "story-mining",
+        "description": "Find an evidence-backed angle in interviews, transcripts, research notes, or rough drafts and turn it into a finished piece that preserves the speaker's voice. Use when the story is buried in source material; not punctuation-only editing or a request to summarize every source evenly."
+      },
+      {
+        "name": "travel-reservation",
+        "description": "Prepare or complete an explicitly requested travel booking, change, or cancellation while tracking exact travelers, total price, terms, payment, and reservation status. Use for reservation lifecycle work, not a generic shopping shortlist."
+      },
+      {
+        "name": "unstick-project",
+        "description": "Recover progress on a stalled project by separating the intended outcome from the blocked approach and completing a small useful next artifact or experiment. Use when attempts keep circling a dependency or constraint; not a settled edit, a root-cause debugging request, or permission to bypass a real access boundary."
+      },
+      {
+        "name": "web-form-update",
+        "description": "Change specified profile, settings, or form values and verify persistence, including autosave and validation behavior. Use for bounded record edits; purchases, reservations, and outgoing messages need their specific workflow."
+      },
+      {
+        "name": "web-research",
+        "description": "Answer bounded factual questions, check which sources apply, and compare options using current public evidence or supplied source bundles. Use for facts, status and evidence-based comparisons; an open investigation testing rival explanations belongs to rabbit-hole."
+      },
+      {
+        "name": "web-task-execution",
+        "description": "Operate a requested website task or recover browser access using the correct account and tab context, then verify the result. Use for general browser handling when a more specific workflow does not fit; public-source research alone is excluded."
+      }
+    ],
+    "tasks": [
+      {
+        "id": "R01",
+        "prompt": "Review the supplied GitHub pull request diff for correctness and give me findings.",
+        "context": "Entirely synthetic routing fixture. One complete PR revision, its requirement, diff, callers, and check status are supplied."
+      },
+      {
+        "id": "R02",
+        "prompt": "Label the unread messages in this supplied Gmail search as Receipts and archive them.",
+        "context": "Entirely synthetic routing fixture. The Gmail search identifies a bounded set of messages, and a mail integration can inspect labels and modify those messages."
+      },
+      {
+        "id": "R03",
+        "prompt": "Set up an hourly watch of this product price for the next seven days and alert me here on a new low.",
+        "context": "Entirely synthetic routing fixture. The product URL, variant, delivery location, currency, and notification destination are supplied. The host exposes discoverable source and scheduler operations."
+      },
+      {
+        "id": "R04",
+        "prompt": "Review this pull request for correctness and give actionable findings against the supplied head. I need defects in the proposed diff, not a history of why the subsystem was designed this way. Do not change anything.",
+        "context": "Synthetic routing case. A complete small diff, caller, current head label, and behavior contract are supplied. The appearance of a historical comment does not make historical intent the requested task."
+      },
+      {
+        "id": "R05",
+        "prompt": "Why did this inherited board preserve collapsed groups during search? The current code, old patches and dated notes are supplied. Explain the original choice and what still matters before we undo it.",
+        "context": "Synthetic supplied-record routing task. Historical rationale and change implications are requested, not defects or only a current-code walkthrough."
+      },
+      {
+        "id": "R06",
+        "prompt": "Trim the first two seconds from this supplied video. Keep everything else exactly as it is; I do not need a new script or storyboard.",
+        "context": "Synthetic routing case. The evaluator supplies a local media file and an appropriate authorized editing tool. No product explanation or new narrative is requested."
+      },
+      {
+        "id": "R07",
+        "prompt": "In the supplied Google Sheet, change B2 from Pending to Reviewed and leave everything else alone.",
+        "context": "Entirely synthetic routing fixture. The authorized account, spreadsheet, tab, and cell B2 are identified. A Sheets read/update integration is available."
+      },
+      {
+        "id": "R08",
+        "prompt": "Help me understand why a seed repeats a pseudo-random sequence. Make a tiny experiment I can change using learner-note.md; I do not need an art collection.",
+        "context": "Synthetic routing case. The requested outcome is a learner's usable mental model, with a small local experiment and observable results."
+      },
+      {
+        "id": "R09",
+        "prompt": "Use these six field notes to make four related prints. I want meaningful compositional differences, a clear selection from actual candidates, and editable source that can recreate each piece.",
+        "context": "Synthetic routing task. The result is a coherent visual edition with reproducible variation, not a single reference composition or a learning exercise."
+      },
+      {
+        "id": "R10",
+        "prompt": "Merge this already reviewed and approved PR if the required checks still pass.",
+        "context": "Entirely synthetic routing fixture. A PR reference is supplied. The host can inspect its current head, reviews, required checks, and merge state; native approval controls apply."
+      },
+      {
+        "id": "R11",
+        "prompt": "Summarize the actionable messages in this bounded Gmail search and label the newsletters Later.",
+        "context": "Entirely synthetic routing fixture. The search and Later label are supplied. A mail integration can read matching messages and modify their labels."
+      },
+      {
+        "id": "R12",
+        "prompt": "Save a reply draft in the supplied Gmail thread accepting Tuesday.",
+        "context": "Entirely synthetic routing fixture. The thread, sender identity, and Tuesday appointment details are supplied. A mail integration can read the thread and create and retrieve drafts."
+      },
+      {
+        "id": "R13",
+        "prompt": "In the supplied Google Sheet, set B2:B4 to the three supplied status values and preserve formulas in column C.",
+        "context": "Entirely synthetic routing fixture. The spreadsheet, tab, range, three input values, and current formulas are available through a Sheets integration."
+      },
+      {
+        "id": "R14",
+        "prompt": "Create an Excel .xlsx workbook from this CSV and add a chart.",
+        "context": "Entirely synthetic routing fixture. The supplied CSV is a local file, and the requested deliverable is an .xlsx file in the output folder. Local file authoring is available."
+      },
+      {
+        "id": "R15",
+        "prompt": "In the supplied HTML, change the button label from Start to Open playlist. Keep everything else the same.",
+        "context": "Entirely synthetic routing fixture. The editable HTML and requested replacement are supplied. This is a settled, low-impact text edit with no product decision to investigate."
+      },
+      {
+        "id": "R16",
+        "prompt": "Compare these supplied policy pages and tell me which applies to our region.",
+        "context": "The user needs an answer with evidence, not a lesson or exercise."
+      },
+      {
+        "id": "R17",
+        "prompt": "Buy one of this exact item from the selected seller for the quoted USD 95 delivered total using my selected payment method.",
+        "context": "Entirely synthetic routing fixture. The chosen listing and checkout are supplied, as are the delivery destination and supported secure payment route. Native approval controls apply."
+      },
+      {
+        "id": "R18",
+        "prompt": "Review this supplied pull request for correctness and give me actionable findings.",
+        "context": "A complete diff, current head and caller context are supplied."
+      },
+      {
+        "id": "R19",
+        "prompt": "For the standard plan in Region A, which export formats are supported? Use only these supplied plan guides and cite the one that applies.",
+        "context": "Synthetic routing request. This is a bounded feature/applicability question; no explanation of a historical trend is requested."
+      },
+      {
+        "id": "R20",
+        "prompt": "What is the current all-in price of this exact item at this URL?",
+        "context": "Entirely synthetic routing fixture. One current public offer is readable and identifies USD 84 including mandatory fees for the supplied variant and delivery location."
+      },
+      {
+        "id": "R21",
+        "prompt": "Fix keyboard focus order and the missing form labels on this existing settings page. Preserve the current appearance; do not explore a new art direction.",
+        "context": "Synthetic routing case. Existing source and a settled visual system are supplied by the evaluator; this is a narrow functional accessibility edit."
+      },
+      {
+        "id": "R22",
+        "prompt": "Change my display name on this profile page to River and verify it saved.",
+        "context": "Entirely synthetic routing fixture. An authorized browser session is open to the supplied profile page. Its display-name field and save behavior can be inspected."
+      },
+      {
+        "id": "R23",
+        "prompt": "Correct punctuation in this paragraph and leave the wording and structure alone. Do not develop a new angle or expand it.",
+        "context": "Synthetic routing case. A paragraph is supplied by the evaluator. The user requests a narrow copy edit with no source mining."
+      },
+      {
+        "id": "R24",
+        "prompt": "Compare these three hotels for our dates and recommend one.",
+        "context": "Entirely synthetic routing fixture. Three public hotel URLs, dates, budget, and preferences are supplied. Current prices and cancellation terms can be retrieved."
+      },
+      {
+        "id": "R25",
+        "prompt": "Replace Pocket Radio with Kitchen Radio in this supplied label text. Keep every other word and the layout unchanged.",
+        "context": "Synthetic routing task. The exact replacement and all scope are already fixed; no project blocker needs investigation."
+      },
+      {
+        "id": "R26",
+        "prompt": "This exhibit project has gone in circles while we wait for a custom font, a CMS and an uncleared photograph. The approved label words and format are fixed. Make one useful local proof with what we have, then tell me what it settles.",
+        "context": "Synthetic routing task. The owner asks to recover concrete progress while preserving the goal and real constraints. This is not a settled text replacement or a technical root-cause diagnosis."
+      },
+      {
+        "id": "R27",
+        "prompt": "Build a React profile-settings form with display-name validation and an autosave indicator.",
+        "context": "Entirely synthetic routing fixture. The supplied local application repository contains React source and its existing form components."
+      },
+      {
+        "id": "R28",
+        "prompt": "Summarize the action items in my Gmail inbox from the past week.",
+        "context": "Entirely synthetic routing fixture. The requested mailbox and seven-day search are identified. A task-scoped mail integration is available."
+      },
+      {
+        "id": "R29",
+        "prompt": "Our cinema visits doubled. Using this supplied source bundle, investigate whether the club, extra screenings or better transport explains the change. Write the account that survives the competing explanations.",
+        "context": "Synthetic routing request. The desired result is an explanation from rival accounts, not a lookup of a documented format or policy. Sources are supplied; no live browsing is needed."
+      },
+      {
+        "id": "R30",
+        "prompt": "Using these three supplied public policy pages, compare their effective dates and explain which policy governs my region.",
+        "context": "Entirely synthetic routing fixture. The three public policy pages and the user region are supplied. Public source retrieval is available."
+      }
+    ]
+  },
+  "passed": true,
+  "results": [
+    {
+      "id": "R01",
+      "prompt": "Review the supplied GitHub pull request diff for correctness and give me findings.",
+      "context": "Entirely synthetic routing fixture. One complete PR revision, its requirement, diff, callers, and check status are supplied.",
+      "scenario": "browser-bug-reproduction-routing-pr-review",
+      "selection": {
+        "skill": "github-review",
+        "reason": "The requested deliverable is correctness findings on a supplied PR revision and its caller context."
+      },
+      "accepted": [
+        "github-review"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R02",
+      "prompt": "Label the unread messages in this supplied Gmail search as Receipts and archive them.",
+      "context": "Entirely synthetic routing fixture. The Gmail search identifies a bounded set of messages, and a mail integration can inspect labels and modify those messages.",
+      "scenario": "calendar-coordination-routing-inbox-labels",
+      "selection": {
+        "skill": "gmail-triage",
+        "reason": "This is explicitly authorized labeling and archiving of a bounded Gmail search result."
+      },
+      "accepted": [
+        "gmail-triage"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R03",
+      "prompt": "Set up an hourly watch of this product price for the next seven days and alert me here on a new low.",
+      "context": "Entirely synthetic routing fixture. The product URL, variant, delivery location, currency, and notification destination are supplied. The host exposes discoverable source and scheduler operations.",
+      "scenario": "daily-briefing-routing-watch-setup",
+      "selection": {
+        "skill": "recurring-monitor",
+        "reason": "An hourly price watch over seven days needs recurring observations, scheduling, and a new-low alert rule."
+      },
+      "accepted": [
+        "recurring-monitor"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R04",
+      "prompt": "Review this pull request for correctness and give actionable findings against the supplied head. I need defects in the proposed diff, not a history of why the subsystem was designed this way. Do not change anything.",
+      "context": "Synthetic routing case. A complete small diff, caller, current head label, and behavior contract are supplied. The appearance of a historical comment does not make historical intent the requested task.",
+      "scenario": "decision-archaeology-routing-correctness-review",
+      "selection": {
+        "skill": "github-review",
+        "reason": "The user asks for actionable defects at the supplied PR head and explicitly excludes historical rationale."
+      },
+      "accepted": [
+        "github-review"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R05",
+      "prompt": "Why did this inherited board preserve collapsed groups during search? The current code, old patches and dated notes are supplied. Explain the original choice and what still matters before we undo it.",
+      "context": "Synthetic supplied-record routing task. Historical rationale and change implications are requested, not defects or only a current-code walkthrough.",
+      "scenario": "decision-routing-origin-before-reversal",
+      "selection": {
+        "skill": "decision-archaeology",
+        "reason": "The question asks why inherited behavior was chosen and what historical constraints matter before reversing it."
+      },
+      "accepted": [
+        "decision-archaeology"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R06",
+      "prompt": "Trim the first two seconds from this supplied video. Keep everything else exactly as it is; I do not need a new script or storyboard.",
+      "context": "Synthetic routing case. The evaluator supplies a local media file and an appropriate authorized editing tool. No product explanation or new narrative is requested.",
+      "scenario": "demo-routing-exact-trim",
+      "selection": {
+        "skill": null,
+        "reason": "A trim-only media edit belongs to the supplied editing workflow; no demo script or storyboard is requested."
+      },
+      "accepted": [
+        null
+      ],
+      "passed": true
+    },
+    {
+      "id": "R07",
+      "prompt": "In the supplied Google Sheet, change B2 from Pending to Reviewed and leave everything else alone.",
+      "context": "Entirely synthetic routing fixture. The authorized account, spreadsheet, tab, and cell B2 are identified. A Sheets read/update integration is available.",
+      "scenario": "expense-reconciliation-routing-cell-edit",
+      "selection": {
+        "skill": "google-sheets-update",
+        "reason": "This is a bounded update to one identified Google Sheets cell with unrelated data preserved."
+      },
+      "accepted": [
+        "google-sheets-update"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R08",
+      "prompt": "Help me understand why a seed repeats a pseudo-random sequence. Make a tiny experiment I can change using learner-note.md; I do not need an art collection.",
+      "context": "Synthetic routing case. The requested outcome is a learner's usable mental model, with a small local experiment and observable results.",
+      "scenario": "generative-series-routing-learning-goal",
+      "selection": {
+        "skill": "learn-by-making",
+        "reason": "The goal is understanding seeded pseudo-randomness through a small changeable experiment and observed results."
+      },
+      "accepted": [
+        "learn-by-making"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R09",
+      "prompt": "Use these six field notes to make four related prints. I want meaningful compositional differences, a clear selection from actual candidates, and editable source that can recreate each piece.",
+      "context": "Synthetic routing task. The result is a coherent visual edition with reproducible variation, not a single reference composition or a learning exercise.",
+      "scenario": "series-routing-coherent-edition",
+      "selection": {
+        "skill": "generative-series",
+        "reason": "The user wants a curated family of four prints with deliberate variation and reproducible editable sources."
+      },
+      "accepted": [
+        "generative-series"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R10",
+      "prompt": "Merge this already reviewed and approved PR if the required checks still pass.",
+      "context": "Entirely synthetic routing fixture. A PR reference is supplied. The host can inspect its current head, reviews, required checks, and merge state; native approval controls apply.",
+      "scenario": "github-routing-authorized-merge",
+      "selection": {
+        "skill": null,
+        "reason": "Merging an approved PR requires a repository merge workflow; the listed PR skill covers review findings only."
+      },
+      "accepted": [
+        null
+      ],
+      "passed": true
+    },
+    {
+      "id": "R11",
+      "prompt": "Summarize the actionable messages in this bounded Gmail search and label the newsletters Later.",
+      "context": "Entirely synthetic routing fixture. The search and Later label are supplied. A mail integration can read matching messages and modify their labels.",
+      "scenario": "gmail-draft-reply-routing-inbox-triage",
+      "selection": {
+        "skill": "gmail-triage",
+        "reason": "This combines actionable-message review and explicitly requested labeling within a bounded Gmail search."
+      },
+      "accepted": [
+        "gmail-triage"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R12",
+      "prompt": "Save a reply draft in the supplied Gmail thread accepting Tuesday.",
+      "context": "Entirely synthetic routing fixture. The thread, sender identity, and Tuesday appointment details are supplied. A mail integration can read the thread and create and retrieve drafts.",
+      "scenario": "gmail-triage-routing-draft-reply",
+      "selection": {
+        "skill": "gmail-draft-reply",
+        "reason": "The requested action is composing and saving a reply draft in an identified Gmail thread."
+      },
+      "accepted": [
+        "gmail-draft-reply"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R13",
+      "prompt": "In the supplied Google Sheet, set B2:B4 to the three supplied status values and preserve formulas in column C.",
+      "context": "Entirely synthetic routing fixture. The spreadsheet, tab, range, three input values, and current formulas are available through a Sheets integration.",
+      "scenario": "google-docs-update-routing-sheet-range",
+      "selection": {
+        "skill": "google-sheets-update",
+        "reason": "The user supplies a precise Sheets range and values and requires preservation of neighboring formulas."
+      },
+      "accepted": [
+        "google-sheets-update"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R14",
+      "prompt": "Create an Excel .xlsx workbook from this CSV and add a chart.",
+      "context": "Entirely synthetic routing fixture. The supplied CSV is a local file, and the requested deliverable is an .xlsx file in the output folder. Local file authoring is available.",
+      "scenario": "sheets-routing-local-workbook",
+      "selection": {
+        "skill": null,
+        "reason": "Creating a local Excel workbook and chart calls for spreadsheet file authoring, not bounded Google Sheets edits."
+      },
+      "accepted": [
+        null
+      ],
+      "passed": true
+    },
+    {
+      "id": "R15",
+      "prompt": "In the supplied HTML, change the button label from Start to Open playlist. Keep everything else the same.",
+      "context": "Entirely synthetic routing fixture. The editable HTML and requested replacement are supplied. This is a settled, low-impact text edit with no product decision to investigate.",
+      "scenario": "idea-test-routing-obvious-small-edit",
+      "selection": {
+        "skill": null,
+        "reason": "A fixed button-label replacement in supplied HTML is an ordinary small source edit."
+      },
+      "accepted": [
+        null
+      ],
+      "passed": true
+    },
+    {
+      "id": "R16",
+      "prompt": "Compare these supplied policy pages and tell me which applies to our region.",
+      "context": "The user needs an answer with evidence, not a lesson or exercise.",
+      "scenario": "learn-by-making-routing-policy",
+      "selection": {
+        "skill": "web-research",
+        "reason": "The task is a bounded evidence-based comparison of supplied policy pages for regional applicability."
+      },
+      "accepted": [
+        "web-research"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R17",
+      "prompt": "Buy one of this exact item from the selected seller for the quoted USD 95 delivered total using my selected payment method.",
+      "context": "Entirely synthetic routing fixture. The chosen listing and checkout are supplied, as are the delivery destination and supported secure payment route. Native approval controls apply.",
+      "scenario": "shortlist-routing-selected-item-checkout",
+      "selection": {
+        "skill": "web-task-execution",
+        "reason": "The item and terms are selected; completing the supplied checkout is a website operation subject to native approval controls."
+      },
+      "accepted": [
+        null,
+        "web-task-execution"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R18",
+      "prompt": "Review this supplied pull request for correctness and give me actionable findings.",
+      "context": "A complete diff, current head and caller context are supplied.",
+      "scenario": "rabbit-hole-routing-review",
+      "selection": {
+        "skill": "github-review",
+        "reason": "The user requests actionable correctness findings on a supplied current PR diff and caller context."
+      },
+      "accepted": [
+        "github-review"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R19",
+      "prompt": "For the standard plan in Region A, which export formats are supported? Use only these supplied plan guides and cite the one that applies.",
+      "context": "Synthetic routing request. This is a bounded feature/applicability question; no explanation of a historical trend is requested.",
+      "scenario": "rabbit-routing-bounded-export-formats",
+      "selection": {
+        "skill": "web-research",
+        "reason": "This is a bounded feature and applicability question requiring citations from the supplied plan guides."
+      },
+      "accepted": [
+        "web-research"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R20",
+      "prompt": "What is the current all-in price of this exact item at this URL?",
+      "context": "Entirely synthetic routing fixture. One current public offer is readable and identifies USD 84 including mandatory fees for the supplied variant and delivery location.",
+      "scenario": "recurring-monitor-routing-one-time-price",
+      "selection": {
+        "skill": "web-research",
+        "reason": "Checking one exact offer's current all-in price is a factual lookup, not an offer shortlist or recurring watch."
+      },
+      "accepted": [
+        "product-shortlist",
+        "web-research"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R21",
+      "prompt": "Fix keyboard focus order and the missing form labels on this existing settings page. Preserve the current appearance; do not explore a new art direction.",
+      "context": "Synthetic routing case. Existing source and a settled visual system are supplied by the evaluator; this is a narrow functional accessibility edit.",
+      "scenario": "remix-routing-preserve-settled-interface",
+      "selection": {
+        "skill": null,
+        "reason": "Fixing focus order and labels is a narrow frontend accessibility implementation task in existing source."
+      },
+      "accepted": [
+        null
+      ],
+      "passed": true
+    },
+    {
+      "id": "R22",
+      "prompt": "Change my display name on this profile page to River and verify it saved.",
+      "context": "Entirely synthetic routing fixture. An authorized browser session is open to the supplied profile page. Its display-name field and save behavior can be inspected.",
+      "scenario": "capture-routing-use-existing-skill",
+      "selection": {
+        "skill": "web-form-update",
+        "reason": "The user requests one profile-field change and verification that the value persists."
+      },
+      "accepted": [
+        "web-form-update"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R23",
+      "prompt": "Correct punctuation in this paragraph and leave the wording and structure alone. Do not develop a new angle or expand it.",
+      "context": "Synthetic routing case. A paragraph is supplied by the evaluator. The user requests a narrow copy edit with no source mining.",
+      "scenario": "story-routing-punctuation-only",
+      "selection": {
+        "skill": null,
+        "reason": "Punctuation-only editing is ordinary copy editing and explicitly excludes finding or developing a story angle."
+      },
+      "accepted": [
+        null
+      ],
+      "passed": true
+    },
+    {
+      "id": "R24",
+      "prompt": "Compare these three hotels for our dates and recommend one.",
+      "context": "Entirely synthetic routing fixture. Three public hotel URLs, dates, budget, and preferences are supplied. Current prices and cancellation terms can be retrieved.",
+      "scenario": "travel-reservation-routing-hotel-research",
+      "selection": {
+        "skill": "web-research",
+        "reason": "The task compares current hotel prices and terms to recommend an option without requesting a reservation."
+      },
+      "accepted": [
+        "product-shortlist",
+        "web-research"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R25",
+      "prompt": "Replace Pocket Radio with Kitchen Radio in this supplied label text. Keep every other word and the layout unchanged.",
+      "context": "Synthetic routing task. The exact replacement and all scope are already fixed; no project blocker needs investigation.",
+      "scenario": "unstick-routing-settled-label-edit",
+      "selection": {
+        "skill": null,
+        "reason": "The exact text replacement is already settled and needs a direct local edit, with no blocker investigation."
+      },
+      "accepted": [
+        null
+      ],
+      "passed": true
+    },
+    {
+      "id": "R26",
+      "prompt": "This exhibit project has gone in circles while we wait for a custom font, a CMS and an uncleared photograph. The approved label words and format are fixed. Make one useful local proof with what we have, then tell me what it settles.",
+      "context": "Synthetic routing task. The owner asks to recover concrete progress while preserving the goal and real constraints. This is not a settled text replacement or a technical root-cause diagnosis.",
+      "scenario": "unstick-routing-first-useful-proof",
+      "selection": {
+        "skill": "unstick-project",
+        "reason": "The project is circling dependencies; the user wants a useful local proof that recovers progress within real constraints."
+      },
+      "accepted": [
+        "unstick-project"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R27",
+      "prompt": "Build a React profile-settings form with display-name validation and an autosave indicator.",
+      "context": "Entirely synthetic routing fixture. The supplied local application repository contains React source and its existing form components.",
+      "scenario": "form-routing-component-implementation",
+      "selection": {
+        "skill": null,
+        "reason": "Building a React form is local application implementation, not operating or updating an existing website record."
+      },
+      "accepted": [
+        null
+      ],
+      "passed": true
+    },
+    {
+      "id": "R28",
+      "prompt": "Summarize the action items in my Gmail inbox from the past week.",
+      "context": "Entirely synthetic routing fixture. The requested mailbox and seven-day search are identified. A task-scoped mail integration is available.",
+      "scenario": "research-routing-gmail-summary",
+      "selection": {
+        "skill": "gmail-triage",
+        "reason": "The requested output is actionable-message review from a bounded seven-day Gmail search."
+      },
+      "accepted": [
+        "gmail-triage"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R29",
+      "prompt": "Our cinema visits doubled. Using this supplied source bundle, investigate whether the club, extra screenings or better transport explains the change. Write the account that survives the competing explanations.",
+      "context": "Synthetic routing request. The desired result is an explanation from rival accounts, not a lookup of a documented format or policy. Sources are supplied; no live browsing is needed.",
+      "scenario": "research-routing-rival-explanation",
+      "selection": {
+        "skill": "rabbit-hole",
+        "reason": "The user asks to test competing explanations against sources and write the account that survives."
+      },
+      "accepted": [
+        "rabbit-hole"
+      ],
+      "passed": true
+    },
+    {
+      "id": "R30",
+      "prompt": "Using these three supplied public policy pages, compare their effective dates and explain which policy governs my region.",
+      "context": "Entirely synthetic routing fixture. The three public policy pages and the user region are supplied. Public source retrieval is available.",
+      "scenario": "browser-routing-public-source-synthesis",
+      "selection": {
+        "skill": "web-research",
+        "reason": "This is a bounded comparison of policy effective dates and regional applicability using specified public sources."
+      },
+      "accepted": [
+        "web-research"
+      ],
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Description-only selection; no skill body, service, or host activation is tested.",
+    "The judge checks chosen names. Review the reasons and the agent read trace separately.",
+    "This record does not qualify a package for execution promotion."
+  ]
+}

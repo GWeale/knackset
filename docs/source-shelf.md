@@ -34,7 +34,7 @@ and licensing before using it directly.
 
 **Worth keeping:** Use reproducible seeds and meaningful parameter changes so variations can be compared.
 **Our reservation:** A branded viewer, fixed framework and CDN assumptions need not travel with that idea.
-**Where it leads here:** Learn by Making; future generative-series work.
+**Where it leads here:** Learn by Making; Generative Series.
 
 ### [Baoyu Comic](https://github.com/JimLiu/baoyu-skills/blob/0a27d7d40e79cfe42334e2e9130a1e41a499ca54/skills/baoyu-comic/SKILL.md)
 
@@ -102,7 +102,7 @@ and licensing before using it directly.
 
 **Worth keeping:** Separate a worthwhile problem from a familiar method; identify which constraints really need to stay fixed.
 **Our reservation:** A nine-module scientific planning framework is excessive for many small projects.
-**Where it leads here:** A possible future method for unblocking projects.
+**Where it leads here:** Unstick Project, which preserves multiple real commitments instead of adopting a one-fixed-parameter rule.
 
 ### [Hypothesis Generation](https://github.com/K-Dense-AI/scientific-agent-skills/blob/5f2bc0341354fd5590aef76a533ada1e1e5b4e62/skills/hypothesis-generation/SKILL.md)
 
@@ -118,7 +118,7 @@ and licensing before using it directly.
 
 **Worth keeping:** Trace a decision through different evidence categories and preserve unsuccessful searches and unknowns.
 **Our reservation:** Organization connectors, Cursor tools and a large default agent sweep are host-specific assumptions.
-**Where it leads here:** Rabbit Hole; possible future decision archaeology.
+**Where it leads here:** Rabbit Hole; Decision Archaeology.
 
 ### [Reverse Engineer Marketing](https://github.com/coreyhaines31/marketingskills/blob/88c79f6528a9347420e57ceb1fff9a60de651768/skills/reverse-engineer-marketing/SKILL.md)
 

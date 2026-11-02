@@ -1,0 +1,44 @@
+SYNTHETIC SOURCE EXPORT
+Head: b41d620 (fictional)
+Path: ui/board/groupVisibility.ts
+
+01 export function visibleBoard(state, query) {
+02   const matches = query
+03     ? state.cards.filter(card => includesText(card.title, query))
+04     : state.cards;
+05   const matchingGroups = new Set(matches.map(card => card.groupId));
+06   return state.groups
+07     .filter(group => !query || matchingGroups.has(group.id))
+08     .map(group => ({
+09       ...group,
+10       isOpen: state.expandedGroupIds.has(group.id),
+11       visibleCards: matches.filter(card => card.groupId === group.id),
+12       matchCount: matches.filter(card => card.groupId === group.id).length,
+13     }));
+14 }
+15
+16 // Preserve explicit choices. See board UX notes.
+17 export function setGroupOpen(state, groupId, isOpen) {
+18   const next = new Set(state.expandedGroupIds);
+19   isOpen ? next.add(groupId) : next.delete(groupId);
+20   return { ...state, expandedGroupIds: next };
+21 }
+
+Path: ui/board/groupVisibility.test.ts
+
+test('a filter and its removal leave group choices unchanged', () => {
+  const state = boardFixture({ expandedGroupIds: ['g2'] });
+  expect(visibleBoard(state, 'map').find(g => g.id === 'g1').isOpen).toBe(false);
+  expect(visibleBoard(state, '').find(g => g.id === 'g2').isOpen).toBe(true);
+  expect([...state.expandedGroupIds]).toEqual(['g2']);
+});
+
+Path: ui/board/BoardView.tsx (excerpt)
+
+const rows = visibleBoard(board, filterText);
+return rows.map(group => (
+  <Group key={group.id} open={group.isOpen} onToggle={toggleGroup}>
+    <Header title={group.title} count={group.matchCount} />
+    {group.isOpen ? <Cards cards={group.visibleCards} /> : null}
+  </Group>
+));

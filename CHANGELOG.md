@@ -1,6 +1,18 @@
 # Changelog
 
-## Unreleased — curated field kit
+## Unreleased — grow and refactor
+
+- Add original Decision Archaeology, Generative Series and Unstick Project drafts.
+- Refactor session capture around reuse/amend/create/no-change; keep its existing
+  generator and schema compatible and optional.
+- Separate bounded factual research from rival-explanation investigations, with
+  paired routing cases. Add verified reduction to bug reproduction.
+- Retest all three revised utility packages at current fingerprints; preserve
+  previous evidence. Add five artifact/record reviews and 30 routing selections, with positive and negative discovery cases.
+- Compare discovery coverage with declared catalog/routing data instead of a
+  skill count that becomes stale whenever the collection grows.
+
+## Curated field kit
 
 - Shift the collection toward investigation, creative direction, writing, product
   judgment, demonstrations and learning. Google workflows are no longer the

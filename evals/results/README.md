@@ -1,7 +1,7 @@
 # Measured execution records
 
 The 16 older utility workflows have current, scoped offline records. None has
-been tested against a live service. The six new field-kit methods remain draft;
+been tested against a live service. The nine field-kit methods remain draft;
 their [artifact trials](field-kit-review-20261101.md) are reviewed separately. Keep the individual runs and their limits in view: these are small
 trials, not a general success-rate benchmark.
 
@@ -131,3 +131,13 @@ skill and 5/5 with it. The two baseline failures omitted post-write verification
 of the starred message; all saved labels were correct. Cost remains unknown.
 The report discloses unblinded review and launch-order/setup deviations. These
 repeated two-task observations do not establish general or causal superiority.
+
+## Collection expansion and focused refactors
+
+The [expansion review](expansion-review-20261101.md) records three additional
+artifact trials and two supplied-record boundaries. The [three bound retests](refactor-retests-20261101.json)
+cover the exact revised research, session-capture and bug-reproduction packages;
+earlier records remain historical. The [description-only trial](routing-expansion-20261101.json)
+accepted all 30 selections across 25 skill descriptions, including positive and
+negative requests for each new method and both sides of the research/investigation
+boundary. Selection is not execution or host discovery.

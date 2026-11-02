@@ -12,7 +12,7 @@ Knackset studies good public skills and makes original methods from the parts
 worth keeping. The point of view is in the choices: which evidence matters,
 which reference earns its place, what to leave alone, and when to make something.
 
-[Start with a skill](#start-with-what-you-have) · [See worked examples](examples/field-kit/README.md) · [Explore the source shelf](docs/source-shelf.md) · [See the whole catalog](docs/catalog.md)
+[Start with a skill](#start-with-what-you-have) · [See worked examples](examples/README.md) · [Explore the source shelf](docs/source-shelf.md) · [See the whole catalog](docs/catalog.md)
 
 [![CI](https://github.com/GWeale/knackset/actions/workflows/ci.yml/badge.svg)](https://github.com/GWeale/knackset/actions/workflows/ci.yml) · [MIT](LICENSE)
 
@@ -26,6 +26,9 @@ which reference earns its place, what to leave alone, and when to make something
 | Notes, interviews, or a rambling draft | [Story Mining](skills/story-mining/SKILL.md) | A defensible angle and a finished piece that still sounds like its author |
 | Something working that is hard to explain | [Demo Director](skills/demo-director/SKILL.md) | A demo built around what works: what changes, what to show, what to say, and where to cut |
 | Something you want to understand | [Learn by Making](skills/learn-by-making/SKILL.md) | A small working experiment, an explanation tied to its behavior, and a next thing to try |
+| An inherited choice nobody can explain | [Decision Archaeology](skills/decision-archaeology/SKILL.md) | The recorded reason, later explanations, and what matters before reversing it |
+| A visual idea that needs a family | [Generative Series](skills/generative-series/SKILL.md) | A selected edition, editable generator, and enough inputs to reproduce it |
+| A project going in circles | [Unstick Project](skills/unstick-project/SKILL.md) | One useful proof or experiment, with the next decision made clearer |
 
 A few ways in:
 
@@ -41,8 +44,8 @@ A few ways in:
 > Use story-mining. There is something good in these notes. Find the angle,
 > preserve the odd bits that make them mine, and finish a piece worth reading.
 
-The six methods are original drafts, with raw example inputs and authored cases.
-The [worked examples](examples/field-kit/README.md) show what came out; package
+The nine methods are original drafts, with raw example inputs and authored cases.
+The [worked examples](examples/README.md) show what came out; package
 notes and review records keep the limits visible. Earlier office and browser
 workflows remain on the [utility shelf in the full catalog](docs/catalog.md).
 
@@ -53,7 +56,7 @@ workflows remain on the [utility shelf in the full catalog](docs/catalog.md).
 Reference Remix made this poster from three fictional reference descriptions.
 Rabbit Hole found a changed denominator inside a tempting cinema success story.
 Learn by Making produced a runnable curve experiment.
-[Inspect all six outputs, their inputs, and what was checked](examples/field-kit/README.md).
+[Inspect all six outputs, their inputs, and what was checked](examples/README.md).
 
 ## A source shelf with a point of view
 
@@ -91,6 +94,14 @@ The command selects the host and project, but follows repository contents. Use
 the [full-commit recipe](docs/installation.md) when you need reproducible contents.
 Installation supplies a method; your host supplies tools and permissions.
 
+## Improve what is already here
+
+Session capture now chooses whether to amend an existing method, write a distinct
+skill, or keep no new instruction. Web Research handles bounded facts and
+comparisons; Rabbit Hole investigates competing explanations. Bug reproduction
+now tests reductions instead of calling an untried shorter list a minimal repro.
+[Read the older-skill review and its checks](docs/refactor-review-20261101.md).
+
 ## Bring an interesting job
 
 A good contribution starts with a task you would actually want help with, a
@@ -102,8 +113,10 @@ by itself a new capability.
 
 ## Evidence and development
 
-The new field kit has [six supplied-input artifact trials](evals/results/field-kit-review-20261101.md),
-with one output per method and no comparison baseline. The older utility
+The first six methods have [supplied-input artifact trials](evals/results/field-kit-review-20261101.md).
+The [expansion review](evals/results/expansion-review-20261101.md) records three
+more worked examples, focused refactors and fresh routing. Neither wave has a
+comparison baseline. The older utility
 packages retain their [dated offline records](evals/results/README.md); those
 records do not validate the new methods. Authored examples, inspected sources,
 scripted fixtures and actual agent executions are labeled separately.

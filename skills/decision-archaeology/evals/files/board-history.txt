@@ -1,0 +1,40 @@
+SYNTHETIC GIT EXPORT
+Selected path history through renames. All revisions are fictional.
+
+commit b41d620
+Date: 2025-10-09
+Subject: Move board selectors into groupVisibility module
+
+Rename ui/board/selectors.ts -> ui/board/groupVisibility.ts
+No executable lines changed. Comment changed:
+- // Keep the facilitator's choices; notes/board-filter-review.md
++ // Preserve explicit choices. See board UX notes.
+
+commit 85f03ab
+Date: 2024-08-21
+Subject: Add match count to collapsed group header
+
++ matchCount: matches.filter(card => card.groupId === group.id).length,
+
+commit 6a1c098
+Date: 2024-08-19
+Subject: Ship board filter interaction (#74)
+
+Path: ui/board/selectors.ts
+
+- isOpen: query ? matchingGroups.has(group.id) : state.expandedGroupIds.has(group.id),
++ isOpen: state.expandedGroupIds.has(group.id),
++ // Keep the facilitator's choices; notes/board-filter-review.md
+
+Added test:
++ test('a filter and its removal leave group choices unchanged', ...)
+
+commit 312bc40
+Date: 2024-08-12
+Subject: Filter prototype for workshop trial
+
++ isOpen: query ? matchingGroups.has(group.id) : state.expandedGroupIds.has(group.id),
+
+Blame excerpt at head, groupVisibility.ts:
+b41d620 2025-10-09 line 16 // Preserve explicit choices. See board UX notes.
+6a1c098 2024-08-19 line 10 isOpen: state.expandedGroupIds.has(group.id),

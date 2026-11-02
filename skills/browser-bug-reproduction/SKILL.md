@@ -44,6 +44,21 @@ State attempts and observations rather than claiming certainty from one run.
 Do not repeatedly submit a write whose result is unknown: inspect the test record
 before retrying, particularly when the reported bug concerns duplicate creation.
 
+## Reduce only what you can verify
+
+After observing the failure, try removing incidental navigation, reducing the
+input, or varying one plausible condition at a time when the budget permits.
+Reset owned state and rerun the shorter sequence; do not call an untested edit
+to the steps a minimal reproduction. Keep the reporter's relevant role, flags
+and environment fixed while testing a change. A passing administrator attempt
+cannot disprove a restricted-role failure.
+
+Record a nearby passing comparison when it helps identify the failure boundary.
+Preserve the sequence, the changed condition and the actual resulting state.
+This narrows the symptom; it does not prove a code-level cause. Stop when further
+reduction loses the failure, requires new access, or exceeds the agreed budget.
+A repeatable bounded sequence with unreduced parts named is an honest result.
+
 ## Deliver the pack
 
 Include target/build, preconditions, minimal steps, expected behavior, observed

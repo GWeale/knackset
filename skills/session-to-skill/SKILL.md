@@ -1,73 +1,85 @@
 ---
 name: session-to-skill
-description: Turn an authorized session or demonstration into a sanitized, reusable Agent Skills draft with explicit evidence limits and verification criteria. Use for workflow capture and skill authoring, not bulk export of personal histories or automatic publication.
+description: "Extract a reusable decision from authorized work, then improve existing guidance or create a focused skill when the evidence warrants it. Use for deliberate workflow capture and skill authoring, not raw history export, automatic memory, installation or publication."
 license: MIT
 ---
 
-# Capture a workflow as a skill
+# Keep the useful lesson from a session
 
-Extract the knowledge that changes an agent's decisions: the trigger, required
-inputs, application semantics, failure branches, recovery, and proof of completion.
-A transcript is source material, not an installable skill or permission to publish
-the user's data.
+Deliver a focused skill draft, a useful amendment, or a reason that no new skill
+is needed. Capture the decision that changed the work, not the transcript or a
+longer checklist of things an agent already knows.
 
-## Establish the evidence
+## Establish what happened
 
-Inspect only authorized, task-relevant session material through available history
-tools. State which scope was actually available; a local sample is not all account
-history. Distinguish user instructions, assistant-reported outcomes, and directly
-observed tool results. A claimed success without resulting-state evidence is not
-a validated demonstration. Preserve a useful failure lesson even when completion
-was unverified.
+Read only authorized, task-relevant material. Distinguish the user's requirement,
+an assistant's claim, the observed action, and the resulting artifact or state.
+A reported success without its result is not a validated demonstration. Keep a
+useful failure lesson while preserving that evidence limit. State which sample
+was available; it is not all of someone's history.
 
-Select a coherent repeatable task. Separate stable workflow rules from a site UI
-version, personal preference, or environment-specific command. Generalize only
-what the evidence supports. Keep browser/runtime bindings optional when the core
-workflow can operate with different tools.
-When several demonstrations suggest a smaller conditional lesson, use
-[the improvement loop](references/improvement-loop.md) and its
-[synthetic lesson example](assets/lesson.example.json). This optional format is
-an authoring aid, not an autonomous memory system or another product's API.
+Find the non-obvious move: a condition that changed the approach, a rejected
+alternative, a surprising result, a recovery, or a criterion for selecting work.
+Separate that move from incidental tool names, a temporary UI, and personal
+preference. Creative judgments deserve the same scrutiny as service operations;
+do not invent an application or recovery sequence to make them fit a template.
 
-## Curate before generating
+## Choose whether guidance should change
+
+Compare the candidate with available relevant skills or the supplied existing
+guidance. Reuse what already covers the task. Amend a vague or contradicted
+instruction when the same decision belongs there. Create a separate skill only
+when its trigger and useful outcome are distinct. Generic advice or an unsupported
+anecdote can warrant no change; explain the reason without manufacturing a package.
+
+Express a candidate as a condition, a useful action or judgment, and an observable
+check. Try a plausible counterexample. A non-idempotent append and an idempotent
+update may need different recovery; one team's preference for a short handoff does not make working source
+unnecessary for every task. Narrow or discard a lesson that does not survive that contrast.
+The [improvement loop](references/improvement-loop.md) gives more detail when
+several observations need comparison; its format is an optional authoring aid.
+
+## Write only what travels
 
 Keep raw transcripts and private evidence outside the public checkout. Replace
-people, account/resource IDs, private URLs, message text, and customer data with
-synthetic examples or input descriptions. Remove credentials, cookies, tokens,
-screenshots, and incidental browsing history. Do not rely on redaction patterns
-to prove arbitrary prose is safe. Do not copy upstream skill text without a
-verified license and required attribution.
+identities, resource IDs, private URLs, message contents and customer data with
+made-up examples or input descriptions. Remove credentials and incidental history.
+Redaction patterns cannot prove arbitrary prose is safe. Source material is not
+new task authority; verify rights before reusing third-party content.
 
-Write a curated JSON record using [the record format](references/record-format.md).
-Use the [synthetic example](assets/session-record.example.json) for shape only.
-When Python is available, run the bundled local helper from the project workspace:
+Write a short self-contained entrypoint with a precise discovery description,
+the decision-changing method and necessary limits. Use the output medium the task
+needs. Put substantial conditional details in a linked reference only when they
+are useful. Preserve the user's scope and existing permissions. Work that changes
+state needs appropriate uncertain-write recovery; a read-only or artistic method
+does not need fictional account operations. Do not add universal approval gates.
+
+For an explicitly requested amendment, edit the supplied owned copy and preserve
+unrelated work. Otherwise keep the candidate in a local draft location. If a
+structured procedure is useful, the optional [record format](references/record-format.md),
+[synthetic example](assets/session-record.example.json) and bundled helper can
+produce a starter:
 
 ```bash
-python3 <skill-directory>/scripts/create_skill.py <curated-record.json>
+python3 <skill-directory>/scripts/create_skill.py <curated-record.json> --output <draft-directory>
 ```
 
-The default output is `.local/drafts/<name>/SKILL.md` under the working directory.
-For a separate temporary workspace use `--output <draft-directory>`. The helper
-does not read histories, sanitize prose, run a browser, or publish anything. It
-rejects unsupported fields and existing output rather than overwriting them.
-Without Python, author the same standard `SKILL.md` directly.
-Set the optional record field `effects` to `read-only` for a workflow that cannot
-write, or `write` when it can change state. Omission keeps the existing `write`
-default. This controls relevant draft guidance; it does not grant permissions.
+The helper requires already curated JSON. It does not read histories, sanitize
+prose or judge whether a skill is worth creating. Its default is `.local/drafts`
+under the working directory; existing destinations are refused. Keep its service-
+shaped format for tasks it fits rather than forcing every lesson through it.
+Without Python or when the format does not fit, author the Markdown directly.
 
-## Review before promotion
+## Try the decision, then finish
 
-Keep the entrypoint self-contained and specific about when it applies. Include
-observable acceptance checks. For workflows that change state, also include
-uncertain-write recovery. Retain existing user authorization; do not add a
-permission gate to every reversible operation or
-grant a skill new authority. Re-read the entire draft for private details and
-instructions accidentally carried over from untrusted content.
+Check format and links, then try a realistic task and a boundary when feasible.
+Give an independent context the method and minimum raw inputs, without intended
+answers. Inspect the resulting artifact or actions; retain failures and fix the
+specific decision they expose. Compare with prior guidance or no skill before
+claiming an improvement. Formatting checks alone cannot validate a workflow.
 
-Try a realistic synthetic task and a boundary/failure case in an independent
-context when feasible. Record actual outputs and limitations. Mark the draft as
-unvalidated until supported by scoped evidence; formatting checks are not browser
-validation. Move it into a public library or publish only under the user's actual
-authorization and the project's contribution rules.
+Return the actual draft or patch, its trigger and evidence limits, and what was
+checked. Keep it unvalidated until scoped execution supports it. Capturing a
+lesson does not install, publish, watch histories or promote it automatically.
 
-Package status and limits: [validation and provenance](VALIDATION.md).
+Package status and limits: [VALIDATION.md](VALIDATION.md).

@@ -1,0 +1,824 @@
+{
+  "edition": "Held Between / local fictional trial",
+  "generator": "generate.py",
+  "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+  "input_file": "field-records.csv",
+  "selected_ids": [
+    "HB-01-b",
+    "HB-02-c",
+    "HB-03-b",
+    "HB-05-b"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "HB-01-a",
+      "record": {
+        "record_id": "HB-01",
+        "label": "Underpass",
+        "duration_seconds": "74",
+        "observer_note": "A low continuous rush; occasional footsteps interrupt it and vanish before the next one."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "fb4dacf722d086cc5342d93b4daea4c320acff64d23904d1473e04485543b19b",
+      "parameters": {
+        "spacing": 0.86,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 0.923
+      },
+      "seed": 7473,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        29.007645958742543,
+        30.23576558495268,
+        130.73989975879556,
+        111.25524583132184
+      ],
+      "static": true,
+      "selected": false,
+      "candidate_file": "exploration/HB-01-a.svg",
+      "edition_file": null
+    },
+    {
+      "candidate_id": "HB-01-b",
+      "record": {
+        "record_id": "HB-01",
+        "label": "Underpass",
+        "duration_seconds": "74",
+        "observer_note": "A low continuous rush; occasional footsteps interrupt it and vanish before the next one."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "f800b41fa0ed4266432f2c4983c5fb2c385ff8cd25aa5319abf600d42d39cca1",
+      "parameters": {
+        "spacing": 1.0,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 1.0
+      },
+      "seed": 7473,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        20.70656506830528,
+        26.92476558495268,
+        138.99988344045994,
+        114.65248583132184
+      ],
+      "static": true,
+      "selected": true,
+      "candidate_file": "exploration/HB-01-b.svg",
+      "edition_file": "selected/HB-01-b.svg"
+    },
+    {
+      "candidate_id": "HB-01-c",
+      "record": {
+        "record_id": "HB-01",
+        "label": "Underpass",
+        "duration_seconds": "74",
+        "observer_note": "A low continuous rush; occasional footsteps interrupt it and vanish before the next one."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "bf482d68e2d9b78dca2b5b6c0e4006d77168a14264577fdb3200e099c0e06ee2",
+      "parameters": {
+        "spacing": 1.14,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 1.077
+      },
+      "seed": 7473,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        12.405484177868033,
+        23.61376558495268,
+        147.25986712212432,
+        118.04972583132184
+      ],
+      "static": true,
+      "selected": false,
+      "candidate_file": "exploration/HB-01-c.svg",
+      "edition_file": null
+    },
+    {
+      "candidate_id": "HB-02-a",
+      "record": {
+        "record_id": "HB-02",
+        "label": "Potting shed",
+        "duration_seconds": "48",
+        "observer_note": "The vessel fills in quick uneven taps, then one louder spill; long silence at the end."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "ef78241756c1b85badc98363c33cffdaf1c49f6e1135c8c71165d0ab0db508eb",
+      "parameters": {
+        "spacing": 0.86,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 0.923
+      },
+      "seed": 7646,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        34.91879015999351,
+        26.619,
+        99.83057040471677,
+        112.77340000000001
+      ],
+      "static": true,
+      "selected": false,
+      "candidate_file": "exploration/HB-02-a.svg",
+      "edition_file": null
+    },
+    {
+      "candidate_id": "HB-02-b",
+      "record": {
+        "record_id": "HB-02",
+        "label": "Potting shed",
+        "duration_seconds": "48",
+        "observer_note": "The vessel fills in quick uneven taps, then one louder spill; long silence at the end."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "90c246423ac39d33b19dc9aeda51face8efd62f1252deecaca8609969a4cb540",
+      "parameters": {
+        "spacing": 1.0,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 1.0
+      },
+      "seed": 7646,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        27.579988558131994,
+        23.0,
+        102.92857023804277,
+        116.3
+      ],
+      "static": true,
+      "selected": false,
+      "candidate_file": "exploration/HB-02-b.svg",
+      "edition_file": null
+    },
+    {
+      "candidate_id": "HB-02-c",
+      "record": {
+        "record_id": "HB-02",
+        "label": "Potting shed",
+        "duration_seconds": "48",
+        "observer_note": "The vessel fills in quick uneven taps, then one louder spill; long silence at the end."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "707f556f3d616db4986d7be925d26b5fb13abe5ad8fc4b9fef437819500ba5a5",
+      "parameters": {
+        "spacing": 1.14,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 1.077
+      },
+      "seed": 7646,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        20.241186956270475,
+        19.381,
+        106.02657007136875,
+        119.82659999999998
+      ],
+      "static": true,
+      "selected": true,
+      "candidate_file": "exploration/HB-02-c.svg",
+      "edition_file": "selected/HB-02-c.svg"
+    },
+    {
+      "candidate_id": "HB-03-a",
+      "record": {
+        "record_id": "HB-03",
+        "label": "Back stair",
+        "duration_seconds": "93",
+        "observer_note": "Two loose pipes seem to answer each other, sometimes at once; a distant door closes midway."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "0fe694e8193d7c27471fb433f81545fd11994bd917af2ce7941a33e9062b0e15",
+      "parameters": {
+        "spacing": 0.86,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 0.923
+      },
+      "seed": 7819,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        31.840000000000003,
+        28.36814212389273,
+        128.96,
+        112.68783661365875
+      ],
+      "static": true,
+      "selected": false,
+      "candidate_file": "exploration/HB-03-a.svg",
+      "edition_file": null
+    },
+    {
+      "candidate_id": "HB-03-b",
+      "record": {
+        "record_id": "HB-03",
+        "label": "Back stair",
+        "duration_seconds": "93",
+        "observer_note": "Two loose pipes seem to answer each other, sometimes at once; a distant door closes midway."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "a16f730416b5b0255d5ee0e8c235acae88858e34e2b455afa4c552999fe79135",
+      "parameters": {
+        "spacing": 1.0,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 1.0
+      },
+      "seed": 7819,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        24.0,
+        24.903142123892735,
+        136.8,
+        116.18979661365874
+      ],
+      "static": true,
+      "selected": true,
+      "candidate_file": "exploration/HB-03-b.svg",
+      "edition_file": "selected/HB-03-b.svg"
+    },
+    {
+      "candidate_id": "HB-03-c",
+      "record": {
+        "record_id": "HB-03",
+        "label": "Back stair",
+        "duration_seconds": "93",
+        "observer_note": "Two loose pipes seem to answer each other, sometimes at once; a distant door closes midway."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "b93e6e18d8380c3db17021d8c3b4ef20a87d6b7267133648c7e99b47815b7e17",
+      "parameters": {
+        "spacing": 1.14,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 1.077
+      },
+      "seed": 7819,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        16.160000000000004,
+        21.43814212389274,
+        144.64,
+        119.69175661365874
+      ],
+      "static": true,
+      "selected": false,
+      "candidate_file": "exploration/HB-03-c.svg",
+      "edition_file": null
+    },
+    {
+      "candidate_id": "HB-04-a",
+      "record": {
+        "record_id": "HB-04",
+        "label": "Window ledge",
+        "duration_seconds": "61",
+        "observer_note": "Fine ticks cover almost the whole recording; near the center several merge into a short scrape."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "b3f787ff966e837ca7bf20082a647a561f1303e99e1f065cf7503577bfd00af3",
+      "parameters": {
+        "spacing": 0.86,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 0.923
+      },
+      "seed": 7992,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        30.857000695109853,
+        28.109393916890212,
+        124.0724469647982,
+        112.57925073706714
+      ],
+      "static": true,
+      "selected": false,
+      "candidate_file": "exploration/HB-04-a.svg",
+      "edition_file": null
+    },
+    {
+      "candidate_id": "HB-04-b",
+      "record": {
+        "record_id": "HB-04",
+        "label": "Window ledge",
+        "duration_seconds": "61",
+        "observer_note": "Fine ticks cover almost the whole recording; near the center several merge into a short scrape."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "0fa4d8359bcf8c0478b666e5afdbfa388cffd0ea98beeb0df46e46821d60a890",
+      "parameters": {
+        "spacing": 1.0,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 1.0
+      },
+      "seed": 7992,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        22.856977552453316,
+        24.619441312436813,
+        131.24703135441652,
+        116.08965410299798
+      ],
+      "static": true,
+      "selected": false,
+      "candidate_file": "exploration/HB-04-b.svg",
+      "edition_file": null
+    },
+    {
+      "candidate_id": "HB-04-c",
+      "record": {
+        "record_id": "HB-04",
+        "label": "Window ledge",
+        "duration_seconds": "61",
+        "observer_note": "Fine ticks cover almost the whole recording; near the center several merge into a short scrape."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "f3d85597846f3ca5ed77dee3cf5c584dc0e7a8f236838e813bc11535e31355e5",
+      "parameters": {
+        "spacing": 1.14,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 1.077
+      },
+      "seed": 7992,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        14.856954409796785,
+        21.129488707983413,
+        138.42161574403482,
+        119.60005746892882
+      ],
+      "static": true,
+      "selected": false,
+      "candidate_file": "exploration/HB-04-c.svg",
+      "edition_file": null
+    },
+    {
+      "candidate_id": "HB-05-a",
+      "record": {
+        "record_id": "HB-05",
+        "label": "Empty basin",
+        "duration_seconds": "39",
+        "observer_note": "One heavy impact, a softer return, then smaller returns that become difficult to separate."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "7ab121f9281a0d75cee40455e86c659918c949e2b63b7a981ee64b059dce87ae",
+      "parameters": {
+        "spacing": 0.86,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 0.923
+      },
+      "seed": 8165,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        35.27915265548082,
+        31.148442495968993,
+        122.20543561672329,
+        113.37370105222499
+      ],
+      "static": true,
+      "selected": false,
+      "candidate_file": "exploration/HB-05-a.svg",
+      "edition_file": null
+    },
+    {
+      "candidate_id": "HB-05-b",
+      "record": {
+        "record_id": "HB-05",
+        "label": "Empty basin",
+        "duration_seconds": "39",
+        "observer_note": "One heavy impact, a softer return, then smaller returns that become difficult to separate."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "8d4b25efd401361ec16e964efcdbb30c8b60d41dfa9d7843e1988d7cfd2f1778",
+      "parameters": {
+        "spacing": 1.0,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 1.0
+      },
+      "seed": 8165,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        28.129247273814908,
+        27.914442495969,
+        128.9458553682829,
+        116.94457605222499
+      ],
+      "static": true,
+      "selected": true,
+      "candidate_file": "exploration/HB-05-b.svg",
+      "edition_file": "selected/HB-05-b.svg"
+    },
+    {
+      "candidate_id": "HB-05-c",
+      "record": {
+        "record_id": "HB-05",
+        "label": "Empty basin",
+        "duration_seconds": "39",
+        "observer_note": "One heavy impact, a softer return, then smaller returns that become difficult to separate."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "050a55288bb65603c5f4387ed459e5d732b7b04bf41906e5b0af02c9bddc9fd8",
+      "parameters": {
+        "spacing": 1.14,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 1.077
+      },
+      "seed": 8165,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        20.979341892148998,
+        24.680442495969004,
+        135.6862751198425,
+        120.51545105222499
+      ],
+      "static": true,
+      "selected": false,
+      "candidate_file": "exploration/HB-05-c.svg",
+      "edition_file": null
+    },
+    {
+      "candidate_id": "HB-06-a",
+      "record": {
+        "record_id": "HB-06",
+        "label": "Service yard",
+        "duration_seconds": "112",
+        "observer_note": "A steady high hiss sits behind irregular bursts; the bursts drift farther apart as the room empties."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "de3f692612d45b805ec11df27579642a05126a6d8c21e482f38477691f4a85f6",
+      "parameters": {
+        "spacing": 0.86,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 0.923
+      },
+      "seed": 8338,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        30.98449054372096,
+        28.442854771759997,
+        128.08936065549543,
+        107.07455083885382
+      ],
+      "static": true,
+      "selected": false,
+      "candidate_file": "exploration/HB-06-a.svg",
+      "edition_file": null
+    },
+    {
+      "candidate_id": "HB-06-b",
+      "record": {
+        "record_id": "HB-06",
+        "label": "Service yard",
+        "duration_seconds": "112",
+        "observer_note": "A steady high hiss sits behind irregular bursts; the bursts drift farther apart as the room empties."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "f6fbe18976ecda5f3b960c30a765c0deb6c234f16aca052065a9aefb9363b4e8",
+      "parameters": {
+        "spacing": 1.0,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 1.0
+      },
+      "seed": 8338,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        23.005221562466232,
+        24.97785477176,
+        135.91786122732026,
+        110.10835083885382
+      ],
+      "static": true,
+      "selected": false,
+      "candidate_file": "exploration/HB-06-b.svg",
+      "edition_file": null
+    },
+    {
+      "candidate_id": "HB-06-c",
+      "record": {
+        "record_id": "HB-06",
+        "label": "Service yard",
+        "duration_seconds": "112",
+        "observer_note": "A steady high hiss sits behind irregular bursts; the bursts drift farther apart as the room empties."
+      },
+      "source_sha256": "3c49b4d6efbcd524a1669ea5b6b15830661c8b632bd7a33ea146720e13480859",
+      "input_sha256": "68c1c09861268e3d52b17dc51a338e3116329a5e56b37102bf5991c1851feb3f",
+      "svg_sha256": "e7b5d0752453f69d129995d935256d3f9eb6a8371f2211b8bacb168a55d0691e",
+      "parameters": {
+        "spacing": 1.14,
+        "mark_thickness_scaling": "fixed",
+        "vertical_spacing_factor": 1.077
+      },
+      "seed": 8338,
+      "random_implementation": "Python random.Random / Mersenne Twister",
+      "runtime": "CPython 3.14.4",
+      "dimensions_mm": [
+        160,
+        160
+      ],
+      "viewBox": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "palette": [
+        "#F2E9D8",
+        "#202A32",
+        "#A84C37"
+      ],
+      "art_bounds_mm": [
+        15.025952581211513,
+        21.512854771760004,
+        143.7463617991451,
+        113.14215083885382
+      ],
+      "static": true,
+      "selected": false,
+      "candidate_file": "exploration/HB-06-c.svg",
+      "edition_file": null
+    }
+  ]
+}

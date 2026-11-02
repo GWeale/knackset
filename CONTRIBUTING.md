@@ -6,6 +6,20 @@ Start with an interesting job, a non-obvious decision, and something useful at t
 or contribute a skill. A small example with made-up data is enough to start a
 discussion.
 
+## Decide what needs to change
+
+Start with a concrete task and minimum raw material. Find the decision the agent
+missed or the non-obvious method that made the work useful. Compare it with the
+nearest existing skill. Reuse it, amend it, create a distinct method, or explain
+why no instruction is needed. Generic advice is not a reason for another folder.
+
+Try a plausible counterexample before generalizing a lesson. A creative method
+can be written directly in Markdown; the optional session-record generator is
+for structured procedures that fit its fields. It is not the authoring workflow.
+
+These choices follow the primary [Agent Skills best-practice guidance](https://agentskills.io/skill-creation/best-practices),
+checked 2026-11-01, and this collection's actual task trials.
+
 ## Write one focused skill
 
 Read the [workflow contract](docs/workflow-contract.md) and
@@ -39,8 +53,10 @@ its `Status: **draft**.` line aligned with the catalog until evidence qualifies.
 
 Create `evals/evals.json` inside the skill with `skill_name` and an `evals` list.
 Include at least one case of each kind: `success`, `boundary`, and `routing`.
-Routing cases check whether the agent recognizes a task that needs a different
-workflow.
+Routing cases check whether the agent recognizes when the method applies and
+when a neighboring workflow is better. When discovery is a real risk, include
+both a positive request and a plausible false friend; keep source availability
+comparable so an incidental live/offline cue does not decide the test.
 
 Each case needs:
 
@@ -64,8 +80,11 @@ scope, and limitations.
 The [evaluation guide](evals/README.md) explains how to record outputs and compare
 a candidate with a baseline. Authored cases alone are not execution evidence.
 The validator checks record consistency and fingerprints; it cannot establish
-that a contributor's reported execution happened. If you change a promoted
-package, rerun the relevant evaluation or return its status to `draft`.
+that a contributor's reported execution happened. Before initializing a bound retest, finish the skill, fixtures, references and
+validation note; all are fingerprinted. Give a fresh evaluator only the request,
+method and raw inputs. Withhold expected answers and inspect the actual output.
+If you change a promoted package, rerun the relevant evaluation or return its
+status to `draft`. Keep earlier failures and evidence at their original hashes.
 
 ## Check the change
 

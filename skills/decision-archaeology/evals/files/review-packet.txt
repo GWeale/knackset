@@ -1,0 +1,30 @@
+SYNTHETIC PULL REQUEST REVIEW PACKET
+Base: 92d001a (fictional)
+Head: b03e612 (fictional)
+No files outside this packet are changed.
+
+Behavior contract:
+retryDelays contains delays before each retry, in milliseconds. A caller may
+request zero retries. Zero retries means no retry scheduling and an empty list.
+Negative retry counts are rejected by argument validation before this helper.
+
+Complete proposed diff:
+
+--- a/retry/policy.py
++++ b/retry/policy.py
+@@ -1,6 +1,6 @@
+ def retry_delays(retries):
+     # Initial rollout used a fixed interval; callers now supply a retry count.
+-    return [1000] * retries
++    return [1000 * (2 ** n) for n in range(retries + 1)]
+
+Unchanged caller:
+
+def schedule_retries(job, retries, queue):
+    for delay_ms in retry_delays(retries):
+        queue.schedule(job, delay_ms=delay_ms)
+
+Current head test excerpt:
+
+def test_backoff_increases():
+    assert retry_delays(2)[1] > retry_delays(2)[0]

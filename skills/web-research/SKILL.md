@@ -1,12 +1,17 @@
 ---
 name: web-research
-description: Answer current public-web questions or analyze supplied public-source bundles using direct evidence, dates, and explicit uncertainty. Use for research and conflicting-source synthesis; exact shopping offers and account operations have separate workflows.
+description: "Answer bounded factual questions, check which sources apply, and compare options using current public evidence or supplied source bundles. Use for facts, status and evidence-based comparisons; an open investigation testing rival explanations belongs to rabbit-hole."
 license: MIT
 ---
 
 # Research across public websites
 
-Produce an answer the reader can trace to current evidence. Use public search or
+Produce an answer the reader can trace to evidence governing their question.
+A source conflict can need an applicability check rather than an investigation.
+When the requested outcome is an explanation of why a puzzling change happened,
+use an investigative method such as Rabbit Hole; do not make a factual lookup
+acquire a rival-hypothesis exercise. A supplied bundle alone does not choose
+between these tasks. Use public search or
 retrieval tools unless the user requested browser interaction or the host requires
 a particular route. Discover available tools rather than assuming a search API.
 For a supplied source bundle, work from its actual contents and dates; do not

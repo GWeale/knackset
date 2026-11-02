@@ -15,8 +15,12 @@ class RoutingTests(unittest.TestCase):
         result = subprocess.run([sys.executable, str(CLI), 'prepare'], capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stderr)
         packet = json.loads(result.stdout)
-        self.assertEqual(len(packet['catalog']), 22)
-        self.assertEqual(len(packet['tasks']), 22)
+        declared = json.loads((ROOT / 'catalog.json').read_text())['skills']
+        self.assertEqual({item['name'] for item in packet['catalog']},
+                         {item['name'] for item in declared})
+        expected_routes = json.loads((ROOT / 'evals/routing_expected.json').read_text())
+        self.assertEqual(len(packet['tasks']), len(expected_routes))
+        self.assertEqual(len({task['id'] for task in packet['tasks']}), len(packet['tasks']))
         for metadata in packet['catalog']:
             self.assertEqual(set(metadata), {'name', 'description'})
         for task in packet['tasks']:

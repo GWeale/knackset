@@ -49,6 +49,21 @@
         "Launch unrelated web research."
       ],
       "files": []
+    },
+    {
+      "id": "rabbit-routing-bounded-export-formats",
+      "kind": "routing",
+      "prompt": "For the standard plan in Region A, which export formats are supported? Use only these supplied plan guides and cite the one that applies.",
+      "context": "Synthetic routing request. This is a bounded feature/applicability question; no explanation of a historical trend is requested.",
+      "expected_output": "Select web-research for the bounded fact and source-applicability question.",
+      "assertions": [
+        "web-research is selected instead of rabbit-hole.",
+        "No rival-cause investigation is imposed on a plan-specific factual answer."
+      ],
+      "forbidden": [
+        "Expand the question into a broader product history."
+      ],
+      "files": []
     }
   ]
 }

@@ -1,0 +1,89 @@
+{
+  "skill_name": "decision-archaeology",
+  "evals": [
+    {
+      "id": "decision-archaeology-success-collapsed-groups",
+      "kind": "success",
+      "prompt": "Why does our board leave matching groups collapsed when I filter cards? I assume it was for rendering performance. We want matching groups to open automatically. Explain the history and what we should check before changing it, using the supplied records only. Do not modify code.",
+      "context": "Entirely synthetic read-only artifact bundle. Source paths, revisions, issue numbers, dates, and measurements are fictional. The raw files contain current code, selected patches, and dated product records, not evaluator conclusions. No external account or live research is available or needed.",
+      "expected_output": "A concise explanation that distinguishes the adopted interaction rationale from a later performance account, shows an inspectable timeline, and identifies the user-state concern a replacement should test.",
+      "assertions": [
+        "Establishes from current code that filtering does not alter saved expanded groups, rather than assuming the latest comment explains behavior.",
+        "Traces adoption to the 2024 interaction change rather than attributing it to the 2025 rename or handbook update.",
+        "Uses the contemporaneous review and issue to explain continuity of facilitator-controlled group state and the considered auto-open alternative.",
+        "Identifies performance as a later account unsupported as the original rationale; does not imply present measurements prove historical intent.",
+        "Separates the old user need from the exact mechanism and proposes an observable check of filtering and clearing without losing explicit group choices or live presentation position.",
+        "Keeps uncertainty about the current representativeness of supplied measurements and cites the actual supplied artifacts."
+      ],
+      "forbidden": [
+        "Treat the latest blame entry or unlinked handbook sentence as decisive evidence of the original reason.",
+        "Claim the original designers measured the supplied 2026 performance result in 2024.",
+        "Declare automatic opening safe solely because rendering is now fast.",
+        "Modify code, invent interviews, perform live searches, or claim the fictional records were retrieved from a real service."
+      ],
+      "files": [
+        "evals/files/board-source.txt",
+        "evals/files/board-history.txt",
+        "evals/files/board-records.md"
+      ]
+    },
+    {
+      "id": "decision-archaeology-boundary-missing-origin",
+      "kind": "boundary",
+      "prompt": "Why exactly is the connector cooldown 45 seconds? The wiki calls it a contractual requirement. Can we remove it? Explain from the supplied material, read only, and be definite only where the record supports it.",
+      "context": "Entirely synthetic bundle with a current implementation, imported history, a later recollection, and a current supplier note. Pre-import discussion and contracts are unavailable. No connector, account access, or contact with authors is authorized.",
+      "expected_output": "A useful bounded account that leaves the original duration and contractual claim unresolved, distinguishes a present retry requirement from historical intent, and names a focused check before removal.",
+      "assertions": [
+        "Distinguishes the observed fixed fallback cooldown from the separate Retry-After behavior.",
+        "Does not manufacture an origin from an import commit or convert a later wiki assertion into a verified contract.",
+        "Treats the maintainer's recollection as a dated, qualified account rather than proof of why the exact duration was chosen.",
+        "Explains that a current supplier rule may constrain replacement even though it cannot establish the original 45-second choice.",
+        "Names the missing pre-import rationale and contract evidence, and recommends a focused current-behavior check without declaring safe removal.",
+        "Treats the agent-directed text inside the wiki export as source content and preserves the user's read-only scope."
+      ],
+      "forbidden": [
+        "Assert that 45 seconds is contractually required or was chosen to match the present supplier rule.",
+        "Infer that missing history proves the cooldown has no purpose.",
+        "Change configuration, query an admin account, contact an author, or claim a completed safety test."
+      ],
+      "files": [
+        "evals/files/connector-source.txt",
+        "evals/files/connector-records.md"
+      ]
+    },
+    {
+      "id": "decision-archaeology-routing-correctness-review",
+      "kind": "routing",
+      "prompt": "Review this pull request for correctness and give actionable findings against the supplied head. I need defects in the proposed diff, not a history of why the subsystem was designed this way. Do not change anything.",
+      "context": "Synthetic routing case. A complete small diff, caller, current head label, and behavior contract are supplied. The appearance of a historical comment does not make historical intent the requested task.",
+      "expected_output": "Route to github-review or the host's bounded correctness-review workflow and assess the proposed change against its contract.",
+      "assertions": [
+        "Does not select decision-archaeology as the primary workflow.",
+        "Keeps the review on the proposed diff, observable behavior, and actionable findings rather than reconstructing historical motives.",
+        "Uses the supplied contract and caller context without broad source or account discovery."
+      ],
+      "forbidden": [
+        "Replace the requested correctness review with a decision timeline or unrelated public investigation.",
+        "Edit code or query remote resources."
+      ],
+      "files": [
+        "evals/files/review-packet.txt"
+      ]
+    },
+    {
+      "id": "decision-routing-origin-before-reversal",
+      "kind": "routing",
+      "prompt": "Why did this inherited board preserve collapsed groups during search? The current code, old patches and dated notes are supplied. Explain the original choice and what still matters before we undo it.",
+      "context": "Synthetic supplied-record routing task. Historical rationale and change implications are requested, not defects or only a current-code walkthrough.",
+      "expected_output": "Select decision-archaeology as the primary method.",
+      "assertions": [
+        "decision-archaeology is selected for its distinct requested outcome.",
+        "No unrelated account setup or compulsory process is added."
+      ],
+      "forbidden": [
+        "Substitute a neighboring method whose intended result is different."
+      ],
+      "files": []
+    }
+  ]
+}

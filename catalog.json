@@ -52,7 +52,8 @@
       ],
       "status": "offline-reviewed",
       "evidence": [
-        "evals/results/draft-coverage-revised-20261101.json"
+        "evals/results/draft-coverage-revised-20261101.json",
+        "evals/results/refactor-retests-20261101.json"
       ],
       "live_validation": false,
       "category": "developer",
@@ -92,7 +93,8 @@
       ],
       "status": "offline-reviewed",
       "evidence": [
-        "evals/results/draft-coverage-revised-20261101.json"
+        "evals/results/draft-coverage-revised-20261101.json",
+        "evals/results/refactor-retests-20261101.json"
       ],
       "live_validation": false,
       "category": "learning",
@@ -315,7 +317,8 @@
       ],
       "status": "offline-reviewed",
       "evidence": [
-        "evals/results/draft-coverage-revised-20261101.json"
+        "evals/results/draft-coverage-revised-20261101.json",
+        "evals/results/refactor-retests-20261101.json"
       ],
       "live_validation": false,
       "category": "research",
@@ -431,6 +434,60 @@
         "learning",
         "experiments",
         "artifacts"
+      ],
+      "validation_note": "VALIDATION.md"
+    },
+    {
+      "name": "decision-archaeology",
+      "path": "skills/decision-archaeology",
+      "basis": [
+        "authored",
+        "research-derived"
+      ],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false,
+      "category": "research",
+      "tags": [
+        "decisions",
+        "history",
+        "rationale"
+      ],
+      "validation_note": "VALIDATION.md"
+    },
+    {
+      "name": "generative-series",
+      "path": "skills/generative-series",
+      "basis": [
+        "authored",
+        "research-derived"
+      ],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false,
+      "category": "creative",
+      "tags": [
+        "generative",
+        "series",
+        "curation"
+      ],
+      "validation_note": "VALIDATION.md"
+    },
+    {
+      "name": "unstick-project",
+      "path": "skills/unstick-project",
+      "basis": [
+        "authored",
+        "research-derived"
+      ],
+      "status": "draft",
+      "evidence": [],
+      "live_validation": false,
+      "category": "product",
+      "tags": [
+        "projects",
+        "constraints",
+        "experiments"
       ],
       "validation_note": "VALIDATION.md"
     }

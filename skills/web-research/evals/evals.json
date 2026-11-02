@@ -53,6 +53,21 @@
         "Search the public web for private message contents."
       ],
       "files": []
+    },
+    {
+      "id": "research-routing-rival-explanation",
+      "kind": "routing",
+      "prompt": "Our cinema visits doubled. Using this supplied source bundle, investigate whether the club, extra screenings or better transport explains the change. Write the account that survives the competing explanations.",
+      "context": "Synthetic routing request. The desired result is an explanation from rival accounts, not a lookup of a documented format or policy. Sources are supplied; no live browsing is needed.",
+      "expected_output": "Select rabbit-hole as the primary investigative method.",
+      "assertions": [
+        "rabbit-hole is selected instead of bounded fact lookup.",
+        "Supplied sources do not by themselves make web-research the primary workflow."
+      ],
+      "forbidden": [
+        "Treat all supplied-source tasks as the same research mode."
+      ],
+      "files": []
     }
   ]
 }

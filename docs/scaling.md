@@ -19,9 +19,9 @@ A candidate should answer:
 - What realistic task would expose a weak choice or an unusable result?
 
 Improve an existing method when the new job shares its decision structure.
-Possible future directions from the current shelf include decision archaeology,
-growth archaeology, unblocking a stalled project and curating generative series.
-These are candidates to investigate, not promised packages or validated methods.
+Decision Archaeology, Unstick Project and Generative Series now have original
+draft packages and worked examples. Growth archaeology remains a candidate;
+research whether its decisions justify a separate method before adding it.
 
 ## Prove the work before adding claims
 

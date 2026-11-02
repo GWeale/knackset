@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120mm" height="120mm" viewBox="0 0 120 120">
+  <title>Approved fictional Room Tone header</title>
+  <rect width="120" height="120" fill="#F0EBDD"/>
+  <g id="approved-header">
+    <path d="M8 8 H14 V14 H8 Z M10 10 H12 V12 H10 Z" fill="#25313A" fill-rule="evenodd"/>
+    <text x="18" y="13" fill="#25313A" font-family="sans-serif" font-size="4">Room Tone</text>
+    <path d="M8 18 H112" fill="none" stroke="#B45A41" stroke-width="0.6"/>
+  </g>
+</svg>
