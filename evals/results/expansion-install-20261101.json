@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "kind": "file-copy-check",
+  "date": "2026-11-01",
+  "timezone": "America/Los_Angeles",
+  "source_revision": "cebb70e2deeaebb4e76137d6f9ae097a61074cd5",
+  "document": "docs/installation.md",
+  "executed_python_block_sha256": "933bbf4f58543abd1a5b5275309a66e686677d11e59eb1d2798d5f5c2969966d",
+  "method": "Executed the documented Python copy block for each new skill twice into isolated temporary project directories. Source files were materialized from git archive at the pinned commit; Git rev-parse/status used the owning checkout metadata with an isolated GIT_WORK_TREE and GIT_OPTIONAL_LOCKS=0. No second Git checkout was created.",
+  "packages": {
+    "rabbit-hole": {
+      "file_count": 5,
+      "matching_copy_count": 2,
+      "installation_manifest_sha256": "ef9f949f93727f4d9fc58ddc25c89f8cc357d8580f3d982809d21b88b5d4a024",
+      "existing_destination_refused": true
+    },
+    "decision-archaeology": {
+      "file_count": 10,
+      "matching_copy_count": 2,
+      "installation_manifest_sha256": "77dcb96052357dde80be859d3d15543eed10e5ed2d9e0f80e09d9654373c1f9d",
+      "existing_destination_refused": true
+    },
+    "generative-series": {
+      "file_count": 9,
+      "matching_copy_count": 2,
+      "installation_manifest_sha256": "a7f8e468285c2f66658fb99bc3e5fd1b1c6db20ea576862f9e1055149cc67891",
+      "existing_destination_refused": true
+    },
+    "unstick-project": {
+      "file_count": 6,
+      "matching_copy_count": 2,
+      "installation_manifest_sha256": "9a291021a2fc80d7dfecfed360879ee6659ac4521c8f0ded8c5585aee88134e7",
+      "existing_destination_refused": true
+    }
+  },
+  "invalid_name_refused_before_write": true,
+  "limits": {
+    "logical_cpus": 1,
+    "address_space_bytes": 268435456,
+    "cpu_seconds": 10
+  },
+  "cleanup": "TemporaryDirectory removed source and all target fixture files.",
+  "not_performed": [
+    "Network clone",
+    "Optional Skills CLI",
+    "Agent host discovery or activation",
+    "Global installation",
+    "Browser or live-service behavior"
+  ]
+}

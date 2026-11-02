@@ -106,3 +106,10 @@ the rendered examples. No material finding was reported. The optional positive-
 discovery gap led to the three added cases and fresh 30-task trial above. The
 installation pin was an acknowledged remaining parent check, completed separately.
 Passing tests and independent review do not replace George's judgment.
+
+The [current install-copy record](expansion-install-20261101.json) runs the
+documented Python block twice for the default skill and all three additions.
+Every path/hash matched; existing destinations and invalid names were refused.
+It uses an archived pinned source and does not claim network-clone, optional-CLI
+or host-activation execution. Temporary fixtures were removed. PDFs are marked
+as binary in Git so their format bytes are preserved without text-diff rules.

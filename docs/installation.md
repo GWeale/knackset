@@ -23,7 +23,7 @@ different directories. Follow the chosen host's documentation before copying.
 Requires Git and Python 3.10+, with no Node.js or installer dependency. Replace
 the two absolute paths. The source path must be a new directory outside your
 target project. This example pins the reviewed revision
-`07ef74515b6a43194ef76fd2d9dd9f9b7739dd4f`, which contains the six new draft methods.
+`cebb70e2deeaebb4e76137d6f9ae097a61074cd5`, which contains all nine field-kit draft methods.
 The example selects `rabbit-hole`; set `KNACKSET_SKILL` to another folder name to
 choose a different package. A pinned copy makes contents reproducible; it does
 not imply that the selected draft has passed an evaluation suite. Use a full
@@ -32,7 +32,7 @@ not imply that the selected draft has passed an evaluation suite. Use a full
 ```bash
 export KNACKSET_SOURCE=/absolute/path/to/knackset-pinned
 export KNACKSET_TARGET=/absolute/path/to/your-target-project
-export KNACKSET_REVISION=07ef74515b6a43194ef76fd2d9dd9f9b7739dd4f
+export KNACKSET_REVISION=cebb70e2deeaebb4e76137d6f9ae097a61074cd5
 export KNACKSET_SKILL=rabbit-hole
 git clone --no-checkout https://github.com/GWeale/knackset.git "$KNACKSET_SOURCE"
 git -C "$KNACKSET_SOURCE" checkout --detach "$KNACKSET_REVISION"
@@ -111,12 +111,14 @@ the same unchanged revision produces the same manifest hash even after `main`
 changes. This installation manifest is separate from the package fingerprint
 used by Knackset's evaluation records.
 
-## Observed package-copy check, November 1, 2026
+## Observed package-copy checks, November 1, 2026
 
-The [copy record](../evals/results/field-kit-install-20261101.json) executes the
-Python block above for all six new packages. Two isolated copies of each package
-matched every file path and hash. Existing destinations and an invalid folder
-name were refused. All temporary source and target files were removed.
+The [current copy record](../evals/results/expansion-install-20261101.json) executes
+the Python block above for the default Rabbit Hole and all three expansion
+packages. Two isolated copies of each package matched every file path and hash.
+Existing destinations and an invalid folder name were refused. All temporary
+source and target files were removed. The [earlier six-package check](../evals/results/field-kit-install-20261101.json)
+remains historical at its recorded revision.
 
 The source was materialized from the pinned Git archive. This tested the copy
 block, not the network clone command, optional CLI, or agent host activation.
@@ -181,6 +183,6 @@ This establishes explicit discovery, loading, and planning in that host/version.
 It does not establish implicit selection accuracy, live Sheets compatibility,
 exactly-once insertion, or a performance gain.
 
-This older host check does not establish discovery or activation of the six new
+This older host check does not establish discovery or activation of the field-kit
 methods. Their worked examples loaded the source skill explicitly. The current
 selected-package copy check is a file-integrity check, separate from host use.
