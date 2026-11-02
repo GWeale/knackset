@@ -31,8 +31,11 @@ local acknowledgement; nothing is delivered to a person or service.
 this local gate is not a substitute for host authorization or account permissions.
 Only the declared `synthetic` adapter is accepted. `capabilities` states its read,
 write, reconciliation and idempotency support and scope. There is no dynamic plugin
-loading. Each tick handles at most 10 due jobs by default (`--limit 1..100`), selected fairly by least recent execution/reconciliation attempt,
-then due time and task ID. `--now` supports deterministic offline checks. An external
+loading. Each tick handles at most 10 due jobs by default (`--limit 1..100`), selected by
+oldest execution/reconciliation attempt, using creation order for
+never-attempted tasks, then due time and task ID. This gives both new tasks and
+uncertain outcomes progress under a continuing arrival stream. `--now` supports
+deterministic offline checks. An external
 scheduler may invoke ticks only within separately authorized scope; this MVP does
 not install one. Recurrence, cancellation and task editing are not implemented.
 

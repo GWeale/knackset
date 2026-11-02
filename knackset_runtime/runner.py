@@ -85,7 +85,8 @@ class Runner:
           WHERE due<=? AND status IN ('pending','intent','uncertain')
           ORDER BY COALESCE((SELECT MAX(seq) FROM events
             WHERE task=tasks.id AND kind IN
-              ('intent','reconciliation-unavailable','confirmed-absent')),0),due,id
+              ('intent','reconciliation-unavailable','confirmed-absent')),
+            (SELECT MIN(seq) FROM events WHERE task=tasks.id AND kind='created'),0),due,id
           LIMIT ?""", (now, limit)).fetchall()
         for task in tasks:
             if task["status"] in ("intent", "uncertain"):

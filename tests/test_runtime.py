@@ -44,6 +44,17 @@ class RuntimeCLI(unittest.TestCase):
         after = self.run_cli("tick", "--now", "20")
         self.assertEqual(len(after["effects"]), 2)
 
+    def test_new_arrivals_do_not_starve_uncertain_reconciliation(self):
+        self.add("old", "--mode", "unreadable")
+        self.run_cli("tick", "--now", "20", "--limit", "1")
+        for index in range(5):
+            self.add(f"new-{index}")
+            state = self.run_cli("tick", "--now", "20", "--limit", "1")
+        events = state["events"]
+        self.assertTrue(any(e["task"] == "old" and e["kind"] == "reconciliation-unavailable" for e in events))
+        self.assertTrue(any(t["id"].startswith("new-") and t["status"] == "verified" for t in state["tasks"]))
+        self.assertEqual(sum(e["task"] == "old" and e["kind"] == "intent" for e in events), 1)
+
     def test_restart_reconciles_without_duplicate_and_outbox_deduplicates(self):
         self.add("one", "--mode", "timeout-after-write")
         uncertain = self.run_cli("tick", "--now", "20")
