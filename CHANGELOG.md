@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased — creative preview
+
+- Keep the installer's file-size failure test focused on package copying. Disable
+  import-cache writes in that subprocess so Python 3.10 cannot leave a truncated
+  bytecode cache that breaks the subsequent retry check.
+
 ## Unreleased — simpler discovery and project copies
 
 - Group the generated catalog into field kit and utilities, with independent

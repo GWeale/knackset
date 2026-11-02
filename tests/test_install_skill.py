@@ -211,7 +211,9 @@ class InstallSkillCliTests(unittest.TestCase):
             resource.setrlimit(resource.RLIMIT_FSIZE, (200, 200))
             signal.signal(signal.SIGXFSZ, signal.SIG_IGN)
 
-        result = self.run_cli(preexec_fn=limit_output_files)
+        # Limit the package copy, without truncating Python's import caches first.
+        result = self.run_cli(preexec_fn=limit_output_files,
+                              env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"})
         self.assert_failure(result, "incomplete")
         destination = self.project / ".agents/skills/sample-flow"
         self.assertTrue(destination.is_dir())
