@@ -1,0 +1,64 @@
+{
+  "synthetic": true,
+  "mailbox": "me@example.invalid",
+  "sending_identities": [
+    "me@example.invalid",
+    "projects@example.invalid"
+  ],
+  "current_thread": {
+    "id": "T-revise",
+    "subject": "Project summary",
+    "latest_message": {
+      "id": "M-incoming",
+      "from": "pat@example.invalid",
+      "reply_to": "pat@example.invalid",
+      "to": [
+        "projects@example.invalid"
+      ],
+      "body": "Please send the project summary when it is ready.",
+      "message_id_header": "<incoming@example.invalid>"
+    }
+  },
+  "drafts": [
+    {
+      "id": "D-existing",
+      "message_id": "M-old",
+      "thread": "T-revise",
+      "from": "projects@example.invalid",
+      "to": [
+        "pat@example.invalid"
+      ],
+      "cc": [],
+      "subject": "Re: Project summary",
+      "references": [
+        "<incoming@example.invalid>"
+      ],
+      "in_reply_to": "<incoming@example.invalid>",
+      "content_type": "multipart/mixed",
+      "body": "I'll send the summary Friday.\n\n--\nRiley | Project desk",
+      "attachments": [
+        {
+          "id": "A-agenda",
+          "filename": "agenda.txt",
+          "content_type": "text/plain",
+          "content": "Agenda: milestones, owners, next steps.\n"
+        }
+      ]
+    },
+    {
+      "id": "D-other",
+      "message_id": "M-other",
+      "thread": "T-other",
+      "from": "me@example.invalid",
+      "to": [
+        "club@example.invalid"
+      ],
+      "cc": [],
+      "subject": "Book club",
+      "content_type": "text/plain",
+      "body": "I will bring the discussion notes.\n\n--\nRiley",
+      "attachments": []
+    }
+  ],
+  "sent": []
+}

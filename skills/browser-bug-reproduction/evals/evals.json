@@ -44,8 +44,8 @@
     {
       "id": "browser-bug-reproduction-routing-pr-review",
       "kind": "routing",
-      "prompt": "Review the supplied GitHub pull request diff for correctness and give me findings. Do not run the app.",
-      "context": "Entirely synthetic routing fixture. The user supplies one PR revision and asks for code review only. No browser failure report or reproduction permission is provided.",
+      "prompt": "Review the supplied GitHub pull request diff for correctness and give me findings.",
+      "context": "Entirely synthetic routing fixture. One complete PR revision, its requirement, diff, callers, and check status are supplied.",
       "expected_output": "Routes to PR review without launching browser reproduction.",
       "assertions": [
         "Keeps work scoped to the specified diff and revision.",

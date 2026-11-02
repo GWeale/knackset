@@ -1,0 +1,46 @@
+{
+  "synthetic": true,
+  "quoted_offer": {
+    "id": "quote-Q7",
+    "provider": "Cedar House",
+    "room": "queen",
+    "rooms": 1,
+    "adults": 2,
+    "check_in": "2026-12-04",
+    "check_out": "2026-12-06",
+    "currency": "USD",
+    "room_total": 420,
+    "mandatory_taxes_fees": 60,
+    "all_in_total": 480,
+    "due_now": 480,
+    "due_later": 0,
+    "cancellation": {
+      "free_until": "2026-12-03T18:00:00",
+      "time_zone": "America/Los_Angeles",
+      "penalty_before_deadline": 0
+    }
+  },
+  "refresh_result": {
+    "id": "quote-Q7",
+    "provider": "Cedar House",
+    "room": "queen",
+    "rooms": 1,
+    "adults": 2,
+    "check_in": "2026-12-04",
+    "check_out": "2026-12-06",
+    "currency": "USD",
+    "room_total": 460,
+    "mandatory_taxes_fees": 60,
+    "all_in_total": 520,
+    "due_now": 520,
+    "due_later": 0,
+    "cancellation": {
+      "free_until": "2026-12-03T18:00:00",
+      "time_zone": "America/Los_Angeles",
+      "penalty_before_deadline": 0
+    }
+  },
+  "reservations": [],
+  "payments": [],
+  "holds": []
+}

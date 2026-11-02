@@ -47,8 +47,8 @@
     {
       "id": "capture-routing-use-existing-skill",
       "kind": "routing",
-      "prompt": "Use the existing form-update skill to change this specified profile field now; do not create a new skill.",
-      "context": "Routing-only fixture: the user requests execution using an existing workflow and explicitly excludes authoring. The profile operation still depends on host capabilities and authorization.",
+      "prompt": "Change my display name on this profile page to River and verify it saved.",
+      "context": "Entirely synthetic routing fixture. An authorized browser session is open to the supplied profile page. Its display-name field and save behavior can be inspected.",
       "expected_output": "Route to the existing form workflow rather than capturing history or generating a new skill.",
       "assertions": [
         "session-to-skill is not selected as the primary workflow.",

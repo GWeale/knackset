@@ -43,8 +43,8 @@
     {
       "id": "shortlist-routing-selected-item-checkout",
       "kind": "routing",
-      "prompt": "I have already selected the exact item and seller. Complete the authorized checkout; do not research alternatives.",
-      "context": "Routing-only fixture: this is a transaction request with no remaining comparison task. Any actual checkout depends on the host permissions and an appropriate transaction workflow.",
+      "prompt": "Buy one of this exact item from the selected seller for the quoted USD 95 delivered total using my selected payment method.",
+      "context": "Entirely synthetic routing fixture. The chosen listing and checkout are supplied, as are the delivery destination and supported secure payment route. Native approval controls apply.",
       "expected_output": "Recognize checkout as a separate workflow rather than claiming a shortlist completes a purchase.",
       "assertions": [
         "product-shortlist is not selected as the primary workflow.",

@@ -9,9 +9,18 @@ discussion.
 ## Write one focused skill
 
 Read the [workflow contract](docs/workflow-contract.md) and
-[provenance notes](docs/provenance.md). Add a folder under `skills/` using the
-[Agent Skills format](https://agentskills.io/specification), and keep everything
-the skill needs inside that folder.
+[provenance notes](docs/provenance.md). Start with the [complete accepted example](docs/authoring-example.md):
+it includes a skill, license, catalog entry, and three authored cases, with exact
+copy and check commands. Keep everything the skill needs inside its folder.
+
+Knackset accepts a smaller frontmatter subset than the general
+[Agent Skills format](https://agentskills.io/specification): exactly the flat
+string fields `name`, `description`, and `license`, with `license: MIT`. Use
+single-line JSON double-quoted strings when values contain punctuation such as
+a colon. Nested metadata, block scalars, extra fields, and single-quoted YAML
+strings are not accepted here. The name must match its folder and use 1–64
+lowercase ASCII letters/digits with single internal hyphens; the description
+must contain 1–1024 characters. Put tool requirements in the skill body.
 
 Explain the intended outcome, the application's relevant behavior, and the
 decisions the agent must make. The agent should discover current page controls
@@ -19,9 +28,12 @@ as it works; saved click sequences and session element IDs will go stale. Use
 only tools and permissions available in the host environment. A skill cannot
 invent a tool or authorize an external action on the user's behalf.
 
-Add a `catalog.json` entry with a category, focused tags, evidence basis, and
-validation status. Keep the description in `SKILL.md`; the catalog reads it from
-there. Copy the root MIT notice into the package as `LICENSE.txt`.
+Add a `catalog.json` entry with a category, focused tags, evidence basis,
+validation status, `live_validation`, and `evidence`. Keep the description in
+`SKILL.md`; the catalog reads it from there. Copy the root MIT notice into the
+package as `LICENSE.txt`, and link `VALIDATION.md` from the skill so an installed
+copy retains its limits. Set catalog `validation_note` to `VALIDATION.md` and keep
+its `Status: **draft**.` line aligned with the catalog until evidence qualifies.
 
 ## Add cases the skill should handle
 

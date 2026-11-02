@@ -1,0 +1,62 @@
+{
+  "synthetic": true,
+  "repository": "example/project",
+  "pull_request_url": "https://example.invalid/example/project/pull/43",
+  "base": "C1",
+  "merge_base": "C1",
+  "head": "C2",
+  "purpose": "Accept imported records that lack active without raising, while preserving exact active-user eligibility.",
+  "requirement": "eligible_users accepts a list of plain dict records. A record is eligible only when its active value is the boolean True. Missing active, None, False, integers including 1, and strings including true are ineligible. Return the original eligible record objects in input order, retaining repeated records. Empty input is valid.",
+  "changed_files": [
+    "users.py",
+    "test_users.py"
+  ],
+  "file_list_complete": true,
+  "patch_complete": true,
+  "head_files": {
+    "users.py": [
+      "def eligible_users(users):",
+      "    \"\"\"Return original records whose active field is exactly True.\"\"\"",
+      "    return [user for user in users if user.get(\"active\") is True]"
+    ],
+    "notifier.py": [
+      "from users import eligible_users",
+      "",
+      "def recipients(records):",
+      "    return [record[\"email\"] for record in eligible_users(records)]"
+    ],
+    "test_users.py": [
+      "from users import eligible_users",
+      "",
+      "def test_eligibility():",
+      "    active = {\"active\": True, \"email\": \"a@example.invalid\"}",
+      "    other = {\"active\": True, \"email\": \"b@example.invalid\"}",
+      "    records = [{}, {\"active\": False}, {\"active\": None}, {\"active\": 0},",
+      "               {\"active\": 1}, {\"active\": \"true\"}, active, other, active]",
+      "    result = eligible_users(records)",
+      "    assert len(result) == 3",
+      "    assert result[0] is active",
+      "    assert result[1] is other",
+      "    assert result[2] is active",
+      "",
+      "def test_empty_input():",
+      "    assert eligible_users([]) == []"
+    ]
+  },
+  "caller_context": "The notification importer supplies ordinary dicts and validates email for active records before calling recipients. Duplicated active records intentionally produce duplicated recipients; deduplication is outside this function. The supplied notifier is unchanged and is the only caller.",
+  "checks": [
+    {
+      "name": "eligibility-contract",
+      "head": "C2",
+      "status": "passed",
+      "coverage": "Covers missing, false, None, zero, one, string true, exact True, original object/order/multiplicity, and empty input."
+    },
+    {
+      "name": "lint",
+      "head": "C2",
+      "status": "passed",
+      "coverage": "Lint only; not a behavior proof."
+    }
+  ],
+  "execution": "No code execution required or authorized; inspect supplied artifacts only."
+}

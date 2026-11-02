@@ -43,7 +43,7 @@
       "id": "form-routing-component-implementation",
       "kind": "routing",
       "prompt": "Build a React profile-settings form with display-name validation and an autosave indicator.",
-      "context": "Routing-only fixture: the user wants application source code, not operation of an existing website. No live account edit is requested.",
+      "context": "Entirely synthetic routing fixture. The supplied local application repository contains React source and its existing form components.",
       "expected_output": "Route to frontend implementation rather than operating a web form.",
       "assertions": [
         "web-form-update is not selected as the primary workflow.",

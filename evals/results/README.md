@@ -1,8 +1,44 @@
 # Measured execution records
 
-Six workflows have scoped offline records. None has been tested against a live
+Eight workflows have current, scoped offline records. None has been tested against a live
 service. Keep the individual runs and their limits in view: these are small
 trials, not a general success-rate benchmark.
+
+## Audit follow-up — 2026-11-01
+
+The [fresh execution record](audit-fixes-2026-11-01.json) contains 14 passing
+with-skill trials across eight packages, bound to the current v2 fingerprints.
+Each case began in a fresh agent context. Watch setup and its first scheduled
+invocation used two phases of one context; the evaluator checked setup before
+advancing the fixture clock. Every final reply was reviewed separately from the
+state/trace checks. Execution dates are November 2 UTC, November 1 in the audit's
+America/Los_Angeles time zone.
+
+The new cases cover chat-only composition, preservation of an existing draft,
+UTF-16 ranges, literal spreadsheet input, alert timeout/deduplication, transient
+watch setup, and changed travel prices/terms. The six earlier runnable boundaries
+were also rerun against the current package contents and corrected graders.
+No baseline was run in this wave, so these passes establish scoped behavior,
+not improvement over an unassisted agent.
+
+The [description-only routing trial](routing-2026-11-01.json) records 16 selections
+before any skill body was supplied. The initial judge accepted 15. Its expectation
+for a one-time exact shopping offer was too narrow: `product-shortlist` covers
+shopping research, while `web-research` points exact offers elsewhere. The record
+retains that initial score and the corrected 16/16 judgment; no agent answer was
+changed or rerun. This is not a host-discovery test.
+
+The [clean-PR review](clean-pr-2026-11-01.json) returned no invented findings and
+accurately separated supplied checks from tests personally executed. It is a
+static decision review, so `github-review` remains `draft`.
+
+The [installation record](host-install-2026-11-01.json) keeps project copy and
+host activation evidence separate from these workflow evaluations. The
+[20-item resolution](../../docs/audit-resolution.md) maps each audit finding to
+its fix and check.
+
+Earlier records below retain their original fingerprints and observed failures.
+They are historical; current promotion comes from the v2 follow-up record.
 
 ## Calendar and Docs — 2026-11-01
 
@@ -28,8 +64,9 @@ the exact final replies and a separate review of their claims. A review of the
 grader caught the need for that distinction before these runs began. Package and
 fixture hashes identify the instructions and implementation used by each run.
 
-Calendar and Docs are now `offline-reviewed` for these two cases only. Scheduling,
-the other Calendar/Docs cases, and real service behavior remain untested here.
+At that revision, Calendar and Docs became `offline-reviewed` for these two cases
+only. This historical record did not test scheduling, other Calendar/Docs cases,
+or real service behavior.
 
 ## First four workflows — 2026-11-01
 
@@ -60,7 +97,7 @@ grader checks the target and read ordering after the final write, with CLI
 regressions for both failures. Operation semantics did not change; execution and
 grading hashes are recorded separately.
 
-This record supports `offline-reviewed` for its four packages. Their status does
-not cover all authored cases. None is marked `live-tested`. The remaining
+At that revision this record supported `offline-reviewed` for its four packages. That status did
+not cover all authored cases. None was marked `live-tested`. The remaining
 success/routing/domain cases have not been executed by this record.
 See the [evaluation procedure](../README.md) for reproducing a scoped run.

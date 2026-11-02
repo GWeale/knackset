@@ -59,8 +59,8 @@
     {
       "id": "calendar-coordination-routing-inbox-labels",
       "kind": "routing",
-      "prompt": "Label the unread messages in this supplied Gmail search as Receipts and archive them. Do not touch my calendar.",
-      "context": "Entirely synthetic routing fixture. The request supplies a Gmail search and a bounded authorized labeling/archive action. No meeting, calendar event, or availability question is present.",
+      "prompt": "Label the unread messages in this supplied Gmail search as Receipts and archive them.",
+      "context": "Entirely synthetic routing fixture. The Gmail search identifies a bounded set of messages, and a mail integration can inspect labels and modify those messages.",
       "expected_output": "Routes to Gmail triage or equivalent bounded mailbox organization without loading a calendar workflow.",
       "assertions": [
         "Identifies mailbox organization as the requested operation.",

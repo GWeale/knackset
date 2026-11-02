@@ -3,6 +3,7 @@
 import copy
 import hashlib
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -64,15 +65,46 @@ class ValidateCliTests(unittest.TestCase):
         (self.skill / "evals").mkdir(exist_ok=True)
         (self.skill / "evals" / "evals.json").write_text(json.dumps(self.scenarios), encoding="utf-8")
 
+    def test_portable_validation_note_must_match_catalog_status(self):
+        self.catalog["skills"][0]["validation_note"] = "VALIDATION.md"
+        self.write_records()
+        note = self.skill / "VALIDATION.md"
+        note.write_text("Status: **offline-reviewed**.\n", encoding="utf-8")
+        result = subprocess.run([sys.executable, str(self.root / "scripts/validate.py")],
+                                text=True, capture_output=True, cwd=self.root)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("portable validation status must match", result.stdout + result.stderr)
+        note.write_text("Status: **draft**.\n", encoding="utf-8")
+        result = subprocess.run([sys.executable, str(self.root / "scripts/validate.py")],
+                                text=True, capture_output=True, cwd=self.root)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_declared_portable_note_cannot_be_missing(self):
+        self.catalog["skills"][0]["validation_note"] = "VALIDATION.md"
+        self.write_records()
+        result = subprocess.run([sys.executable, str(self.root / "scripts/validate.py")],
+                                text=True, capture_output=True, cwd=self.root)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("VALIDATION.md", result.stdout + result.stderr)
+
+    @unittest.skipUnless(hasattr(os, "mkfifo"), "FIFO resource requires POSIX")
+    def test_declared_portable_note_rejects_fifo_without_reading(self):
+        self.catalog["skills"][0]["validation_note"] = "VALIDATION.md"
+        self.write_records()
+        os.mkfifo(self.skill / "VALIDATION.md")
+        result = self.run_cli()
+        self.assert_failure(result, "portable validation note must be a regular package file")
+
     def fingerprint(self):
         # Independent fixture calculation; production code is exercised via CLI.
-        digest = hashlib.sha256()
+        digest = hashlib.sha256(b"knackset-package\0sha256-length-prefixed-v2\0")
         files = sorted(file for file in self.skill.rglob("*") if file.is_file())
         for file in files:
             if "__pycache__" in file.parts or file.suffix in {".pyc", ".pyo"}:
                 continue
-            digest.update(file.relative_to(self.skill).as_posix().encode("utf-8") + b"\0")
-            digest.update(file.read_bytes() + b"\0")
+            for value in (file.relative_to(self.skill).as_posix().encode("utf-8"), file.read_bytes()):
+                digest.update(len(value).to_bytes(8, "big"))
+                digest.update(value)
         return digest.hexdigest()
 
     def execution_report(self):
@@ -81,6 +113,7 @@ class ValidateCliTests(unittest.TestCase):
             "runtime": "synthetic fixture runner", "limitations": ["No live account was exercised."],
             "runs": [{
                 "skill": "sample-flow", "scenario": "ordinary", "variant": "with-skill",
+                "package_fingerprint_algorithm": "sha256-length-prefixed-v2",
                 "package_sha256": self.fingerprint(), "passed": True,
                 "assertions": {"saved_result_observed": True},
                 "trace": [{"operation": "read", "arguments": {"target": "synthetic"}}],
@@ -161,18 +194,17 @@ class ValidateCliTests(unittest.TestCase):
     def test_links_cannot_escape_or_point_to_missing_files(self):
         outside = self.root / "outside.md"
         outside.write_text("Outside the skill package.\n", encoding="utf-8")
-        (self.skill / "escaped.md").symlink_to(outside)
         for destination, diagnostic in [
             ("missing.md#heading", "does not exist"),
             ("../../outside.md", "escapes package boundary"),
             ("%2e%2e/%2e%2e/outside.md", "escapes package boundary"),
-            ("escaped.md", "escapes package boundary"),
             (str(outside), "absolute"),
         ]:
             with self.subTest(destination=destination):
-                # Keep the symlink for the target check, but avoid scanning its contents.
                 self.write_skill(body=f"[Target]({destination})\n")
                 self.assert_failure(self.run_cli("--skill", self.skill), diagnostic)
+        (self.skill / "escaped.md").symlink_to(outside)
+        self.assert_failure(self.run_cli("--skill", self.skill), "symlink")
         (self.skill / "escaped.md").unlink()
         (self.root / "README.md").write_text("[Missing](docs/missing.md)\n", encoding="utf-8")
         self.write_skill()
@@ -264,7 +296,7 @@ class ValidateCliTests(unittest.TestCase):
         self.scenarios = copy.deepcopy(original)
         self.scenarios["evals"][0]["files"] = ["evals/sample.json"]
         self.write_records()
-        self.assert_failure(self.run_cli(), "escapes package boundary")
+        self.assert_failure(self.run_cli(), "symlink")
 
     def test_evaluation_identifiers_are_unique_across_packages(self):
         second = self.root / "skills" / "another-flow"
@@ -288,15 +320,18 @@ class ValidateCliTests(unittest.TestCase):
         self.write_report(original)
         self.assertEqual(self.run_cli().returncode, 0)
         patches = [
-            (lambda report: report.update(mode="live"), "execution mode must be"),
+            (lambda report: report.update(mode="unknown"), "execution mode must be"),
+            (lambda report: report.update(mode="live"), "matching structured execution evidence"),
             (lambda report: report.update(date="2026-02-30"), "valid YYYY-MM-DD"),
-            (lambda report: report["runs"][0].update(package_sha256="0" * 64), "does not match the current package"),
-            (lambda report: report["runs"][0].update(passed=False), "no successful with-skill run"),
-            (lambda report: report["runs"][0].update(skill="another-flow"), "no successful with-skill run"),
-            (lambda report: report["runs"][0].update(scenario="unknown-case"), "current package evaluation"),
+            (lambda report: report["runs"][0].update(package_sha256="0" * 64), "matching structured execution evidence"),
+            (lambda report: report["runs"][0].update(package_fingerprint_algorithm="unknown"), "supported fingerprint algorithm"),
+            (lambda report: report["runs"][0].update(package_fingerprint_algorithm=[]), "supported fingerprint algorithm"),
+            (lambda report: report["runs"][0].update(passed=False), "matching structured execution evidence"),
+            (lambda report: report["runs"][0].update(skill="another-flow"), "matching structured execution evidence"),
+            (lambda report: report["runs"][0].update(scenario="unknown-case"), "matching structured execution evidence"),
             (lambda report: report["runs"][0].update(assertions={}), "nonempty object of boolean checks"),
             (lambda report: report["runs"][0].update(assertions={"check": "true"}), "boolean checks"),
-            (lambda report: report["runs"][0].update(assertions={"check": False}), "no successful with-skill run"),
+            (lambda report: report["runs"][0].update(assertions={"check": False}), "matching structured execution evidence"),
         ]
         for patch, diagnostic in patches:
             with self.subTest(diagnostic=diagnostic):
@@ -320,7 +355,153 @@ class ValidateCliTests(unittest.TestCase):
         (self.skill / "scratch.pyo").write_bytes(b"cache")
         self.assertEqual(self.run_cli().returncode, 0)
         (self.skill / "added.txt").write_text("Material package change.\n", encoding="utf-8")
-        self.assert_failure(self.run_cli(), "does not match the current package")
+        self.assert_failure(self.run_cli(), "matching structured execution evidence")
+
+    def test_changed_file_layout_cannot_reuse_execution_evidence(self):
+        self.catalog["skills"][0].update(status="offline-reviewed", evidence=["evals/results.json"])
+        self.write_records()
+        (self.skill / "a").write_bytes(b"x\0b\0y")
+        self.write_report(self.execution_report())
+        self.assertEqual(self.run_cli().returncode, 0)
+        (self.skill / "a").write_bytes(b"x")
+        (self.skill / "b").write_bytes(b"y")
+        self.assert_failure(self.run_cli(), "matching structured execution evidence")
+
+    def test_historical_successes_can_coexist_with_a_current_retest(self):
+        self.catalog["skills"][0].update(status="offline-reviewed", evidence=["evals/results.json"])
+        self.write_records()
+        report = self.execution_report()
+        historical = copy.deepcopy(report["runs"][0])
+        historical.update(package_sha256="0" * 64, scenario="retired-scenario")
+        report["runs"].insert(0, historical)
+        self.write_report(report)
+        result = self.run_cli()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        report["runs"].pop()
+        self.write_report(report)
+        self.assert_failure(self.run_cli(), "matching structured execution evidence")
+
+    def test_legacy_fingerprint_records_are_preserved_but_cannot_promote(self):
+        self.catalog["skills"][0].update(status="offline-reviewed", evidence=["evals/results.json"])
+        self.write_records()
+        current = self.execution_report()
+        for algorithm in (None, "sha256-nul-delimited-v1"):
+            with self.subTest(algorithm=algorithm):
+                report = copy.deepcopy(current)
+                if algorithm is None:
+                    del report["runs"][0]["package_fingerprint_algorithm"]
+                else:
+                    report["runs"][0]["package_fingerprint_algorithm"] = algorithm
+                # Even a copied current digest cannot promote without v2's label.
+                self.write_report(report)
+                self.assert_failure(self.run_cli(), "matching structured execution evidence")
+                report["runs"].append(current["runs"][0])
+                self.write_report(report)
+                result = self.run_cli()
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                # Historical records still have to contain structurally valid proof.
+                report["runs"][0]["trace"] = []
+                self.write_report(report)
+                self.assert_failure(self.run_cli(), "trace must contain operations")
+
+    def test_historical_report_can_remain_beside_a_qualifying_report(self):
+        self.catalog["skills"][0].update(
+            status="offline-reviewed", evidence=["evals/results.json", "evals/historical.json"],
+        )
+        self.write_records()
+        self.write_report(self.execution_report())
+        historical = self.execution_report()
+        historical["runs"][0].update(package_sha256="0" * 64, scenario="retired")
+        del historical["runs"][0]["package_fingerprint_algorithm"]
+        (self.root / "evals" / "historical.json").write_text(json.dumps(historical), encoding="utf-8")
+        result = self.run_cli()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_all_package_statuses_reject_unreferenced_resource_symlinks(self):
+        external = self.root / "external"
+        external.mkdir()
+        (external / "helper.py").write_text("pass\n", encoding="utf-8")
+        for status in ("draft", "offline-reviewed"):
+            self.catalog["skills"][0].update(status=status, evidence=["evals/results.json"])
+            self.write_records()
+            self.write_report(self.execution_report())
+            for target in (external / "helper.py", external, self.skill / "LICENSE.txt", external / "missing"):
+                with self.subTest(status=status, target=target):
+                    resource = self.skill / "unreferenced"
+                    resource.symlink_to(target)
+                    try:
+                        self.assert_failure(self.run_cli(), "symlink")
+                    finally:
+                        resource.unlink()
+
+    def test_package_entrypoint_and_ignored_caches_reject_symlinks(self):
+        external = self.root / "external.md"
+        external.write_text("---\nname: sample-flow\ndescription: Example.\nlicense: MIT\n---\nValid body.\n")
+        for name in ("SKILL.md", "scratch.pyc", "__pycache__", ".local"):
+            with self.subTest(name=name):
+                resource = self.skill / name
+                previous = resource.read_bytes() if resource.exists() else None
+                if previous is not None:
+                    resource.unlink()
+                resource.symlink_to(external)
+                try:
+                    self.assert_failure(self.run_cli("--skill", self.skill), "symlink")
+                finally:
+                    resource.unlink()
+                    if previous is not None:
+                        resource.write_bytes(previous)
+
+    def test_package_special_files_are_rejected_without_reading_them(self):
+        for name in ("helper.pipe", "SKILL.md", "evals/evals.json"):
+            with self.subTest(name=name):
+                resource = self.skill / name
+                previous = resource.read_bytes() if resource.exists() else None
+                if previous is not None:
+                    resource.unlink()
+                os.mkfifo(resource)
+                try:
+                    self.assert_failure(self.run_cli(), "regular files and directories")
+                finally:
+                    resource.unlink()
+                    if previous is not None:
+                        resource.write_bytes(previous)
+
+    def test_direct_entrypoint_rejects_symlinked_package_root(self):
+        alias = self.root / "drafts" / "sample-flow"
+        alias.parent.mkdir()
+        alias.symlink_to(self.skill, target_is_directory=True)
+        self.assert_failure(self.run_cli("--skill", alias), "symlink")
+        alias.unlink()
+        alias.parent.rmdir()
+        alias.parent.symlink_to(self.skill.parent, target_is_directory=True)
+        self.assert_failure(self.run_cli("--skill", alias), "symlink")
+
+    def test_inline_code_cannot_hide_links_across_paragraphs_or_mismatched_runs(self):
+        for body in (
+            "An unmatched ` opener.\n\n[Broken](missing.md)\n\nAnother ` opener.\n",
+            "An unmatched ` opener.\n \t\n[Broken](missing.md)\n\nAnother ` opener.\n",
+            "An unmatched `` opener [Broken](missing.md) closes with `.\n",
+            "An unmatched ` opener [Broken](missing.md) closes with ``.\n",
+            "An unmatched ` opener\n# Heading [Broken](missing.md)\nclosing `\n",
+            "An unmatched ` opener\n- [Broken](missing.md)\nclosing `\n",
+            "An unmatched ` opener\n1. [Broken](missing.md)\nclosing `\n",
+            "An unmatched ` opener\n> [Broken](missing.md)\nclosing `\n",
+        ):
+            with self.subTest(body=body):
+                self.write_skill(body=body)
+                self.assert_failure(self.run_cli(), "does not exist")
+
+    def test_genuine_inline_code_spans_hide_example_links(self):
+        self.write_skill(body=(
+            "A `[Example](missing.md)` inline example.\n\n"
+            "A ``[Example](missing.md) with a ` literal`` example.\n\n"
+            "A ``[Example](missing.md) with ``` literals`` example.\n\n"
+            "A `multiline\n[Example](missing.md)` example.\n"
+            "\n> A `multiline\n> [Example](missing.md)` quoted example.\n"
+            "\n> A `multiline\n[Example](missing.md)` lazy quoted example.\n"
+        ))
+        result = self.run_cli()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
     def test_duplicate_json_and_empty_body_fail_cleanly(self):
         record = self.skill / "evals" / "evals.json"

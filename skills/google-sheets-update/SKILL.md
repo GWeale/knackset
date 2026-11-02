@@ -63,3 +63,5 @@ required user decision; do not work around account or document protections.
 Sources: [range updates](https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets.values/update),
 [append semantics](https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets.values/append),
 and [input interpretation](https://developers.google.com/workspace/sheets/api/reference/rest/v4/ValueInputOption).
+
+Package status and limits: [validation and provenance](VALIDATION.md).

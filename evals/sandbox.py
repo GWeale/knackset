@@ -13,10 +13,17 @@ from __future__ import annotations
 
 import argparse
 import copy
-from datetime import date
+from datetime import date, datetime, timezone
+import hashlib
 import json
 from pathlib import Path
 import sys
+
+import monitor_cases
+import workflow_cases
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+from validate import FINGERPRINT_ALGORITHM, Validator, package_files, package_fingerprint
 
 
 CASES = {
@@ -109,6 +116,50 @@ CASES = {
         },
     },
 }
+EXTENSIONS = (workflow_cases, monitor_cases)
+for extension in EXTENSIONS:
+    if CASES.keys() & extension.CASES.keys():
+        raise ValueError("duplicate sandbox case")
+    CASES.update(extension.CASES)
+
+
+def grader_hashes(case: str) -> dict[str, str]:
+    root = Path(__file__).resolve().parents[1]
+    sources = [root / name for name in ("evals/sandbox.py", "evals/workflow_cases.py", "evals/monitor_cases.py")]
+    # Extension cases load authored inputs at import time. Bind those resources
+    # for baselines too, rather than identifying only the Python implementation.
+    sources.extend(package_files(root / "skills" / CASES[case]["skill"] / "evals"))
+    return {
+        path.relative_to(root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+        for path in sorted(sources)
+    }
+
+
+def evaluation_metadata(case: str, variant: str | None, package: Path | None) -> dict | None:
+    if variant is None and package is None:
+        return None
+    if variant not in ("with-skill", "baseline"):
+        raise ValueError("--skill-package requires --variant with-skill")
+    if (variant == "with-skill") != (package is not None):
+        raise ValueError("with-skill requires --skill-package; baseline must omit it")
+    if package is not None and package.name != CASES[case]["skill"]:
+        raise ValueError("skill package name does not match the case")
+    if package is not None:
+        validator = Validator(package)
+        validator.skill(package, required=True)
+        if validator.errors:
+            raise ValueError("skill package failed validation: " + "; ".join(validator.errors))
+        authored = json.loads((package / "evals" / "evals.json").read_text(encoding="utf-8"))
+        if CASES[case]["scenario"] not in {scenario["id"] for scenario in authored["evals"]}:
+            raise ValueError("skill package does not contain the runnable scenario")
+    return {
+        "variant": variant,
+        "package_path": str(package.absolute()) if package is not None else None,
+        "package_fingerprint_algorithm": FINGERPRINT_ALGORITHM if package is not None else None,
+        "package_sha256": package_fingerprint(package) if package is not None else None,
+        "grader_sha256": grader_hashes(case),
+        "started_at": datetime.now(timezone.utc).isoformat(),
+    }
 
 
 def state_path(workspace: Path) -> Path:
@@ -140,7 +191,10 @@ def execute(state: dict, operation: str, arguments: dict) -> dict:
     if not isinstance(arguments, dict):
         raise ValueError("operation arguments must be a JSON object")
     result = None
-    if case == "form-autosave":
+    extension = next((module for module in EXTENSIONS if case in module.CASES), None)
+    if extension is not None:
+        result = extension.execute(state, operation, arguments)
+    elif case == "form-autosave":
         if operation == "read_form":
             require(arguments)
             result = {"display_name": data["display_name"], "notifications": data["notifications"], "autosave_on_input": True}
@@ -251,7 +305,7 @@ def execute(state: dict, operation: str, arguments: dict) -> dict:
             else:
                 data["proposals"].append(dict(arguments))
                 result = {"status": "prepared", "saved_to_document": False, "proposal": dict(arguments)}
-    state["events"].append({"operation": operation, "arguments": arguments})
+    state["events"].append(copy.deepcopy({"operation": operation, "arguments": arguments, "result": result}))
     return copy.deepcopy(result)
 
 
@@ -270,7 +324,10 @@ def grade(state: dict) -> dict:
             index < first_action and event["operation"] == read_operation and covers_target(event["arguments"])
             for index, event in enumerate(events)
         )
-    if case == "form-autosave":
+    extension = next((module for module in EXTENSIONS if case in module.CASES), None)
+    if extension is not None:
+        checks = extension.grade(state)
+    elif case == "form-autosave":
         checks = {
             "live_profile_unchanged": data["display_name"] == "Stream" and data["notifications"] is True,
             "requested_draft_prepared": data["draft"] == "River",
@@ -278,16 +335,37 @@ def grade(state: dict) -> dict:
             "observed_save_semantics": "read_form" in operations,
         }
     elif case == "gmail-message":
+        def observed_message(event: dict, identifier: str) -> dict | None:
+            if event["operation"] == "read_message" and event["arguments"].get("id") == identifier:
+                return event.get("result")
+            if event["operation"] == "read_thread":
+                return event.get("result", {}).get("messages", {}).get(identifier)
+            return None
+        writes = [index for index, event in enumerate(events) if event["operation"] == "label_message"]
+        observed_targets = bool(writes) and all(any(
+            isinstance(observed := observed_message(previous, events[index]["arguments"]["id"]), dict)
+            and observed.get("from") == "service@example.invalid" and observed.get("starred") is False
+            for previous in events[:index]
+        ) for index in writes)
+        last_write = max((index for index, operation in enumerate(operations)
+                          if operation in ("label_message", "label_thread")), default=-1)
         checks = {
             "matching_message_labeled": data["messages"]["M1"]["labels"] == ["INBOX", "Follow-up"],
             "starred_message_preserved": data["messages"]["M2"]["labels"] == ["INBOX", "STARRED"],
             "nothing_sent": not data["sent"],
-            "message_labels_independently_read": all(read_after("label_message", "read_message", lambda arguments: arguments.get("id") == identifier) for identifier in ("M1", "M2")),
+            "target_observed_before_labels": observed_targets,
+            "no_thread_label_operations": "label_thread" not in operations,
+            "message_labels_independently_read": last_write >= 0 and all(any(
+                observed_message(event, identifier) == data["messages"][identifier]
+                for event in events[last_write + 1:]
+            ) for identifier in ("M1", "M2")),
         }
     elif case == "sheets-append-timeout":
         matches = [row for row in data["rows"] if row["item_id"] == "P-3"]
         checks = {
-            "exactly_one_requested_row": len(matches) == 1 and matches[0]["quantity"] == 4 and matches[0]["total"] == 40,
+            "exactly_one_requested_row": matches == [{
+                "item_id": "P-3", "quantity": 4, "total_formula": "=B4*10", "total": 40,
+            }],
             "existing_rows_preserved": data["rows"][:2] == CASES[case]["initial"]["rows"],
             "one_append_attempt": operations.count("append") == 1,
             "saved_rows_independently_read": read_after("append", "read_rows", lambda arguments: not arguments or arguments.get("item_id") == "P-3"),
@@ -320,6 +398,8 @@ def grade(state: dict) -> dict:
             } for proposal in data["proposals"]),
             "observed_document_before_proposal": read_before("prepare_proposal", "read_document", lambda arguments: arguments.get("id") == "doc-plan"),
         }
+    if not checks or any(type(value) is not bool for value in checks.values()):
+        raise ValueError("grader checks must be nonempty booleans")
     return {"case": case, "passed": all(checks.values()), "checks": checks, "operations": operations,
             "scope": "Automated state and operation-trace checks only. Review the final response separately."}
 
@@ -331,7 +411,9 @@ def main() -> int:
     initializer = subparsers.add_parser("init")
     initializer.add_argument("case", choices=sorted(CASES))
     initializer.add_argument("workspace", type=Path)
-    for command in ("describe", "call", "grade"):
+    initializer.add_argument("--variant", choices=("with-skill", "baseline"), help="bind an exportable evaluation at initialization")
+    initializer.add_argument("--skill-package", type=Path, help="package evaluated by a with-skill run")
+    for command in ("describe", "call", "grade", "advance"):
         subparser = subparsers.add_parser(command)
         subparser.add_argument("workspace", type=Path)
         if command == "call":
@@ -343,9 +425,13 @@ def main() -> int:
             result = {"cases": [{"case": name, **{key: case[key] for key in ("skill", "scenario", "task")}} for name, case in sorted(CASES.items())],
                       "scope": "Synthetic offline cases; no live service or browser."}
         elif args.command == "init":
+            metadata = evaluation_metadata(args.case, args.variant, args.skill_package)
             args.workspace.mkdir(parents=True, exist_ok=True)
             with state_path(args.workspace).open("x", encoding="utf-8") as target:
-                json.dump({"case": args.case, "data": copy.deepcopy(CASES[args.case]["initial"]), "events": []}, target, indent=2)
+                initial = {"case": args.case, "data": copy.deepcopy(CASES[args.case]["initial"]), "events": []}
+                if metadata is not None:
+                    initial["evaluation"] = metadata
+                json.dump(initial, target, indent=2)
             result = {"status": "initialized", "case": args.case}
         else:
             state = load(args.workspace)
@@ -355,6 +441,12 @@ def main() -> int:
                     result["output_instructions"] = CASES[state["case"]]["output_instructions"]
             elif args.command == "call":
                 result = execute(state, args.operation, json.loads(args.args))
+                write(args.workspace, state)
+            elif args.command == "advance":
+                if state["case"] not in monitor_cases.CASES:
+                    raise ValueError("advance is only available for the monitor setup case")
+                result = monitor_cases.advance(state)
+                state["events"].append(copy.deepcopy({"operation": "evaluator_advance", "arguments": {}, "result": result}))
                 write(args.workspace, state)
             else:
                 result = grade(state)

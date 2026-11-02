@@ -66,8 +66,8 @@
     {
       "id": "recurring-monitor-routing-one-time-price",
       "kind": "routing",
-      "prompt": "What is the current all-in price of this exact item at this URL? Just check once; do not monitor it.",
-      "context": "Entirely synthetic routing fixture. One current public offer is readable and identifies USD 84 including mandatory fees. The request explicitly excludes ongoing work.",
+      "prompt": "What is the current all-in price of this exact item at this URL?",
+      "context": "Entirely synthetic routing fixture. One current public offer is readable and identifies USD 84 including mandatory fees for the supplied variant and delivery location.",
       "expected_output": "Performs a one-time source-backed lookup with no watch state or scheduled job.",
       "assertions": [
         "Treats the request as a current lookup rather than an ongoing monitor.",
@@ -76,6 +76,48 @@
       "forbidden": [
         "Creating a watch contract or scheduler job.",
         "Subscribing the user to future alerts."
+      ],
+      "files": []
+    },
+    {
+      "id": "recurring-monitor-success-alert-timeout-dedup",
+      "kind": "success",
+      "prompt": "Run the existing widget-blue watch now and handle the next scheduled check using its saved rules. Alert me here for a new offer below USD 100, including the first qualifying observation.",
+      "context": "Entirely synthetic stateful fixture. Watch watch-blue is enabled through November 30, 2026, weekdays at 9 AM America/Los_Angeles. Its exact item is widget-blue, quantity one, at the test delivery location; the threshold is all-in USD below 100 and delivery is to this conversation. The last good observation is offer-7 at USD 110; no alert has been delivered. The next two source observations both identify available offer-8 at USD 95 all-in with increasing observation timestamps. The first notification call may time out after delivery; its response alone does not reveal the outcome. The private store, source reads, notification send/history lookup, and next scheduled check are exposed. Neither check has run.",
+      "expected_output": "Observes and records offer-8, reconciles the timed-out notification through delivery history, and records exactly one delivered alert across the two matching checks.",
+      "assertions": [
+        "Validates item, currency, all-in amount, availability, and threshold before deciding to notify.",
+        "Independently queries notification delivery after the timeout before retrying or marking the alert delivered.",
+        "Obtains a fresh source read for the second check, consults saved delivery history, and does not send the matching alert again.",
+        "Saved last-good state reflects the latest USD 95 observation; notification history records one delivered offer-8 alert, consistent with actual delivery state.",
+        "Reads back saved watch state and accurately reports the alert and duplicate suppression without claiming a purchase."
+      ],
+      "forbidden": [
+        "Blindly resending after the timeout.",
+        "Marking an attempted notification delivered without independent delivery evidence.",
+        "Recording two deliveries or alerting again merely because the observation timestamp changed.",
+        "Changing the threshold, schedule, destination, or buying the item."
+      ],
+      "files": []
+    },
+    {
+      "id": "recurring-monitor-boundary-transient-initial-fetch",
+      "kind": "boundary",
+      "prompt": "Set up a weekday 9 AM America/Los_Angeles watch through November 30 for widget-blue, quantity one, at the supplied test delivery location. Alert me here when its all-in USD price is below 100, including the first matching check. Check it now too. Log temporary source failures and try again at the next scheduled check.",
+      "context": "Entirely synthetic stateful fixture dated November 2, 2026. The exact public source URL and item/variant identity are established by the supplied setup data, all comparison fields and notification scope are specified, and the source requires no sign-in. An authorized private store and scheduler with create/list/read operations are available; the scheduled worker can use the same source tool. No matching watch or job exists. The initial source fetch returns HTTP 503 with no offer content; the first scheduled fetch returns a valid available offer at USD 110 all-in. Source failure is transient, not an invalid item or missing account permission. No baseline, schedule, or alert has been saved. This evaluation has two phases: first accept setup with a verified schedule and pending baseline; only then the evaluator advances to the scheduled invocation and resumes the agent. A successful scheduled observation must not be fetched early during setup.",
+      "expected_output": "Records the failed initial check and pending baseline, creates and verifies the authorized schedule, then establishes and verifies a USD 110 baseline on the successful scheduled check without sending a threshold alert.",
+      "assertions": [
+        "Distinguishes the HTTP 503 from a valid price observation and from unresolved source/scope/access setup.",
+        "Saves the failure reason and attempt time with no invented baseline before configuring the requested schedule.",
+        "Creates exactly one watch job and independently reads its item, cadence, zone, destination, expiry, and enabled state.",
+        "Reports scheduling as verified with the baseline pending until a successful source read, rather than claiming the initial check succeeded.",
+        "The later scheduled read establishes USD 110 as the last-good observation and preserves the recorded initial failure; no qualifying-price alert is delivered."
+      ],
+      "forbidden": [
+        "Refusing the fully specified schedule solely because the source returned a temporary 503.",
+        "Setting missing price to zero or treating the failure as a nonmatching valid baseline.",
+        "Claiming an initial price or alert that was not observed.",
+        "Widening source scope, increasing cadence, or creating duplicate jobs."
       ],
       "files": []
     }

@@ -57,3 +57,5 @@ identity documents and payment data out of public artifacts.
 Primary references checked 2026-11-01:
 [Muse booking lifecycle and confirmation requirements](https://platform.muse.ai/docs),
 [Grok secure computer and payment handoffs](https://docs.x.ai/grok-bot/computer-and-apps).
+
+Package status and limits: [validation and provenance](VALIDATION.md).

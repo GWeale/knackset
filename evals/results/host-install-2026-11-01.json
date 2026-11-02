@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "source_revision": "d54f5a7ddf4a80ea23ba31e1f386af4d887b354c",
+  "package": "google-sheets-update",
+  "host": "codex-cli 0.166.0",
+  "scope": "disposable project .agents/skills",
+  "installation_method": "git archive selected package at exact full revision, followed by shutil.copytree and byte-manifest verification; no second repository checkout",
+  "files": {
+    "LICENSE.txt": "658efc6420e60126f81a459725e401981f59d1f9a105bdbcbfd336334a9beba4",
+    "SKILL.md": "973fd3580d6642d62d1c0c5694f201af26d35cdb94c745aad68a58da79563b91",
+    "evals/evals.json": "b43e33f76a740b77e3655df58e568452ee057b1c7872d2f16e66fc4d51405b6d"
+  },
+  "installation_manifest_sha256": "f98c8bd5cd76e0c3519c6921863164d84e2b32d9c7a69d5cf3704efe8268fcc0",
+  "two_installs_identical": true,
+  "global_installation": false,
+  "host_activation": "pending",
+  "limits": [
+    "The pinned historical package predates the audit fixes.",
+    "No Skills CLI execution or live Google Sheets task is claimed."
+  ]
+}

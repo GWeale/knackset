@@ -57,3 +57,5 @@ matches and policy evidence, plus saved-state verification when updates occurred
 Primary references checked 2026-11-01:
 [documented expense workflow](https://docs.x.ai/grok-bot/use-cases#expense-manager),
 [Sheets value updates](https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets.values/update).
+
+Package status and limits: [validation and provenance](VALIDATION.md).

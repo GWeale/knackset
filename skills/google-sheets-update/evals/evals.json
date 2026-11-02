@@ -42,8 +42,8 @@
     {
       "id": "sheets-routing-local-workbook",
       "kind": "routing",
-      "prompt": "Create an Excel .xlsx workbook from this CSV and add a chart. Do not upload it to Google Sheets.",
-      "context": "Routing-only fixture: the deliverable is a local spreadsheet file. No online spreadsheet or account mutation is requested.",
+      "prompt": "Create an Excel .xlsx workbook from this CSV and add a chart.",
+      "context": "Entirely synthetic routing fixture. The supplied CSV is a local file, and the requested deliverable is an .xlsx file in the output folder. Local file authoring is available.",
       "expected_output": "Route to file-based spreadsheet authoring rather than Google Sheets update.",
       "assertions": [
         "google-sheets-update is not selected as the primary workflow.",
@@ -53,6 +53,29 @@
         "Create or edit an online Google Sheet."
       ],
       "files": []
+    },
+    {
+      "id": "sheets-success-literal-equals-value",
+      "kind": "success",
+      "prompt": "In sheet-literals on Items, set the note for P-2 to the literal text =1+1. Keep the calculated note length and all other records intact.",
+      "context": "Entirely synthetic initial state in literal-sheet.json. Tools read keys, formulas, stored value types, and effective values, and update exact ranges using RAW or USER_ENTERED semantics. RAW stores a supplied string as text; USER_ENTERED interprets a leading equals sign as a formula. No edit has occurred.",
+      "expected_output": "P-2 has the stored string =1+1, its existing length formula calculates 4, and the unrelated record remains unchanged.",
+      "assertions": [
+        "Reads current keys and columns before selecting the note cell for P-2.",
+        "Uses RAW or a supported equivalent that stores the exact literal string without an extra visible apostrophe.",
+        "Independently reads the stored type and value, confirming stringValue =1+1 rather than a formula with computed value 2.",
+        "Preserves =LEN(B2) in the calculated column and verifies its result is 4.",
+        "Leaves P-1 and its =LEN(B3) formula unchanged."
+      ],
+      "forbidden": [
+        "Writing the note with formula interpretation.",
+        "Replacing the computed length formula with a literal 4.",
+        "Claiming literal preservation from display text alone.",
+        "Editing the unrelated record."
+      ],
+      "files": [
+        "evals/files/literal-sheet.json"
+      ]
     }
   ]
 }

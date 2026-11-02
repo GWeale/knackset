@@ -7,11 +7,16 @@ license: MIT
 # Compose and complete a Gmail reply
 
 Inputs: mailbox, target conversation/message, response intent and factual basis,
-recipients, attachments if any, and requested completion mode. Use an available
-Gmail integration or authorized browser. A request for a draft ends with a saved
-unsent draft; an explicitly authorized send ends with verified sending. If sending
-is not authorized by the request, default to a saved draft. Do not ask again for
-the same authorization solely because sending is a write; honor host controls.
+recipients, attachments if any, and requested completion mode. Distinguish wording
+in this conversation, a saved mailbox draft, and sending. For "write a reply here"
+or similar wording-only requests, return the text without creating or changing a
+Gmail draft. Use an available Gmail integration or authorized browser when the
+task needs mailbox state. A request to save or revise a Gmail draft ends with a
+verified unsent draft; an explicitly authorized send ends with verified sending.
+If "draft a reply" leaves the destination unclear, prepare the wording here and
+clarify only if saving is needed. Lack of send authorization is not authorization
+to save. Do not ask again for the same authorization solely because sending is a
+write; honor host controls.
 
 ## Read the current conversation
 
@@ -35,15 +40,17 @@ a matching subject; a thread ID alone does not ensure correct threading. Keep
 message IDs, email Message-ID headers, thread IDs, and draft IDs distinct.
 
 With Gmail's API a draft ID is stable while replacing its content changes the
-contained message ID. When updating a draft, preserve intended recipients,
-attachments, content type, and signature; do not overwrite a user's unrelated
+contained message ID. When updating a draft, preserve the sender identity/alias,
+intended recipients, attachments, content type, and signature; do not overwrite a user's unrelated
 draft. Recheck the latest thread before a delayed send to avoid stale commitments.
 If a newer message contradicts the requested reply, surface the conflict and
 resolve the intended content rather than silently choosing new terms.
 
 ## Save or send and verify
 
-For a draft, independently reopen/get it and verify body, recipients, thread and
+For conversation-only wording, return the prepared text with no mailbox mutation
+or claim that it was saved. For a saved draft, independently reopen/get it by its
+draft identity and verify body, sender, recipients, thread, signature and
 attachments. For an authorized send, execute it and independently inspect the
 sent message in the intended thread. Sending a Gmail draft deletes the draft and
 creates a sent message with a new ID; a missing draft alone is not proof of send.
@@ -59,3 +66,5 @@ Primary references checked 2026-11-01:
 [draft identity and sending](https://developers.google.com/workspace/gmail/api/guides/drafts),
 [reply threading](https://developers.google.com/workspace/gmail/api/guides/threads),
 [message sending](https://developers.google.com/workspace/gmail/api/guides/sending).
+
+Package status and limits: [validation and provenance](VALIDATION.md).

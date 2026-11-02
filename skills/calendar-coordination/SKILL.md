@@ -59,3 +59,5 @@ Primary references checked 2026-11-01:
 [recurring events](https://developers.google.com/workspace/calendar/api/guides/recurringevents),
 [event fields and update semantics](https://developers.google.com/workspace/calendar/api/v3/reference/events),
 [event notifications](https://developers.google.com/workspace/calendar/api/v3/reference/events/update).
+
+Package status and limits: [validation and provenance](VALIDATION.md).

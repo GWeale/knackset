@@ -56,3 +56,5 @@ forwarding, deleting, unsubscribing, or contacting a sender.
 
 Sources: [Gmail search operators](https://support.google.com/mail/answer/7190?hl=en)
 and [categories versus labels](https://support.google.com/mail/answer/3094499?hl=en).
+
+Package status and limits: [validation and provenance](VALIDATION.md).

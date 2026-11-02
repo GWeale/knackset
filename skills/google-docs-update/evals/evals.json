@@ -64,7 +64,7 @@
       "id": "google-docs-update-routing-sheet-range",
       "kind": "routing",
       "prompt": "In the supplied Google Sheet, set B2:B4 to the three supplied status values and preserve formulas in column C.",
-      "context": "Entirely synthetic routing fixture. The target is a spreadsheet cell range, not a Google Docs document. Input values and tab are specified.",
+      "context": "Entirely synthetic routing fixture. The spreadsheet, tab, range, three input values, and current formulas are available through a Sheets integration.",
       "expected_output": "Routes to a bounded Sheets update rather than a text-document editing procedure.",
       "assertions": [
         "Uses spreadsheet range and input semantics.",
@@ -75,6 +75,29 @@
         "Overwriting computed cells in column C."
       ],
       "files": []
+    },
+    {
+      "id": "google-docs-update-success-utf16-multiple-ranges",
+      "kind": "success",
+      "prompt": "In Operations in doc-unicode, change Ship Friday. to Ship next Monday. in Delivery, and Review Tuesday. to Review Thursday. in Review. Keep the rest of the document and its formatting intact.",
+      "context": "Entirely synthetic initial document in unicode-document.json. Tools read full tab text and styles and apply revision-guarded index-range replacements. The API uses UTF-16 code-unit offsets with an exclusive end; requests in one batch execute in sequence against the result of preceding requests. A readback exposes saved text, neighboring styles, and revision. No edit has occurred.",
+      "expected_output": "Both exact Operations ranges are updated and independently verified, preserving the preceding non-BMP character, adjacent text/styles, and the Summary tab.",
+      "assertions": [
+        "Obtains the current tab text and revision before calculating the two replacement ranges.",
+        "Computes UTF-16 offsets correctly across the rocket character rather than using Unicode code-point indexes.",
+        "Applies later ranges first or recalculates shifted offsets after the length-changing Delivery edit.",
+        "Saved Operations text contains the exact two requested replacements, with Launch 🚀, Owner: Ada., Keep this note., and their unmentioned formatting preserved.",
+        "Independently reads the saved Operations and Summary content; Summary retains both original sentences."
+      ],
+      "forbidden": [
+        "Applying Python-character offsets to UTF-16 API ranges.",
+        "Reusing the original later-range indexes after an earlier length-changing edit.",
+        "Global replacements across tabs.",
+        "Replacing or flattening the whole document to avoid range semantics."
+      ],
+      "files": [
+        "evals/files/unicode-document.json"
+      ]
     }
   ]
 }

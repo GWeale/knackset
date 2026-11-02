@@ -43,7 +43,7 @@
       "id": "browser-routing-public-source-synthesis",
       "kind": "routing",
       "prompt": "Using these three supplied public policy pages, compare their effective dates and explain which policy governs my region.",
-      "context": "Routing-only fixture: descriptions are discoverable and no skill is preloaded. Public source retrieval is available. The task asks for source synthesis without browser interaction, account access, or a website change.",
+      "context": "Entirely synthetic routing fixture. The three public policy pages and the user region are supplied. Public source retrieval is available.",
       "expected_output": "Route to public-web research rather than general browser execution.",
       "assertions": [
         "web-task-execution is not selected as the primary workflow.",

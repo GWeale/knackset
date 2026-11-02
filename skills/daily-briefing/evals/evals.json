@@ -46,8 +46,8 @@
     {
       "id": "daily-briefing-routing-watch-setup",
       "kind": "routing",
-      "prompt": "Set up an hourly watch of this product price for the next seven days and alert on a new low. I am not asking for a daily briefing.",
-      "context": "Entirely synthetic routing fixture. The user requests a recurring monitor with a source and duration. Scheduler availability and a live baseline still need discovery; no cross-source daily review is requested.",
+      "prompt": "Set up an hourly watch of this product price for the next seven days and alert me here on a new low.",
+      "context": "Entirely synthetic routing fixture. The product URL, variant, delivery location, currency, and notification destination are supplied. The host exposes discoverable source and scheduler operations.",
       "expected_output": "Routes to recurring-monitor or equivalent watch setup rather than generating a daily digest.",
       "assertions": [
         "Identifies the requested outcome as a persistent bounded watch.",

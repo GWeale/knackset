@@ -1,0 +1,40 @@
+{
+  "synthetic": true,
+  "spreadsheet": "sheet-literals",
+  "tab": "Items",
+  "headers": [
+    "item_id",
+    "note",
+    "note_length"
+  ],
+  "rows": [
+    {
+      "row": 2,
+      "item_id": "P-2",
+      "note": {
+        "user_entered_value": {
+          "stringValue": "pending"
+        },
+        "effective_value": "pending"
+      },
+      "note_length": {
+        "formula": "=LEN(B2)",
+        "effective_value": 7
+      }
+    },
+    {
+      "row": 3,
+      "item_id": "P-1",
+      "note": {
+        "user_entered_value": {
+          "stringValue": "unchanged"
+        },
+        "effective_value": "unchanged"
+      },
+      "note_length": {
+        "formula": "=LEN(B3)",
+        "effective_value": 9
+      }
+    }
+  ]
+}

@@ -56,3 +56,5 @@ Primary references checked 2026-11-01:
 [documented reproduction workflow](https://docs.x.ai/grok-bot/use-cases#bug-reproduction),
 [testing public behavior and isolation](https://playwright.dev/docs/best-practices),
 [optional trace inspection](https://playwright.dev/docs/trace-viewer).
+
+Package status and limits: [validation and provenance](VALIDATION.md).

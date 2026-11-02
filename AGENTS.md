@@ -17,6 +17,12 @@ only when the user explicitly requests that action.
 - `skills/<name>/evals/evals.json` is the canonical synthetic case set, with success,
   boundary, and routing cases. `evals/archive/` is historical and excluded from coverage.
 - `evals/sandbox.py` executes stateful offline fixtures, not real service/browser calls.
+- Bind evaluation runs at init with `--variant with-skill --skill-package PATH`;
+  `scripts/export_eval.py` captures evidence after an explicit final-response review.
+- `scripts/routing_eval.py prepare` supplies names/descriptions and anonymous tasks;
+  keep skill bodies and judge expectations out of the selection agent's context.
+- Each package links `VALIDATION.md`; catalog `validation_note` keeps its stated
+  status consistent with the catalog. Package notes are part of the fingerprint.
 - `python3 evals/sandbox.py list` lists runnable cases with their skill and authored
   scenario IDs. New cases need success and consequential-failure CLI checks;
   grading must inspect actual saved state and the relevant read/write order.

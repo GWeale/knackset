@@ -42,8 +42,8 @@
     {
       "id": "gmail-triage-routing-draft-reply",
       "kind": "routing",
-      "prompt": "Draft a reply to the supplied thread accepting Tuesday. Leave it as a draft and do not send.",
-      "context": "Routing-only fixture: the requested outcome is a composed reply draft, not inbox summary, labeling, or archiving. The library may offer a specific draft-reply workflow.",
+      "prompt": "Save a reply draft in the supplied Gmail thread accepting Tuesday.",
+      "context": "Entirely synthetic routing fixture. The thread, sender identity, and Tuesday appointment details are supplied. A mail integration can read the thread and create and retrieve drafts.",
       "expected_output": "Route to draft composition rather than triage/organization.",
       "assertions": [
         "gmail-triage is not selected as the primary workflow.",

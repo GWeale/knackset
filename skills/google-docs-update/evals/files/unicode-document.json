@@ -1,0 +1,24 @@
+{
+  "synthetic": true,
+  "document_id": "doc-unicode",
+  "revision": "rev-7",
+  "index_unit": "UTF-16 code units",
+  "range_end": "exclusive",
+  "tabs": {
+    "tab-ops": {
+      "name": "Operations",
+      "start_index": 1,
+      "text": "Launch 🚀\nDelivery: Ship Friday.\nOwner: Ada.\nReview: Review Tuesday.\nKeep this note.\n",
+      "protected_neighbor": {
+        "text": "Owner: Ada.",
+        "bold": true,
+        "link": "https://example.invalid/owner"
+      }
+    },
+    "tab-summary": {
+      "name": "Summary",
+      "start_index": 1,
+      "text": "Ship Friday.\nReview Tuesday.\n"
+    }
+  }
+}

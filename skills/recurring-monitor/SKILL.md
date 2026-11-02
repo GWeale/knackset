@@ -47,9 +47,17 @@ decision to notify; retry a timed-out send only after reconciling its delivery.
 
 ## Schedule when requested
 
-For setup that includes an immediate check, establish a valid observation before
-creating the job. For schedule-only or deferred-start requests, let the first
-scheduled run establish it and apply the agreed first-match alert rule. Discover
+For setup that includes an immediate check, attempt to establish a valid baseline.
+A temporary fetch timeout or service-unavailable response need not block a fully
+specified, authorized watch: when source/item identity and scope are established
+and the scheduled tool can retry, record the failed attempt and a pending baseline,
+then configure the requested schedule. Use a bounded read retry when useful; do
+not invent a price or treat missing data as a nonmatching observation. An unknown
+source, unresolved scope, or missing account access is a setup blocker, not this
+transient-failure exception. Report the specific gap and any unfinished setup.
+For schedule-only, deferred-start, or transiently failed initial checks, let the
+first successful scheduled read establish the baseline and apply the agreed
+first-match alert rule. Discover
 the scheduler's create/list/update operations, lifetime, time zone, and missed-run
 behavior. Check for the same watch before creating another job. Configure only
 the requested schedule and task; creating a job is not evidence its first run ran.
@@ -66,3 +74,5 @@ background execution is not configured.
 Primary references checked 2026-11-01:
 [Grok skills and routine contracts](https://docs.x.ai/grok-bot/skills-routines-and-automations),
 [Muse background work and notification design](https://introducing.muse.ai/).
+
+Package status and limits: [validation and provenance](VALIDATION.md).

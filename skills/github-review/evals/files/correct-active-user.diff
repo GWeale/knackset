@@ -1,0 +1,30 @@
+diff --git a/users.py b/users.py
+index 3333333..4444444 100644
+--- a/users.py
++++ b/users.py
+@@ -1,3 +1,3 @@
+ def eligible_users(users):
+     """Return original records whose active field is exactly True."""
+-    return [user for user in users if user["active"] is True]
++    return [user for user in users if user.get("active") is True]
+diff --git a/test_users.py b/test_users.py
+new file mode 100644
+index 0000000..5555555
+--- /dev/null
++++ b/test_users.py
+@@ -0,0 +1,15 @@
++from users import eligible_users
++
++def test_eligibility():
++    active = {"active": True, "email": "a@example.invalid"}
++    other = {"active": True, "email": "b@example.invalid"}
++    records = [{}, {"active": False}, {"active": None}, {"active": 0},
++               {"active": 1}, {"active": "true"}, active, other, active]
++    result = eligible_users(records)
++    assert len(result) == 3
++    assert result[0] is active
++    assert result[1] is other
++    assert result[2] is active
++
++def test_empty_input():
++    assert eligible_users([]) == []

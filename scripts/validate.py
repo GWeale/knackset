@@ -15,6 +15,7 @@ import json
 import os
 from pathlib import Path
 import re
+import stat
 import sys
 import unicodedata
 from urllib.parse import unquote, urlsplit
@@ -30,6 +31,8 @@ IGNORED = {".git", ".local"}
 BASIS = {"authored", "research-derived", "session-derived"}
 STATUS = {"draft", "offline-reviewed", "live-tested"}
 EVAL_KINDS = {"success", "boundary", "routing"}
+FINGERPRINT_ALGORITHM = "sha256-length-prefixed-v2"
+LEGACY_FINGERPRINT_ALGORITHM = "sha256-nul-delimited-v1"
 
 
 def unique_object(pairs: list[tuple[str, object]]) -> dict:
@@ -45,18 +48,44 @@ def reject_constant(_value: str) -> None:
     raise ValueError("nonstandard JSON constant")
 
 
+def package_files(path: Path) -> list[Path]:
+    """List regular files only after rejecting every symlink and special resource."""
+    absolute = Path(os.path.abspath(path))
+    if any(item.is_symlink() for item in (absolute, *absolute.parents)):
+        raise ValueError("package path must not contain symlinks")
+    if not stat.S_ISDIR(path.lstat().st_mode):
+        raise ValueError("skill folder must be a regular directory")
+    directories = [path]
+    files = []
+    while directories:
+        for resource in directories.pop().iterdir():
+            mode = resource.lstat().st_mode
+            relative = resource.relative_to(path).as_posix()
+            if stat.S_ISLNK(mode):
+                raise ValueError(f"package resource must not be a symlink: {relative!r}")
+            if stat.S_ISDIR(mode):
+                directories.append(resource)
+            elif stat.S_ISREG(mode):
+                files.append(resource)
+            else:
+                raise ValueError(f"package resources must be regular files and directories: {relative!r}")
+    return sorted(files, key=lambda item: item.relative_to(path).as_posix())
+
+
 def package_fingerprint(path: Path) -> str:
-    """Hash sorted regular package files, excluding Python bytecode caches."""
-    digest = hashlib.sha256()
-    for file in sorted(path.rglob("*"), key=lambda item: item.relative_to(path).as_posix()):
+    """Hash length-prefixed path/content pairs with a versioned domain prefix.
+
+    All resources are checked before reading; regular Python bytecode caches are
+    then excluded. Lengths are unsigned 64-bit big-endian byte counts.
+    """
+    digest = hashlib.sha256(b"knackset-package\0" + FINGERPRINT_ALGORITHM.encode("ascii") + b"\0")
+    for file in package_files(path):
         relative = file.relative_to(path)
         if "__pycache__" in relative.parts or file.suffix in {".pyc", ".pyo"}:
             continue
-        if file.is_symlink():
-            raise ValueError("package fingerprints do not support symlinks")
-        if file.is_file():
-            digest.update(relative.as_posix().encode("utf-8") + b"\0")
-            digest.update(file.read_bytes() + b"\0")
+        for value in (relative.as_posix().encode("utf-8"), file.read_bytes()):
+            digest.update(len(value).to_bytes(8, "big"))
+            digest.update(value)
     return digest.hexdigest()
 
 
@@ -225,8 +254,10 @@ class Validator:
                 self.local_target(source, target, boundary, line)
 
     def skill(self, path: Path, *, required: bool = False, seen_ids: set[str] | None = None) -> int:
-        if not path.is_dir():
-            self.error(path, "skill folder does not exist")
+        try:
+            package_files(path)
+        except (OSError, ValueError) as exc:
+            self.error(path, f"cannot validate package resources: {exc}")
             return 0
         self.frontmatter(path)
         for markdown in markdown_files(path):
@@ -285,6 +316,19 @@ class Validator:
             status = entry.get("status")
             if not isinstance(status, str) or status not in STATUS:
                 self.error(path, f"{label}.status must be one of {sorted(STATUS)}")
+            note = entry.get("validation_note")
+            if note is not None and name in skills:
+                if note != "VALIDATION.md":
+                    self.error(path, f"{label}.validation_note must name VALIDATION.md inside its package")
+                else:
+                    note_path = skills[name] / note
+                    if note_path.is_symlink() or not note_path.is_file() or not note_path.resolve().is_relative_to(skills[name].resolve()):
+                        self.error(note_path, "portable validation note must be a regular package file")
+                        content = None
+                    else:
+                        content = self.read_text(note_path)
+                    if content is not None and re.findall(r"^Status: \*\*([^*]+)\*\*", content, re.MULTILINE) != [status]:
+                        self.error(note_path, "portable validation status must match the catalog")
             live = entry.get("live_validation")
             if not isinstance(live, bool):
                 self.error(path, f"{label}.live_validation must be a boolean")
@@ -332,8 +376,8 @@ class Validator:
         except ValueError:
             self.error(path, "execution date must be a valid YYYY-MM-DD date")
         expected_mode = "live" if status == "live-tested" else "sandbox"
-        if data.get("mode") != expected_mode:
-            self.error(path, f"execution mode must be {expected_mode!r} for {status}")
+        if data.get("mode") not in ("live", "sandbox"):
+            self.error(path, "execution mode must be 'live' or 'sandbox'")
         if not isinstance(data.get("runtime"), str) or not data["runtime"].strip():
             self.error(path, "execution runtime must be a nonempty string")
         limitations = data.get("limitations")
@@ -371,6 +415,11 @@ class Validator:
                 self.error(path, f"{label}.package_sha256 must be a lowercase SHA-256 digest")
             elif variant == "baseline" and sha is not None:
                 self.error(path, f"{label}.package_sha256 must be null for a baseline")
+            algorithm = run.get("package_fingerprint_algorithm", LEGACY_FINGERPRINT_ALGORITHM)
+            if variant == "with-skill" and algorithm not in (FINGERPRINT_ALGORITHM, LEGACY_FINGERPRINT_ALGORITHM):
+                self.error(path, f"{label}.package_fingerprint_algorithm must name a supported fingerprint algorithm")
+            elif variant == "baseline" and run.get("package_fingerprint_algorithm") is not None:
+                self.error(path, f"{label}.package_fingerprint_algorithm must be null for a baseline")
             if not isinstance(run.get("passed"), bool):
                 self.error(path, f"{label}.passed must be a boolean")
             assertions = run.get("assertions")
@@ -389,15 +438,13 @@ class Validator:
                 self.error(path, f"{label}.trace must contain operations and argument objects")
             if not isinstance(run.get("final_state"), dict):
                 self.error(path, f"{label}.final_state must be an object")
-            if run.get("skill") == name and variant == "with-skill" and run.get("passed") is True:
-                if not isinstance(run.get("scenario"), str) or run["scenario"] not in scenario_ids:
-                    self.error(path, f"{label}.scenario must name a current package evaluation")
-                elif sha != fingerprint:
-                    self.error(path, f"{label}.package_sha256 does not match the current package")
-                elif valid_assertions and all(assertions.values()):
-                    matching = True
-        if not matching:
-            self.error(path, f"no successful with-skill run with all assertions true matches {name!r}")
+            # Historical successes remain valid records. Only an explicit current
+            # algorithm, package and scenario can establish promotion eligibility.
+            if (run.get("skill") == name and variant == "with-skill" and run.get("passed") is True
+                    and data.get("mode") == expected_mode and algorithm == FINGERPRINT_ALGORITHM
+                    and sha == fingerprint and isinstance(run.get("scenario"), str)
+                    and run["scenario"] in scenario_ids and valid_assertions and all(assertions.values())):
+                matching = True
         return matching and len(self.errors) == previous_errors
 
     def evaluations(self, skill: Path, *, required: bool, seen_ids: set[str] | None = None) -> int:
@@ -474,10 +521,12 @@ class Validator:
             self.error(skills_root, "skills directory does not exist")
         else:
             for path in sorted(skills_root.iterdir()):
-                if not path.is_dir() or path.name in IGNORED:
+                if path.name in IGNORED:
                     continue
-                if not path.resolve().is_relative_to(self.root):
-                    self.error(path, "skill folder symlink escapes repository boundary")
+                if path.is_symlink():
+                    self.error(path, "skill folder must not be a symlink")
+                    continue
+                if not path.is_dir():
                     continue
                 skills[path.name] = path
                 evaluations += self.skill(path, required=True, seen_ids=seen_ids)
@@ -519,7 +568,33 @@ def markdown_links(content: str):
             continue
         lines.append(original)
     text = "\n".join(lines)
-    text = re.sub(r"(`+).*?\1", lambda match: "\n" * match.group().count("\n"), text, flags=re.DOTALL)
+    # Code spans can wrap within a paragraph, but cannot span blank block
+    # boundaries. Delimiters must be entire backtick runs of equal length.
+    # Headings, lists and block quotes can interrupt a paragraph without a
+    # blank line. Do not let a delimiter in the preceding block consume them.
+    blocks, paragraph = [], []
+    def flush() -> None:
+        if paragraph:
+            blocks.append(strip_inline_code("".join(paragraph)))
+            paragraph.clear()
+    quote_depth = 0
+    for line in text.splitlines(keepends=True):
+        quote = re.match(r"^(?: {0,3}>[ \t]?)+", line)
+        depth = quote.group().count(">") if quote else 0
+        content = line[quote.end():] if quote else line
+        interrupt = re.match(r"^ {0,3}(?:#{1,6}(?:[ \t]|$)|(?:[-+*]|[0-9]{1,9}[.)])[ \t])", content)
+        standalone = re.match(r"^ {0,3}(?:#{1,6}(?:[ \t]|$)|(?:=+|-+)[ \t]*$|(?:\*[ \t]*){3,}$|(?:_[ \t]*){3,}$)", content)
+        # A plain line can lazily continue an open blockquote paragraph.
+        if not depth and quote_depth and paragraph and content.strip() and not (interrupt or standalone):
+            depth = quote_depth
+        if depth != quote_depth or not content.strip() or interrupt or standalone:
+            flush()
+        paragraph.append(line)
+        if not content.strip() or standalone:
+            flush()
+        quote_depth = depth
+    flush()
+    text = "".join(blocks)
     starts = [match.end() for match in re.finditer(r"^ {0,3}\[[^\]\n]+\]:\s*", text, re.MULTILINE)]
     starts.extend(match.end() for match in re.finditer(r"\]\(\s*", text))
     for start in sorted(starts):
@@ -555,16 +630,45 @@ def markdown_links(content: str):
             yield number, "".join(destination)
 
 
+def strip_inline_code(text: str) -> str:
+    delimiters = list(re.finditer(r"`+", text))
+    next_run: dict[int, int] = {}
+    closing: dict[int, int] = {}
+    for index in range(len(delimiters) - 1, -1, -1):
+        length = len(delimiters[index].group())
+        if length in next_run:
+            closing[index] = next_run[length]
+        next_run[length] = index
+    pieces = []
+    position = index = 0
+    while index < len(delimiters):
+        opener = delimiters[index]
+        # A backslash escape prevents an opener, but backslashes inside code do
+        # not prevent its closing delimiter.
+        before = text[:opener.start()]
+        escaped = (len(before) - len(before.rstrip("\\"))) % 2
+        if escaped or index not in closing:
+            index += 1
+            continue
+        end = delimiters[closing[index]].end()
+        pieces.append(text[position:opener.start()])
+        pieces.append(re.sub(r"[^\n]", " ", text[opener.start():end]))
+        position = end
+        index = closing[index] + 1
+    pieces.append(text[position:])
+    return "".join(pieces)
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--skill", type=Path, help="validate one skill without the repository catalog")
     args = parser.parse_args(argv)
     try:
-        root = args.skill.resolve() if args.skill else Path(__file__).resolve().parent.parent
+        root = Path(os.path.abspath(args.skill)) if args.skill else Path(__file__).resolve().parent.parent
         validator = Validator(root)
         if args.skill:
             repository_root = Path(__file__).resolve().parent.parent
-            required = root.parent == (repository_root / "skills").resolve()
+            required = root.parent.resolve() == (repository_root / "skills").resolve()
             validator.skill(root, required=required)
             summary = f"skill {root.name}"
         else:

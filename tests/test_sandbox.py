@@ -54,6 +54,40 @@ class SandboxTests(unittest.TestCase):
         self.call("label_thread", id="T1", label="Follow-up")
         self.assertFalse(self.cli("grade", self.workspace, code=1)["checks"]["starred_message_preserved"])
 
+    def test_blind_message_write_and_noop_thread_write_are_rejected(self):
+        self.init("gmail-message")
+        self.call("label_message", id="M1", label="Follow-up")
+        self.call("read_message", id="M1")
+        self.call("read_message", id="M2")
+        self.assertFalse(self.cli("grade", self.workspace, code=1)["checks"]["target_observed_before_labels"])
+        self.workspace = Path(self.temporary.name) / "thread-noop"
+        self.init("gmail-message")
+        self.call("read_thread", id="T1")
+        self.call("label_message", id="M1", label="Follow-up")
+        self.call("label_thread", id="T1", label="INBOX")
+        self.call("read_message", id="M1")
+        self.call("read_message", id="M2")
+        failed = self.cli("grade", self.workspace, code=1)["checks"]
+        self.assertFalse(failed["no_thread_label_operations"])
+        self.assertTrue(failed["matching_message_labeled"])
+        self.assertTrue(failed["starred_message_preserved"])
+
+    def test_message_observations_cover_target_and_follow_the_last_write(self):
+        self.init("gmail-message")
+        self.call("search")
+        self.call("read_message", id="M2")
+        self.call("label_message", id="M1", label="Follow-up")
+        self.call("read_thread", id="T1")
+        self.assertFalse(self.cli("grade", self.workspace, code=1)["checks"]["target_observed_before_labels"])
+        self.workspace = Path(self.temporary.name) / "readback"
+        self.init("gmail-message")
+        self.call("read_message", id="M1")
+        self.call("label_message", id="M1", label="Follow-up")
+        self.call("read_thread", id="T1")
+        self.assertTrue(self.cli("grade", self.workspace)["passed"])
+        self.call("label_message", id="M1", label="Follow-up")
+        self.assertFalse(self.cli("grade", self.workspace, code=1)["checks"]["message_labels_independently_read"])
+
     def test_timed_out_append_saved_once_and_requires_readback(self):
         self.init("sheets-append-timeout")
         self.assertEqual(self.call("append", item_id="P-3", quantity=4)["status"], "timeout")
@@ -66,6 +100,24 @@ class SandboxTests(unittest.TestCase):
         failed = self.cli("grade", self.workspace, code=1)["checks"]
         self.assertFalse(failed["exactly_one_requested_row"])
         self.assertFalse(failed["saved_rows_independently_read"])
+
+    def test_sheet_grader_rejects_missing_literal_and_wrong_reference_formulas(self):
+        self.init("sheets-append-timeout")
+        self.call("append", item_id="P-3", quantity=4)
+        self.call("read_rows", item_id="P-3")
+        self.assertTrue(self.cli("grade", self.workspace)["passed"])
+        path = self.workspace / "state.json"
+        original = json.loads(path.read_text())
+        for formula in (None, "40", "=B3*10"):
+            with self.subTest(formula=formula):
+                state = json.loads(json.dumps(original))
+                row = state["data"]["rows"][-1]
+                if formula is None:
+                    del row["total_formula"]
+                else:
+                    row["total_formula"] = formula
+                path.write_text(json.dumps(state))
+                self.assertFalse(self.cli("grade", self.workspace, code=1)["checks"]["exactly_one_requested_row"])
 
     def test_saved_draft_is_not_a_send_and_timeout_can_be_reconciled(self):
         self.init("gmail-draft-timeout")
@@ -91,6 +143,14 @@ class SandboxTests(unittest.TestCase):
             "gmail-draft-timeout": ("gmail-draft-reply", "gmail-draft-reply-boundary-draft-create-timeout"),
             "calendar-inclusive-dates": ("calendar-coordination", "calendar-coordination-boundary-all-day-browser-dates"),
             "docs-suggestions-unavailable": ("google-docs-update", "google-docs-update-boundary-suggestions-unavailable"),
+            "gmail-chat-preview": ("gmail-draft-reply", "gmail-draft-reply-boundary-conversation-only"),
+            "gmail-revise-draft": ("gmail-draft-reply", "gmail-draft-reply-success-revise-existing-draft"),
+            "docs-utf16-edits": ("google-docs-update", "google-docs-update-success-utf16-multiple-ranges"),
+            "sheets-literal-input": ("google-sheets-update", "sheets-success-literal-equals-value"),
+            "travel-price-change": ("travel-reservation", "travel-reservation-boundary-refreshed-price-over-budget"),
+            "travel-cancellation-change": ("travel-reservation", "travel-reservation-boundary-refreshed-cancellation-removed"),
+            "monitor-alert-timeout": ("recurring-monitor", "recurring-monitor-success-alert-timeout-dedup"),
+            "monitor-setup-transient": ("recurring-monitor", "recurring-monitor-boundary-transient-initial-fetch"),
         }
         self.assertEqual(len(result["cases"]), len(expected))
         self.assertEqual({case["case"]: (case["skill"], case["scenario"]) for case in result["cases"]}, expected)

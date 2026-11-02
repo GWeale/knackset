@@ -63,3 +63,5 @@ Primary references checked 2026-11-01:
 [documented chief-of-staff workflow](https://docs.x.ai/grok-bot/use-cases#chief-of-staff),
 [calendar time and date semantics](https://developers.google.com/workspace/calendar/api/concepts/events-calendars),
 [source-backed background summaries](https://introducing.muse.ai/).
+
+Package status and limits: [validation and provenance](VALIDATION.md).

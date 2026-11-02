@@ -1,0 +1,85 @@
+{
+  "browser-bug-reproduction-routing-pr-review": {
+    "accepted": [
+      "github-review"
+    ]
+  },
+  "calendar-coordination-routing-inbox-labels": {
+    "accepted": [
+      "gmail-triage"
+    ]
+  },
+  "daily-briefing-routing-watch-setup": {
+    "accepted": [
+      "recurring-monitor"
+    ]
+  },
+  "expense-reconciliation-routing-cell-edit": {
+    "accepted": [
+      "google-sheets-update"
+    ]
+  },
+  "github-routing-authorized-merge": {
+    "accepted": [
+      null
+    ]
+  },
+  "gmail-draft-reply-routing-inbox-triage": {
+    "accepted": [
+      "gmail-triage"
+    ]
+  },
+  "gmail-triage-routing-draft-reply": {
+    "accepted": [
+      "gmail-draft-reply"
+    ]
+  },
+  "google-docs-update-routing-sheet-range": {
+    "accepted": [
+      "google-sheets-update"
+    ]
+  },
+  "sheets-routing-local-workbook": {
+    "accepted": [
+      null
+    ]
+  },
+  "shortlist-routing-selected-item-checkout": {
+    "accepted": [
+      null,
+      "web-task-execution"
+    ]
+  },
+  "recurring-monitor-routing-one-time-price": {
+    "accepted": [
+      "product-shortlist",
+      "web-research"
+    ]
+  },
+  "capture-routing-use-existing-skill": {
+    "accepted": [
+      "web-form-update"
+    ]
+  },
+  "travel-reservation-routing-hotel-research": {
+    "accepted": [
+      "product-shortlist",
+      "web-research"
+    ]
+  },
+  "form-routing-component-implementation": {
+    "accepted": [
+      null
+    ]
+  },
+  "research-routing-gmail-summary": {
+    "accepted": [
+      "gmail-triage"
+    ]
+  },
+  "browser-routing-public-source-synthesis": {
+    "accepted": [
+      "web-research"
+    ]
+  }
+}

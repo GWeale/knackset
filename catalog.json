@@ -10,7 +10,8 @@
       ],
       "status": "offline-reviewed",
       "evidence": [
-        "evals/results/preview-2026-11-01.json"
+        "evals/results/preview-2026-11-01.json",
+        "evals/results/audit-fixes-2026-11-01.json"
       ],
       "live_validation": false,
       "category": "browser",
@@ -18,7 +19,8 @@
         "forms",
         "autosave",
         "profiles"
-      ]
+      ],
+      "validation_note": "VALIDATION.md"
     },
     {
       "name": "web-task-execution",
@@ -36,7 +38,8 @@
         "browser",
         "recovery",
         "accounts"
-      ]
+      ],
+      "validation_note": "VALIDATION.md"
     },
     {
       "name": "browser-bug-reproduction",
@@ -53,7 +56,8 @@
         "browser",
         "bugs",
         "reproduction"
-      ]
+      ],
+      "validation_note": "VALIDATION.md"
     },
     {
       "name": "github-review",
@@ -70,7 +74,8 @@
         "github",
         "pull-request",
         "review"
-      ]
+      ],
+      "validation_note": "VALIDATION.md"
     },
     {
       "name": "session-to-skill",
@@ -87,7 +92,8 @@
         "skills",
         "learning",
         "lessons"
-      ]
+      ],
+      "validation_note": "VALIDATION.md"
     },
     {
       "name": "travel-reservation",
@@ -96,15 +102,18 @@
         "research-derived",
         "authored"
       ],
-      "status": "draft",
-      "evidence": [],
+      "status": "offline-reviewed",
+      "evidence": [
+        "evals/results/audit-fixes-2026-11-01.json"
+      ],
       "live_validation": false,
       "category": "personal",
       "tags": [
         "travel",
         "reservations",
         "booking"
-      ]
+      ],
+      "validation_note": "VALIDATION.md"
     },
     {
       "name": "calendar-coordination",
@@ -115,7 +124,8 @@
       ],
       "status": "offline-reviewed",
       "evidence": [
-        "evals/results/boundaries-2026-11-01.json"
+        "evals/results/boundaries-2026-11-01.json",
+        "evals/results/audit-fixes-2026-11-01.json"
       ],
       "live_validation": false,
       "category": "productivity",
@@ -123,7 +133,8 @@
         "calendar",
         "scheduling",
         "timezones"
-      ]
+      ],
+      "validation_note": "VALIDATION.md"
     },
     {
       "name": "daily-briefing",
@@ -140,7 +151,8 @@
         "briefing",
         "priorities",
         "digest"
-      ]
+      ],
+      "validation_note": "VALIDATION.md"
     },
     {
       "name": "expense-reconciliation",
@@ -157,7 +169,8 @@
         "expenses",
         "receipts",
         "reconciliation"
-      ]
+      ],
+      "validation_note": "VALIDATION.md"
     },
     {
       "name": "gmail-draft-reply",
@@ -168,7 +181,8 @@
       ],
       "status": "offline-reviewed",
       "evidence": [
-        "evals/results/preview-2026-11-01.json"
+        "evals/results/preview-2026-11-01.json",
+        "evals/results/audit-fixes-2026-11-01.json"
       ],
       "live_validation": false,
       "category": "productivity",
@@ -176,7 +190,8 @@
         "gmail",
         "email",
         "drafts"
-      ]
+      ],
+      "validation_note": "VALIDATION.md"
     },
     {
       "name": "gmail-triage",
@@ -187,7 +202,8 @@
       ],
       "status": "offline-reviewed",
       "evidence": [
-        "evals/results/preview-2026-11-01.json"
+        "evals/results/preview-2026-11-01.json",
+        "evals/results/audit-fixes-2026-11-01.json"
       ],
       "live_validation": false,
       "category": "productivity",
@@ -195,7 +211,8 @@
         "gmail",
         "email",
         "labels"
-      ]
+      ],
+      "validation_note": "VALIDATION.md"
     },
     {
       "name": "google-docs-update",
@@ -206,7 +223,8 @@
       ],
       "status": "offline-reviewed",
       "evidence": [
-        "evals/results/boundaries-2026-11-01.json"
+        "evals/results/boundaries-2026-11-01.json",
+        "evals/results/audit-fixes-2026-11-01.json"
       ],
       "live_validation": false,
       "category": "productivity",
@@ -214,7 +232,8 @@
         "docs",
         "documents",
         "editing"
-      ]
+      ],
+      "validation_note": "VALIDATION.md"
     },
     {
       "name": "google-sheets-update",
@@ -225,7 +244,8 @@
       ],
       "status": "offline-reviewed",
       "evidence": [
-        "evals/results/preview-2026-11-01.json"
+        "evals/results/preview-2026-11-01.json",
+        "evals/results/audit-fixes-2026-11-01.json"
       ],
       "live_validation": false,
       "category": "productivity",
@@ -233,7 +253,8 @@
         "sheets",
         "spreadsheet",
         "rows"
-      ]
+      ],
+      "validation_note": "VALIDATION.md"
     },
     {
       "name": "product-shortlist",
@@ -249,7 +270,8 @@
         "shopping",
         "offers",
         "pricing"
-      ]
+      ],
+      "validation_note": "VALIDATION.md"
     },
     {
       "name": "recurring-monitor",
@@ -258,15 +280,18 @@
         "research-derived",
         "authored"
       ],
-      "status": "draft",
-      "evidence": [],
+      "status": "offline-reviewed",
+      "evidence": [
+        "evals/results/audit-fixes-2026-11-01.json"
+      ],
       "live_validation": false,
       "category": "research",
       "tags": [
         "monitoring",
         "changes",
         "alerts"
-      ]
+      ],
+      "validation_note": "VALIDATION.md"
     },
     {
       "name": "web-research",
@@ -282,7 +307,8 @@
         "research",
         "sources",
         "evidence"
-      ]
+      ],
+      "validation_note": "VALIDATION.md"
     }
   ]
 }

@@ -78,4 +78,13 @@ made two of those cases executable. The initial Calendar run saved the requested
 dates but skipped the pre-save field check. That observation led to a narrow
 instruction change: inspect date-field meanings before saving instead of inferring
 them from tool argument names. The original result and a fresh passing run are
-both retained. Scheduling remains an authored case without an executed record.
+both retained. Scheduling at that point remained an authored case without an executed record.
+
+## Audit follow-up
+
+The [20-item resolution](audit-resolution.md) records the next review and fixes.
+The library now has 61 authored cases and 14 runnable synthetic challenges.
+Current scoped execution evidence covers eight packages. Description-only routing,
+a correct-PR decision review, and installed-host discovery are measured separately.
+Portable validation notes and versioned fingerprints keep those limits attached
+to distributed packages. No live-service or performance-gain claim was added.

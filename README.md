@@ -46,19 +46,29 @@ monitoring, reservations, briefings, PR review, and capturing a session as a ski
 
 ## Install one skill
 
-Your host agent needs file-based skill support and the relevant browser or
-service tools. Each folder is a self-contained [Agent Skills package](https://agentskills.io/specification).
+Choose the host and the project where you want to use the skill. **Leave the
+Knackset checkout before installing into another project.** Your host also needs
+the relevant browser or service tools; installing instructions does not connect
+an account.
 
-With the optional third-party [Skills CLI](https://github.com/vercel-labs/skills)
-(Node.js 22.20+):
+For **Codex, project scope**, follow the [revision-pinned local copy recipe](docs/installation.md#copy-a-pinned-revision-into-a-codex-project).
+It uses Git and Python 3.10+, preserves the entire package, and installs to
+`YOUR_PROJECT/.agents/skills/google-sheets-update/`.
+
+If you already use Node.js 22.20+, the optional third-party
+[Skills CLI 1.7.4](https://github.com/vercel-labs/skills/blob/v1.7.4/README.md)
+can install to that project:
 
 ```bash
-npx skills@1.7.4 add GWeale/knackset --skill google-sheets-update
+cd /absolute/path/to/your-target-project
+npx skills@1.7.4 add GWeale/knackset --skill google-sheets-update --agent codex --copy
 ```
 
-Or copy the entire `skills/google-sheets-update/` folder into your host's supported
-skills directory. The CLI command pins the installer, not repository contents;
-installation in host agents and live integrations have not been tested here.
+Review the displayed destination before confirming. This selects Codex and uses
+the CLI's default project scope; `--global` would change the scope. The command
+pins the installer but follows repository contents. Use the local copy recipe
+for repeatable contents. See [installation and activation checks](docs/installation.md)
+for exact scopes, limits, and evidence.
 
 Before the first edit, ask your agent to confirm it can load the skill and name
 the connected account and tools it will use. Then give it a specific task:
@@ -68,11 +78,12 @@ the connected account and tools it will use. Then give it a specific task:
 
 ## Evidence
 
-Six workflows have [offline execution records](evals/results/README.md), including
-a Calendar run that missed a pre-save check and a fresh run after the instruction
-was clarified. Baselines also passed, so these small trials do not establish a
-performance gain or compatibility with live services. Every package includes
+Eight workflows have [current offline records](evals/results/README.md) covering
+14 synthetic challenges. Earlier records retain a failed Calendar check, its
+successful retest, and baseline comparisons. These small trials do not establish
+a performance gain or compatibility with live services. Every package includes
 written success, boundary, and routing cases; only the recorded cases have been run.
+See the [20-item audit follow-up](docs/audit-resolution.md) for the latest fixes.
 
 ## Bring one failure your agent should recover from
 

@@ -52,3 +52,5 @@ draft exists; do not imply that a live record was saved.
 This workflow follows [user-visible automation and resilient targeting principles](https://playwright.dev/docs/best-practices).
 It intentionally discovers the site's current form rather than prescribing a
 fixed selector or click path.
+
+Package status and limits: [validation and provenance](VALIDATION.md).

@@ -42,8 +42,8 @@
     {
       "id": "research-routing-gmail-summary",
       "kind": "routing",
-      "prompt": "Summarize the action items in my Gmail inbox from the past week; leave the messages unchanged.",
-      "context": "Routing-only fixture: the requested material is private mailbox content, not public websites. A task-scoped mail route may be discovered through the host.",
+      "prompt": "Summarize the action items in my Gmail inbox from the past week.",
+      "context": "Entirely synthetic routing fixture. The requested mailbox and seven-day search are identified. A task-scoped mail integration is available.",
       "expected_output": "Route to Gmail triage/account access rather than public-web research.",
       "assertions": [
         "web-research is not selected as the primary workflow.",

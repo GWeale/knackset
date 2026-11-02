@@ -52,3 +52,5 @@ a timeout, inspect existing reviews/comments before retrying to avoid duplicates
 Source: [GitHub's PR review procedure](https://docs.github.com/en/pull-requests/how-tos/review-pull-requests/reviewing-proposed-changes-in-a-pull-request).
 Comparison and coverage: [PR diff semantics](https://docs.github.com/en/pull-requests/reference/branches)
 and [paginated changed files](https://docs.github.com/en/rest/pulls/pulls#list-pull-requests-files).
+
+Package status and limits: [validation and provenance](VALIDATION.md).

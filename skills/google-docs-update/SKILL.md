@@ -61,3 +61,5 @@ Primary references checked 2026-11-01:
 [tabs and revision controls](https://developers.google.com/workspace/docs/api/how-tos/best-practices),
 [text indexes and edit order](https://developers.google.com/workspace/docs/api/how-tos/move-text),
 [batch requests](https://developers.google.com/workspace/docs/api/how-tos/batch).
+
+Package status and limits: [validation and provenance](VALIDATION.md).

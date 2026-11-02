@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "mode": "decision-review",
+  "runtime": "Codex CLI 0.166.0 native fresh-context subagent; gpt-6-astra, ultra",
+  "binding": {
+    "skill": "github-review",
+    "scenario": "github-review-success-no-findings",
+    "package_sha256": "191e01bc9b8076d06813c02233569cd7e4915594d7d21de4332c734d99007e66",
+    "package_fingerprint_algorithm": "sha256-length-prefixed-v2",
+    "input_sha256": "3ae7dda690210b805256e77e47dbb69a86d6f515603d6f6745f5137b32cc1813"
+  },
+  "input": {
+    "prompt": "Review the supplied PR for its stated active-user behavior and give me your findings and check coverage.",
+    "context": "Entirely synthetic, complete C1-to-C2 diff and current-head PR context are supplied. The artifacts contain the requirement, complete changed-file list, full head files, only caller, and check results. Inspect these files only; no code execution, live GitHub access, posting, or mutation is authorized.",
+    "artifacts": {
+      "evals/files/correct-active-user.diff": "diff --git a/users.py b/users.py\nindex 3333333..4444444 100644\n--- a/users.py\n+++ b/users.py\n@@ -1,3 +1,3 @@\n def eligible_users(users):\n     \"\"\"Return original records whose active field is exactly True.\"\"\"\n-    return [user for user in users if user[\"active\"] is True]\n+    return [user for user in users if user.get(\"active\") is True]\ndiff --git a/test_users.py b/test_users.py\nnew file mode 100644\nindex 0000000..5555555\n--- /dev/null\n+++ b/test_users.py\n@@ -0,0 +1,15 @@\n+from users import eligible_users\n+\n+def test_eligibility():\n+    active = {\"active\": True, \"email\": \"a@example.invalid\"}\n+    other = {\"active\": True, \"email\": \"b@example.invalid\"}\n+    records = [{}, {\"active\": False}, {\"active\": None}, {\"active\": 0},\n+               {\"active\": 1}, {\"active\": \"true\"}, active, other, active]\n+    result = eligible_users(records)\n+    assert len(result) == 3\n+    assert result[0] is active\n+    assert result[1] is other\n+    assert result[2] is active\n+\n+def test_empty_input():\n+    assert eligible_users([]) == []\n",
+      "evals/files/correct-pr-context.json": "{\n  \"synthetic\": true,\n  \"repository\": \"example/project\",\n  \"pull_request_url\": \"https://example.invalid/example/project/pull/43\",\n  \"base\": \"C1\",\n  \"merge_base\": \"C1\",\n  \"head\": \"C2\",\n  \"purpose\": \"Accept imported records that lack active without raising, while preserving exact active-user eligibility.\",\n  \"requirement\": \"eligible_users accepts a list of plain dict records. A record is eligible only when its active value is the boolean True. Missing active, None, False, integers including 1, and strings including true are ineligible. Return the original eligible record objects in input order, retaining repeated records. Empty input is valid.\",\n  \"changed_files\": [\n    \"users.py\",\n    \"test_users.py\"\n  ],\n  \"file_list_complete\": true,\n  \"patch_complete\": true,\n  \"head_files\": {\n    \"users.py\": [\n      \"def eligible_users(users):\",\n      \"    \\\"\\\"\\\"Return original records whose active field is exactly True.\\\"\\\"\\\"\",\n      \"    return [user for user in users if user.get(\\\"active\\\") is True]\"\n    ],\n    \"notifier.py\": [\n      \"from users import eligible_users\",\n      \"\",\n      \"def recipients(records):\",\n      \"    return [record[\\\"email\\\"] for record in eligible_users(records)]\"\n    ],\n    \"test_users.py\": [\n      \"from users import eligible_users\",\n      \"\",\n      \"def test_eligibility():\",\n      \"    active = {\\\"active\\\": True, \\\"email\\\": \\\"a@example.invalid\\\"}\",\n      \"    other = {\\\"active\\\": True, \\\"email\\\": \\\"b@example.invalid\\\"}\",\n      \"    records = [{}, {\\\"active\\\": False}, {\\\"active\\\": None}, {\\\"active\\\": 0},\",\n      \"               {\\\"active\\\": 1}, {\\\"active\\\": \\\"true\\\"}, active, other, active]\",\n      \"    result = eligible_users(records)\",\n      \"    assert len(result) == 3\",\n      \"    assert result[0] is active\",\n      \"    assert result[1] is other\",\n      \"    assert result[2] is active\",\n      \"\",\n      \"def test_empty_input():\",\n      \"    assert eligible_users([]) == []\"\n    ]\n  },\n  \"caller_context\": \"The notification importer supplies ordinary dicts and validates email for active records before calling recipients. Duplicated active records intentionally produce duplicated recipients; deduplication is outside this function. The supplied notifier is unchanged and is the only caller.\",\n  \"checks\": [\n    {\n      \"name\": \"eligibility-contract\",\n      \"head\": \"C2\",\n      \"status\": \"passed\",\n      \"coverage\": \"Covers missing, false, None, zero, one, string true, exact True, original object/order/multiplicity, and empty input.\"\n    },\n    {\n      \"name\": \"lint\",\n      \"head\": \"C2\",\n      \"status\": \"passed\",\n      \"coverage\": \"Lint only; not a behavior proof.\"\n    }\n  ],\n  \"execution\": \"No code execution required or authorized; inspect supplied artifacts only.\"\n}\n"
+    }
+  },
+  "reported_read_paths": [
+    "skills/github-review/SKILL.md",
+    ".local/clean-pr-input.json"
+  ],
+  "final_response": "No correctness findings for example/project PR #43 at head C2, compared with merge base C1. I reviewed the complete diff for users.py and test_users.py, the supplied head files, and the sole caller in notifier.py.\n\nThe change to user.get(\"active\") is True handles missing fields while preserving exact boolean eligibility, original objects, input order, and repeated records. The caller's stated constraints are consistent with this behavior.\n\nSupplied checks for C2:\n\n- eligibility-contract: passed; covers missing active, False, None, 0, 1, string \"true\", exact True, object identity, order, repetitions, and empty input.\n- lint: passed; this checks lint, not behavior.\n\nThese are supplied check results. I did not execute code or independently verify live CI; this review is limited to the complete synthetic packet.\n",
+  "response_review": {
+    "reviewer": "lead agent",
+    "assertions": {
+      "zero_invented_correctness_findings": true,
+      "exact_boolean_contract_and_edge_cases_considered": true,
+      "reviewed_C2_both_changed_files_and_sole_caller": true,
+      "supplied_checks_distinguished_from_personally_executed_tests": true,
+      "no_live_GitHub_or_remote_mutation_claim": true
+    }
+  },
+  "passed": true,
+  "limitations": [
+    "Static decision review of complete synthetic artifacts, not service execution or executed PR code.",
+    "This record cannot qualify a catalog package for offline execution promotion.",
+    "No matched baseline, general review-accuracy claim, or live integration claim.",
+    "The agent received the skill and input packet; expected/forbidden judge fields were withheld by instruction."
+  ]
+}

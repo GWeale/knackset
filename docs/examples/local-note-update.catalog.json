@@ -1,0 +1,16 @@
+{
+  "name": "local-note-update",
+  "path": "skills/local-note-update",
+  "category": "files",
+  "tags": [
+    "notes",
+    "verify"
+  ],
+  "basis": [
+    "authored"
+  ],
+  "status": "draft",
+  "evidence": [],
+  "live_validation": false,
+  "validation_note": "VALIDATION.md"
+}

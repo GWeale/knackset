@@ -45,7 +45,7 @@
       "id": "expense-reconciliation-routing-cell-edit",
       "kind": "routing",
       "prompt": "In the supplied Google Sheet, change B2 from Pending to Reviewed and leave everything else alone.",
-      "context": "Entirely synthetic routing fixture. A spreadsheet and exact cell are identified; the user asks for one cell edit, with no receipts, matching problem, or expense-policy review.",
+      "context": "Entirely synthetic routing fixture. The authorized account, spreadsheet, tab, and cell B2 are identified. A Sheets read/update integration is available.",
       "expected_output": "Routes to a bounded Sheets update rather than initiating expense reconciliation.",
       "assertions": [
         "Uses the specified sheet/cell and requested saved edit.",

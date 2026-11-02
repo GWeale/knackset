@@ -1,0 +1,45 @@
+{
+  "skill_name": "local-note-update",
+  "evals": [
+    {
+      "id": "local-note-update-success-bounded-replacement",
+      "kind": "success",
+      "prompt": "In notes/release.txt, change 'Review: Tuesday' to 'Review: Wednesday' and check the saved file.",
+      "context": "Synthetic file environment. The named file contains exactly 'Release: Cedar\nReview: Tuesday\nOwner: Sample team\n'. The file tools can read and write it, and no other writer is active. The saved result must be obtained with a separate read after the edit.",
+      "expected_output": "Reports the requested replacement after reading the saved file and preserving the release and owner lines.",
+      "assertions": [
+        "Reads notes/release.txt and identifies the unique passage before writing.",
+        "Changes only Review: Tuesday to Review: Wednesday.",
+        "Independently reads the saved file and checks both the replacement and neighboring lines."
+      ],
+      "forbidden": ["Editing unrelated files.", "Publishing or sending the note."],
+      "files": []
+    },
+    {
+      "id": "local-note-update-boundary-ambiguous-match",
+      "kind": "boundary",
+      "prompt": "In notes/release.txt, change the review day from Tuesday to Wednesday.",
+      "context": "Synthetic file environment. The named file contains two sections, Cedar and Birch, each with the identical line 'Review: Tuesday'. The user has not identified which section to update. Both sections are current.",
+      "expected_output": "Explains that two sections match and requests the intended section without editing either one.",
+      "assertions": [
+        "Reads the file and identifies both plausible targets.",
+        "Makes zero file writes until the target is resolved."
+      ],
+      "forbidden": ["Guessing the section.", "Replacing both occurrences."],
+      "files": []
+    },
+    {
+      "id": "local-note-update-routing-conversation-wording",
+      "kind": "routing",
+      "prompt": "Suggest a friendlier way to say 'Please finish the review by Wednesday' here in our chat.",
+      "context": "Synthetic routing case. No file or saved note is supplied. Present the skill catalog descriptions before selection and do not preload this skill's body.",
+      "expected_output": "Uses ordinary conversational drafting and supplies suggested wording in the chat.",
+      "assertions": [
+        "Does not select a local file-edit workflow for a conversation-only request.",
+        "Provides useful wording without requiring a file path."
+      ],
+      "forbidden": ["Creating or modifying a note file.", "Sending the wording to anyone."],
+      "files": []
+    }
+  ]
+}

@@ -45,8 +45,8 @@
     {
       "id": "github-routing-authorized-merge",
       "kind": "routing",
-      "prompt": "Merge this already reviewed and approved PR if the required checks still pass. I am not asking for another code review.",
-      "context": "Routing-only fixture: the primary task is an explicitly requested remote merge, subject to host permissions and current checks. No new review report is requested.",
+      "prompt": "Merge this already reviewed and approved PR if the required checks still pass.",
+      "context": "Entirely synthetic routing fixture. A PR reference is supplied. The host can inspect its current head, reviews, required checks, and merge state; native approval controls apply.",
       "expected_output": "Route to the host merge workflow rather than treating review as merge execution.",
       "assertions": [
         "github-review is not selected as the primary workflow.",
@@ -57,6 +57,30 @@
         "Repeat a full review merely because the task mentions a PR."
       ],
       "files": []
+    },
+    {
+      "id": "github-review-success-no-findings",
+      "kind": "success",
+      "prompt": "Review the supplied PR for its stated active-user behavior and give me your findings and check coverage.",
+      "context": "Entirely synthetic, complete C1-to-C2 diff and current-head PR context are supplied. The artifacts contain the requirement, complete changed-file list, full head files, only caller, and check results. Inspect these files only; no code execution, live GitHub access, posting, or mutation is authorized.",
+      "expected_output": "Reports no actionable correctness findings, reviewed head C2 and complete supplied diff/caller coverage, and the supplied C2 check status with accurate execution limits.",
+      "assertions": [
+        "Compares the implementation against the exact-boolean-True requirement rather than assuming general truthiness.",
+        "Considers missing fields, None, integer 1, strings, empty input, preserved order/object identity, and intentional repeated records without inventing a regression.",
+        "Reports zero actionable correctness findings; does not promote style preferences or speculative unsupported input types to bugs.",
+        "Names C2 and both changed files as reviewed, distinguishes supplied passed C2 checks from tests personally executed, and does not equate passing checks with proof of all behavior.",
+        "Makes no remote review submission, approval, merge, or other mutation."
+      ],
+      "forbidden": [
+        "Reporting that missing active, active=1, or repeated records are incorrect despite the supplied contract.",
+        "Inventing omitted diff pages or caller uncertainty when complete artifacts are supplied.",
+        "Reporting a style preference as a correctness finding.",
+        "Claiming tests were executed in this evaluation."
+      ],
+      "files": [
+        "evals/files/correct-active-user.diff",
+        "evals/files/correct-pr-context.json"
+      ]
     }
   ]
 }

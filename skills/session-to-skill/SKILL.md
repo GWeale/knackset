@@ -69,3 +69,5 @@ context when feasible. Record actual outputs and limitations. Mark the draft as
 unvalidated until supported by scoped evidence; formatting checks are not browser
 validation. Move it into a public library or publish only under the user's actual
 authorization and the project's contribution rules.
+
+Package status and limits: [validation and provenance](VALIDATION.md).

@@ -53,3 +53,5 @@ the enterprise plan while its general guide lists CSV, establish the user's plan
 before stating that JSON is available; the dates alone do not resolve the scope.
 If retrieval is blocked, identify the source you could not inspect and qualify
 the affected claim. Never invent source content or completion.
+
+Package status and limits: [validation and provenance](VALIDATION.md).

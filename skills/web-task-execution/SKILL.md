@@ -60,3 +60,5 @@ step or unverified result if incomplete. Distinguish connected, prepared,
 verified, blocked, and uncertain rather than treating them as interchangeable.
 Keep the result concise: requested operation, exact target, observed outcome,
 and any remaining access step or uncertainty. A next-step plan is not execution.
+
+Package status and limits: [validation and provenance](VALIDATION.md).
