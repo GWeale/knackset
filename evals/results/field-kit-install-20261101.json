@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "kind": "file-copy-check",
+  "date": "2026-11-01",
+  "timezone": "America/Los_Angeles",
+  "source_revision": "07ef74515b6a43194ef76fd2d9dd9f9b7739dd4f",
+  "document": "docs/installation.md",
+  "executed_python_block_sha256": "933bbf4f58543abd1a5b5275309a66e686677d11e59eb1d2798d5f5c2969966d",
+  "method": "Executed the documented Python copy block for each new skill twice into isolated temporary project directories. Source files were materialized from git archive at the pinned commit; Git rev-parse/status used the owning checkout metadata with an isolated GIT_WORK_TREE and GIT_OPTIONAL_LOCKS=0. No second Git checkout was created.",
+  "packages": {
+    "rabbit-hole": {
+      "file_count": 5,
+      "matching_copy_count": 2,
+      "installation_manifest_sha256": "fe9a303ccb0447f70c7c9287994b61e740d7396c9e36d17cd17e84b0d6d56ab1",
+      "existing_destination_refused": true
+    },
+    "reference-remix": {
+      "file_count": 7,
+      "matching_copy_count": 2,
+      "installation_manifest_sha256": "b848aa426cfb01be177149dcce1360f15a978eddf674b51f8802d7f21cb4aaae",
+      "existing_destination_refused": true
+    },
+    "idea-pressure-test": {
+      "file_count": 7,
+      "matching_copy_count": 2,
+      "installation_manifest_sha256": "5b89045f82467ae8e30496e378a554c17d3926df7541d5f0537c47b5e495865a",
+      "existing_destination_refused": true
+    },
+    "story-mining": {
+      "file_count": 7,
+      "matching_copy_count": 2,
+      "installation_manifest_sha256": "5f336a5b7624ff6eeb3a81181fd8709fcf70eec52c50e7e77640e1dcbe344f8d",
+      "existing_destination_refused": true
+    },
+    "demo-director": {
+      "file_count": 7,
+      "matching_copy_count": 2,
+      "installation_manifest_sha256": "a58fce49572d5faba985122f1584aabb6cdb52fb98ed69bababad73ce4646eda",
+      "existing_destination_refused": true
+    },
+    "learn-by-making": {
+      "file_count": 5,
+      "matching_copy_count": 2,
+      "installation_manifest_sha256": "3aa1b003bfcb73252ec374985a503d56c00eadd0d876e50590fd2977dbdf2366",
+      "existing_destination_refused": true
+    }
+  },
+  "invalid_name_refused_before_write": true,
+  "limits": {
+    "logical_cpus": 1,
+    "address_space_bytes": 268435456,
+    "cpu_seconds": 10
+  },
+  "cleanup": "TemporaryDirectory removed source and all target fixture files.",
+  "not_performed": [
+    "Network clone",
+    "Optional Skills CLI",
+    "Agent host discovery or activation",
+    "Global installation",
+    "Browser or live-service behavior"
+  ]
+}

@@ -73,7 +73,10 @@ history or third-party asset is included in public examples.
 
 The independent review found one material onboarding defect: the reproducible
 install page still selected Sheets at an older revision. The selected-package
-recipe is corrected separately and its copy/manifest check recorded there. No
+recipe now defaults to Rabbit Hole at a revision containing the new methods.
+The [copy check](field-kit-install-20261101.json) executed the documented Python
+block twice for each of the six packages, with matching manifests and overwrite
+refusal. It did not test host activation or the optional CLI. No
 other material scope, routing or authorization defect was found. The reviewer
 identified the textual-reference coverage gap above as an honest limitation.
 

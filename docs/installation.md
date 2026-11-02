@@ -23,21 +23,24 @@ different directories. Follow the chosen host's documentation before copying.
 Requires Git and Python 3.10+, with no Node.js or installer dependency. Replace
 the two absolute paths. The source path must be a new directory outside your
 target project. This example pins the reviewed revision
-`b56d6a705370779dfa2aa33f5cad95eb877a87d8`, which contains the updated skill and
-its offline evidence. Choose another reviewed full 40-character commit ID to use
-a different revision.
+`07ef74515b6a43194ef76fd2d9dd9f9b7739dd4f`, which contains the six new draft methods.
+The example selects `rabbit-hole`; set `KNACKSET_SKILL` to another folder name to
+choose a different package. A pinned copy makes contents reproducible; it does
+not imply that the selected draft has passed an evaluation suite. Use a full
+40-character commit ID containing the package you want.
 
 ```bash
 export KNACKSET_SOURCE=/absolute/path/to/knackset-pinned
 export KNACKSET_TARGET=/absolute/path/to/your-target-project
-export KNACKSET_REVISION=b56d6a705370779dfa2aa33f5cad95eb877a87d8
+export KNACKSET_REVISION=07ef74515b6a43194ef76fd2d9dd9f9b7739dd4f
+export KNACKSET_SKILL=rabbit-hole
 git clone --no-checkout https://github.com/GWeale/knackset.git "$KNACKSET_SOURCE"
 git -C "$KNACKSET_SOURCE" checkout --detach "$KNACKSET_REVISION"
 cd "$KNACKSET_TARGET"
 ```
 
-Read `skills/google-sheets-update/SKILL.md` and its resources in that source
-checkout. Then copy and verify it:
+Read the selected `skills/<name>/SKILL.md` and its resources in the source
+checkout. Then copy and verify the whole package:
 
 ```bash
 python3 - <<'PY'
@@ -52,6 +55,9 @@ import subprocess
 source = Path(os.environ["KNACKSET_SOURCE"]).resolve()
 target = Path(os.environ["KNACKSET_TARGET"]).resolve()
 revision = os.environ["KNACKSET_REVISION"]
+selected = os.environ["KNACKSET_SKILL"]
+if len(selected) > 64 or re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", selected) is None:
+    raise SystemExit("Use a catalog skill folder name, such as rabbit-hole.")
 if re.fullmatch(r"[0-9a-f]{40}", revision) is None:
     raise SystemExit("Use a full lowercase 40-character commit ID.")
 head = subprocess.check_output(
@@ -67,8 +73,10 @@ if not target.is_dir() or Path.cwd().resolve() != target:
     raise SystemExit("Change directory to the existing target project first.")
 if target == source or target.is_relative_to(source) or source.is_relative_to(target):
     raise SystemExit("Keep the target project and Knackset source outside each other.")
-package = source / "skills/google-sheets-update"
-destination = target / ".agents/skills/google-sheets-update"
+package = source / "skills" / selected
+if not package.is_dir() or package.is_symlink() or (source / "skills").is_symlink():
+    raise SystemExit("The selected package must be a regular skill directory in this revision.")
+destination = target / ".agents" / "skills" / selected
 if any(path.is_symlink() for path in (target / ".agents", destination.parent, destination)):
     raise SystemExit("The installation path must not redirect through symlinks.")
 if destination.exists():
@@ -103,6 +111,16 @@ the same unchanged revision produces the same manifest hash even after `main`
 changes. This installation manifest is separate from the package fingerprint
 used by Knackset's evaluation records.
 
+## Observed package-copy check, November 1, 2026
+
+The [copy record](../evals/results/field-kit-install-20261101.json) executes the
+Python block above for all six new packages. Two isolated copies of each package
+matched every file path and hash. Existing destinations and an invalid folder
+name were refused. All temporary source and target files were removed.
+
+The source was materialized from the pinned Git archive. This tested the copy
+block, not the network clone command, optional CLI, or agent host activation.
+
 ## Optional Skills CLI
 
 The third-party [Skills CLI 1.7.4 installation reference](https://github.com/vercel-labs/skills/blob/v1.7.4/docs/commands.md#skills-add)
@@ -112,7 +130,7 @@ After the pinned checkout above, this is an alternative to the Python copy:
 
 ```bash
 cd "$KNACKSET_TARGET"
-npx skills@1.7.4 add "$KNACKSET_SOURCE" --skill google-sheets-update --agent codex --copy
+npx skills@1.7.4 add "$KNACKSET_SOURCE" --skill "$KNACKSET_SKILL" --agent codex --copy
 ```
 
 Choose this or the copy recipe, not both for the same destination. Check the
@@ -127,24 +145,27 @@ repository does not claim an executed installer test.
 ## Check discovery and activation
 
 Start a fresh Codex CLI session in the target project. Use `/skills` to confirm
-`google-sheets-update` appears and select it with `$google-sheets-update`.
+`rabbit-hole` appears and select it with `$rabbit-hole` when using the default
+package above. Substitute your selected name for another package.
 These are the official [explicit invocation mechanisms](https://learn.chatgpt.com/docs/build-skills).
 For a first check, use a synthetic request:
 
-> Use $google-sheets-update. This is a synthetic planning exercise with no
-> connected account. An append for item P-3 timed out, and no saved-state read
-> has happened yet. Explain your next step; do not call a browser or service.
+> Use $rabbit-hole. This is a synthetic planning exercise. Two news articles
+> repeat one owner newsletter. What would you check before treating them as
+> independent confirmation? Explain the next step; do not browse or call a service.
 
 Confirm that the session loaded the installed `SKILL.md` from the target project
-and calls for a saved-state check before any retry. A plausible answer alone
+and distinguishes repeated claims from independent evidence. A plausible answer alone
 does not prove activation: retain the discovery/path evidence and skill-read
 trace. Record the host version, date, package revision and file manifest, prompt,
 response, and limits. Keep this host check separate from the [offline task records](../evals/results/README.md).
 
-## Observed installation check — November 1, 2026
+## Historical host check, November 1, 2026
 
-The [host record](../evals/results/host-install-2026-11-01.json) verifies this pinned
-package in a fresh T3 Code session using **Codex CLI 0.166.0-alpha.5.1 on Ubuntu**
+The [host record](../evals/results/host-install-2026-11-01.json) verifies
+`google-sheets-update` from revision
+`b56d6a705370779dfa2aa33f5cad95eb877a87d8`, in a fresh T3 Code session using
+**Codex CLI 0.166.0-alpha.5.1 on Ubuntu**
 and `gpt-6-astra`. The session reported the project skill in its initial catalog,
 then read that installed `SKILL.md` before answering the synthetic timeout prompt.
 It called for reconciling saved state before any retry; no browser or service was
@@ -159,3 +180,7 @@ Private absolute paths are normalized to project-relative paths in the public re
 This establishes explicit discovery, loading, and planning in that host/version.
 It does not establish implicit selection accuracy, live Sheets compatibility,
 exactly-once insertion, or a performance gain.
+
+This older host check does not establish discovery or activation of the six new
+methods. Their worked examples loaded the source skill explicitly. The current
+selected-package copy check is a file-integrity check, separate from host use.
