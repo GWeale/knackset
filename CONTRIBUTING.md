@@ -42,8 +42,10 @@ Do not add an app wrapper, role title, or compulsory checklist without a concret
 benefit. For tool-based tasks, use capabilities and permissions available in the
 host; a skill cannot invent access or authorize actions on the user's behalf.
 
-Add a `catalog.json` entry with a category, focused tags, evidence basis,
-validation status, `live_validation`, and `evidence`. Keep the description in
+Add a `catalog.json` entry with a collection, category, focused tags, evidence basis,
+validation status, `live_validation`, and `evidence`. Choose `field-kit` for the
+creative/investigative collection or `utilities` for supporting workflows. This
+classification does not establish test status or permission. Keep the description in
 `SKILL.md`; the catalog reads it from there. Copy the root MIT notice into the
 package as `LICENSE.txt`, and link `VALIDATION.md` from the skill so an installed
 copy retains its limits. Set catalog `validation_note` to `VALIDATION.md` and keep

@@ -22,6 +22,9 @@ class AuthoringExampleTests(unittest.TestCase):
             (root / "evals/results").mkdir(parents=True)
             # The generated catalog links to the run index; the fixture has no runs.
             (root / "evals/results/README.md").write_text("# No execution records\n", encoding="utf-8")
+            (root / "examples").mkdir()
+            (root / "examples/README.md").write_text("# No worked examples\n", encoding="utf-8")
+            (root / "docs/installation.md").write_text("# Project copy instructions\n", encoding="utf-8")
             (root / "catalog.json").write_text(
                 json.dumps({"schema_version": 1, "skills": []}) + "\n", encoding="utf-8"
             )

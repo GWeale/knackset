@@ -52,6 +52,7 @@ as [local-note-update.catalog.json](examples/local-note-update.catalog.json).
 {
   "name": "local-note-update",
   "path": "skills/local-note-update",
+  "collection": "utilities",
   "category": "files",
   "tags": ["notes", "verify"],
   "basis": ["authored"],
@@ -61,6 +62,9 @@ as [local-note-update.catalog.json](examples/local-note-update.catalog.json).
 }
 ```
 
+`collection` is `field-kit` for the original creative/investigative methods or
+`utilities` for supporting operational workflows. Older entries without this
+field are treated as utilities. It is separate from category and test status.
 Categories and tags are lowercase slugs; tag lists must be nonempty and unique.
 `basis` is a nonempty unique list drawn from `authored`, `research-derived`, and
 `session-derived`. The description comes from `SKILL.md`, not the catalog. New

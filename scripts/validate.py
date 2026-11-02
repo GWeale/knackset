@@ -30,6 +30,7 @@ IMPLICIT_NUMBER = re.compile(
 IGNORED = {".git", ".local"}
 BASIS = {"authored", "research-derived", "session-derived"}
 STATUS = {"draft", "offline-reviewed", "live-tested"}
+COLLECTIONS = {"field-kit", "utilities"}
 EVAL_KINDS = {"success", "boundary", "routing"}
 FINGERPRINT_ALGORITHM = "sha256-length-prefixed-v2"
 LEGACY_FINGERPRINT_ALGORITHM = "sha256-nul-delimited-v1"
@@ -48,7 +49,7 @@ def reject_constant(_value: str) -> None:
     raise ValueError("nonstandard JSON constant")
 
 
-def package_files(path: Path) -> list[Path]:
+def package_files(path: Path, *, include_caches: bool = True) -> list[Path]:
     """List regular files only after rejecting every symlink and special resource."""
     absolute = Path(os.path.abspath(path))
     if any(item.is_symlink() for item in (absolute, *absolute.parents)):
@@ -69,6 +70,10 @@ def package_files(path: Path) -> list[Path]:
                 files.append(resource)
             else:
                 raise ValueError(f"package resources must be regular files and directories: {relative!r}")
+    if not include_caches:
+        files = [file for file in files
+                 if "__pycache__" not in file.relative_to(path).parts
+                 and file.suffix not in {".pyc", ".pyo"}]
     return sorted(files, key=lambda item: item.relative_to(path).as_posix())
 
 
@@ -79,10 +84,8 @@ def package_fingerprint(path: Path) -> str:
     then excluded. Lengths are unsigned 64-bit big-endian byte counts.
     """
     digest = hashlib.sha256(b"knackset-package\0" + FINGERPRINT_ALGORITHM.encode("ascii") + b"\0")
-    for file in package_files(path):
+    for file in package_files(path, include_caches=False):
         relative = file.relative_to(path)
-        if "__pycache__" in relative.parts or file.suffix in {".pyc", ".pyo"}:
-            continue
         for value in (relative.as_posix().encode("utf-8"), file.read_bytes()):
             digest.update(len(value).to_bytes(8, "big"))
             digest.update(value)
@@ -298,6 +301,9 @@ class Validator:
                 self.error(path, f"catalog skill {name!r} has no matching skill folder")
             if entry.get("path") != f"skills/{name}":
                 self.error(path, f"{label}.path must be 'skills/{name}'")
+            collection = entry.get("collection", "utilities")
+            if not isinstance(collection, str) or collection not in COLLECTIONS:
+                self.error(path, f"{label}.collection must be one of {sorted(COLLECTIONS)}")
             category = entry.get("category")
             if not isinstance(category, str) or NAME.fullmatch(category) is None:
                 self.error(path, f"{label}.category must be a lowercase slug")

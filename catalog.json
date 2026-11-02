@@ -20,7 +20,8 @@
         "autosave",
         "profiles"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "utilities"
     },
     {
       "name": "web-task-execution",
@@ -41,7 +42,8 @@
         "recovery",
         "accounts"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "utilities"
     },
     {
       "name": "browser-bug-reproduction",
@@ -62,7 +64,8 @@
         "bugs",
         "reproduction"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "utilities"
     },
     {
       "name": "github-review",
@@ -82,7 +85,8 @@
         "pull-request",
         "review"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "utilities"
     },
     {
       "name": "session-to-skill",
@@ -103,7 +107,8 @@
         "learning",
         "lessons"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "utilities"
     },
     {
       "name": "travel-reservation",
@@ -123,7 +128,8 @@
         "reservations",
         "booking"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "utilities"
     },
     {
       "name": "calendar-coordination",
@@ -144,7 +150,8 @@
         "scheduling",
         "timezones"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "utilities"
     },
     {
       "name": "daily-briefing",
@@ -164,7 +171,8 @@
         "priorities",
         "digest"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "utilities"
     },
     {
       "name": "expense-reconciliation",
@@ -184,7 +192,8 @@
         "receipts",
         "reconciliation"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "utilities"
     },
     {
       "name": "gmail-draft-reply",
@@ -205,7 +214,8 @@
         "email",
         "drafts"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "utilities"
     },
     {
       "name": "gmail-triage",
@@ -226,7 +236,8 @@
         "email",
         "labels"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "utilities"
     },
     {
       "name": "google-docs-update",
@@ -247,7 +258,8 @@
         "documents",
         "editing"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "utilities"
     },
     {
       "name": "google-sheets-update",
@@ -268,7 +280,8 @@
         "spreadsheet",
         "rows"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "utilities"
     },
     {
       "name": "product-shortlist",
@@ -287,7 +300,8 @@
         "offers",
         "pricing"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "utilities"
     },
     {
       "name": "recurring-monitor",
@@ -307,7 +321,8 @@
         "changes",
         "alerts"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "utilities"
     },
     {
       "name": "web-research",
@@ -327,7 +342,8 @@
         "sources",
         "evidence"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "utilities"
     },
     {
       "name": "rabbit-hole",
@@ -345,7 +361,8 @@
         "sources",
         "explanations"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "field-kit"
     },
     {
       "name": "reference-remix",
@@ -363,7 +380,8 @@
         "art-direction",
         "originality"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "field-kit"
     },
     {
       "name": "idea-pressure-test",
@@ -381,7 +399,8 @@
         "assumptions",
         "experiments"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "field-kit"
     },
     {
       "name": "story-mining",
@@ -399,7 +418,8 @@
         "voice",
         "story"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "field-kit"
     },
     {
       "name": "demo-director",
@@ -417,7 +437,8 @@
         "storyboards",
         "proof"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "field-kit"
     },
     {
       "name": "learn-by-making",
@@ -435,7 +456,8 @@
         "experiments",
         "artifacts"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "field-kit"
     },
     {
       "name": "decision-archaeology",
@@ -453,7 +475,8 @@
         "history",
         "rationale"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "field-kit"
     },
     {
       "name": "generative-series",
@@ -471,7 +494,8 @@
         "series",
         "curation"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "field-kit"
     },
     {
       "name": "unstick-project",
@@ -489,7 +513,8 @@
         "constraints",
         "experiments"
       ],
-      "validation_note": "VALIDATION.md"
+      "validation_note": "VALIDATION.md",
+      "collection": "field-kit"
     }
   ]
 }

@@ -222,6 +222,8 @@ class ValidateCliTests(unittest.TestCase):
             (lambda entry: entry.update(evidence=["docs/missing.md"]), "does not exist"),
             (lambda entry: entry.update(path="skills/other"), ".path must be"),
             (lambda entry: entry.update(category="Not a slug"), ".category must be"),
+            (lambda entry: entry.update(collection="unknown"), ".collection must be"),
+            (lambda entry: entry.update(collection=[]), ".collection must be"),
             (lambda entry: entry.update(tags=[]), ".tags must be"),
             (lambda entry: entry.update(tags=["forms", "forms"]), ".tags must not contain duplicates"),
         ]

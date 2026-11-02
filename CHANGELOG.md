@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased — simpler discovery and project copies
+
+- Group the generated catalog into field kit and utilities, with independent
+  collection filters and one classification in catalog metadata.
+- Replace the embedded installation recipe with a Python CLI for previewing,
+  copying and verifying complete project-scoped packages without overwriting.
+- Share the existing cache-exclusion rule between copying and fingerprinting;
+  retain all package contents, fingerprints and evidence statuses.
+- Reject symlinks and special package resources before catalog metadata reads,
+  preventing a listing from blocking on a FIFO.
+
 ## Unreleased — grow and refactor
 
 - Add original Decision Archaeology, Generative Series and Unstick Project drafts.

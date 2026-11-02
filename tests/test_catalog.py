@@ -1,6 +1,7 @@
 """Exercise catalog discovery, filtering, and rendering through the public CLI."""
 
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -82,6 +83,21 @@ class CatalogCliTests(unittest.TestCase):
         self.assertEqual(self.json_result("list", "--category", "web", "--tag", "sources"), [])
         self.assertEqual(self.run_cli("list", "--tag", "unknown").stdout, "No skills matched.\n")
 
+    def test_collections_filter_independently_of_category_and_status(self):
+        self.entries[0]["collection"] = "field-kit"
+        self.write_catalog()
+        self.assertEqual(self.json_result("list", "--collection", "field-kit")[0]["name"], "beta-flow")
+        self.assertEqual(self.json_result("list", "--collection", "utilities")[0]["name"], "alpha-flow")
+        self.assertEqual(self.json_result("search", "sources", "--collection", "utilities"), [])
+        self.assertEqual(self.json_result("search", "sources", "--collection", "field-kit")[0]["name"], "beta-flow")
+        self.assertEqual(self.run_cli("render").returncode, 0)
+        content = (self.root / "docs/catalog.md").read_text()
+        self.assertLess(content.index("[beta-flow]"), content.index("[alpha-flow]"))
+        self.assertLess(content.index("## Field kit"), content.index("## Utilities"))
+        self.entries[0]["collection"] = "unknown"
+        self.write_catalog()
+        self.assert_failure(self.run_cli("list"), ".collection must be")
+
     def test_search_matches_all_keywords_across_name_description_and_tags(self):
         self.assertEqual([entry["name"] for entry in self.json_result("search", "ALPHA verify")], ["alpha-flow"])
         self.assertEqual([entry["name"] for entry in self.json_result("search", "primary compare")], ["beta-flow"])
@@ -126,6 +142,22 @@ class CatalogCliTests(unittest.TestCase):
         skill.write_text("---\nname: alpha-flow\ndescription: [not a string]\nlicense: MIT\n---\nAct.\n", encoding="utf-8")
         self.assert_failure(self.run_cli("render"), "unsupported value")
         self.assertFalse((self.root / "docs/catalog.md").exists())
+
+    def test_linked_metadata_is_rejected_instead_of_followed(self):
+        path = self.root / "skills/alpha-flow/SKILL.md"
+        original = self.root / "synthetic-outside.md"
+        path.rename(original)
+        path.symlink_to(original)
+        self.assert_failure(self.run_cli("list"), "symlink")
+
+    @unittest.skipUnless(hasattr(os, "mkfifo"), "FIFO resources require POSIX")
+    def test_fifo_metadata_is_rejected_without_a_blocking_read(self):
+        path = self.root / "skills/alpha-flow/SKILL.md"
+        path.unlink()
+        os.mkfifo(path)
+        result = subprocess.run([sys.executable, str(self.root / "scripts/catalog.py"), "list"],
+                                cwd=self.root, text=True, capture_output=True, timeout=2)
+        self.assert_failure(result, "regular files")
 
 
 if __name__ == "__main__":

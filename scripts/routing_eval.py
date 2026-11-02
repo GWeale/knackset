@@ -9,20 +9,17 @@ import json
 from pathlib import Path
 import sys
 
-from validate import Validator
+from catalog import load_catalog
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def packet() -> tuple[dict, dict]:
-    validator = Validator(ROOT)
     catalog = []
     tasks = []
     expected = json.loads((ROOT / 'evals/routing_expected.json').read_text())
-    for folder in sorted((ROOT / 'skills').iterdir()):
-        if not folder.is_dir() or folder.name.startswith('.'):
-            continue
-        metadata = validator.frontmatter(folder)
+    for metadata in load_catalog(ROOT):
+        folder = ROOT / metadata['path']
         catalog.append({key: metadata[key] for key in ('name', 'description')})
         cases = json.loads((folder / 'evals/evals.json').read_text())['evals']
         for case in cases:
@@ -32,8 +29,6 @@ def packet() -> tuple[dict, dict]:
                 if case['id'] not in expected:
                     raise ValueError('routing case has no judge expectations')
                 expected[tasks[-1]['id']] = {'scenario': case['id'], **expected.pop(case['id'])}
-    if validator.errors:
-        raise ValueError('\n'.join(validator.errors))
     if set(expected) != {task['id'] for task in tasks}:
         raise ValueError('routing expectations do not match current cases')
     return {'schema_version': 1, 'catalog': catalog, 'tasks': tasks}, expected

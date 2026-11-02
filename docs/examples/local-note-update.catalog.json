@@ -12,5 +12,6 @@
   "status": "draft",
   "evidence": [],
   "live_validation": false,
-  "validation_note": "VALIDATION.md"
+  "validation_note": "VALIDATION.md",
+  "collection": "utilities"
 }

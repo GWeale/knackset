@@ -11,6 +11,12 @@ only when the user explicitly requests that action.
   small subset: flat `name`, `description`, and `license` string fields.
 - `catalog.json` records provenance and validation status, not runtime permissions.
 - `scripts/catalog.py` lists/searches that catalog and renders `docs/catalog.md`.
+  `--collection field-kit` and `--collection utilities` filter editorial groups,
+  independently of category or evidence status. Older entries default to utilities.
+- `scripts/install_skill.py NAME --project PATH` copies a whole package into an
+  existing project, with `--dry-run` and read-only `--check` modes. No overwrite,
+  global install, network access or host activation is performed. Python caches
+  are excluded using the same canonical-file rule as package fingerprints.
 - `python3 scripts/demo.py` illustrates uncertain-write recovery with isolated
   synthetic state. It is scripted, not a model evaluation or a live service test.
 - `docs/` contains project-wide design, research, and sanitized provenance.

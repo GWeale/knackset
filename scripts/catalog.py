@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 import sys
 
-from validate import NAME, STATUS, Validator
+from validate import COLLECTIONS, NAME, STATUS, Validator, package_files
 
 
 class CatalogError(ValueError):
@@ -29,12 +29,18 @@ def load_catalog(root: Path) -> list[dict]:
             validator.error(path, "skill folder symlink escapes repository boundary")
             continue
         skills[path.name] = path
+        try:
+            package_files(path)
+        except (OSError, ValueError) as error:
+            validator.error(path, str(error))
+            continue
         metadata[path.name] = validator.frontmatter(path)
     entries = validator.catalog(skills)
     if validator.errors:
         raise CatalogError("\n".join(validator.errors))
     return sorted(
-        ({**entry, "description": metadata[entry["name"]]["description"]} for entry in entries),
+        ({**entry, "collection": entry.get("collection", "utilities"),
+          "description": metadata[entry["name"]]["description"]} for entry in entries),
         key=lambda entry: entry["name"],
     )
 
@@ -43,7 +49,8 @@ def select(entries: list[dict], args: argparse.Namespace) -> list[dict]:
     words = getattr(args, "query", "").casefold().split()
     return [
         entry for entry in entries
-        if (not args.category or entry["category"] == args.category)
+        if (not args.collection or entry["collection"] == args.collection)
+        and (not args.category or entry["category"] == args.category)
         and (not args.tag or args.tag in entry["tags"])
         and (not args.status or entry["status"] == args.status)
         and all(word in " ".join((entry["name"], entry["description"], *entry["tags"])).casefold()
@@ -55,15 +62,8 @@ def cell(value: str) -> str:
     return value.replace("\\", "\\\\").replace("|", "\\|")
 
 
-def render(entries: list[dict]) -> str:
+def table(entries: list[dict]) -> list[str]:
     lines = [
-        "# Skill catalog", "",
-        "Choose a task below, then read its skill before installing it.", "",
-        "- `draft`: written, but not yet backed by a qualifying execution record.",
-        "- `offline-reviewed`: passed a specific simulated task. The [run records](../evals/results/README.md)",
-        "  show which case was tested; the label does not cover every task the skill describes.",
-        "- `live-tested`: has a recorded test against a real service for the stated task and tools.", "",
-        "These labels describe testing, not permission to act or compatibility with your agent.", "",
         "| Skill | Category | Status | Tags | Description |",
         "| --- | --- | --- | --- | --- |",
     ]
@@ -73,7 +73,35 @@ def render(entries: list[dict]) -> str:
             f"| [{name}](../skills/{name}/SKILL.md) | {entry['category']} | {entry['status']} | "
             f"{', '.join(entry['tags'])} | {cell(entry['description'])} |"
         )
+    return lines
+
+
+def render(entries: list[dict]) -> str:
+    lines = [
+        "# Skill catalog", "",
+        "Choose a method for the work you have. Read it before installing the whole package.",
+        "See [worked examples](../examples/README.md) and the [project copy command](installation.md).", "",
+        "```bash",
+        "python3 scripts/catalog.py list --collection field-kit",
+        "python3 scripts/catalog.py search \"sources\" --collection utilities",
+        "```", "",
+    ]
+    groups = (
+        ("field-kit", "Field kit", "Original methods for investigation, creative work and learning."),
+        ("utilities", "Utilities", "Supporting workflows for accounts, browsers and operational tasks."),
+    )
+    for collection, title, description in groups:
+        matches = [entry for entry in entries if entry["collection"] == collection]
+        if matches:
+            lines.extend([f"## {title}", "", description, "", *table(matches), ""])
     lines.extend([
+        "## Evaluation labels", "",
+        "- `draft`: written, but not yet backed by a qualifying execution record.",
+        "- `offline-reviewed`: passed a specific simulated task. The [run records](../evals/results/README.md)",
+        "  show which case was tested; the label does not cover every task the skill describes.",
+        "- `live-tested`: has a recorded test against a real service for the stated task and tools.", "",
+        "Collections describe the kind of work. Evaluation labels describe testing,",
+        "not permission to act or compatibility with your agent.",
         "", "To update this page, edit [catalog.json](../catalog.json) or the relevant `SKILL.md`,",
         "then run `python3 scripts/catalog.py render`.",
     ])
@@ -98,6 +126,7 @@ def main(argv: list[str] | None = None) -> int:
         if command == "search":
             subparser.add_argument("query", help="all keywords must occur in name, description, or tags")
         subparser.add_argument("--json", action="store_true", help="emit structured metadata")
+        subparser.add_argument("--collection", choices=sorted(COLLECTIONS), help="choose a collection")
         subparser.add_argument("--category", help="filter by exact category slug")
         subparser.add_argument("--tag", help="filter by exact tag slug")
         subparser.add_argument("--status", choices=sorted(STATUS), help="filter by evaluation status")
@@ -128,7 +157,7 @@ def main(argv: list[str] | None = None) -> int:
                 print(json.dumps(match, ensure_ascii=False, indent=2, sort_keys=True))
             else:
                 print(f"{match['name']}\n{match['description']}\n")
-                for field in ("path", "category", "status", "tags", "basis", "evidence", "live_validation"):
+                for field in ("path", "collection", "category", "status", "tags", "basis", "evidence", "live_validation"):
                     value = match[field]
                     if isinstance(value, list):
                         value = ", ".join(value) or "none"
