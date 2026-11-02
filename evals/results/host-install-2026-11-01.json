@@ -1,22 +1,113 @@
 {
   "schema_version": 1,
   "date": "2026-11-01",
-  "source_revision": "d54f5a7ddf4a80ea23ba31e1f386af4d887b354c",
+  "source_revision": "b56d6a705370779dfa2aa33f5cad95eb877a87d8",
   "package": "google-sheets-update",
-  "host": "codex-cli 0.166.0",
+  "host": "T3 Code with codex-cli 0.166.0-alpha.5.1 on Ubuntu Linux",
   "scope": "disposable project .agents/skills",
   "installation_method": "git archive selected package at exact full revision, followed by shutil.copytree and byte-manifest verification; no second repository checkout",
   "files": {
     "LICENSE.txt": "658efc6420e60126f81a459725e401981f59d1f9a105bdbcbfd336334a9beba4",
-    "SKILL.md": "973fd3580d6642d62d1c0c5694f201af26d35cdb94c745aad68a58da79563b91",
-    "evals/evals.json": "b43e33f76a740b77e3655df58e568452ee057b1c7872d2f16e66fc4d51405b6d"
+    "SKILL.md": "40f70924c58c7a77da9254939921f688c3c1f050d0be8847897228ab6cfd1c7c",
+    "VALIDATION.md": "ce40e3fa7088f5c96fe7ff416a5fba624c8d1697a764709de2bffa4ba23f7bfd",
+    "evals/evals.json": "e9a22bf77a5cca30ecaaba89ffdaf642b4bb4434bf817e90f5ef866d99998a38",
+    "evals/files/literal-sheet.json": "e144eaa65075f6719af6c030d76069a861d363a794c20996d4db77afbce4a27d"
   },
-  "installation_manifest_sha256": "f98c8bd5cd76e0c3519c6921863164d84e2b32d9c7a69d5cf3704efe8268fcc0",
+  "installation_manifest_sha256": "fdb14293fa6d4db4cc11e0160f7860bd8e4cbc9981f4fa2f894c3677e8c2e8a5",
   "two_installs_identical": true,
   "global_installation": false,
-  "host_activation": "pending",
+  "host_activation": {
+    "date": "2026-11-01",
+    "recorded_at_utc": "2026-11-02T00:49:27.642329+00:00",
+    "host": "T3 Code with codex-cli 0.166.0-alpha.5.1 on Ubuntu Linux",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "ultra",
+    "explicit_discovery": true,
+    "skill_loaded": true,
+    "project_relative_skill_path": ".agents/skills/google-sheets-update/SKILL.md",
+    "actual_skill_read_sha256": "40f70924c58c7a77da9254939921f688c3c1f050d0be8847897228ab6cfd1c7c",
+    "planning_prompt": "An append for item P-3 timed out, and no saved-state read has happened yet. Explain your next step; do not call a browser or service.",
+    "planning_answer": "Plan only: before any retry, perform a bounded saved-state lookup for stable key P-3 in the intended spreadsheet and tab. If exactly one complete row matches the intended values, verify those saved values and key uniqueness, then finish without appending. If the row is partial, duplicated, or conflicting, do not append another row as a repair. If state cannot be read or reconciled, stop and report uncertainty. Only a confirmed absence permits considering a coordinated retry after rechecking the key and table boundary; a preflight lookup alone cannot guarantee exactly-once insertion. Any later append would require a separate saved-state read of its returned updated range. No browser or service call, saved-state read, or retry is performed in this probe.",
+    "file_manifest": {
+      "LICENSE.txt": {
+        "sha256": "658efc6420e60126f81a459725e401981f59d1f9a105bdbcbfd336334a9beba4",
+        "bytes": 1081
+      },
+      "SKILL.md": {
+        "sha256": "40f70924c58c7a77da9254939921f688c3c1f050d0be8847897228ab6cfd1c7c",
+        "bytes": 4037
+      },
+      "VALIDATION.md": {
+        "sha256": "ce40e3fa7088f5c96fe7ff416a5fba624c8d1697a764709de2bffa4ba23f7bfd",
+        "bytes": 1410
+      },
+      "evals/evals.json": {
+        "sha256": "e9a22bf77a5cca30ecaaba89ffdaf642b4bb4434bf817e90f5ef866d99998a38",
+        "bytes": 4777
+      },
+      "evals/files/literal-sheet.json": {
+        "sha256": "e144eaa65075f6719af6c030d76069a861d363a794c20996d4db77afbce4a27d",
+        "bytes": 730
+      }
+    },
+    "all_five_files_match": true,
+    "parent_activity_review": {
+      "completed": true,
+      "observations": [
+        "The fresh session reported the host-supplied skill entry before any filesystem read.",
+        "The first shell read loaded SKILL.md from that mapped project path.",
+        "The planning answer preceded preparation-file inspection.",
+        "The host version query returned codex-cli 0.166.0-alpha.5.1.",
+        "The file-check command verified the five installed package hashes.",
+        "The final bounded cleanup command reported the fixture root absent."
+      ],
+      "path_sanitization": "Private project, user, machine and thread identifiers were omitted. Skill paths are project-relative.",
+      "limits": "This is retained execution evidence, not an independent cryptographic attestation of the host."
+    },
+    "checks": {
+      "discovered_before_manual_path_lookup": true,
+      "read_bytes_match_pinned_skill": true,
+      "saved_state_check_precedes_any_proposed_retry": true,
+      "no_actual_service_or_browser_call": true,
+      "complete_package_preserved": true
+    },
+    "cleanup": {
+      "status": "complete",
+      "removed_file_count": 8,
+      "removed_empty_directories_excluding_root": 5,
+      "root_absent": true,
+      "project_registration_removed": true,
+      "fixture_command_limits": {
+        "cpus": 1,
+        "address_space_bytes": 268435456,
+        "cpu_seconds": 10
+      },
+      "global_skill_or_user_configuration_changed": false
+    },
+    "not_proved": [
+      "implicit skill routing",
+      "live service behavior",
+      "saved Sheets state",
+      "exactly-once append"
+    ],
+    "passed": true
+  },
   "limits": [
-    "The pinned historical package predates the audit fixes.",
-    "No Skills CLI execution or live Google Sheets task is claimed."
-  ]
+    "No Skills CLI, live Google Sheets, or implicit routing execution is claimed.",
+    "Selected pinned files were materialized with git archive; no second repository checkout or global installation was created.",
+    "Explicit host discovery/load and synthetic planning only; this does not promote a package to live-tested.",
+    "The optional Skills CLI and Git clone command were not executed in this probe; the selected pinned package was materialized and copied directly."
+  ],
+  "package_fingerprint_algorithm": "sha256-length-prefixed-v2",
+  "package_sha256": "50a66b5638dbf550ef27571b90f167c58074824a4a29b2ad5111fc5a7e43680c",
+  "historical_copy_probe": {
+    "revision": "d54f5a7ddf4a80ea23ba31e1f386af4d887b354c",
+    "installation_manifest_sha256": "f98c8bd5cd76e0c3519c6921863164d84e2b32d9c7a69d5cf3704efe8268fcc0",
+    "two_installs_identical": true
+  },
+  "local_copy_cleanup": "Verified owned package manifest, then removed the disposable local project folder.",
+  "mode": "host-activation",
+  "copy_check_runtime": "Python 3.14.4; project-only copies on the repository owner worker",
+  "activation_installation_method": "The same five pinned UTF-8 files were materialized in a separate disposable target project and checked against the source manifest before a fresh Codex session started.",
+  "cleanup_complete": true
 }

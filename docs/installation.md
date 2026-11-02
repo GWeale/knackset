@@ -22,15 +22,15 @@ different directories. Follow the chosen host's documentation before copying.
 
 Requires Git and Python 3.10+, with no Node.js or installer dependency. Replace
 the two absolute paths. The source path must be a new directory outside your
-target project. This example pins the published revision
-`d54f5a7ddf4a80ea23ba31e1f386af4d887b354c`; it is a reproducible historical
-example, not a promise that it contains later fixes. Choose a reviewed full
-40-character commit ID to use another revision.
+target project. This example pins the reviewed revision
+`b56d6a705370779dfa2aa33f5cad95eb877a87d8`, which contains the updated skill and
+its offline evidence. Choose another reviewed full 40-character commit ID to use
+a different revision.
 
 ```bash
 export KNACKSET_SOURCE=/absolute/path/to/knackset-pinned
 export KNACKSET_TARGET=/absolute/path/to/your-target-project
-export KNACKSET_REVISION=d54f5a7ddf4a80ea23ba31e1f386af4d887b354c
+export KNACKSET_REVISION=b56d6a705370779dfa2aa33f5cad95eb877a87d8
 git clone --no-checkout https://github.com/GWeale/knackset.git "$KNACKSET_SOURCE"
 git -C "$KNACKSET_SOURCE" checkout --detach "$KNACKSET_REVISION"
 cd "$KNACKSET_TARGET"
@@ -141,6 +141,21 @@ does not prove activation: retain the discovery/path evidence and skill-read
 trace. Record the host version, date, package revision and file manifest, prompt,
 response, and limits. Keep this host check separate from the [offline task records](../evals/results/README.md).
 
-This procedure describes the check to perform. A successful discovery/activation
-check establishes that one host loaded one installed package. It does not prove
-live Sheets compatibility, implicit selection accuracy, or a performance gain.
+## Observed installation check — November 1, 2026
+
+The [host record](../evals/results/host-install-2026-11-01.json) verifies this pinned
+package in a fresh T3 Code session using **Codex CLI 0.166.0-alpha.5.1 on Ubuntu**
+and `gpt-6-astra`. The session reported the project skill in its initial catalog,
+then read that installed `SKILL.md` before answering the synthetic timeout prompt.
+It called for reconciling saved state before any retry; no browser or service was
+called. The parent inspected the recorded command sequence and output.
+
+All five package files matched the pinned source. Two earlier project copies had
+identical manifests. The probe materialized selected files from the commit rather
+than executing the optional Skills CLI or Git clone command above. Temporary
+copies and their project registrations were removed; no global skill was installed.
+Private absolute paths are normalized to project-relative paths in the public record.
+
+This establishes explicit discovery, loading, and planning in that host/version.
+It does not establish implicit selection accuracy, live Sheets compatibility,
+exactly-once insertion, or a performance gain.

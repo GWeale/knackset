@@ -14,7 +14,7 @@ coverage were not treated as observed live-service failures.
 | 6 | Separate conversation wording, saved Gmail drafts, and sends | Chat-only fixture requires zero mailbox mutations; saved-draft fixtures remain separate |
 | 7 | Name the target project, host, and install scope | [Installation guide](installation.md) and disposable project copy check |
 | 8 | Supply a complete accepted contribution | [Starter recipe](authoring-example.md) runs through the public validator and catalog CLIs |
-| 9 | Exercise installed-host discovery and explicit invocation | [Host record](../evals/results/host-install-2026-11-01.json): project copy verified; fresh-session activation pending |
+| 9 | Exercise installed-host discovery and explicit invocation | [Host record](../evals/results/host-install-2026-11-01.json): fresh Codex project discovery/load and planning passed; no live-service claim |
 | 10 | Pin the entire source revision | Two project copies from the same full commit have identical file manifests |
 | 11 | Export complete evidence after explicit response review | [Exporter](../scripts/export_eval.py) binds package and grader inputs at initialization; failures are retained |
 | 12 | Select from descriptions before loading bodies | [Routing trial](../evals/results/routing-2026-11-01.json), with the original score and a documented judge correction |
@@ -45,3 +45,9 @@ code spans inside blockquotes.
 No private account, credential, real message, purchase, booking, or document was
 used. Earlier evaluation records remain historical. No performance improvement
 claim is made without a matched baseline comparison.
+
+Final verification: 96 helper/fixture tests passed, as did package validation and
+generated-catalog checks. All 14 fresh workflow trials passed. The named-host
+activation probe preserved all five package files and completed explicit discovery,
+loading, and synthetic planning. Both disposable fixtures and project registrations
+were removed. Independent code review has no remaining material findings.
