@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "source_commit": "bc673abf054e492f173d7a1bc465d85391baf6e2",
+  "purpose": "Three matched exploratory artifact pairs on actual Knackset launch work, not the repeated sandbox efficacy protocol.",
+  "predeclared_pairs": 3,
+  "repeats_per_case": 1,
+  "seed": 20261102,
+  "schedule": [
+    {
+      "case": "reference-remix",
+      "order": [
+        "baseline",
+        "with-skill"
+      ]
+    },
+    {
+      "case": "rabbit-hole",
+      "order": [
+        "with-skill",
+        "baseline"
+      ]
+    },
+    {
+      "case": "unstick-project",
+      "order": [
+        "with-skill",
+        "baseline"
+      ]
+    }
+  ],
+  "runtime": {
+    "provider": "codex",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "harness": "T3 Code native fresh-context agents; build unknown",
+    "billing_cost": "unknown",
+    "total_tokens": "not exposed by native tool",
+    "elapsed_time": "parent wall-clock bounds only; no performance claim"
+  },
+  "allowed": "Read assigned input snapshot, write assigned output directory, shell and installed local rendering libraries, local image inspection. No network/browser/accounts/new deps/helpers/remote writes. Baselines receive no Knackset skill body.",
+  "limits": "At most three child lanes concurrently; one task per fresh context. Inputs/outputs are filesystem-scoped by instruction, not a hard sandbox.",
+  "inputs": {
+    "inputs/README.md": "132a170e8b77f76c2294b5362330ed856d69a010bce2e560d4148bc4916bf476",
+    "inputs/assets/knackset-mark.svg": "a4af67e7964274e18fdcec6d08dd8aa323ab85dcf20ece14cf1dc7570346c3ae",
+    "inputs/docs/installation.md": "cf8ec58bdf9bf6f9c4a536ab610fc8bbd65fd8bb8b4ae0d3d14acb8e4a2b99f6",
+    "inputs/evals/results/README.md": "90bd83aa1db7990d80d3de9fa5e2e04634094f9278be2417a3cbd3e0cb8ad483",
+    "inputs/evals/results/comparison-final-20261101/REPORT.md": "c3f6b2a1b7057a623320d8cf1e359a5bf8daba9e64f63946302a694abb91b382",
+    "inputs/examples/README.md": "7029dde7294b0fe22ac304ad32a67e88946c0491be990be5bec3ecaab4955fce",
+    "inputs/examples/expansion/generative-series/overview.svg": "b7178c59f35b8c58b40fcd2de5c63c89104f76c7a63dd3f1f78cf3bcb539ecf7",
+    "inputs/examples/field-kit/reference-remix/night-orchard.svg": "a0411b85965ac254a106e47d63d47fd5606f4a1cca9eaeed7c9161ca0ddeeae8",
+    "inputs/published-alpha.md": "8962bba4111deb2187cbb58df5db23620948328042b639389fd5ed95b0a53119"
+  },
+  "packets": {
+    "rabbit-hole": "c10ff8251ec53e379f4f3b64a72a9fd4a9ff41619b93fb1d07069bcf4e2f38d1",
+    "reference-remix": "dea5b639d5fa5ea4d09969d1fb6f1a5f1973493c976ea85e02f8b362e2dd564a",
+    "unstick-project": "244c0e11be3edcd487d3835a4209deff6285d3afda5ee0a04bc4a7730489987d"
+  },
+  "rubric_sha256": "51e2f7a5cd940c1a0f05ca40de7d1c5db846b5043463f4d7046aa260503cc556",
+  "packages": {
+    "rabbit-hole": "82b103075fe7feb1eaf09beb96d2f9eda6090ff04c919412ca21733f838dd3e2",
+    "reference-remix": "b2c9c4aa8c0e8e699036b0c5d656ff86e6e0091aac12a501706b8fafbce01d44",
+    "unstick-project": "49fe2b83a0efb5e3a3d746e4f986d9fb85620f887c356be1b72831f303c96826"
+  }
+}

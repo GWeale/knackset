@@ -12,11 +12,15 @@ Knackset studies good public skills and makes original methods from the parts
 worth keeping. The point of view is in the choices: which evidence matters,
 which reference earns its place, what to leave alone, and when to make something.
 
-[Start with a skill](#start-with-what-you-have) · [See worked examples](examples/README.md) · [Explore the source shelf](docs/source-shelf.md) · [See the whole catalog](docs/catalog.md)
+[Start with a skill](#start-with-what-you-have) · [Try it and report back](docs/try-the-field-kit.md) · [See worked examples](examples/README.md) · [Explore the source shelf](docs/source-shelf.md) · [See the whole catalog](docs/catalog.md)
 
 [![CI](https://github.com/GWeale/knackset/actions/workflows/ci.yml/badge.svg)](https://github.com/GWeale/knackset/actions/workflows/ci.yml) · [MIT](LICENSE)
 
 ## Start with what you have
+
+For a first try, choose Rabbit Hole, Reference Remix or Unstick Project. They
+cover an investigation, an original visual direction and a useful way forward
+on a stalled project. The rest of the field kit is below.
 
 | You have… | Use | Walk away with… |
 | --- | --- | --- |
@@ -36,6 +40,9 @@ notes and review records keep the limits visible. Earlier office and browser
 workflows remain on the [utility shelf in the full catalog](docs/catalog.md).
 
 ## See what came out
+
+[Watch the 80-second captioned preview](examples/creative-preview/README.md) or
+[inspect the three actual-project comparisons](examples/launch-study/README.md).
 
 [![Night Orchard: a poster made by Reference Remix](examples/field-kit/reference-remix/night-orchard-small.png)](examples/field-kit/reference-remix/night-orchard.png)
 
@@ -98,7 +105,9 @@ by itself a new capability.
 ## Evidence and development
 
 The field kit has [worked examples and scoped reviews](examples/README.md),
-with no comparison baseline. The older utilities retain their
+alongside a [small paired pilot on actual launch work](examples/launch-study/README.md).
+Those observations are task-specific: one slight preference each way and one tie. They do not establish
+general improvement. The older utilities retain their
 [dated offline records](evals/results/README.md). Those records do not validate
 the creative methods. [Provenance](docs/provenance.md) explains the distinction
 between authored cases, source research and actual executions.

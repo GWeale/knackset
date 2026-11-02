@@ -1,0 +1,106 @@
+{
+  "date": "2026-11-01 America/Los_Angeles",
+  "machine": "hatter-small",
+  "result": "Local creative demo packet complete for review; no creative skill execution claimed.",
+  "scope": "Only supplied task and inputs read for content; only assigned output directory written. No new dependencies, network, browser/GUI, services, accounts, scheduling, commits or external writes.",
+  "checks": {
+    "html_parse": "pass (Python standard-library HTMLParser; not browser conformance)",
+    "local_links": {
+      "result": "pass",
+      "count": 11,
+      "links": [
+        "../../../inputs/examples/field-kit/reference-remix/night-orchard.svg",
+        "NARRATION.md",
+        "TRY-IT.md",
+        "CHECKS.json",
+        "README.md",
+        "../../../inputs/README.md.txt",
+        "../../../inputs/examples/README.md.txt",
+        "../../../inputs/examples/field-kit/reference-remix/night-orchard.svg",
+        "../../../inputs/assets/knackset-mark.svg",
+        "../../../inputs/published-alpha.md.txt",
+        "../../../inputs/evals/results/comparison-final-20261101/REPORT.md.txt"
+      ]
+    },
+    "unique_ids": "pass",
+    "external_runtime_resources": "none (no src resources, scripts, CSS imports or CSS URL loads; SVG xmlns is a namespace, not an asset request)",
+    "embedded_artwork": {
+      "poster": {
+        "source": "../../../inputs/examples/field-kit/reference-remix/night-orchard.svg",
+        "sha256": "a0411b85965ac254a106e47d63d47fd5606f4a1cca9eaeed7c9161ca0ddeeae8",
+        "embedded_byte_match": true,
+        "xml_parse": "pass"
+      },
+      "icon": {
+        "source": "../../../inputs/assets/knackset-mark.svg",
+        "sha256": "a4af67e7964274e18fdcec6d08dd8aa323ab85dcf20ece14cf1dc7570346c3ae",
+        "embedded_byte_match": true,
+        "xml_parse": "pass"
+      }
+    },
+    "narration": {
+      "spoken_word_count": 205,
+      "estimated_seconds_at_150_wpm": 82.0,
+      "target_seconds": [
+        60,
+        90
+      ],
+      "actual_timed_rehearsal": "not run"
+    },
+    "first_task_completeness": "pass: full fictional event copy, three newly authored references, two required files, dimensions, scope, finish conditions, and checks included",
+    "poster_render": {
+      "result": "pass",
+      "method": "Python ctypes with existing system librsvg-2 and Cairo; no installed dependency",
+      "preview": {
+        "size_px": [
+          891,
+          1260
+        ],
+        "format": "PNG"
+      }
+    },
+    "poster_visual_inspection": {
+      "result": "pass",
+      "method": "Inspected rendered PNG with local view_image",
+      "observation": "Full title, subtitle, tree/route graphic, date, venue and entry line visible; no clipped content apparent at 891 \u00d7 1260."
+    },
+    "output_files": "pass"
+  },
+  "not_run": [
+    "HTML page browser rendering, interaction, responsive layout, and assistive-technology checks (browser/GUI prohibited).",
+    "Original Reference Remix skill execution, host discovery/loading, or reconstruction of its missing original textual studies.",
+    "First-task agent execution or human comprehension/taste testing.",
+    "Audio recording or timed narration rehearsal.",
+    "Any live service, remote release change, installation, or publication."
+  ],
+  "people_dependent_next_step": "George inspects the poster, runs one supplied invitation exercise, and records the first unclear instruction plus observed files/checks; separately decides whether to authorize sharing.",
+  "setup_deviations": [
+    {
+      "event": "Earlier initial launch reportedly hit model capacity before an artifact result.",
+      "authority": "Coordinator message, not directly observed during this active attempt.",
+      "continuation": "Same inherited provider/model/settings; no model switch, other-run read, or scope expansion."
+    }
+  ],
+  "files": {
+    "NARRATION.md": {
+      "bytes": 1694,
+      "sha256": "a12d5dcb9a93df37607763902e6e4d1fb398d44514cf8ef2f6f399e9ab3047d6"
+    },
+    "README.md": {
+      "bytes": 2023,
+      "sha256": "fd23528b75736a8cab0fb85864ba10531a9dfd05d004e539dc574609f9295769"
+    },
+    "TRY-IT.md": {
+      "bytes": 2388,
+      "sha256": "b8ecf3c246f42c53421de08b451f8ab694c2018fd7c96c70fd61b3eb198e6d81"
+    },
+    "demo.html": {
+      "bytes": 17427,
+      "sha256": "501861bb6082337494bdc4fd8cc7b5cbabe01a7160270839f26106a9f389649c"
+    },
+    "poster-preview.png": {
+      "bytes": 103362,
+      "sha256": "11dd465d81348a53b4a4dd853d8aead3c84d41a9f67278c73ff598f430f9d573"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="card-title card-desc">
+  <title id="card-title">Knackset — Creative field kit preview</title>
+  <desc id="card-desc">Follow a question. Make something worth keeping. Rabbit Hole · Reference Remix · Unstick Project. github.com/GWeale/knackset. An open ring of fine strokes is gathered onto an angular lime sheet with an orange folded corner.</desc>
+  <metadata>Original editable launch artwork. Reference mechanisms: Night Orchard's deliberate scale and quiet space; Held Between's repeated marks and meaningful interruptions; Knackset's existing folded-page geometry and palette. No external assets, scripts or fonts are linked. All visible type remains editable SVG text. Canvas 1200 by 630 pixels.</metadata>
+  <rect id="paper" width="1200" height="630" fill="#f4efe5"/>
+
+  <!-- The supplied mark: original four shapes and colours, uniformly scaled. -->
+  <g id="knackset-mark" transform="translate(64 48)">
+    <rect width="64" height="64" rx="14" fill="#f4efe5"/>
+    <path d="M9 9h37l9 9v37H9z" fill="#d5e953"/>
+    <path d="M46 9v9h9z" fill="#e87842"/>
+    <path d="M17 18h8v14l13-14h11L34 34l16 15H38L25 36v13h-8z" fill="#152a23"/>
+  </g>
+  <g font-family="DejaVu Sans, sans-serif" fill="#152a23">
+    <text id="wordmark" x="145" y="96" font-size="44" font-weight="700" letter-spacing="-1.8">Knackset</text>
+    <text id="preview-label" x="1136" y="87" text-anchor="end" font-size="18">Creative field kit — preview</text>
+  </g>
+
+  <text id="promise" x="64" y="225" font-family="DejaVu Sans, sans-serif" font-size="64" font-weight="400" letter-spacing="-2.2" fill="#152a23"><tspan x="64" y="225">Follow a question.</tspan> <tspan x="64" y="303">Make something</tspan> <tspan x="64" y="381">worth keeping.</tspan></text>
+
+  <!-- Loose observations give way to a single keeper; the sheet is a new composition. -->
+  <g id="gathered-keeper" transform="rotate(-8 997 315)">
+    <g id="loose-marks" stroke="#152a23" stroke-width="1.7" fill="none">
+      <path d="M808 241h27 M821 257h34 M794 273h19 M820 289h30 M803 305h42 M825 321h22 M812 337h37 M832 353h14 M820 369h27 M835 385h18"/>
+    </g>
+    <path id="keeper-sheet" d="M870 170H1059L1115 226V454H870Z" fill="#d5e953"/>
+    <path id="fold" d="M1059 170V226H1115Z" fill="#e87842"/>
+    <g id="open-question-field" fill="none" stroke="#152a23" stroke-width="2.3" stroke-linecap="butt">
+      <path d="M969.17 227H1022.83"/>
+      <path d="M950.57 235H1041.43"/>
+      <path d="M938.73 243H1053.27"/>
+      <path d="M929.91 251H1062.09"/>
+      <path d="M923.01 259H1068.99"/>
+      <path d="M917.51 267H973.53"/>
+      <path d="M913.15 275H961.23"/>
+      <path d="M909.74 283H953.75"/>
+      <path d="M907.19 291H948.75"/>
+      <path d="M905.40 299H945.47"/>
+      <path d="M904.35 307H943.61"/>
+      <path d="M904.00 315H943.00"/>
+      <path d="M1049.00 315H1088.00"/>
+      <path d="M904.35 323H943.61"/>
+      <path d="M1048.39 323H1087.65"/>
+      <path d="M905.40 331H945.47"/>
+      <path d="M1046.53 331H1086.60"/>
+      <path d="M907.19 339H948.75"/>
+      <path d="M1043.25 339H1084.81"/>
+      <path d="M909.74 347H953.75"/>
+      <path d="M1038.25 347H1082.26"/>
+      <path d="M913.15 355H961.23"/>
+      <path d="M1030.77 355H1078.85"/>
+      <path d="M917.51 363H973.53"/>
+      <path d="M1018.47 363H1074.49"/>
+      <path d="M923.01 371H1068.99"/>
+      <path d="M929.91 379H1062.09"/>
+      <path d="M938.73 387H1053.27"/>
+      <path d="M950.57 395H1041.43"/>
+      <path d="M969.17 403H1022.83"/>
+    </g>
+    <path id="selected-mark" d="M1042 267H1087" stroke="#e87842" stroke-width="5"/>
+    <g id="keepers-edge" stroke="#152a23" stroke-width="1.4">
+      <path d="M893 429h36 M937 429h13"/>
+    </g>
+  </g>
+
+  <g font-family="DejaVu Sans, sans-serif" fill="#152a23">
+    <text id="skill-list" x="64" y="483" font-size="22" letter-spacing="-.3">Rabbit Hole · Reference Remix · Unstick Project</text>
+    <path d="M64 525H1136" stroke="#152a23" stroke-width="1"/>
+    <text id="repository" x="64" y="578" font-size="22" letter-spacing="-.3">github.com/GWeale/knackset</text>
+  </g>
+</svg>

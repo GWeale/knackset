@@ -1,12 +1,21 @@
 # Changelog
 
-## Unreleased — creative preview
+## v0.1.0-alpha.2 — 2026-11-02 (UTC)
+
+- Lead with Rabbit Hole, Reference Remix and Unstick Project. Add three matched
+  fresh-context artifact pairs on actual launch work, retaining both variants,
+  frozen inputs and an independent anonymous review. This is an exploratory
+  pilot, not general comparative proof; packages remain draft.
+- Add an 80-second captioned GIF, editable frames and rebuild source. Distinguish
+  assembled presentation from live agent recording or audience validation.
+- Add a field-test guide, structured report form and invitation draft. Five
+  independent human reports remain a target, not a completed milestone.
 
 - Keep the installer's file-size failure test focused on package copying. Disable
   import-cache writes in that subprocess so Python 3.10 cannot leave a truncated
   bytecode cache that breaks the subsequent retry check.
 
-## Unreleased — simpler discovery and project copies
+### Simpler discovery and project copies
 
 - Group the generated catalog into field kit and utilities, with independent
   collection filters and one classification in catalog metadata.
@@ -17,7 +26,7 @@
 - Reject symlinks and special package resources before catalog metadata reads,
   preventing a listing from blocking on a FIFO.
 
-## Unreleased — grow and refactor
+### Grow and refactor
 
 - Add original Decision Archaeology, Generative Series and Unstick Project drafts.
 - Refactor session capture around reuse/amend/create/no-change; keep its existing
@@ -29,7 +38,7 @@
 - Compare discovery coverage with declared catalog/routing data instead of a
   skill count that becomes stale whenever the collection grows.
 
-## Curated field kit
+### Curated field kit
 
 - Shift the collection toward investigation, creative direction, writing, product
   judgment, demonstrations and learning. Google workflows are no longer the

@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "kind": "actual-project-artifact-pilot-publication",
+  "input_public_paths": {
+    "inputs/published-alpha.md": "inputs/published-alpha.md.txt",
+    "inputs/README.md": "inputs/README.md.txt",
+    "inputs/assets/knackset-mark.svg": "inputs/assets/knackset-mark.svg",
+    "inputs/docs/installation.md": "inputs/docs/installation.md.txt",
+    "inputs/examples/README.md": "inputs/examples/README.md.txt",
+    "inputs/examples/expansion/generative-series/overview.svg": "inputs/examples/expansion/generative-series/overview.svg",
+    "inputs/examples/field-kit/reference-remix/night-orchard.svg": "inputs/examples/field-kit/reference-remix/night-orchard.svg",
+    "inputs/evals/results/README.md": "inputs/evals/results/README.md.txt",
+    "inputs/evals/results/comparison-final-20261101/REPORT.md": "inputs/evals/results/comparison-final-20261101/REPORT.md.txt"
+  },
+  "outputs": [
+    {
+      "path": "runs/rabbit-hole/baseline/account.md",
+      "original_sha256": "2df159d494abe1f828cf230d053304ffc664e2c599e59b0a9863fc79029979d9",
+      "published_sha256": "2df159d494abe1f828cf230d053304ffc664e2c599e59b0a9863fc79029979d9",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/rabbit-hole/baseline/source-trail.md",
+      "original_sha256": "5b1877bbf4206fe4e7b7a0e4a35850a7e9b4853e5db97ee6f1cc2ef298c468de",
+      "published_sha256": "70434015644bfb85eafce88539c481e0e74b8a2a1cf06993d0cae38474a5502c",
+      "presentation_change": true
+    },
+    {
+      "path": "runs/rabbit-hole/with-skill/account.md",
+      "original_sha256": "879209422ba5a00532ec1bb80a23ad04808789a47d3a8a8ae7bf40a109568dad",
+      "published_sha256": "d131b6b3b9d35e3fcc098cf9a4e52d08fb7ac2af3df31e1fe8fc50772ca5493e",
+      "presentation_change": true
+    },
+    {
+      "path": "runs/rabbit-hole/with-skill/source-trail.md",
+      "original_sha256": "62d47766a9a51c60dbbf534270022d0447ab1ac2b1c9aeb0355e8292479225b8",
+      "published_sha256": "17e705433b834d563caee826abed1fd7e5b47d60c64baf1baabf7a1fe658b1e3",
+      "presentation_change": true
+    },
+    {
+      "path": "runs/reference-remix/baseline/build_card.py",
+      "original_sha256": "6478f91a10ca98d97abf0ba99cac982dff6a93727e2183b35feb19fc991b9370",
+      "published_sha256": "6478f91a10ca98d97abf0ba99cac982dff6a93727e2183b35feb19fc991b9370",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/reference-remix/baseline/card-small.png",
+      "original_sha256": "791848d2e160773bb3b3be167e759b599da0704bc988c0044ff957cf6a6b40d9",
+      "published_sha256": "791848d2e160773bb3b3be167e759b599da0704bc988c0044ff957cf6a6b40d9",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/reference-remix/baseline/card.png",
+      "original_sha256": "cef826412b87ad4ba29905bbe1004d23fc5f42ec615c5cef1145fdf506f3cfcf",
+      "published_sha256": "cef826412b87ad4ba29905bbe1004d23fc5f42ec615c5cef1145fdf506f3cfcf",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/reference-remix/baseline/card.svg",
+      "original_sha256": "85ae7700ee4729c313b8acf33d87de32e82d27caea0c892fbf832ff3864707be",
+      "published_sha256": "85ae7700ee4729c313b8acf33d87de32e82d27caea0c892fbf832ff3864707be",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/reference-remix/baseline/check_card.py",
+      "original_sha256": "45cf65bd5801d2b71bcc16c01ed3cd22dc604cf33b343b9230a447a1a599b012",
+      "published_sha256": "45cf65bd5801d2b71bcc16c01ed3cd22dc604cf33b343b9230a447a1a599b012",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/reference-remix/baseline/decisions-and-checks.md",
+      "original_sha256": "2f222b2f564d801f17a0f7b862f2c03f0f3f15552ad113af31b462c958ff9fa9",
+      "published_sha256": "2f222b2f564d801f17a0f7b862f2c03f0f3f15552ad113af31b462c958ff9fa9",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/reference-remix/baseline/input-sha256.txt",
+      "original_sha256": "e485d7f99ed6b327a9cecc0c2be96f614055e435eb74f562bef78e320a919b4f",
+      "published_sha256": "e485d7f99ed6b327a9cecc0c2be96f614055e435eb74f562bef78e320a919b4f",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/reference-remix/baseline/reference-held-between.png",
+      "original_sha256": "d48368c0dc03df449ae798e8d3c1d9c4a887b3a73d575509c05b1f1c13d864da",
+      "published_sha256": "d48368c0dc03df449ae798e8d3c1d9c4a887b3a73d575509c05b1f1c13d864da",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/reference-remix/baseline/reference-night-orchard.png",
+      "original_sha256": "bc9e1232fd78f85a18056af92dc09e70e421bec18d0f7444fbff2a1319f92b92",
+      "published_sha256": "bc9e1232fd78f85a18056af92dc09e70e421bec18d0f7444fbff2a1319f92b92",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/reference-remix/baseline/render_svg.py",
+      "original_sha256": "982d68d6fbe19174f7405240c22f09ed04be520d0c8357ef8fd057a711677c66",
+      "published_sha256": "982d68d6fbe19174f7405240c22f09ed04be520d0c8357ef8fd057a711677c66",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/reference-remix/with-skill/card-600.png",
+      "original_sha256": "459869d8ba0599b5ffa7e8bd39c71f5128a1c3eddcf0bdf14e603bac4a4d59ca",
+      "published_sha256": "459869d8ba0599b5ffa7e8bd39c71f5128a1c3eddcf0bdf14e603bac4a4d59ca",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/reference-remix/with-skill/card.png",
+      "original_sha256": "e8804f4d2f60d0cbd83bde670a16db7c5e01cb20af2859259e1ed73a16c64031",
+      "published_sha256": "e8804f4d2f60d0cbd83bde670a16db7c5e01cb20af2859259e1ed73a16c64031",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/reference-remix/with-skill/card.svg",
+      "original_sha256": "06f53f4661a5994b70e3fb8c57539ed71046d9c1f93b8f3b7913ec4801b48054",
+      "published_sha256": "06f53f4661a5994b70e3fb8c57539ed71046d9c1f93b8f3b7913ec4801b48054",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/reference-remix/with-skill/notes.md",
+      "original_sha256": "c54854e9aea106f2af2b52145a7a60fd71284af8b7c786ea83db7aba4146a3e5",
+      "published_sha256": "c54854e9aea106f2af2b52145a7a60fd71284af8b7c786ea83db7aba4146a3e5",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/reference-remix/with-skill/reference-held-between.png",
+      "original_sha256": "d48368c0dc03df449ae798e8d3c1d9c4a887b3a73d575509c05b1f1c13d864da",
+      "published_sha256": "d48368c0dc03df449ae798e8d3c1d9c4a887b3a73d575509c05b1f1c13d864da",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/reference-remix/with-skill/reference-icon.png",
+      "original_sha256": "ebb2d9d29811cb409fd2f906957bd35feb55dee8afc87f7f3d9f6bd6b9d7407c",
+      "published_sha256": "ebb2d9d29811cb409fd2f906957bd35feb55dee8afc87f7f3d9f6bd6b9d7407c",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/reference-remix/with-skill/reference-night-orchard.png",
+      "original_sha256": "bc9e1232fd78f85a18056af92dc09e70e421bec18d0f7444fbff2a1319f92b92",
+      "published_sha256": "bc9e1232fd78f85a18056af92dc09e70e421bec18d0f7444fbff2a1319f92b92",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/reference-remix/with-skill/render.py",
+      "original_sha256": "4a11f6839ff5ecdf0abb3f6fdc43be9f7a711c3bcfcbdfbfb0060589f595a191",
+      "published_sha256": "4a11f6839ff5ecdf0abb3f6fdc43be9f7a711c3bcfcbdfbfb0060589f595a191",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/unstick-project/baseline/CHECKS.json",
+      "original_sha256": "c0876e5168f52cc8f932b6090477157f7ffda36c3d549548969d8385f3a1aa67",
+      "published_sha256": "ddcb6eeceeee7e9a2aed74f6e95ae5ffae34ab985f67e85995433040be040a0d",
+      "presentation_change": true
+    },
+    {
+      "path": "runs/unstick-project/baseline/NARRATION.md",
+      "original_sha256": "a12d5dcb9a93df37607763902e6e4d1fb398d44514cf8ef2f6f399e9ab3047d6",
+      "published_sha256": "a12d5dcb9a93df37607763902e6e4d1fb398d44514cf8ef2f6f399e9ab3047d6",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/unstick-project/baseline/README.md",
+      "original_sha256": "fd23528b75736a8cab0fb85864ba10531a9dfd05d004e539dc574609f9295769",
+      "published_sha256": "fd23528b75736a8cab0fb85864ba10531a9dfd05d004e539dc574609f9295769",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/unstick-project/baseline/TRY-IT.md",
+      "original_sha256": "b8ecf3c246f42c53421de08b451f8ab694c2018fd7c96c70fd61b3eb198e6d81",
+      "published_sha256": "b8ecf3c246f42c53421de08b451f8ab694c2018fd7c96c70fd61b3eb198e6d81",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/unstick-project/baseline/demo.html",
+      "original_sha256": "501861bb6082337494bdc4fd8cc7b5cbabe01a7160270839f26106a9f389649c",
+      "published_sha256": "f0fa448f7610f8ea13d42087ebfbb3e21a855d0036925ffffffc29ab2509ec53",
+      "presentation_change": true
+    },
+    {
+      "path": "runs/unstick-project/baseline/poster-preview.png",
+      "original_sha256": "11dd465d81348a53b4a4dd853d8aead3c84d41a9f67278c73ff598f430f9d573",
+      "published_sha256": "11dd465d81348a53b4a4dd853d8aead3c84d41a9f67278c73ff598f430f9d573",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/unstick-project/with-skill/CHECKS.md",
+      "original_sha256": "919fd9330705b39e8eab46e698372ea19bfe33e63005a5c1debd744bb59ab3c4",
+      "published_sha256": "919fd9330705b39e8eab46e698372ea19bfe33e63005a5c1debd744bb59ab3c4",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/unstick-project/with-skill/FIRST-TASK.md",
+      "original_sha256": "a543f4b352fff0559ca183ea127c30497a46728d18d9b213a0ef116dac85ef63",
+      "published_sha256": "a543f4b352fff0559ca183ea127c30497a46728d18d9b213a0ef116dac85ef63",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/unstick-project/with-skill/NARRATION.md",
+      "original_sha256": "bd4d6361ed6b77323a773b8a42cf6318196f7040a7dc40153a58ef69aeb49194",
+      "published_sha256": "bd4d6361ed6b77323a773b8a42cf6318196f7040a7dc40153a58ef69aeb49194",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/unstick-project/with-skill/README.md",
+      "original_sha256": "671c81ddffc41169111aedcee4c72229bcea4f22d5569d21c9620328e3e15d19",
+      "published_sha256": "d96d81f4055698056cccc1c68d80da3862561425a957c3932f945091cd362917",
+      "presentation_change": true
+    },
+    {
+      "path": "runs/unstick-project/with-skill/assets/knackset-mark.svg",
+      "original_sha256": "a4af67e7964274e18fdcec6d08dd8aa323ab85dcf20ece14cf1dc7570346c3ae",
+      "published_sha256": "a4af67e7964274e18fdcec6d08dd8aa323ab85dcf20ece14cf1dc7570346c3ae",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/unstick-project/with-skill/assets/night-orchard-preview.png",
+      "original_sha256": "5dc811c36506e3ef592f4986a7c915893486c31874a5c4ddeeef933cf68e720a",
+      "published_sha256": "5dc811c36506e3ef592f4986a7c915893486c31874a5c4ddeeef933cf68e720a",
+      "presentation_change": false
+    },
+    {
+      "path": "runs/unstick-project/with-skill/assets/night-orchard.svg",
+      "original_sha256": "a0411b85965ac254a106e47d63d47fd5606f4a1cca9eaeed7c9161ca0ddeeae8",
+      "published_sha256": "a0411b85965ac254a106e47d63d47fd5606f4a1cca9eaeed7c9161ca0ddeeae8",
+      "presentation_change": false
+    }
+  ],
+  "presentation_edits": "Raw Markdown input snapshots use .md.txt so historical relative links are preserved as input text, not treated as active project docs. Published artifact input links use those names; artifact content otherwise unchanged. Complete originals retained locally. No outcome or score was changed."
+}

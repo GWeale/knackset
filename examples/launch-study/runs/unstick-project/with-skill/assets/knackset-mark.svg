@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Knackset</title>
+  <rect width="64" height="64" rx="14" fill="#f4efe5"/>
+  <path d="M9 9h37l9 9v37H9z" fill="#d5e953"/>
+  <path d="M46 9v9h9z" fill="#e87842"/>
+  <path d="M17 18h8v14l13-14h11L34 34l16 15H38L25 36v13h-8z" fill="#152a23"/>
+</svg>

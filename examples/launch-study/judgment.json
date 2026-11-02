@@ -1,0 +1,291 @@
+{
+  "status": "frozen",
+  "judged_date": "2026-11-01 America/Los_Angeles",
+  "identity_blinding": "A/B identities were not requested or resolved. No mapping, named runs, skill packages, freeze files, or repository launch documents were read.",
+  "rubric": "anonymous/rubric.json",
+  "scoring": "Four common dimensions, each 0/1/2; total maximum 8 per artifact. Case-check statuses are separate and are not added to that total.",
+  "inspection": {
+    "read": "All three anonymous task files; finished editorial files, SVGs, launch-card notes, demo packet text and HTML; supplied primary inputs needed to assess claims.",
+    "visual": "Both 1200x630 launch-card PNGs and both 600x315 previews; supplied-reference renders; both 891x1260 demo poster previews.",
+    "independent_read_only_checks": [
+      "Editorial word counts within 500-800 (approximately 702 for A and 685 for B using a word-token counter).",
+      "Both card SVGs parse; exact 1200/630 dimensions and viewBox; all five required visible strings; icon shape attributes/fills equal the supplied icon; no image/script/foreignObject/href assets.",
+      "PNG IHDR dimensions match the requested full and half sizes; previews were visually opened.",
+      "Markdown file links resolve; B demo HTML local links and anchors resolve, with no duplicate IDs, scripts, or src loads.",
+      "A demo poster/icon files match supplied bytes; B HTML contains the exact supplied poster/icon text.",
+      "Narration spoken whitespace counts: A 161 words, B 205 words, matching their estimates."
+    ],
+    "not_performed": [
+      "No output helper scripts or supplied repository code were executed.",
+      "No browser, network, new dependencies, model exercise, timed narration, audience testing, print proof, or cross-editor rendering.",
+      "No independent execution-trace audit of each producer's historical claims; supported structural checks were repeated directly."
+    ],
+    "writes": [
+      "judgment.json",
+      "judgment.md"
+    ]
+  },
+  "pairs": [
+    {
+      "pair": "pair-1",
+      "case": "rabbit-hole",
+      "preference": "A",
+      "preference_strength": "small, task-specific",
+      "A": {
+        "common_scores": {
+          "Requested useful artifact is complete and usable": 2,
+          "Claims and verification are supported by supplied material or observed checks": 2,
+          "Relevant choices explain why the result fits the actual task": 2,
+          "Scope, existing identity and material are preserved": 2
+        },
+        "common_total_out_of_8": 8,
+        "case_checks": [
+          {
+            "check": "Distinguishes helper tests and old utility evidence from creative efficacy",
+            "result": "pass",
+            "evidence": "Separates 25 packages, the unverified 133-test brief figure, alpha 120 tests, and repeated Gmail/Sheets executions; explains that correct saved labels still failed a preservation-verification check."
+          },
+          {
+            "check": "Traceable primary evidence and meaningful rival explanations",
+            "result": "pass",
+            "evidence": "Links the supplied primary report and snapshots; explicitly tests the numerical-proof claim, the merely-packaging explanation, and inflated/missing-evidence interpretation, then states why evidence transfer is best supported."
+          },
+          {
+            "check": "Finished readable account and source trail, without fictional discoveries",
+            "result": "pass",
+            "evidence": "Finished account is in range, with an honest release formulation and a discriminating future observation; no unsupported discovery found."
+          }
+        ],
+        "critical_errors": [],
+        "readiness": "Ready for the requested local review, within the stated evidence limits.",
+        "evidence_files": [
+          "anonymous/pair-1/A/account.md",
+          "anonymous/pair-1/A/source-trail.md"
+        ],
+        "notes": "The concrete Gmail opening makes the scope error understandable. The source trail distinguishes repeated reporting of the same comparison from independent replication."
+      },
+      "B": {
+        "common_scores": {
+          "Requested useful artifact is complete and usable": 2,
+          "Claims and verification are supported by supplied material or observed checks": 2,
+          "Relevant choices explain why the result fits the actual task": 2,
+          "Scope, existing identity and material are preserved": 2
+        },
+        "common_total_out_of_8": 8,
+        "case_checks": [
+          {
+            "check": "Distinguishes helper tests and old utility evidence from creative efficacy",
+            "result": "pass",
+            "evidence": "Correctly separates collection size, helper checks, the alpha study and creative examples; reports the verification-read nature of both baseline failures and no creative baseline."
+          },
+          {
+            "check": "Traceable primary evidence and meaningful rival explanations",
+            "result": "partial",
+            "evidence": "Six numbered primary-source references are traceable and the Calendar counterexample usefully limits superiority claims. It does less explicit testing of competing explanations for the launch mismatch than A."
+          },
+          {
+            "check": "Finished readable account and source trail, without fictional discoveries",
+            "result": "pass",
+            "evidence": "Finished account is in range, states a usable release claim and an appropriate future matched comparison; no unsupported discovery found."
+          }
+        ],
+        "critical_errors": [],
+        "readiness": "Ready for the requested local review, within the stated evidence limits.",
+        "evidence_files": [
+          "anonymous/pair-1/B/account.md",
+          "anonymous/pair-1/B/source-trail.md"
+        ],
+        "notes": "Direct, usable prospective-user account. The Calendar history is supported by the supplied execution index, not independently audited raw trials."
+      },
+      "concrete_differences": [
+        "A explicitly considers whether the creative direction is merely packaging and whether the evidence is generally inflated; the available artifacts and disclosed caveats weaken those rivals. B reaches the same central conclusion with less explicit rival analysis.",
+        "B adds the supported historical Calendar failure/retest; A uses a more concrete Gmail-first narrative. Both explain the crucial scope distinction correctly."
+      ],
+      "preference_reason": "A narrowly better meets the frozen rival-explanation check. This is an editorial and investigative difference, not evidence that its anonymous procedure is more effective.",
+      "possible_unblinding_clues": [
+        "No explicit trial-arm identity in the deliverables. Different citation and source-trail styles could suggest process, but were not used to infer labels."
+      ]
+    },
+    {
+      "pair": "pair-2",
+      "case": "reference-remix",
+      "preference": "tie",
+      "preference_strength": "none",
+      "A": {
+        "common_scores": {
+          "Requested useful artifact is complete and usable": 2,
+          "Claims and verification are supported by supplied material or observed checks": 2,
+          "Relevant choices explain why the result fits the actual task": 2,
+          "Scope, existing identity and material are preserved": 2
+        },
+        "common_total_out_of_8": 8,
+        "case_checks": [
+          {
+            "check": "Valid 1200x630 editable SVG with exact required copy and unchanged icon design",
+            "result": "pass",
+            "evidence": "Independently parsed and checked dimensions, viewBox, all required visible text, editable vectors/text and exact icon shapes/colors."
+          },
+          {
+            "check": "Original composition synthesizes references without transplanting their fictional subject",
+            "result": "pass",
+            "evidence": "Cream landscape, dominant three-line promise and tilted lime keeper sheet combine sparse space with repeated interrupted strokes. No reference event, title or listening-card subject is copied into visible launch content."
+          },
+          {
+            "check": "Honest actual-size and small-preview visual check, no clipping/overlap",
+            "result": "pass",
+            "evidence": "Independently inspected both saved sizes: all copy and marks fit, hierarchy remains readable, with no apparent clipping or overlap. Notes accurately limit checking to the local renderer."
+          }
+        ],
+        "critical_errors": [],
+        "readiness": "Ready for the requested local review, within the stated evidence limits.",
+        "evidence_files": [
+          "anonymous/pair-2/A/card.svg",
+          "anonymous/pair-2/A/card.png",
+          "anonymous/pair-2/A/card-600.png",
+          "anonymous/pair-2/A/notes.md"
+        ],
+        "notes": "The large invitation, single sheet and separate URL give a calm, usable composition. At half size the supporting copy remains legible."
+      },
+      "B": {
+        "common_scores": {
+          "Requested useful artifact is complete and usable": 2,
+          "Claims and verification are supported by supplied material or observed checks": 2,
+          "Relevant choices explain why the result fits the actual task": 2,
+          "Scope, existing identity and material are preserved": 2
+        },
+        "common_total_out_of_8": 8,
+        "case_checks": [
+          {
+            "check": "Valid 1200x630 editable SVG with exact required copy and unchanged icon design",
+            "result": "pass",
+            "evidence": "Independently parsed and checked dimensions, viewBox, all required visible text, editable vectors/text and exact icon shapes/colors."
+          },
+          {
+            "check": "Original composition synthesizes references without transplanting their fictional subject",
+            "result": "pass",
+            "evidence": "Dark landscape and pale information band use Night Orchard's hierarchy; an original striped question, warm interruption and folded terminal apply the line/gap relationships of Held Between. No fictional reference subject appears."
+          },
+          {
+            "check": "Honest actual-size and small-preview visual check, no clipping/overlap",
+            "result": "pass",
+            "evidence": "Independently inspected both saved sizes: all copy and artwork fit; the footer text blocks remain separate and readable. Notes disclose renderer/font limits."
+          }
+        ],
+        "critical_errors": [],
+        "readiness": "Ready for the requested local review, within the stated evidence limits.",
+        "evidence_files": [
+          "anonymous/pair-2/B/card.svg",
+          "anonymous/pair-2/B/card.png",
+          "anonymous/pair-2/B/card-small.png",
+          "anonymous/pair-2/B/decisions-and-checks.md"
+        ],
+        "notes": "The question mark makes inquiry explicit and the larger wordmark gives stronger brand presence. The route and thin stripes remain visible at half size."
+      },
+      "concrete_differences": [
+        "A uses a cream field, smaller brand and a tilted folded sheet; B uses a dark field, larger brand, oversized striped question and pale footer.",
+        "A gives the URL a separate bottom row; B fits it alongside the methods in one footer. Neither treatment causes a usability defect at the supplied preview sizes."
+      ],
+      "preference_reason": "Both satisfy the same launch requirements with coherent, original compositions. Choosing between these treatments would require a taste or placement preference absent from the task.",
+      "possible_unblinding_clues": [
+        "Helper filenames and note styles differ. Neither identifies a trial arm, and the presence or number of helpers was not scored as quality."
+      ]
+    },
+    {
+      "pair": "pair-3",
+      "case": "unstick-project",
+      "preference": "B",
+      "preference_strength": "small, task-specific",
+      "A": {
+        "common_scores": {
+          "Requested useful artifact is complete and usable": 2,
+          "Claims and verification are supported by supplied material or observed checks": 2,
+          "Relevant choices explain why the result fits the actual task": 2,
+          "Scope, existing identity and material are preserved": 2
+        },
+        "common_total_out_of_8": 8,
+        "case_checks": [
+          {
+            "check": "Actual runnable/readable demo rather than recommendations alone",
+            "result": "pass",
+            "evidence": "Readable poster-first packet contains unchanged vector assets, a rendered preview, observations, provenance excerpts and an executable-by-a-local-agent first-task prompt."
+          },
+          {
+            "check": "Moves past account/tester dependencies without claiming those are complete",
+            "result": "pass",
+            "evidence": "Presents the existing local artifact immediately, explicitly separates live-service and human-feedback claims, and does not pretend the missing original studies are available."
+          },
+          {
+            "check": "60-90 second narration; usable first task and honest observation of checks",
+            "result": "pass",
+            "evidence": "161 spoken words supports the stated 69-second estimate at 140 wpm; the square-companion exercise supplies exact copy, an included reference, output dimensions and stopping/check conditions. Actual timing and first-task execution remain openly unperformed."
+          }
+        ],
+        "critical_errors": [],
+        "readiness": "Ready for the requested local review, within the stated evidence limits.",
+        "evidence_files": [
+          "anonymous/pair-3/A/README.md",
+          "anonymous/pair-3/A/FIRST-TASK.md",
+          "anonymous/pair-3/A/NARRATION.md",
+          "anonymous/pair-3/A/CHECKS.md",
+          "anonymous/pair-3/A/assets/night-orchard.svg",
+          "anonymous/pair-3/A/assets/night-orchard-preview.png",
+          "anonymous/pair-3/A/assets/knackset-mark.svg"
+        ],
+        "notes": "Complete and portable as a folder. The first task directly reuses the included poster, and the source-limit disclosure is clear."
+      },
+      "B": {
+        "common_scores": {
+          "Requested useful artifact is complete and usable": 2,
+          "Claims and verification are supported by supplied material or observed checks": 2,
+          "Relevant choices explain why the result fits the actual task": 2,
+          "Scope, existing identity and material are preserved": 2
+        },
+        "common_total_out_of_8": 8,
+        "case_checks": [
+          {
+            "check": "Actual runnable/readable demo rather than recommendations alone",
+            "result": "pass",
+            "evidence": "Self-contained script-free HTML embeds unchanged icon and poster, event brief, observations, source limits, full narration and full first task. Static link/anchor and exact embedded-asset checks passed independently; browser layout was not tested."
+          },
+          {
+            "check": "Moves past account/tester dependencies without claiming those are complete",
+            "result": "pass",
+            "evidence": "Offers a local proof now, preserves the missing-original-studies boundary and assigns human comprehension/taste/exercise performance to later observation."
+          },
+          {
+            "check": "60-90 second narration; usable first task and honest observation of checks",
+            "result": "pass",
+            "evidence": "205 spoken words supports the stated 82-second estimate at 150 wpm. The new invitation exercise includes three explicitly new text studies, exact event copy, two output files, dimensions and finish/check conditions; it does not claim a replay or full-skill test."
+          }
+        ],
+        "critical_errors": [],
+        "readiness": "Ready for the requested local review, within the stated evidence limits.",
+        "evidence_files": [
+          "anonymous/pair-3/B/demo.html",
+          "anonymous/pair-3/B/README.md",
+          "anonymous/pair-3/B/TRY-IT.md",
+          "anonymous/pair-3/B/NARRATION.md",
+          "anonymous/pair-3/B/CHECKS.json",
+          "anonymous/pair-3/B/poster-preview.png"
+        ],
+        "notes": "The demo can be reviewed from one local HTML file without navigating a Markdown packet. The authored exercise makes all three new reference inputs explicit; original missing references remain clearly distinguished."
+      },
+      "concrete_differences": [
+        "B gathers the artifact, source limits, narration and complete first task in one offline HTML entrypoint; A distributes the same review functions across Markdown and asset files.",
+        "B supplies a new three-study invitation exercise with all reference inputs in the prompt. A supplies a square companion task based on the included poster. Both are usable and honestly distinguish the exercise from the original Reference Remix run.",
+        "A's narration is shorter with more pacing room; B's estimated duration also fits the request. Neither was actually timed."
+      ],
+      "preference_reason": "B slightly reduces the reviewer's assembly/navigation burden and provides a complete new multi-reference exercise. That matters to a launch blocked on making one reviewable proof today. This preference is bounded by the absence of browser-layout or human-use testing.",
+      "possible_unblinding_clues": [
+        "B README and CHECKS.json mention a coordinator-reported earlier model-capacity failure and inherited settings. This study-process metadata could reveal chronology to someone who knew the runs; it did not disclose an arm label and was not used to infer identity."
+      ]
+    }
+  ],
+  "overall_limits": [
+    "No critical factual, rights, identity-preservation, or scope error was found in the reviewed artifacts.",
+    "All six artifacts are usable for their requested local review; equal 8/8 common scores do not erase the small case-specific differences recorded separately.",
+    "These are three one-off matched pairs on different tasks. No statistical, causal, general efficacy, speedup, timing, or cost conclusion follows.",
+    "Keep all outputs and draft package status. Wider varied trials and outside use remain necessary."
+  ],
+  "freeze_statement": "This judgment was completed and written before any request for or disclosure of the anonymous variant mapping. It will not be revised in response to labels."
+}

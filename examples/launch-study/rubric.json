@@ -1,0 +1,27 @@
+{
+  "scale": "Each dimension 0=missing/incorrect, 1=partly useful with a material gap, 2=usable and supported. Score artifacts, not prose volume. Report critical factual/rights/scope errors separately; a critical error prevents a ready judgment.",
+  "common": [
+    "Requested useful artifact is complete and usable",
+    "Claims and verification are supported by supplied material or observed checks",
+    "Relevant choices explain why the result fits the actual task",
+    "Scope, existing identity and material are preserved"
+  ],
+  "case_checks": {
+    "rabbit-hole": [
+      "Distinguishes helper tests and old utility evidence from creative efficacy",
+      "Traceable primary evidence and meaningful rival explanations",
+      "Finished readable account and source trail, without fictional discoveries"
+    ],
+    "reference-remix": [
+      "Valid 1200x630 editable SVG with exact required copy and unchanged icon design",
+      "Original composition synthesizes references without transplanting their fictional subject",
+      "Honest actual-size and small-preview visual check, no clipping/overlap"
+    ],
+    "unstick-project": [
+      "Actual runnable/readable demo rather than recommendations alone",
+      "Moves past account/tester dependencies without claiming those are complete",
+      "60\u201390 second narration; usable first task and honest observation of checks"
+    ]
+  },
+  "decision": "One matched pair per distinct task is a qualitative pilot. Prefer a variant only where a judge can name a concrete artifact difference. A tie is a useful result. No significance, general efficacy, speedup or cost claim. Keep all outputs. Keep packages draft; wider varied trials and outside use remain necessary."
+}

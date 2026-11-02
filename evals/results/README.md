@@ -5,6 +5,15 @@ been tested against a live service. The nine field-kit methods remain draft;
 their [artifact trials](field-kit-review-20261101.md) are reviewed separately. Keep the individual runs and their limits in view: these are small
 trials, not a general success-rate benchmark.
 
+## Creative launch pilot — 2026-11-02 UTC
+
+The [actual-project artifact pilot](../../examples/launch-study/README.md) adds
+three matched fresh-context pairs for Rabbit Hole, Reference Remix and Unstick
+Project. It has a frozen rubric and independent anonymous artifact review. It
+is separate from sandbox execution records and promotion evidence: one pair per
+task on one project's launch work cannot establish general gains. Costs and
+complete usage/timing telemetry are unknown. The methods remain draft.
+
 ## Audit follow-up — 2026-11-01
 
 The [fresh execution record](audit-fixes-2026-11-01.json) contains 14 passing

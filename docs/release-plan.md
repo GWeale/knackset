@@ -1,92 +1,52 @@
-# v0.1 release preparation
+# Creative field-kit preview
 
-Prepared 2026-11-01. George subsequently requested all five remaining milestones,
-including launch. That request authorizes the release; this document alone grants
-no authority. Publication still requires completed candidate checks.
+The next preview leads with three independently usable methods: Rabbit Hole,
+Reference Remix and Unstick Project. The existing icon, nine creative methods
+and sixteen utilities remain in the collection.
 
-## Release scope and wording
+The [first alpha](https://github.com/GWeale/knackset/releases/tag/v0.1.0-alpha.1)
+records the earlier office-focused release at its own revision. Preserve that
+release and its evidence. New creative trials do not inherit its utility scores.
 
-Proposed title: **Knackset v0.1 — workflows that check what happened**.
+## Freeze the candidate
 
-Proposed release text:
+1. Keep the selected package fingerprints, real input files, task packets, tools,
+   model/settings and rubric with the creative trial record. Preserve unsuccessful
+   work as well as selected outputs.
+2. Run repository validation, catalog freshness and all helper tests on Python
+   3.10 and 3.14. Require green CI on the exact release commit.
+3. Verify complete project copies and distinguish that check from host loading.
+   Follow [installation](installation.md) for a fresh host check.
+4. Inspect the actual demo assets and the finished outputs. Name any conversion,
+   rendering, physical-use or audience check that remains unperformed.
+5. Publish a prerelease from the checked commit with the creative scope and links
+   to inspectable examples, comparison limits and the field-test guide. Do not
+   present a small artifact pilot as general comparative proof.
 
-> Knackset packages portable agent instructions for tasks including Sheets,
-> Gmail, forms, calendars and Docs. Workflows emphasize bounded authorization,
-> inspecting saved state and recovering from uncertain writes. Start with one
-> skill and the local timeout demo. Python helpers use the standard library.
->
-> This first preview includes synthetic offline fixtures, explicit execution
-> evidence export, routing checks and a paired comparison tool. The scripted
-> demo runs no model and accesses no accounts. Evidence is task-, revision- and
-> runtime-specific; this preview makes no general performance, cost or live
-> integration reliability claim. Host tools and authorization still apply.
+Release actions stay within the requested repository and checked candidate.
+Account access and direct outreach need their own specific scope. Local artifact
+checks require no browser or native capture.
 
-See [CHANGELOG](../CHANGELOG.md) for the proposed release contents. Preserve the
-existing icon and package licenses.
+## Ask for independent use
 
-## Local release gates
+The [field-test packet](try-the-field-kit.md) contains three real-task suggestions,
+loading checks, a report form and invitation text. The first feedback round needs
+five independent people. Agent trials, generated invitations and repository
+publication do not count as their reports.
 
-1. Freeze a candidate commit and review the diff for private data, provenance,
-   package licenses and unchanged unrelated work. Check every catalog validation
-   statement against current fingerprints; rerun evidence or return stale entries
-   to draft. Do not upgrade validation based on helper tests alone.
-2. Run `python3 scripts/validate.py`,
-   `python3 scripts/catalog.py render --check`, and
-   `python3 -m unittest discover -s tests -v`. Record exact revision, environment,
-   commands and outcomes in the release review. Run `python3 scripts/demo.py` and
-   inspect its one-row versus duplicate-row outcome.
-3. Check the documented project-scoped install in a disposable local project,
-   preserving full skill resources and proving the destination. Verify activation
-   separately from a file-copy check. Account access is outside this release gate.
-4. Review comparison records under [the protocol](comparison-protocol.md) only
-   when fresh matched trials actually exist. Otherwise state that comparative
-   performance is unmeasured. Do not make fabricated records to fill a release gap.
-5. Present the candidate revision, gate results and release text for George's
-   publication decision. Tagging, pushing, publishing and contacting testers
-   require an explicit instruction; this document is preparation only.
+Record what each tester kept, repaired or discarded, which skill revision they
+used, whether loading was observed, and any available time/cost measurement.
+Keep private inputs local. Review supported failures, reproduce them with a safe
+minimal case, make a focused repair and rerun the affected check.
 
-## Demo and feedback packet
+## Keep the next decision concrete
 
-A three-minute local demo: show an append timeout, inspect the one persisted row,
-then show the scripted blind-retry duplicate. Explain that both are scripted
-synthetic paths. Point to a skill's read/action/verify instructions, then show
-how an evaluator exports a judged run. Do not present the demo as a benchmark.
+Use the creative pilot to choose what to demonstrate and what needs another
+trial. Keep creative packages draft until evidence satisfies the repository's
+promotion rules. Broader usefulness needs varied tasks, repeated comparisons and
+independent use; it cannot be inferred from helper-test counts.
 
-Proposed tester request, ready for George to send if desired:
-
-> Try one project-scoped skill on a disposable synthetic task. Tell us your host,
-> runtime/model, skill revision, expected result, actual saved result and the
-> first confusing instruction. Include sanitized reproduction steps and whether
-> activation was observed. Please omit account identifiers, credentials and
-> private transcripts. Report uncertain writes and authorization mistakes even
-> when the final response sounded successful.
-
-Collect feedback in the existing bug-report form linked from the README; no
-messages or issues are sent as part of preparation. Triage first by unintended
-write/privacy boundary, then incorrect saved state, activation failure and unclear
-instructions. Convert accepted failures into minimal synthetic cases, reproduce
-before editing, and rerun relevant checks after a focused repair. Close the loop
-with reproducible evidence rather than a broad success claim. A first follow-up
-review after five independent reports is a planning target, not evidence already
-collected or a deadline promised to testers.
-
-## Integration observations — 2026-11-01
-
-The scripted demo was executed: reconciliation left one requested row and passed;
-a blind retry created two requested rows and failed the uniqueness check. This
-is a deterministic demonstration, not a model comparison. One fresh with-skill
-Sheets pilot passed all four saved-state assertions and an unblinded final-response
-review. It made three successful sandbox operations and one rejected CLI syntax
-attempt. It is excluded from the planned repeated comparison. No billing meter
-was available; cost is unknown. The initial 20-run matched study is complete and retained as historical after
-a later grader repair. Eight fresh revised draft trials passed automated and
-semantic checks; the final matched study against frozen release sources completed 20 fresh runs
-and 10 accepted pairs. With-skill completion was 10/10 versus baseline 8/10;
-the two missed checks were verification omissions, with correct saved labels.
-Cost is unknown; judging was unblinded. No outside feedback has been collected by this lane.
-
-Live tests remain blocked: no designated disposable account, no discovered
-Docs/Sheets/Calendar connectors, and the Gmail profile result did not establish
-verified Google authentication. The human-only browser hold remains active.
-The runtime is a synthetic local MVP without a real service adapter; this release
-does not deliver a full connected assistant.
+The [evaluation guidance](https://agentskills.io/skill-creation/evaluating-skills),
+checked 2026-11-02 UTC, recommends fresh contexts, matched baselines, artifact
+review and honest timing/usage records. This project's single-pair artifact
+pilot is exploratory and distinct from the repeated [sandbox protocol](comparison-protocol.md).

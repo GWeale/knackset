@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "anonymization_seed": 20261103,
+  "mapping": {
+    "pair-1/A": {
+      "case": "rabbit-hole",
+      "variant": "with-skill"
+    },
+    "pair-1/B": {
+      "case": "rabbit-hole",
+      "variant": "baseline"
+    },
+    "pair-2/A": {
+      "case": "reference-remix",
+      "variant": "with-skill"
+    },
+    "pair-2/B": {
+      "case": "reference-remix",
+      "variant": "baseline"
+    },
+    "pair-3/A": {
+      "case": "unstick-project",
+      "variant": "with-skill"
+    },
+    "pair-3/B": {
+      "case": "unstick-project",
+      "variant": "baseline"
+    }
+  },
+  "path_redactions": [],
+  "original_judgment_sha256": "16527daabe6d2180b2a024bec7fe8849d31aa5dc5b13097e3875e63a4870e7fc",
+  "original_markdown_sha256": "ce56edaf9053eb9c19f3f28dc451a43810a113f1719dc7aa5ade1efb8ffe6057",
+  "publication_note": "judgment.json and judgment-original.md.txt preserve exact judge bytes. review.md changes anonymous evidence paths to public named-run paths only. Scores/preferences are unchanged. Judge returned frozen files before parent opened the mapping. Hashes were recorded after that return.",
+  "results": [
+    {
+      "case": "rabbit-hole",
+      "common_scores": {
+        "baseline": 8,
+        "with-skill": 8
+      },
+      "qualitative_preference": "with-skill",
+      "strength": "small, task-specific",
+      "reason": "A narrowly better meets the frozen rival-explanation check. This is an editorial and investigative difference, not evidence that its anonymous procedure is more effective."
+    },
+    {
+      "case": "reference-remix",
+      "common_scores": {
+        "baseline": 8,
+        "with-skill": 8
+      },
+      "qualitative_preference": "tie",
+      "strength": "none",
+      "reason": "Both satisfy the same launch requirements with coherent, original compositions. Choosing between these treatments would require a taste or placement preference absent from the task."
+    },
+    {
+      "case": "unstick-project",
+      "common_scores": {
+        "baseline": 8,
+        "with-skill": 8
+      },
+      "qualitative_preference": "baseline",
+      "strength": "small, task-specific",
+      "reason": "B slightly reduces the reviewer's assembly/navigation burden and provides a complete new multi-reference exercise. That matters to a launch blocked on making one reviewable proof today. This preference is bounded by the absence of browser-layout or human-use testing."
+    }
+  ]
+}

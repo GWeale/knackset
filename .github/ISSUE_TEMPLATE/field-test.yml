@@ -1,0 +1,59 @@
+name: Report a field test
+description: Tell us what you kept, changed or discarded after trying a creative method.
+title: '[Field test] '
+body:
+  - type: markdown
+    attributes:
+      value: 'Keep private inputs, account details and credentials out of this report. Share only artifacts you have permission to publish. A reduced made-up example is welcome.'
+  - type: input
+    id: skill
+    attributes:
+      label: Skill and revision
+      description: Skill name and release or commit.
+    validations:
+      required: true
+  - type: input
+    id: host
+    attributes:
+      label: Agent and model
+      description: Include versions if known, without profile paths or account identifiers.
+    validations:
+      required: true
+  - type: dropdown
+    id: loading
+    attributes:
+      label: Did you observe the installed skill being loaded?
+      options:
+        - 'Yes, the host showed the selected skill or read path'
+        - 'No, it did not load'
+        - 'Unknown'
+    validations:
+      required: true
+  - type: textarea
+    id: task
+    attributes:
+      label: What did you ask for, and what was produced?
+      description: Describe the real task without sharing private source material.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: What did you keep, change or discard?
+      description: Name a concrete useful choice or failure, any manual repair, and the first confusing instruction.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Shareable evidence
+      description: Link an authorized artifact or give a reduced reproduction. Distinguish real input from made-up examples.
+    validations:
+      required: false
+  - type: textarea
+    id: comparison
+    attributes:
+      label: Time, cost and comparison
+      description: Include correction time. If you also tried without the skill, describe that run and what differed. Leave unavailable cost or timing unknown.
+    validations:
+      required: false

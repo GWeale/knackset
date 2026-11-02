@@ -1,0 +1,35 @@
+{
+  "date_utc": "2026-11-02",
+  "kind": "focused-independent-code-and-media-review",
+  "context": "Fresh native reviewer, no inherited parent conversation; same provider/model/settings. Read-only; no helpers, browser or network.",
+  "verdict": "No material findings",
+  "scope": [
+    "tests/test_install_skill.py",
+    "examples/creative-preview/build_demo.py",
+    "docs/try-the-field-kit.md",
+    "docs/feedback.md",
+    ".github/ISSUE_TEMPLATE/field-test.yml"
+  ],
+  "hashes": {
+    "tests/test_install_skill.py": "71cbb255f89b3b8d84ec2f44c6afd5c646ba7c5e7934c39a77b73d5dad7e9ff5",
+    "examples/creative-preview/build_demo.py": "495ab2d33c2b963d059e4fb184d1285a934871ef3fae591ee4ba037f3364262f",
+    "docs/try-the-field-kit.md": "bffcace13ccd0b907f0e68aabf80b57c2837e1e68227b40eec6b157a63968f5e",
+    "docs/feedback.md": "cef9cb668ea2e4ee54ee6f71e93c9cbfe09e78ab2a498b520aa70d00dfb4fd71",
+    ".github/ISSUE_TEMPLATE/field-test.yml": "50f86dbac98831955f657067e713959be145b41d7f264fde7ec799e542e34b58"
+  },
+  "observed": {
+    "installer_tests_passed": 9,
+    "frozen_input_task_rubric_and_package_hash_checks": "passed",
+    "published_output_hashes_checked": 35,
+    "preview_assets_rebuilt_byte_identical": 13,
+    "gif_frames": 6,
+    "gif_size": [
+      960,
+      540
+    ],
+    "gif_duration_ms": 80000,
+    "local_file_links_checked": 150,
+    "visual_inspection": "All six frames, no clipping or illegible main text"
+  },
+  "excluded": "The later anonymous study verdict was not assessed by this reviewer. A separate judge owns that verdict. No human audience or host activation check claimed."
+}
