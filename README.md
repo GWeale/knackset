@@ -1,59 +1,52 @@
-<img src="assets/knackset-mark.svg" alt="Knackset" width="80" height="80">
+<h1><img src="assets/knackset-mark.svg" alt="" width="32" height="32"> Knackset</h1>
 
-# Knackset
+**Follow a question. Make something worth keeping.**
 
-**A working collection for curious people who make things.**
+Portable agent skills for investigation, creative direction, writing and learning.
+Bring a question, a folder of references or a project that has stalled.
 
-Investigate a strange story. Find the angle in a pile of notes. Turn a few
-references into an original direction. Find out whether an idea deserves a month
-of your life before you give it one.
-
-Knackset studies good public skills and makes original methods from the parts
-worth keeping. The point of view is in the choices: which evidence matters,
-which reference earns its place, what to leave alone, and when to make something.
-
-[Start with a skill](#start-with-what-you-have) · [Try it and report back](docs/try-the-field-kit.md) · [See worked examples](examples/README.md) · [Explore the source shelf](docs/source-shelf.md) · [See the whole catalog](docs/catalog.md)
-
-[![CI](https://github.com/GWeale/knackset/actions/workflows/ci.yml/badge.svg)](https://github.com/GWeale/knackset/actions/workflows/ci.yml) · [MIT](LICENSE)
+[Start with a skill](#start-with-what-you-have) · [See worked examples](examples/README.md) · [Browse the catalog](docs/catalog.md)
 
 ## Start with what you have
 
-For a first try, choose Rabbit Hole, Reference Remix or Unstick Project. They
-cover an investigation, an original visual direction and a useful way forward
-on a stalled project. The rest of the field kit is below.
+- **[Rabbit Hole](skills/rabbit-hole/SKILL.md)** · Follow a puzzling claim, test
+  competing explanations and write an account with a source trail.
+- **[Reference Remix](skills/reference-remix/SKILL.md)** · Turn a folder of
+  references into an original direction and a finished artifact.
+- **[Unstick Project](skills/unstick-project/SKILL.md)** · Find a useful way
+  forward on stalled work and make the first proof.
 
-| You have… | Use | Walk away with… |
-| --- | --- | --- |
-| A question you keep coming back to | [Rabbit Hole](skills/rabbit-hole/SKILL.md) | An investigation with a revealing turn, a source trail, and an answer that survives scrutiny |
-| A folder of things you love | [Reference Remix](skills/reference-remix/SKILL.md) | An original creative direction and a usable artifact, with reasons behind the choices |
-| An idea you might spend months on | [Idea Pressure Test](skills/idea-pressure-test/SKILL.md) | The assumption that matters, the strongest alternative, and a cheap way to learn what to do next |
-| Notes, interviews, or a rambling draft | [Story Mining](skills/story-mining/SKILL.md) | A defensible angle and a finished piece that still sounds like its author |
-| Something working that is hard to explain | [Demo Director](skills/demo-director/SKILL.md) | A demo built around what works: what changes, what to show, what to say, and where to cut |
-| Something you want to understand | [Learn by Making](skills/learn-by-making/SKILL.md) | A small working experiment, an explanation tied to its behavior, and a next thing to try |
-| An inherited choice nobody can explain | [Decision Archaeology](skills/decision-archaeology/SKILL.md) | The recorded reason, later explanations, and what matters before reversing it |
-| A visual idea that needs a family | [Generative Series](skills/generative-series/SKILL.md) | A selected edition, editable generator, and enough inputs to reproduce it |
-| A project going in circles | [Unstick Project](skills/unstick-project/SKILL.md) | One useful proof or experiment, with the next decision made clearer |
+<details>
+<summary>Six more ways in</summary>
 
-These methods are original drafts, with raw example inputs and authored cases.
-The [worked examples](examples/README.md) show what came out; package
-notes and review records keep the limits visible. Earlier office and browser
-workflows remain on the [utility shelf in the full catalog](docs/catalog.md).
+- **[Idea Pressure Test](skills/idea-pressure-test/SKILL.md):** Test the assumption
+  that could change whether an idea is worth pursuing.
+- **[Story Mining](skills/story-mining/SKILL.md):** Find an angle in notes or
+  interviews and finish a piece that sounds like its author.
+- **[Demo Director](skills/demo-director/SKILL.md):** Decide what to show, what
+  to say and where to cut.
+- **[Learn by Making](skills/learn-by-making/SKILL.md):** Build a small experiment
+  to understand how something works.
+- **[Decision Archaeology](skills/decision-archaeology/SKILL.md):** Recover the
+  reasoning behind an inherited choice before reversing it.
+- **[Generative Series](skills/generative-series/SKILL.md):** Make a visual family
+  with an editable generator and reproducible inputs.
+
+</details>
+
+These are original draft methods. [Worked examples](examples/README.md) show the
+outputs; package notes explain what has been checked. Office and browser workflows
+are on the [utility shelf](docs/catalog.md).
 
 ## See what came out
 
-[Watch the 80-second captioned preview](examples/creative-preview/README.md) or
-[inspect the three actual-project comparisons](examples/launch-study/README.md).
-The [Field Notes case study](examples/field-notes/CASE-STUDY.md) follows an NPS
-counting-method puzzle and turns real USGS references into printable worksheets.
-Its [repeated comparisons and boundary checks](evals/results/field-round-20261102/RESULTS.md)
-retain the useful baselines and the limits of one reviewer's preferences.
-
-[![Night Orchard: a poster made by Reference Remix](examples/field-kit/reference-remix/night-orchard-small.png)](examples/field-kit/reference-remix/night-orchard.png)
+<a href="examples/field-kit/reference-remix/night-orchard.png"><img src="examples/field-kit/reference-remix/night-orchard-small.png" alt="Night Orchard: a poster made by Reference Remix" width="240"></a>
 
 Reference Remix made this poster from three fictional reference descriptions.
-Rabbit Hole found a changed denominator inside a tempting cinema success story.
-Learn by Making produced a runnable curve experiment.
-[Inspect the outputs, their inputs, and what was checked](examples/README.md).
+The [worked examples](examples/README.md) include an investigation with a source trail
+and a runnable curve experiment, with their inputs and checks.
+
+[Watch the 80-second preview](examples/creative-preview/README.md) · [Read the Field Notes case study](examples/field-notes/CASE-STUDY.md)
 
 ## A source shelf with a point of view
 
@@ -96,6 +89,8 @@ python3 scripts/catalog.py search "sources" --collection utilities
 ```
 
 Installation supplies a method; your host supplies tools and permissions.
+Use the [field-test guide](docs/try-the-field-kit.md) to try one on your own work
+and report what you kept, changed or discarded.
 
 ## Bring an interesting job
 
@@ -108,10 +103,14 @@ by itself a new capability.
 
 ## Evidence and development
 
+[![CI](https://github.com/GWeale/knackset/actions/workflows/ci.yml/badge.svg)](https://github.com/GWeale/knackset/actions/workflows/ci.yml)
+
 The field kit has [worked examples and scoped reviews](examples/README.md),
 alongside a [small paired pilot on actual launch work](examples/launch-study/README.md).
-Those observations are task-specific: one slight preference each way and one tie. They do not establish
-general improvement. The older utilities retain their
+Those observations are task-specific: one slight preference each way and one tie.
+The [later repeated comparisons](evals/results/field-round-20261102/RESULTS.md) use
+real NPS figures and USGS references and retain the limits of a single reviewer.
+Neither round establishes general improvement. The older utilities retain their
 [dated offline records](evals/results/README.md). Those records do not validate
 the creative methods. [Provenance](docs/provenance.md) explains the distinction
 between authored cases, source research and actual executions.
